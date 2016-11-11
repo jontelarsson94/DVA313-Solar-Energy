@@ -1,0 +1,19 @@
+QUESTIONS FOR THE CLIENT
+------------------------
+
+1. Ask the client to go through the LCOE formula and its variables.
+
+2. Ask the client to go through the excel sheets with all the different parameters and calculations (step by step).
+
+3. The features from "it WOULD be nice if the user could...", which are most important to get done (rank them)?
+   So that we can prioritize the ones that are most important. 
+
+4. The client gives references to already existing websites and excel sheets, which of these does he like and why?
+   (i.e. any particular features/functionalities?)
+   
+
+
+[feel free to write more questions if you have any //charlie]
+   
+
+  
