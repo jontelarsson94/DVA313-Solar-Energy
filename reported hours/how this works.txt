@@ -1,0 +1,4 @@
+To report time enter the excell file with your name on it.
+Go to the tab of the week we're in or enter a time retroactively to a passed week.
+Write the activity name and/or report the hours you've worked with the activity.
+Also add how much time you were supposed to work on the task according to the backlog.
