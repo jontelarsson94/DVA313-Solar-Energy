@@ -1,3 +1,4 @@
 To report time enter the excell file with your name on it.
 Go to the tab of the week we're in or enter a time retroactively to a passed week.
 Write the activity name and/or report the hours you've worked with the activity.
+Meetings count and should be reported in the time report as well.
