@@ -11,6 +11,11 @@ QUESTIONS FOR THE CLIENT
 4. The client gives references to already existing websites and excel sheets, which of these does he like and why?
    (i.e. any particular features/functionalities?)
    
+5. Talk about the layout and design suggestions. Agree on a design.
+
+6. Which form of output is required? (like diagrams, file for printing, ...)
+
+7. Convince the customers not to use an excel file for updating the values. Insteat, use of an admin account.
 
 
 [feel free to write more questions if you have any //charlie]
