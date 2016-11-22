@@ -33,6 +33,7 @@ require_once "src/action/form.php";
 
     <!-- Theme CSS -->
     <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +48,7 @@ require_once "src/action/form.php";
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" ng-app="index" ng-controller="indexCtrl" ng-cloak>
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -129,8 +130,26 @@ require_once "src/action/form.php";
 
               <!-- Tab panes -->
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="private">Hello</div>
-                <div role="tabpanel" class="tab-pane" id="company">Hej</div>
+                <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
+                  <form>
+                    <div class="row form-group" ng-repeat="default in indata_defaults">
+                      <div class="col-md-3">
+                        <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
+                        <p ng-if="default.type == NULL">{{default.name}}</p>
+                        <p ng-if="default.type == 'Result'">{{default.name}}</p>
+                        <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
+                      </div>
+                      <br>
+                      <div class="col-md-3 input-group">
+                        <input class="form-control" ng-if="default.type == NULL" type="text" name="{{default.row}}" value="{{default.value}}"></input>
+                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly"></input>
+                        <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
+                        <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="company"></div>
               </div>
 
             </div>
@@ -430,6 +449,10 @@ require_once "src/action/form.php";
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <!-- Angular scripts -->
+    <script src="lib/js/angular.min.js"></script>
+    <script src="ctrl/index.js"></script>
 
 </body>
 
