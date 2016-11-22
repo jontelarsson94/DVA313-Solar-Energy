@@ -27,3 +27,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
 
 });
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});

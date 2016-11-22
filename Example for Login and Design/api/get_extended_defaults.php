@@ -5,7 +5,8 @@ $data = array();
 
 $result = $database->select("default_extended", "*");
 
+$data['success'] = true;
 $data['defaults'] = $result;
 
-echo json_encode($result);
+echo json_encode($data);
  ?>

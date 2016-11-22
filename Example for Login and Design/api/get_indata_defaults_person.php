@@ -6,6 +6,7 @@ $data = array();
 $result = $database->select("default_indata_person", "*");
 
 $data['defaults'] = $result;
+$data['success'] = true;
 
-echo json_encode($result);
+echo json_encode($data);
  ?>
