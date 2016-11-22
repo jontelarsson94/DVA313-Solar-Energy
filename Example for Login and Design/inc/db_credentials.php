@@ -7,10 +7,11 @@ require_once '../lib/php/medoo.php';
   //Set your own setting for your database
 $database = new medoo([
     'database_type' => 'mysql',
-    'database_name' => 'sample-project',
-    'server' => 'localhost',
-    'username' => 'root',
-    'password' => 'root',
-    'charset' => 'utf8'
+    'database_name' => '141364-dva313',
+    'server' => 'mysql18.citynetwork.se',
+    'username' => '141364-wj79764',
+    'password' => 'SolarCalculator',
+    'charset' => 'utf8',
+    'port' => 3306
 ]);
 ?>
