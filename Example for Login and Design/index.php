@@ -141,8 +141,8 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-3 input-group">
-                        <input class="form-control" ng-if="default.type == NULL" type="text" name="{{default.row}}" value="{{default.value}}"></input>
-                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly"></input>
+                        <input class="form-control" ng-if="default.type == NULL" type="text" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}"></input>
+                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="person-{{default.row}}"></input>
                         <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
                         <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
                       </div>
