@@ -126,6 +126,7 @@ require_once "src/action/form.php";
               <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Private Person</a></li>
                 <li role="presentation"><a href="#company" aria-controls="profile" role="tab" data-toggle="tab">Company</a></li>
+                <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Extended</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -150,6 +151,25 @@ require_once "src/action/form.php";
                   </form>
                 </div>
                 <div role="tabpanel" class="tab-pane active" id="company"></div>
+                <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaults()">
+                  <form>
+                    <div class="row form-group" ng-repeat="extended in extended_defaults">
+                      <div class="col-md-3">
+                        <h3 ng-if="extended.type == 'Heading'">{{extended.name}}<h3>
+                        <p ng-if="extended.type == NULL">{{extended.name}}</p>
+                        <p ng-if="extended.type == 'Result'">{{extended.name}}</p>
+                        <p ng-if="extended.type == 'Subheading'"><i>{{extended.name}}</i></p>
+                      </div>
+                      <br>
+                      <div class="col-md-5 input-group">
+                        <input class="form-control" ng-if="extended.type == NULL" type="text" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
+                        <input class="form-control" ng-if="extended.type == 'Result'" value="{{extended.value}}" readonly="readonly" id="extended-{{extended.row}}"  data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
+                        <div class="input-group-addon" ng-if="extended.type == NULL || extended.type == 'Result'">{{extended.unit}}</div>
+                        <div class="input-group-addon" ng-if="extended.min != NULL && extended.type == NULL">{{extended.min}}-{{extended.max}}</div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
 
             </div>

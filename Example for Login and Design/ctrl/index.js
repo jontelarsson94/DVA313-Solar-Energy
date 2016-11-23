@@ -13,7 +13,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     });
   }
 
-  $scope.getExtendedDefaultsPerson = function (){
+  $scope.getExtendedDefaults = function (){
     $http.get("api/get_extended_defaults.php")
 
     .success(function (response) {
