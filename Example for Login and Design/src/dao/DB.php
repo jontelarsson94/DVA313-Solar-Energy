@@ -2,11 +2,11 @@
 
 class DB {
 
-    const DB_IP   = "127.0.0.1";
+    const DB_IP   = "mysql18.citynetwork.se";
     const DB_PORT = 3306;
-    const DB_USER = "root";
-    const DB_PASS = "";
-    const DB_NAME = "solar";
+    const DB_USER = "141364-wj79764";
+    const DB_PASS = "SolarCalculator";
+    const DB_NAME = "141364-dva313";
 
 
     private static $instance;
