@@ -124,14 +124,17 @@ require_once "src/action/form.php";
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Private Person</a></li>
-                <li role="presentation"><a href="#company" aria-controls="profile" role="tab" data-toggle="tab">Company</a></li>
+                <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Indata och resultat</a></li>
                 <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Extended</a></li>
               </ul>
 
               <!-- Tab panes -->
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
+                  <div class="col-md-3 col-md-offset-2">
+                    <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson()" value="1">Person</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2">Company</label> <!-- Need to set ng-click when thats implemented -->
+                  </div>
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
                       <div class="col-md-3">
@@ -142,15 +145,14 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-5 input-group">
-                        <input class="form-control" ng-if="default.type == NULL" type="number" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
-                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="person-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
+                        <input class="form-control" ng-if="default.type == NULL" type="number" name="indata-{{default.row}}" value="{{default.value}}" id="indata-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
+                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="indata-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
                         <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
                       </div>
                     </div>
                   </form>
                 </div>
-                <div role="tabpanel" class="tab-pane active" id="company"></div>
                 <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaults()">
                   <form>
                     <div class="row form-group" ng-repeat="extended in extended_defaults">
