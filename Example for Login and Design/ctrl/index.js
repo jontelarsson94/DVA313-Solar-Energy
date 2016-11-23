@@ -38,3 +38,8 @@ $(document).ready(function(){
 $('#input-tabs').on('mouseenter', '', function(ev){
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+$('#private').on('keyup', '#person-18', function(ev){
+  var p18 = $( "#person-18" ).val();
+  var e12 = $( "#extended-12" ).val();
+});

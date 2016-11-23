@@ -162,7 +162,7 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-5 input-group">
-                        <input class="form-control" ng-if="extended.type == NULL" type="text" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
+                        <input class="form-control" ng-if="extended.type == NULL" type="text" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{extended.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <input class="form-control" ng-if="extended.type == 'Result'" value="{{extended.value}}" readonly="readonly" id="extended-{{extended.row}}"  data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <div class="input-group-addon" ng-if="extended.type == NULL || extended.type == 'Result'">{{extended.unit}}</div>
                         <div class="input-group-addon" ng-if="extended.min != NULL && extended.type == NULL">{{extended.min}}-{{extended.max}}</div>
