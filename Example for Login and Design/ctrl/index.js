@@ -28,6 +28,13 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
 });
 
+
+$('[data-toggle="tooltip"]').tooltip();
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
+});
+
+$('#input-tabs').on('mouseenter', '', function(ev){
+  $('[data-toggle="tooltip"]').tooltip();
 });

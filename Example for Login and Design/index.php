@@ -129,7 +129,7 @@ require_once "src/action/form.php";
               </ul>
 
               <!-- Tab panes -->
-              <div class="tab-content">
+              <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
@@ -140,9 +140,9 @@ require_once "src/action/form.php";
                         <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-3 input-group">
-                        <input class="form-control" ng-if="default.type == NULL" type="text" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}"></input>
-                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="person-{{default.row}}"></input>
+                      <div class="col-md-5 input-group">
+                        <input class="form-control" ng-if="default.type == NULL" type="text" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
+                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="person-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
                         <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
                       </div>
