@@ -142,7 +142,7 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-5 input-group">
-                        <input class="form-control" ng-if="default.type == NULL" type="text" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
+                        <input class="form-control" ng-if="default.type == NULL" type="number" name="person-{{default.row}}" value="{{default.value}}" id="person-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="person-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
                         <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
@@ -162,7 +162,7 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-5 input-group">
-                        <input class="form-control" ng-if="extended.type == NULL" type="text" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{extended.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
+                        <input class="form-control" ng-if="extended.type == NULL" type="number" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{extended.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <input class="form-control" ng-if="extended.type == 'Result'" value="{{extended.value}}" readonly="readonly" id="extended-{{extended.row}}"  data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <div class="input-group-addon" ng-if="extended.type == NULL || extended.type == 'Result'">{{extended.unit}}</div>
                         <div class="input-group-addon" ng-if="extended.min != NULL && extended.type == NULL">{{extended.min}}-{{extended.max}}</div>
