@@ -77,20 +77,22 @@ require_once "src/action/form.php";
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-
+                    <li>
 
                     <!-- Buttons for Login and Loggout -->
                       <?php
 
                       if (isset($_SESSION["login_user"])) {
-                        echo "<a href='?form=logout' class='btn btn-default navbar-btn'>
+                        echo "<a href='?form=logout' class='page-scroll'>
                         <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Log-out</a>";
                       }else {
-                        echo "<button type='button' data-toggle='modal' class='btn btn-default navbar-btn' data-target='#loginModal'>";
-                        echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Sign in</button>";
+                        //echo "<button style='margin-left: 15px' type='button' data-toggle='modal' class='btn btn-default navbar-btn' data-target='#loginModal'>";
+                        //echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Sign in</button>";
+                        echo "<a href='' data-toggle='modal' class='page-scroll' data-target='#loginModal'>";
+                        echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Sign in</a>";
                       }
                       ?>
-
+                    </li>
                 </ul>
 
             </div>
@@ -188,17 +190,79 @@ require_once "src/action/form.php";
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">A standardized calculation model for photovoltaic investments</h3>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">
+                      The project will develop a complete
+                      basis for analysis of investment decisions for photovoltaic plants.
+                      It is based on Levelized Cost of Energy (LCOE), an internationally
+                      recognized model for analyzing the production of energy.
+                    </p>
+
+                    <table class="table table-striped" style="text-align:left">
+                       <tr>
+                         <td>Project name:</td>
+                         <td>Investeringskalkyl för solceller</td>
+                       </tr>
+                       <tr>
+                         <td>Research specialisation:</td>
+                         <td>Future Energy Center</td>
+                       </tr>
+                       <tr>
+                         <td>Primary funding organisation:</td>
+                         <td>Energimyndigheten</td>
+                       </tr>
+                       <tr>
+                         <td>Project leader:</td>
+                         <td>Bengt Stridh , Mälardalens högskola</td>
+                       </tr>
+                       <tr>
+                         <td>Project period:</td>
+                         <td>20150701-20160901</td>
+                       </tr>
+                       <tr>
+                         <td>Funding:</td>
+                         <td>299 563 kronor</td>
+                       </tr>
+                      </table>
+
                 </div>
             </div>
         </div>
     </section>
+
+
+    <!-- Clients Aside -->
+    <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/mdh_logo2.png" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/fe_logo2.png" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/abb_logo2.png" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/me_logo2.png" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
 
 
     <!-- Contact Section -->
