@@ -3,7 +3,7 @@ require_once "../inc/db_credentials.php";
 
 $data = array();
 
-$result = $database->select("default_extended", "*", [
+$result = $database->select("extended_person", "*", [
   "ORDER" => "row"
 ]);
 

@@ -13,8 +13,32 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     });
   }
 
-  $scope.getExtendedDefaults = function (){
-    $http.get("api/get_extended_defaults.php")
+  $scope.getIndataDefaultsCompany = function (){
+    $http.get("api/get_indata_defaults_company.php")
+
+    .success(function (response) {
+      if(response.success == true){
+        $scope.indata_defaults = response.defaults;
+      }else {
+
+      }
+    });
+  }
+
+  $scope.getExtendedDefaultsPerson = function (){
+    $http.get("api/get_extended_defaults_person.php")
+
+    .success(function (response) {
+      if(response.success == true){
+        $scope.extended_defaults = response.defaults;
+      }else {
+
+      }
+    });
+  }
+
+  $scope.getExtendedDefaultsCompany = function (){
+    $http.get("api/get_extended_defaults_company.php")
 
     .success(function (response) {
       if(response.success == true){

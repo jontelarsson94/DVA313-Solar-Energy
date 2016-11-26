@@ -115,6 +115,16 @@ require_once "src/action/form.php";
     <!-- Calculator Section -->
     <section id="services">
         <div class="container">
+          <form class="form-group" action="api/upload_excel.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input class="form-control-file" type="file" name="fileToUpload" id="fileToUpload">
+            <br>
+            <input class="btn btn-primary" type="submit" value="Upload Defaults" name="submit">
+          </form>
+          <br>
+          <form method="get" action="excel/start_default.xlsx">
+            <button class="btn btn-primary" type="submit">Download Defaults</button>
+          </form>
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Calculator</h2>
@@ -134,8 +144,8 @@ require_once "src/action/form.php";
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
                   <div class="col-md-3 col-md-offset-2">
-                    <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson()" value="1">Person</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2">Company</label> <!-- Need to set ng-click when thats implemented -->
+                    <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label> <!-- Need to set ng-click when thats implemented -->
                   </div>
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
@@ -155,7 +165,7 @@ require_once "src/action/form.php";
                     </div>
                   </form>
                 </div>
-                <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaults()">
+                <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaultsPerson()">
                   <form>
                     <div class="row form-group" ng-repeat="extended in extended_defaults">
                       <div class="col-md-3">
