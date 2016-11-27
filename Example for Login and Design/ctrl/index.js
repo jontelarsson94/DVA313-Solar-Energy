@@ -52,6 +52,11 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
 });
 
+$('[data-toggle="popover"]').popover();
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
 
 $('[data-toggle="tooltip"]').tooltip();
 
