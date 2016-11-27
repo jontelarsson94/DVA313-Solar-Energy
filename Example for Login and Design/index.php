@@ -144,19 +144,49 @@ require_once "src/action/form.php";
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
                   <div class="col-md-3 col-md-offset-2">
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-primary active">
+                        <input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson()" value="1"> Person
+                      </label>
+                      <label class="btn btn-primary">
+                        <input type="radio" name="optradio" id="radioCompany" value="2"> Company
+                      </label>
+                    </div>
+                    <!--
                     <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label> <!-- Need to set ng-click when thats implemented -->
+                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
+                    Need to set ng-click when thats implemented -->
                   </div>
+
+                  <br/>
+                  <div class="col-md-3">
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="...">
+                    <div class="input-group-btn">
+
+                      <!-- Buttons -->
+                      <a role="button" class="btn btn-default disabled">kr</a>
+                      <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                        data-toggle="popover" data-trigger="focus" data-placement="top" title="value: 25-30" data-content="Lorem ipsum dolor sit amet consectetur.">
+                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                      </button>
+
+
+                    </div>
+                  </div>
+                  </div>
+                  <br/>
+
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
-                      <div class="col-md-3">
+                      <div class="col-md-6" style="margin-left: 10%">
                         <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
                         <p ng-if="default.type == NULL">{{default.name}}</p>
                         <p ng-if="default.type == 'Result'">{{default.name}}</p>
                         <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-5 input-group">
+                      <div class="col-md-3 input-group">
                         <input class="form-control" ng-if="default.type == NULL" type="number" name="indata-{{default.row}}" value="{{default.value}}" id="indata-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="indata-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
                         <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
@@ -168,14 +198,14 @@ require_once "src/action/form.php";
                 <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaultsPerson()">
                   <form>
                     <div class="row form-group" ng-repeat="extended in extended_defaults">
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <h3 ng-if="extended.type == 'Heading'">{{extended.name}}<h3>
                         <p ng-if="extended.type == NULL">{{extended.name}}</p>
                         <p ng-if="extended.type == 'Result'">{{extended.name}}</p>
                         <p ng-if="extended.type == 'Subheading'"><i>{{extended.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-5 input-group">
+                      <div class="col-md-3 input-group">
                         <input class="form-control" ng-if="extended.type == NULL" type="number" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{extended.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <input class="form-control" ng-if="extended.type == 'Result'" value="{{extended.value}}" readonly="readonly" id="extended-{{extended.row}}"  data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
                         <div class="input-group-addon" ng-if="extended.type == NULL || extended.type == 'Result'">{{extended.unit}}</div>
