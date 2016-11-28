@@ -66,6 +66,7 @@ $(document).ready(function(){
 
 $('#input-tabs').on('mouseenter', '', function(ev){
   $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="popover"]').popover();
 
   //calculating p19
   var p18 = $( "#indata-18" ).val();

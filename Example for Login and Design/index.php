@@ -46,6 +46,44 @@ require_once "src/action/form.php";
         include "view/modal/login.php"
     ?>
 
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'a');
+        data.addColumn('number', 'b');
+        data.addRows([
+          ['ABC', 3],
+          ['DEF', 1],
+          ['GHI', 1],
+          ['JKL', 1]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Solar Panel Cost',
+                       'width':500,
+                       'height':400};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
 </head>
 
 <body id="page-top" class="index" ng-app="index" ng-controller="indexCtrl" ng-cloak>
@@ -125,6 +163,10 @@ require_once "src/action/form.php";
           <form method="get" action="excel/start_default.xlsx">
             <button class="btn btn-primary" type="submit">Download Defaults</button>
           </form>
+
+          <!-- Pie Chart -->
+          <div id="chart_div"></div>
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Calculator</h2>
@@ -158,25 +200,6 @@ require_once "src/action/form.php";
                     Need to set ng-click when thats implemented -->
                   </div>
 
-                  <br/>
-                  <div class="col-md-3">
-                  <div class="input-group">
-                    <input type="text" class="form-control" aria-label="...">
-                    <div class="input-group-btn">
-
-                      <!-- Buttons -->
-                      <a role="button" class="btn btn-default disabled">kr</a>
-                      <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                        data-toggle="popover" data-trigger="focus" data-placement="top" title="value: 25-30" data-content="Lorem ipsum dolor sit amet consectetur.">
-                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                      </button>
-
-
-                    </div>
-                  </div>
-                  </div>
-                  <br/>
-
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
                       <div class="col-md-6" style="margin-left: 10%">
@@ -187,10 +210,22 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-3 input-group">
-                        <input class="form-control" ng-if="default.type == NULL" type="number" name="indata-{{default.row}}" value="{{default.value}}" id="indata-{{default.row}}" data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
-                        <input class="form-control" ng-if="default.type == 'Result'" value="{{default.value}}" readonly="readonly" id="indata-{{default.row}}"  data-toggle="tooltip" data-placement="right" title="{{default.comment}}"></input>
-                        <div class="input-group-addon" ng-if="default.type == NULL || default.type == 'Result'">{{default.unit}}</div>
-                        <div class="input-group-addon" ng-if="default.min != NULL && default.type == NULL">{{default.min}}-{{default.max}}</div>
+
+                        <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
+                          <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
+                          <input ng-if="default.type == 'Result'" type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
+                          <div class="input-group-btn">
+
+                            <!-- Buttons -->
+                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="focus" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+
+
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </form>
