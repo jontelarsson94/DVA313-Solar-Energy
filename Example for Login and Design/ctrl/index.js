@@ -190,6 +190,8 @@ $('#private').on('keyup', '#indata-18', function(ev){
   $( "#extended-25" ).val( Math.round(result) );
 });
 
+
+
 $('#private').on('click', '#radioPerson, #radioCompany', function(ev){
   var p18 = $( "#indata-18" ).val();
   var choosen = $("input[name=optradio]:checked").val()

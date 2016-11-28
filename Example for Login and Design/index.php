@@ -186,13 +186,13 @@ require_once "src/action/form.php";
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
                   <div class="col-md-3 col-md-offset-2">
-                    <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-primary active">
-                        <input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson()" value="1"> Person
-                      </label>
-                      <label class="btn btn-primary">
-                        <input type="radio" name="optradio" id="radioCompany" value="2"> Company
-                      </label>
+                    <div data-toggle="buttons">
+                      <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
+                        <label class="btn btn-primary"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
+                      </div>
+                      <div class="btn-group" id="companyToggle" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">
+                        <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
+                      </div>
                     </div>
                     <!--
                     <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
@@ -219,7 +219,7 @@ require_once "src/action/form.php";
                             <!-- Buttons -->
                             <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
                             <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="focus" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
 
@@ -241,10 +241,22 @@ require_once "src/action/form.php";
                       </div>
                       <br>
                       <div class="col-md-3 input-group">
-                        <input class="form-control" ng-if="extended.type == NULL" type="number" name="extended-{{extended.row}}" value="{{extended.value}}" id="extended-{{extended.row}}" data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
-                        <input class="form-control" ng-if="extended.type == 'Result'" value="{{extended.value}}" readonly="readonly" id="extended-{{extended.row}}"  data-toggle="tooltip" data-placement="right" title="{{extended.comment}}"></input>
-                        <div class="input-group-addon" ng-if="extended.type == NULL || extended.type == 'Result'">{{extended.unit}}</div>
-                        <div class="input-group-addon" ng-if="extended.min != NULL && extended.type == NULL">{{extended.min}}-{{extended.max}}</div>
+
+                        <div ng-if="extended.type ==NULL || extended.type == 'Result'" class="input-group">
+                          <input ng-if="extended.type == NULL" type="text" class="form-control" id="extended-{{extended.row}}" aria-label="..." value="{{extended.value}}">
+                          <input ng-if="extended.type == 'Result'" type="text" class="form-control" id="extended-{{extended.row}}" readonly="readonly" value="{{extended.value}}">
+                          <div class="input-group-btn">
+
+                            <!-- Buttons -->
+                            <a role="button" class="btn btn-default disabled">{{extended.unit}}</a>
+                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{extended.min}}-{{extended.max}}" data-content="{{extended.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+
+
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </form>
