@@ -230,7 +230,7 @@ require_once "src/action/form.php";
                     </div>
                   </form>
                 </div>
-                <div role="tabpanel" class="tab-pane active" id="extended"  ng-init="getExtendedDefaultsPerson()">
+                <div role="tabpanel" class="tab-pane" id="extended"  ng-init="getExtendedDefaultsPerson()">
                   <form>
                     <div class="row form-group" ng-repeat="extended in extended_defaults">
                       <div class="col-md-6">
