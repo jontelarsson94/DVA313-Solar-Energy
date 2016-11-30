@@ -43,7 +43,8 @@ require_once "src/action/form.php";
     <![endif]-->
 
     <?php
-        include "view/modal/login.php"
+        include "view/modal/login.php";
+        include "view/modal/privacy_policy.php"
     ?>
 
     <!-- Google Chart -->
@@ -91,8 +92,6 @@ require_once "src/action/form.php";
                         echo "<a href='?form=logout' class='page-scroll'>
                         <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Log-out</a>";
                       }else {
-                        //echo "<button style='margin-left: 15px' type='button' data-toggle='modal' class='btn btn-default navbar-btn' data-target='#loginModal'>";
-                        //echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Sign in</button>";
                         echo "<a href='' data-toggle='modal' class='page-scroll' data-target='#loginModal'>";
                         echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Sign in</a>";
                       }
@@ -151,8 +150,8 @@ require_once "src/action/form.php";
 
               <!-- Tab panes -->
               <div class="tab-content" id="input-tabs">
-                <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()">
-                  <div class="col-md-3 col-md-offset-2">
+                <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()"></br>
+                  <div>
                     <div data-toggle="buttons">
                       <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
                         <label class="btn btn-primary"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
@@ -169,14 +168,15 @@ require_once "src/action/form.php";
 
                   <form>
                     <div class="row form-group" ng-repeat="default in indata_defaults">
-                      <div class="col-md-6" style="margin-left: 10%">
+                      <div class="col-md-2"></div>
+                      <div class="col-md-6">
                         <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
                         <p ng-if="default.type == NULL">{{default.name}}</p>
                         <p ng-if="default.type == 'Result'">{{default.name}}</p>
                         <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-3 input-group">
+                      <div class="col-md-2 input-group">
 
                         <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
                           <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
@@ -194,12 +194,14 @@ require_once "src/action/form.php";
                           </div>
                         </div>
                       </div>
+                      <div class="col-md-2"></div>
                     </div>
                   </form>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="extended"  ng-init="getExtendedDefaultsPerson()">
+                <div role="tabpanel" class="tab-pane" id="extended"  ng-init="getExtendedDefaultsPerson()"></br>
                   <form>
                     <div class="row form-group" ng-repeat="extended in extended_defaults">
+                      <div class="col-md-2"></div>
                       <div class="col-md-6">
                         <h3 ng-if="extended.type == 'Heading'">{{extended.name}}<h3>
                         <p ng-if="extended.type == NULL">{{extended.name}}</p>
@@ -207,7 +209,7 @@ require_once "src/action/form.php";
                         <p ng-if="extended.type == 'Subheading'"><i>{{extended.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-3 input-group">
+                      <div class="col-md-2 input-group">
 
                         <div ng-if="extended.type ==NULL || extended.type == 'Result'" class="input-group">
                           <input ng-if="extended.type == NULL" type="text" class="form-control" id="extended-{{extended.row}}" aria-label="..." value="{{extended.value}}">
@@ -244,43 +246,52 @@ require_once "src/action/form.php";
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">A standardized calculation model for photovoltaic investments</h3>
+                    <h3 class="section-subheading text-muted">
+                      Future Energy Center, Mälardalens Högskola
+                    </h3>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <p class="large text-muted">
-                      The project will develop a complete
-                      basis for analysis of investment decisions for photovoltaic plants.
-                      It is based on Levelized Cost of Energy (LCOE), an internationally
-                      recognized model for analyzing the production of energy.
+                      Projektets syfte är att utveckla en heltäckande
+                      analysmodell för investeringsbeslut för
+                      solcellsanläggningar. Modellen ska baseras på en
+                      internationellt etablerad modell för analys av
+                      produktionskostnad av energi (Levelized Cost Of Energy)
+                      som ska anpassas till svenska förhållanden.
                     </p>
 
                     <table class="table table-striped" style="text-align:left">
                        <tr>
-                         <td>Project name:</td>
+                         <td>Projektnamn:</td>
                          <td>Investeringskalkyl för solceller</td>
                        </tr>
                        <tr>
-                         <td>Research specialisation:</td>
+                         <td>Forskningsinriktning:</td>
                          <td>Future Energy Center</td>
                        </tr>
                        <tr>
-                         <td>Primary funding organisation:</td>
+                         <td>Huvudfinansiär(er):</td>
                          <td>Energimyndigheten</td>
                        </tr>
                        <tr>
-                         <td>Project leader:</td>
+                         <td>Projektledare:</td>
                          <td>Bengt Stridh , Mälardalens högskola</td>
                        </tr>
                        <tr>
-                         <td>Project period:</td>
-                         <td>20150701-20160901</td>
+                         <td>Projektperiod:</td>
+                         <td>2015/07/01 - 2016/09/01</td>
                        </tr>
                        <tr>
-                         <td>Funding:</td>
-                         <td>299 563 kronor</td>
+                         <td>Deltagare:</td>
+                         <td>
+                           Mälardalens högskola, Stockholm stad och en
+                           referensgrupp på ca 50 personer, bestående av
+                           byggherrar, fastighetsägare, leverantörer,
+                           konsulter och elbolag.
+                         </td>
                        </tr>
                       </table>
 
@@ -295,24 +306,16 @@ require_once "src/action/form.php";
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/mdh_logo2.png" class="img-responsive img-centered" alt="">
-                    </a>
+                    <img src="img/logos/mdh_logo.png" class="img-responsive img-centered" alt="">
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <img src="img/logos/fe_logo.png" class="img-responsive img-centered" alt="">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="img/logos/stockholms-stad_logo.png" class="img-responsive img-centered" alt="">
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/fe_logo2.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/abb_logo2.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/me_logo2.png" class="img-responsive img-centered" alt="">
-                    </a>
+                    <img src="img/logos/energimyndigheten_logo.png" class="img-responsive img-centered" alt="">
                 </div>
             </div>
         </div>
@@ -382,10 +385,12 @@ require_once "src/action/form.php";
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
+                        <li><a href="" data-toggle='modal' data-target="#privacy_policy">Privacy Policy</a>
                         </li>
-                        <li><a href="#">Terms of Use</a>
+                        <!--
+                        <li><a href="" data-toggle='modal' data-target="#portfolioModal1">Terms of Use</a>
                         </li>
+                        -->
                     </ul>
                 </div>
             </div>
