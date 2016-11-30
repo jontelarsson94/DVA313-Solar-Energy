@@ -46,42 +46,9 @@ require_once "src/action/form.php";
         include "view/modal/login.php"
     ?>
 
-    <!--Load the AJAX API-->
+    <!-- Google Chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'a');
-        data.addColumn('number', 'b');
-        data.addRows([
-          ['ABC', 3],
-          ['DEF', 1],
-          ['GHI', 1],
-          ['JKL', 1]
-        ]);
-
-        // Set chart options
-        var options = {'title':'Solar Panel Cost',
-                       'width':500,
-                       'height':400};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
+    <script type="text/javascript" scr="js/charts/line_chart.js"></script>
 
 
 </head>
@@ -165,7 +132,7 @@ require_once "src/action/form.php";
           </form>
 
           <!-- Pie Chart -->
-          <div id="chart_div"></div>
+          <div id="line_chart"></div>
 
             <div class="row">
                 <div class="col-lg-12 text-center">
