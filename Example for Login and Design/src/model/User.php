@@ -2,15 +2,13 @@
 
 class User {
 
-    const USER = 0;
-    const ADMIN = 1;
-
-    var $id, $username;
+    var $id, $username, $admin;
 
 
-    public function __construct($id, $username) {
+    public function __construct($id, $admin, $username) {
         $this->id = $id;
         $this->username = $username;
+        $this->admin = $admin;
     }
 
     public function getId() {
@@ -19,6 +17,10 @@ class User {
 
     public function getUsername() {
         return $this->username;
+    }
+
+    public function getAdmin(){
+      return $this->admin;
     }
 
 }

@@ -13,13 +13,15 @@ class UserService {
     public function userVerification($username, $password) {
         $user_id = $this->userDAO->existsUser($username, $password);
         if ($user_id > 0) {
-            $_SESSION["login_user"] = $this->userDAO->getUserByID($user_id);
+            $user = $this->userDAO->getUserByID($user_id);
+            $_SESSION["admin"] = $user->admin;
+            $_SESSION["user"] = $user;
         }
         return $user_id;
     }
 
     public function logout() {
-        unset($_SESSION["login_user"]);
+        unset($_SESSION["admin"]);
         unset($_SESSION["user"]);
     }
 

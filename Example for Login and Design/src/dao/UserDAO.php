@@ -35,7 +35,7 @@ class UserDAO {
         }
 
         while ($rows = mysqli_fetch_array($query)) {
-            $user = new User($rows["id"], $rows["admin"] == 1 ? User::ADMIN : User::USER, $rows["username"]);
+            $user = new User($rows["id"], $rows["admin"], $rows["username"]);
         }
 
         DB::getInstance()->closeDB();
