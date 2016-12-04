@@ -74,6 +74,19 @@ require_once "src/action/form.php";
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <<?php
+                    if(isset($_SESSION["admin"])){
+                      if($_SESSION["admin"] == 1){
+                        echo"<li>
+                              <a class='page-scroll' href='admin.php'>Change defaults</a>
+                            </li>";
+                      }
+                      elseif ($_SESSION["admin"] == 0) {
+                        echo"<li>
+                              <a class='page-scroll' href='user.php'>Change defaults</a>
+                            </li>";
+                      }
+                    } ?>
                     <li>
                         <a class="page-scroll" href="#services">Calculator</a>
                     </li>
@@ -88,7 +101,7 @@ require_once "src/action/form.php";
                     <!-- Buttons for Login and Loggout -->
                       <?php
 
-                      if (isset($_SESSION["login_user"])) {
+                      if (isset($_SESSION["admin"])) {
                         echo "<a href='?form=logout' class='page-scroll'>
                         <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Log-out</a>";
                       }else {
