@@ -78,7 +78,7 @@ require_once "src/action/form.php";
                     if(isset($_SESSION["admin"])){
                       if($_SESSION["admin"] == 1){
                         echo"<li>
-                              <a class='page-scroll' href='admin.php'>Change defaults</a>
+                              <a class='page-scroll' href='#changeDefaults.php'>Change defaults</a>
                             </li>";
                       }
                       elseif ($_SESSION["admin"] == 0) {
@@ -122,8 +122,8 @@ require_once "src/action/form.php";
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Future Energy Center</div>
-                <div class="intro-heading">Solar Energy Calculator</div>
+                <div class="intro-lead-in">Renewable Energy</div>
+                <div class="intro-heading">Solar Economy Calculator</div>
                 <a href="#services" class="page-scroll btn btn-xl">Start Now</a>
             </div>
         </div>
@@ -132,8 +132,19 @@ require_once "src/action/form.php";
     <!-- Calculator Section -->
     <section id="services">
         <div class="container">
+
+        <?php
+        if (isset($_SESSION["admin"])) {
+        ?>
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Change Default Values</h2>
+                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              </div>
+          </div>
+
           <form class="form-group" action="api/upload_excel.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
+            Select file to upload:
             <input class="form-control-file" type="file" name="fileToUpload" id="fileToUpload">
             <br>
             <input class="btn btn-primary" type="submit" value="Upload Defaults" name="submit">
@@ -142,6 +153,9 @@ require_once "src/action/form.php";
           <form method="get" action="excel/start_default.xlsx">
             <button class="btn btn-primary" type="submit">Download Defaults</button>
           </form>
+        <?php
+        }
+        ?>
 
           <!-- Pie Chart -->
           <div id="line_chart"></div>
@@ -611,6 +625,11 @@ require_once "src/action/form.php";
     <!-- Angular scripts -->
     <script src="lib/js/angular.min.js"></script>
     <script src="ctrl/index.js"></script>
+    <script src="ctrl/charlie.js"></script>
+    <script src="ctrl/sebastian.js"></script>
+    <script src="ctrl/lukas.js"></script>
+    <script src="ctrl/aliyah.js"></script>
+    <script src="ctrl/avalika.js"></script>
 
 </body>
 
