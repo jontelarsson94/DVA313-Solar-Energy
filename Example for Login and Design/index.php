@@ -122,8 +122,8 @@ require_once "src/action/form.php";
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Future Energy Center</div>
-                <div class="intro-heading">Solar Energy Calculator</div>
+                <div class="intro-lead-in">Renewable Energy</div>
+                <div class="intro-heading">Solar Economy Calculator</div>
                 <a href="#services" class="page-scroll btn btn-xl">Start Now</a>
             </div>
         </div>
@@ -133,7 +133,7 @@ require_once "src/action/form.php";
     <section id="services">
         <div class="container">
           <form class="form-group" action="api/upload_excel.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
+            Select file to upload:
             <input class="form-control-file" type="file" name="fileToUpload" id="fileToUpload">
             <br>
             <input class="btn btn-primary" type="submit" value="Upload Defaults" name="submit">
