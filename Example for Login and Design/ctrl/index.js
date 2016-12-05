@@ -156,7 +156,6 @@ $('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #exten
 });
 
 $('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
-  alert("hej");
   var e50 = $( "#extended-50" ).val();
   var e51 = $( "#extended-51" ).val();
   var p28 = $( "#indata-28" ).val();
@@ -246,13 +245,21 @@ $('#calculations').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, 
   var p53 = $( "#indata-53" ).val();
   var e56 = $( "#extended-56" ).val();
   e56 = e56/100;
-  var A5 = $( "#a-5" ).val();
-  
-  var result = 0;
-  if(+A5 <= +p24){
-    //perform the calculation and save result in a variable
-    result = p18 * e60 * p53 * (Math.pow((1-e56), (A5-1)));
+  //set sum counter to 0
+  var sum = 0;
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var current = $( "#a-" + i ).val();
+    var result = 0;
+    if(+current <= +p24){
+      //perform the calculation and save result in a variable
+      result = p18 * e60 * p53 * (Math.pow((1-e56), (current-1)));
+      //
+      sum = sum + result;
+    }
+    //give the cell (input field) that value
+    $( "#b-" + i ).val( Math.round(result) );
   }
-  //give the cell (input field) that value
-  $( "#b-5" ).val( Math.round(result) );
+  //give the sum-cell the value of all the cells together
+  $( "#b-55" ).val( Math.round(sum) );
 });
