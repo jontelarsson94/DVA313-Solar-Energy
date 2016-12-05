@@ -228,3 +228,22 @@ $('#private').on('click', '#radioPerson, #radioCompany', function(ev){
   }
   $( "#extended-25" ).val( Math.round(result) );
 });
+
+$('#private').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, extended-56', function(ev){
+  var p24 = $( "#indata-24" ).val();
+  var p18 = $( "#indata-18" ).val();
+  var e60 = $( "#extended-60" ).val();
+  e60 = e60 / 100;
+  var p53 = $( "#indata-53" ).val();
+  var e56 = $( "#extended-56" ).val();
+  e56 = e56/100;
+  var A5 = $( "#a-5" ).val();
+  
+  var result = 0;
+  if(+A5 <= +p24){
+    result = p18 * e60 * p53 * (Math.pow((1-e56), (A5-1)));
+  }
+
+  $( "#b-5" ).val( Math.round(result) );
+  alert(result);
+});
