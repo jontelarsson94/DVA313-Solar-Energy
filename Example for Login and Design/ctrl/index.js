@@ -1,7 +1,7 @@
 //set module and controller that we can use in html/php file
 angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
-  $scope.table = array();
+  
 
   $scope.getIndataDefaultsPerson = function (){
     $http.get("api/get_indata_defaults_person.php")
