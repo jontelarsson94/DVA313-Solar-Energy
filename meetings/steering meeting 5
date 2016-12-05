@@ -1,0 +1,21 @@
+Steering meeting 
+
+We discussed the Trello Board and then answered some questions about the Client and project etc.
+
+We should write in effort hours instead of person hours.
+
+Software Architecture:
+    - For us it won't be very extensive. We should still describe the parts: database, client side, server etc. Show it in a simple picture etc.
+
+Detailed design:
+    - Database tables (good to bring), show how the fields look like. The strucuter and some sentences to descibe it. 
+
+The design document should be able to describe all of the project as much as needed for a new person to quickly join and work in the group.
+
+Use Case:
+
+- Divide to how the user sees things.
+- Calculate should be seen as 1 action.
+
+
+Coupling and Cohesion should either be in architecture or in it's own section. We should also have some parts to show this.
