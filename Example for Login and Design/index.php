@@ -167,7 +167,7 @@ require_once "src/action/form.php";
                 </div>
             </div>
 
-            <div>
+            <div id="calculations">
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
