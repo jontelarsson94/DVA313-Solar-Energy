@@ -78,7 +78,7 @@ require_once "src/action/form.php";
                     if(isset($_SESSION["admin"])){
                       if($_SESSION["admin"] == 1){
                         echo"<li>
-                              <a class='page-scroll' href='admin.php'>Change defaults</a>
+                              <a class='page-scroll' href='#changeDefaults.php'>Change defaults</a>
                             </li>";
                       }
                       elseif ($_SESSION["admin"] == 0) {
@@ -132,6 +132,17 @@ require_once "src/action/form.php";
     <!-- Calculator Section -->
     <section id="services">
         <div class="container">
+
+        <?php
+        if (isset($_SESSION["admin"])) {
+        ?>
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Change Default Values</h2>
+                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              </div>
+          </div>
+
           <form class="form-group" action="api/upload_excel.php" method="post" enctype="multipart/form-data">
             Select file to upload:
             <input class="form-control-file" type="file" name="fileToUpload" id="fileToUpload">
@@ -142,6 +153,9 @@ require_once "src/action/form.php";
           <form method="get" action="excel/start_default.xlsx">
             <button class="btn btn-primary" type="submit">Download Defaults</button>
           </form>
+        <?php
+        }
+        ?>
 
           <!-- Pie Chart -->
           <div id="line_chart"></div>
