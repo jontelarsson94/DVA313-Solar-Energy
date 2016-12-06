@@ -105,7 +105,7 @@ $('#input-tabs').on('mouseenter', '', function(ev){
 });
 
 //calculating p19, p49
-$('#private').on('keyup', '#indata-18', function(ev){
+$('#calculations').on('keyup', '#indata-18', function(ev){
   var p18 = $( "#indata-18" ).val();
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
@@ -117,7 +117,7 @@ $('#private').on('keyup', '#indata-18', function(ev){
 });
 
 //calculating e38, p47, p49
-$('#extended').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
+$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
   var e30 = $( "#extended-30" ).val();
   var e31 = $( "#extended-31" ).val();
   var e32 = $( "#extended-32" ).val();
@@ -138,7 +138,7 @@ $('#extended').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-
 });
 
 //calculating e46, p48, p49
-$('#extended').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
   var e41 = $( "#extended-41" ).val();
   var e42 = $( "#extended-42" ).val();
   var e43 = $( "#extended-43" ).val();
@@ -155,7 +155,7 @@ $('#extended').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-
   $( "#indata-49" ).val( Math.round(result) );
 });
 
-$('#extended').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
+$('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
   var e50 = $( "#extended-50" ).val();
   var e51 = $( "#extended-51" ).val();
   var p28 = $( "#indata-28" ).val();
@@ -165,7 +165,7 @@ $('#extended').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, 
   $( "#extended-52" ).val( Math.round(result) );
 });
 
-$('#private').on('keyup', '#indata-18', function(ev){
+$('#calculations').on('keyup', '#indata-18', function(ev){
   var p18 = $( "#indata-18" ).val();
   var choosen = $("input[name=optradio]:checked").val()
   var result;
@@ -198,7 +198,7 @@ $('#private').on('keyup', '#indata-18', function(ev){
 
 
 
-$('#private').on('click', '#radioPerson, #radioCompany', function(ev){
+$('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   var p18 = $( "#indata-18" ).val();
   var choosen = $("input[name=optradio]:checked").val()
   var result;
@@ -227,4 +227,39 @@ $('#private').on('click', '#radioPerson, #radioCompany', function(ev){
     result = 3000*1.25;
   }
   $( "#extended-25" ).val( Math.round(result) );
+});
+
+//Always use #calculations as the identifier in the $('#calculations')
+//Then look in the excel sheet and in the formula for that cell there will be a number of different cells that make the calculations.
+//Whenever any of these cells get changed, the calculations should be performed. This is all the other ids after the .on('keyup')
+//So basically just copy this function and change the different ids to match the formula in your cell.
+$('#calculations').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, extended-56', function(ev){
+  //give different variables the value that is in that input field
+  //If the cell is in "indata & resultat", then the id will be #indata-row
+  //If the cell is in "grundläggande antaganden", then the id will be #extended-row
+  //If the cell is in "Kassaflöden", then the id will be #column-row so for example A5 in the table will be #a-5
+  var p24 = $( "#indata-24" ).val();
+  var p18 = $( "#indata-18" ).val();
+  var e60 = $( "#extended-60" ).val();
+  e60 = e60 / 100;
+  var p53 = $( "#indata-53" ).val();
+  var e56 = $( "#extended-56" ).val();
+  e56 = e56/100;
+  //set sum counter to 0
+  var sum = 0;
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var current = $( "#a-" + i ).val();
+    var result = 0;
+    if(+current <= +p24){
+      //perform the calculation and save result in a variable
+      result = p18 * e60 * p53 * (Math.pow((1-e56), (current-1)));
+      //
+      sum = sum + result;
+    }
+    //give the cell (input field) that value
+    $( "#b-" + i ).val( Math.round(result) );
+  }
+  //give the sum-cell the value of all the cells together
+  $( "#b-55" ).val( Math.round(sum) );
 });
