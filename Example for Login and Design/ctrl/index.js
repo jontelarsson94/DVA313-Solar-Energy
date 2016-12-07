@@ -229,6 +229,8 @@ $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   $( "#extended-25" ).val( Math.round(result) );
 });
 
+//make B, C and G
+
 //Always use #calculations as the identifier in the $('#calculations')
 //Then look in the excel sheet and in the formula for that cell there will be a number of different cells that make the calculations.
 //Whenever any of these cells get changed, the calculations should be performed. This is all the other ids after the .on('keyup')
