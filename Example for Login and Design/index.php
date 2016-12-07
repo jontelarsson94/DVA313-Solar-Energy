@@ -78,7 +78,7 @@ require_once "src/action/form.php";
                     if(isset($_SESSION["admin"])){
                       if($_SESSION["admin"] == 1){
                         echo"<li>
-                              <a class='page-scroll' href='#changeDefaults.php'>Change defaults</a>
+                              <a class='page-scroll' href='#changeDefaultsAdmin'>Change defaults</a>
                             </li>";
                       }
                       elseif ($_SESSION["admin"] == 0) {
@@ -88,7 +88,7 @@ require_once "src/action/form.php";
                       }
                     } ?>
                     <li>
-                        <a class="page-scroll" href="#services">Calculator</a>
+                        <a class="page-scroll" href="#calculatorId">Calculator</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -134,10 +134,11 @@ require_once "src/action/form.php";
         <div class="container">
 
         <?php
-        if (isset($_SESSION["admin"])) {
+        if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
         ?>
           <div class="row">
-              <div class="col-lg-12 text-center">
+              <div class="col-lg-12 text-center" id="changeDefaultsAdmin">
+              <br>
                   <h2 class="section-heading">Change Default Values</h2>
                   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
               </div>
@@ -151,7 +152,7 @@ require_once "src/action/form.php";
           </form>
           <br>
           <form method="get" action="excel/start_default.xlsx">
-            <button class="btn btn-primary" type="submit">Download Defaults</button>
+            <button class="btn btn-primary" type="submit">Download Template</button>
           </form>
         <?php
         }
@@ -160,7 +161,8 @@ require_once "src/action/form.php";
           <!-- Pie Chart -->
           <div id="line_chart"></div>
 
-            <div class="row">
+            <div class="row" id="calculatorId">
+            <br>
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Calculator</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
