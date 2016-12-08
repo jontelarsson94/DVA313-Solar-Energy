@@ -243,7 +243,7 @@ $('#calculations').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, 
   var p24 = $( "#indata-24" ).val();
   var p18 = $( "#indata-18" ).val();
   var e60 = $( "#extended-60" ).val();
-  e60 = e60 / 100;
+  e60 = e60 / 100; // divide by 100 since it is a % unit
   var p53 = $( "#indata-53" ).val();
   var e56 = $( "#extended-56" ).val();
   e56 = e56/100;
@@ -264,4 +264,61 @@ $('#calculations').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, 
   }
   //give the sum-cell the value of all the cells together
   $( "#b-55" ).val( Math.round(sum) );
+
+//This is added because C column also needs to change values when B column does
+  var p28 = $( "#indata-28" ).val();
+  p28 = p28 / 100;
+  //set sum counter to 0
+  var sum = 0;
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var currentB = $( "#b-" + i ).val();
+    var currentA = $( "#a-" + i ).val();
+    var result = currentB/Math.pow((1+p28), currentA);
+    sum = sum + result;
+    $( "#c-" + i ).val( Math.round(result) );
+  }
+  //give the sum-cell the value of all the cells together
+  $( "#c-55" ).val( Math.round(sum) );
+});
+
+$('#calculations').on('keyup', '#indata-28', function(ev){
+  var p28 = $( "#indata-28" ).val();
+  p28 = p28 / 100;
+  //set sum counter to 0
+  var sum = 0;
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var currentB = $( "#b-" + i ).val();
+    var currentA = $( "#a-" + i ).val();
+    var result = currentB/Math.pow((1+p28), currentA);
+    sum = sum + result;
+    $( "#c-" + i ).val( Math.round(result) );
+  }
+  //give the sum-cell the value of all the cells together
+  $( "#c-55" ).val( Math.round(sum) );
+});
+
+$('#calculations').on('keyup', '#indata-24, #indata-28, #extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37, #extended-38, #extended-41, #extended-42, #extended-43, #extended-44, #extended-45, #extended-46', function(ev){
+  var p24 = $( "#indata-24" ).val();
+  var p28 = $( "#indata-28" ).val();
+  p28 = p28 / 100;
+  var p47 = $( "#indata-47" ).val();
+  var p48 = $( "#indata-48" ).val();
+  //set sum counter to 0
+  var sum = 0;
+  var result = 0;
+  //loop through all the ids for that column
+  //skipping 8-13
+  for(var i = 5; i < 55; i++){
+    var currentA = $( "#a-" + i ).val();
+    if(+currentA <= +p24){
+      result = -((p47+p48)/Math.pow((1+p28), currentA));
+      sum = sum + result;
+    }
+    $( "#g-" + i ).val( Math.round(result) );
+  }
+  alert(sum);
+  //give the sum-cell the value of all the cells together
+  $( "#g-55" ).val( Math.round(sum) );
 });
