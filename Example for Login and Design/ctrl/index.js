@@ -318,7 +318,6 @@ $('#calculations').on('keyup', '#indata-24, #indata-28, #extended-30, #extended-
     }
     $( "#g-" + i ).val( Math.round(result) );
   }
-  alert(sum);
   //give the sum-cell the value of all the cells together
   $( "#g-55" ).val( Math.round(sum) );
 });
