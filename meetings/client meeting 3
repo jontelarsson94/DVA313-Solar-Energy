@@ -1,0 +1,43 @@
+1. Meeting started.
+
+2. How should we do with people from different regions in sweden etc. 
+--------------------------------------------------------------------------------------------------------------
+We asked about if there should be different calculations depending on how much sun/where in sweden we are.
+
+Along the coasts we get good values, highest is 1100 kwh/hw
+
+The worst are in the mountains, there we have around 800 kwh/hw
+
+It all depends on how flat/tilted the roof you have, this will also give a small variation in yield.
+
+Depending on if the modules are pointed to the south, west or east you will get lower or higher yields. If you have some trees or something that shadow your roof you will also get less yield.
+
+    - Maybe a fix for this would be to add some own parameters for special factors/cases, this the user has to supply themselves. 
+
+    - There is also a tool we can use PVG's that we can use. There should be a web version for this. 
+
+We should be able to select if the user are from Svealand, Götaland, Norrland etc. But this whole thing is a little bit tricky. 
+-----------------------------------------------------------------------------------------------------------------
+
+3. Salika asked about the formulas in excel. 
+    - She got some explanations.
+
+4. About the feedback
+
+-----------------------
+It should be good to guide the user to the min/max values, maybe with the help of a SLIDER-option (maybe not). 
+
+The Min/Max values are actually only recommended min/max, we should only be warned when we are under or over the recommended min/max values. (!!!)
+
+The user should be guided to what is a reasonable number at least. 
+
+Maybe have a "Easy" input version with only sliders and an "Advanced" version with fields. This might give the results we want. (Most of the users would use the Easy version.) 
+
+We should discuss in the group how this could be done. 
+------------------------
+
+5. Name, we need a new name!
+
+    - Should be easy to search for. 
+    - Should show the purpose of the calculator.
+    - It should be in Swedish

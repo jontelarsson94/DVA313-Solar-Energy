@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 function Cal_extended_25() {
@@ -32,3 +33,7 @@ function Cal_extended_25() {
 
     }
 }
+=======
+//Make column D, E, F
+//From cash flow table
+>>>>>>> origin/master
