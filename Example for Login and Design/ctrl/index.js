@@ -1,7 +1,7 @@
 //set module and controller that we can use in html/php file
 angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
-  
+  $scope.number = 56;
 
   $scope.getIndataDefaultsPerson = function (){
     $http.get("api/get_indata_defaults_person.php")
@@ -27,10 +27,8 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     });
   }
 
-  $scope.getCashflowTable = function (){
-    for(var i = 4; i < 56; i++){
-      $scope.table.push(i);
-    }
+  $scope.getNumber = function(num) {
+    return new Array(num);   
   }
 
   $scope.getExtendedDefaultsPerson = function (){
