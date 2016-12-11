@@ -73,11 +73,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $("#indata-18").change(function () {
         alert("changee");
-        Cal_extended_25();
     });
 });
 
-$('#input-tabs').on('mouseenter', '', function(ev){
+$('#calculations').on('mouseenter', '', function(ev){
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
 
@@ -86,9 +85,6 @@ $('#input-tabs').on('mouseenter', '', function(ev){
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
   $("#indata-19").val(Math.round(result));
-
-    // calculating e25
-  Cal_extended_25();
 
   //calculating e38 and p48
   var e30 = $( "#extended-30" ).val();
@@ -115,7 +111,7 @@ $('#input-tabs').on('mouseenter', '', function(ev){
 });
 
 //calculating p19, p49
-$('#private').on('keyup', '#indata-18', function(ev){
+$('#calculations').on('keyup', '#indata-18', function(ev){
   var p18 = $( "#indata-18" ).val();
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
@@ -127,7 +123,7 @@ $('#private').on('keyup', '#indata-18', function(ev){
 });
 
 //calculating e38, p47, p49
-$('#extended').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
+$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
   var e30 = $( "#extended-30" ).val();
   var e31 = $( "#extended-31" ).val();
   var e32 = $( "#extended-32" ).val();
@@ -148,7 +144,7 @@ $('#extended').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-
 });
 
 //calculating e46, p48, p49
-$('#extended').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
   var e41 = $( "#extended-41" ).val();
   var e42 = $( "#extended-42" ).val();
   var e43 = $( "#extended-43" ).val();
@@ -165,7 +161,7 @@ $('#extended').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-
   $( "#indata-49" ).val( Math.round(result) );
 });
 
-$('#extended').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
+$('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
   var e50 = $( "#extended-50" ).val();
   var e51 = $( "#extended-51" ).val();
   var p28 = $( "#indata-28" ).val();
@@ -175,7 +171,7 @@ $('#extended').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, 
   $( "#extended-52" ).val( Math.round(result) );
 });
 
-$('#private').on('keyup', '#indata-18', function(ev){
+$('#calculations').on('keyup', '#indata-18', function(ev){
   var p18 = $( "#indata-18" ).val();
   var choosen = $("input[name=optradio]:checked").val()
   var result;
@@ -208,7 +204,7 @@ $('#private').on('keyup', '#indata-18', function(ev){
 
 
 
-$('#private').on('click', '#radioPerson, #radioCompany', function(ev){
+$('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   var p18 = $( "#indata-18" ).val();
   var choosen = $("input[name=optradio]:checked").val()
   var result;
@@ -238,8 +234,6 @@ $('#private').on('click', '#radioPerson, #radioCompany', function(ev){
   }
   $( "#extended-25" ).val( Math.round(result) );
 });
-<<<<<<< HEAD
-=======
 
 //make B, C and G
 
@@ -333,4 +327,3 @@ $('#calculations').on('keyup', '#indata-24, #indata-28, #extended-30, #extended-
   //give the sum-cell the value of all the cells together
   $( "#g-55" ).val( Math.round(sum) );
 });
->>>>>>> origin/master
