@@ -28,7 +28,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
   }
 
   $scope.getNumber = function(num) {
-    return new Array(num);   
+    return new Array(num);
   }
 
   $scope.getExtendedDefaultsPerson = function (){
@@ -62,7 +62,7 @@ $('[data-toggle="popover"]').popover();
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
-    
+
 });
 
 $('[data-toggle="tooltip"]').tooltip();
@@ -109,7 +109,7 @@ $('#calculations').on('mouseenter', '', function(ev){
 });
 
 //calculating p19, p49
-$('#calculations').on('keyup', '#indata-18', function(ev){
+$('#calculations').on('keyup', '#indata-18', '#extended-12', function(ev){
   var p18 = $( "#indata-18" ).val();
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
