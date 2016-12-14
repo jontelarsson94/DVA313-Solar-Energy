@@ -1,0 +1,53 @@
+QUESTIONS TO THE CLIENT
+
+
+MY IDEA OF THE EXCEL FILE:
+*the input is just the fields inside the tabs "dina indata och resultat" and "grundläggande antaganden"?
+[YES]
+
+*the results for the production cost and profitability are inside the red square in the tab "dina indata och resultat"?
+[YES, YOU CAN ALSO SEE THE CASH FLOW RESULTS INSIDE THE PROFITABILITY CELLS]
+
+*the results for the cash flow is inside the tab "kassaflöden", and then they are visualized in the diagrams in the tab "diagram"?
+[YES, YOU ALSO HAVE ANOTHER DIAGRAM CALLED "INTÄKTER" WHICH IS BASED ON THE CASH FLOW VALUES]
+
++1st table (with present values) start implementing this, if there's time continue with the table below (with IR function).
+OBS. not discount rate in the table below, otherwise the calculations in the two tables are more or less the same. 
+
++diagrams, show them separately since it can be overwhelming for the user to watch all the information. one way to do this
+is to give the user the possibility choose what result diagram to show, like using tabs/buttons...?
+----------------
+
+
+*save the used input values from one session to another - so just the green/yellow fields inside the tabs "dina indata och resultat" and "grundläggande antaganden"?
+[YES CORRECT]
+
+*compare two results - so compare the production cost and profitability inside the "red square", and then the cash flow diagrams OR also the cash flow tables?
+[YES, you need to calculate the cash flow tables anyhow so these can be compared for more experienced users like companies.
+otherwise comparing the cash flow could be done by comparing the diagrams or just the result values inside the profitability results (i.e. inside the "dina indata & resultat" tab)
+for less experienced users like private persons.]
+
+*when comparing two results, do you want it like in the "levelized cost of energy calculator (USA)" link? go to the "LCOE w/ Environmental costs" tab
+[Leave it for later since it's an extra functionality, we can discuss it further with the client as soon as the basic functionalities are done.]
+
+*diagrams - enough with the ones inside the "diagrams" tab?
+[YES]
+
+*what should be in the report file? it says both INPUT and OUTPUT values? so both the input fields' values and the production cost/profitability/cash flow tables, diagrams?
+[input (from "dina indata & resultat" and "grundläggande antaganden") and output the production cost, profitability, cash flow - show the client later and let him decide to add/remove stuff.]
+
+*a separate info page with explanation of the formulas, dictionary of difficult words...?
+[YES, like a separate tab with information (find a good name for it)] 
+
+
+EXTRA THINGS MENTIONED BY THE CLIENT:
++ picture in the header, bengt will look for some other suitable pictures.
+
++ name in swedish: sol ekonomi kalkylator, sol ekonomi miniräknaren, sol ekonomi räknaren.. (there are some suggestions in a file that the client sent)
+
++ "solceller" could be in the swedish product name 
++ ask people we know about a suitable name
+
++ version 2? future work, make a document for how the client can update the site, like how to enter stuff in the excel file to upload, how to import new images...
+
++ we will not implement the thing about regions in sweden affecting the amount of solar energy. [talked about it with the client]
