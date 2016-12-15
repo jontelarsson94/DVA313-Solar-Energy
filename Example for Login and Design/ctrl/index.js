@@ -71,6 +71,20 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+/*******************************
+*  Whats left is:              *
+*  Indata-55                   *
+*  Indata-72                   *
+*  Indata-73                   *
+*  Indata-74                   *
+*  Indata-83                   *
+*  Indata-84                   *
+*  Indata-88                   *
+*  Indata-89                   *
+*  Indata-93                   *
+*  Indata-94                   *
+********************************/
+
 function calculateI41(){
   $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
 }
