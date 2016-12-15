@@ -71,6 +71,16 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+function calculateI41(){
+  $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
+}
+function calculateI42(){
+  $("#indata-42").val(  -Math.round(parseInt($("#e-55").val())/parseInt($("#indata-18").val())) );
+}
+function calculateI43(){
+  $("#indata-43").val(  -Math.round(parseInt($("#f-55").val())/parseInt($("#indata-18").val())) );
+}
+
 function calculateI82(){
   $("#indata-82").val(  parseInt($("#n-55").val()) );
 }
@@ -335,6 +345,9 @@ function calculateDEF() {
     calculateN();
     calculateP();
     calculateR();
+    calculateI41();
+    calculateI42();
+    calculateI43();
 
 }
 
@@ -785,6 +798,12 @@ $('#calculations').on('keyup', '#indata-24', function(ev){
   calculateO();
   calculateQ();
   calculateS();
+});
+
+$('#calculations').on('keyup', '#indata-18', function(ev){
+  calculateI41();
+  calculateI42();
+  calculateI43();
 });
 
 
