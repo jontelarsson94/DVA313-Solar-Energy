@@ -71,6 +71,18 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+function calculateI82(){
+  $("#indata-82").val(  parseInt($("#n-55").val()) );
+}
+
+function calculateI87(){
+  $("#indata-87").val(  parseInt($("#p-55").val()) );
+}
+
+function calculateI92(){
+  $("#indata-92").val(  parseInt($("#r-55").val()) );
+}
+
 function calculateS(){
   $("#s-4").val(  parseInt($("#r-4").val()) );
 
@@ -85,10 +97,11 @@ function calculateR(){
 
     for(var i = 4; i < 55; i++){
             $("#r-"+i).val(  parseInt($("#f-"+i).val()) +  parseInt($("#g-"+i).val()) +  parseInt($("#h-"+i).val()) +  parseInt($("#i-"+i).val()) +  parseInt($("#j-"+i).val()) +  parseInt($("#k-"+i).val()) +  parseInt($("#l-"+i).val()) +  parseInt($("#m-"+i).val()) );
-            r55 = r55 +  parseInt($("#r-"+i).val());
+            r55 = r55 +  Math.round(parseInt($("#r-"+i).val()));
     }
     $("#r-55").val(r55); 
     calculateS();
+    calculateI92();
 }
 
 function calculateQ(){
@@ -96,7 +109,7 @@ function calculateQ(){
 
     for(var i = 5; i < 55; i++){
         if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
-            $("#q-"+i).val(  parseInt($("#q-"+(i-1)).val()) +  parseInt($("#p-"+i).val()) );
+            $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
 }
 
@@ -105,7 +118,7 @@ function calculateO(){
 
     for(var i = 5; i < 55; i++){
         if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
-            $("#o-"+i).val(  parseInt($("#o-"+(i-1)).val()) +  parseInt($("#n-"+i).val()) );
+            $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
 }
 
@@ -127,25 +140,26 @@ function calculateN(){
     $("#n-55").val(n55);
     //alert("n55-" + n55);
     calculateO();
-
+    calculateI82();
 }
 
 function calculateP(){
   var p55 = 0;
 
     for(var i = 4; i < 55; i++){
-            $("#p-"+i).val(  parseInt($("#e-"+i).val())
-                          +  parseInt($("#g-"+i).val())
-                          +  parseInt($("#h-"+i).val())
-                          +  parseInt($("#i-"+i).val())
-                          +  parseInt($("#j-"+i).val())
-                          +  parseInt($("#k-"+i).val())
-                          +  parseInt($("#l-"+i).val())
-                          +  parseInt($("#m-"+i).val()) );
-            p55 = p55 +  parseInt($("#p-"+i).val());
+            $("#p-"+i).val( Math.round( parseInt($("#e-"+i).val()))
+                          +  Math.round(parseInt($("#g-"+i).val()))
+                          +  Math.round(parseInt($("#h-"+i).val()))
+                          +  Math.round(parseInt($("#i-"+i).val()))
+                          +  Math.round(parseInt($("#j-"+i).val()))
+                          +  Math.round(parseInt($("#k-"+i).val()))
+                          +  Math.round(parseInt($("#l-"+i).val()))
+                          +  Math.round(parseInt($("#m-"+i).val())) );
+            p55 = p55 +  Math.round(parseInt($("#p-"+i).val()));
     }
-    $("#p-55").val(p55);
+    $("#p-55").val(Math.round(p55));
     calculateQ();
+    calculateI87();
 }
 
 //Whenever one of these is calculated, we should calculate c first
@@ -162,7 +176,7 @@ function calculateH() {
 
     for (i = 1; i < 50; i++) {
         if (Ekonomisk_livslangd >= i) {
-            var valh = parseInt($("#c-" + j).val()) * Andel_egenanvand_el * Pris_kopt_el;
+            var valh = Math.round(parseInt($("#c-" + j).val()) * Andel_egenanvand_el * Pris_kopt_el);
             $("#h-" + j).val(valh);
             //alert(valh);
             sum = sum + valh;
@@ -187,7 +201,7 @@ function calculateI() {
 
     for (i = 1; i < 50; i++) {
         if (Ekonomisk_livslangd >= i) {
-            var ival = parseInt($("#c-" + j).val()) * (1 - Andel_egenanvand_el) * Pris_sald_el;
+            var ival = Math.round(parseInt($("#c-" + j).val()) * (1 - Andel_egenanvand_el) * Pris_sald_el);
             $("#i-" + j).val(ival);
             sum = sum + ival;
         } else {
@@ -213,7 +227,7 @@ function calculateJ() {
 
     for (i = 1; i < 50; i++) {
         if (Ekonomisk_livslangd >= i) {
-            var jval = parseInt($("#c-" + j).val()) * Ersattning_fran_natagare * (1 - Andel_egenanvand_el);
+            var jval = Math.round(parseInt($("#c-" + j).val()) * Ersattning_fran_natagare * (1 - Andel_egenanvand_el));
             $("#j-" + j).val(jval);
             sum = sum + jval;
         } else {
@@ -257,27 +271,27 @@ function calculateDEF() {
 
     if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
         var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
-        $("#e-4").val(e_4val);
-        e_55val = e_4val;
+        $("#e-4").val(Math.round(e_4val));
+        e_55val = Math.round(e_4val);
         //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
     } else {
         // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
         var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
-        $("#e-4").val(e_4val);
-        e_55val = e_4val;
+        $("#e-4").val(Math.round(e_4val));
+        e_55val = Math.round(e_4val);
     }
 
     //Investeringskostnad*Installerad_effekt*Investeringsstod<=Tak_Investeringsstod
     if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
         //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
         var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
-        $("#f-4").val(f_4val);
-        f_55val = f_4val;
+        $("#f-4").val(Math.round(f_4val));
+        f_55val = Math.round(f_4val);
     } else {
         //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
         var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
-        $("#f-4").val(f_4val);
-        f_55val = f_4val;
+        $("#f-4").val(Math.round(f_4val));
+        f_55val = Math.round(f_4val);
     }
 
     //alert($("#d-4").val() + "    " + $("#e-4").val() + "   " + $("#f-4").val());
@@ -298,11 +312,11 @@ function calculateDEF() {
             val2 = 0;
         }
 
-        var sum = val1 + val2;
+        var sum = Math.round(val1) + Math.round(val2);
         //alert(sum);
-        d_55val = d_55val + sum;
-        e_55val = e_55val + sum;
-        f_55val = f_55val + sum;
+        d_55val = d_55val + Math.round(sum);
+        e_55val = e_55val + Math.round(sum);
+        f_55val = f_55val + Math.round(sum);
 
         var value = Math.round(val1 + val2);
         $("#d-" + j).val(value);
@@ -344,7 +358,7 @@ function calculateB(){
     var result = 0;
     if(+current <= +p24){
       //perform the calculation and save result in a variable
-      result = p18 * e60 * p53 * (Math.pow((1-e56), (current-1)));
+      result = Math.round(p18 * e60 * p53 * (Math.pow((1-e56), (current-1))));
       //
       sum = sum + result;
     }
@@ -364,7 +378,7 @@ function calculateC(){
   for(var i = 5; i < 55; i++){
     var currentB = $( "#b-" + i ).val();
     var currentA = $( "#a-" + i ).val();
-    var result = currentB/Math.pow((1+p28), currentA);
+    var result = Math.round(currentB/Math.pow((1+p28), currentA));
     sum = sum + result;
     $( "#c-" + i ).val( Math.round(result) );
   }
@@ -377,23 +391,26 @@ function calculateC(){
 
 
 function calculateG(){
-  var p24 = $( "#indata-24" ).val();
-  var p28 = $( "#indata-28" ).val();
-  p28 = p28 / 100;
-  var p47 = $( "#indata-47" ).val();
-  var p48 = $( "#indata-48" ).val();
+  var p24 = parseInt($("#indata-24").val());
+  var p28 = parseInt($("#indata-28").val())/100;
+  //p28 = p28 / 100;
+  var p47 = parseInt($("#indata-47").val());
+  var p48 = parseInt($("#indata-48").val());
   //set sum counter to 0
   var sum = 0;
   var result = 0;
+  var j = 1;
   //loop through all the ids for that column
   //skipping 8-13
   for(var i = 5; i < 55; i++){
-    var currentA = $( "#a-" + i ).val();
-    if(+currentA <= +p24){
-      result = -((p47+p48)/Math.pow((1+p28), currentA));
-      sum = sum + result;
+    //var currentA = $( "#a-" + i ).val();
+    if(j <= +p24){
+      result = -(p47+p48)/Math.pow((1+p28), j);
+      sum = sum + Math.round(result);
     }
     $( "#g-" + i ).val( Math.round(result) );
+    result = 0;
+    j++;
   }
   //give the sum-cell the value of all the cells together
   $( "#g-55" ).val( Math.round(sum) );
@@ -458,9 +475,9 @@ function calculateM(){
   //perform calculations if necessary
   if(+p24 >= +currentA && +p68 >= +currentA) {
     if((currentC * (1-p60) * e65) > (+e66))
-      result = 18000 / Math.pow((1+p28), currentA);
+      result = Math.round(18000 / Math.pow((1+p28), currentA));
     else
-      result = currentC * (1-p60) * e65;
+      result = Math.round(currentC * (1-p60) * e65);
   }
   //else result = 0;
     
@@ -647,30 +664,6 @@ $('#calculations').on('mouseenter', '', function(ev){
   calculateS();
 
 
-  /*alert("b-" + $( "#b-55" ).val());
-  alert("c-"+$( "#c-55" ).val());
-  alert("d-"+$( "#d-55" ).val());
-  alert("e-"+$( "#e-55" ).val());
-  alert("f-"+$( "#f-55" ).val());
-  alert("g-"+$( "#g-55" ).val());
-  alert("h-"+$( "#h-55" ).val());
-  alert("i-"+$( "#i-55" ).val());
-  alert("j-"+$( "#j-55" ).val());
-  alert("k-"+$( "#k-55" ).val());
-  alert("l-"+$( "#l-55" ).val());
-  alert("m-"+$( "#m-55" ).val());
-  alert("n-"+$( "#n-55" ).val());
-  alert("o-"+$( "#o-55" ).val());
-  alert("p-"+$( "#p-55" ).val());
-  alert("q-"+$( "#q-55" ).val());
-  alert($( "#q-4" ).val());
-  alert($( "#q-5" ).val());
-  alert($( "#q-6" ).val());
-  alert($( "#q-7" ).val());
-  alert("r-"+$( "#r-55" ).val());
-  //alert($( "#s-32" ).val());*/
-
-
 });
 
 //calculating p19, p49
@@ -701,7 +694,34 @@ $('#calculations').on('keyup', '#indata-18', function(ev){
 
 
 $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
+  calculateI19();
   calculateE25();
+  calculateE52();
+  calculateI25();
+  calculateI49();
+  calculateE46AndI48();
+
+  //calculating e38 and p48
+  calculateE38AndI47();
+
+  //Calculating e46 and p48
+  calculateE46AndI48();
+  calculateB();
+  calculateC();
+  calculateDEF();
+  calculateG();
+  calculateH();
+  calculateI();
+  calculateJ();
+  calculateK();
+  calculateL();
+  calculateM();
+  calculateN();
+  calculateO();
+  calculateP();
+  calculateQ();
+  calculateR();
+  calculateS();
 });
 
 //make B, C and G
