@@ -69,10 +69,82 @@ $('[data-toggle="tooltip"]').tooltip();
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
-    $("#indata-18").change(function () {
-        alert("changee");
-    });
 });
+
+
+//Whenever one of these is calculated, we should calculate c first
+function calculateH() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
+    var Pris_kopt_el = $("#indata-61").val();
+    /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
+    alert("Andel_egenanvand_el-"+Andel_egenanvand_el);
+    alert("Pris_kopt_el-"+Pris_kopt_el);*/
+    var  i=1;
+    var j = 5;
+    var sum = 0;
+
+    for (i = 1; i < 50; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var valh = parseInt($("#c-" + j).val()) * Andel_egenanvand_el * Pris_kopt_el;
+            $("#h-" + j).val(valh);
+            //alert(valh);
+            sum = sum + valh;
+        }else{
+            $("#h-" + j).val(0);
+        }
+        j++;
+    }
+    $("#h-55").val(sum);
+}
+
+function calculateI() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
+    var Pris_sald_el = $("#indata-62").val();
+    var  i=1;
+    var j = 5;
+    var sum = 0;
+
+    for (i = 1; i < 50; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var ival = parseInt($("#c-" + j).val()) * (1 - Andel_egenanvand_el) * Pris_sald_el;
+            $("#i-" + j).val(ival);
+            sum = sum + ival;
+        } else {
+            $("#i-" + j).val(0);
+        }
+        j++;
+    }
+    //alert("i-"+sum);
+    $("#i-55").val(sum);
+}
+
+
+function calculateJ() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
+    var Ersattning_fran_natagare = $("#indata-63").val();
+    var  i=1;
+    var j = 5;
+    var sum = 0;
+
+    for (i = 1; i < 50; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var jval = parseInt($("#c-" + j).val()) * Ersattning_fran_natagare * (1 - Andel_egenanvand_el);
+            $("#j-" + j).val(jval);
+            sum = sum + jval;
+        } else {
+            $("#j-" + j).val(0);
+        }
+
+        j++;
+
+    }
+    //alert("j-"+sum);
+    $("#j-55").val(sum);
+
+}
 
 function calculateDEF() {
     var d_55val;
@@ -96,20 +168,17 @@ function calculateDEF() {
 
     var d_4val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
     $("#d-4").val(d_4val);
-    alert("d4-"+d_4val);
     d_55val = d_4val;
 
     if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
         var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-4").val(e_4val);
-        alert("e4-"+e_4val);
         e_55val = e_4val;
         //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
     } else {
         // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
         var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-4").val(e_4val);
-        alert("e4-"+e_4val);
         e_55val = e_4val;
     }
 
@@ -118,29 +187,21 @@ function calculateDEF() {
         //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
         var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-4").val(f_4val);
-        alert("f4-"+f_4val);
         f_55val = f_4val;
     } else {
         //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
         var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-4").val(f_4val);
-        alert("f4-"+f_4val);
         f_55val = f_4val;
     }
 
     //alert($("#d-4").val() + "    " + $("#e-4").val() + "   " + $("#f-4").val());
 
-    for (i = 4; i < 54; i++) {
+    for (i = 1; i < 50; i++) {
         var val1;
         var val2;
         if ((i / Antal_ar_till_byte_av_vaxelriktare <= Antal_byten_av_vaxelriktare) && (i < Ekonomisk_livslangd) && (i / Antal_ar_till_byte_av_vaxelriktare == 1 || i / Antal_ar_till_byte_av_vaxelriktare == 2 || i / Antal_ar_till_byte_av_vaxelriktare == 3)) {
             val1 = -((Kostnad_vaxelriktarbyte * Installerad_effekt)) / Math.pow(1 + Kalkylranta, i);
-            if(i == 15){
-              alert("Kostnad_vaxelriktarbyte"+Kostnad_vaxelriktarbyte);
-              alert("Installerad_effekt"+Installerad_effekt);
-              alert("Kalkylranta"+Kalkylranta)
-              alert("val1"+val1);
-            }
         } else {
             val1 = 0;
         }
@@ -148,9 +209,6 @@ function calculateDEF() {
         if (i == Ekonomisk_livslangd) {
             //(Restvarde-Rivningskostnad)/(1+Kalkylranta)^A5
             val2 = (Restvarde - Rivningskostnad) / Math.pow(1 + Kalkylranta, i);
-            if(i==15){
-              alert(val2);
-            }
         } else {
             val2 = 0;
         }
@@ -174,9 +232,6 @@ function calculateDEF() {
     $("#d-55").val(Math.round(d_55val));
     $("#e-55").val(Math.round(e_55val));
     $("#f-55").val(Math.round(f_55val));
-    alert("d-"+d_55val);
-    alert("e-"+e_55val);
-    alert("f-"+f_55val);
 
 
 }
@@ -210,7 +265,6 @@ function calculateB(){
   }
   //give the sum-cell the value of all the cells together
   $( "#b-55" ).val( Math.round(sum) );
-  alert("b-"+sum);
 }
 
 function calculateC(){
@@ -228,7 +282,9 @@ function calculateC(){
   }
   //give the sum-cell the value of all the cells together
   $( "#c-55" ).val( Math.round(sum) );
-  alert("c-"+sum);
+  calculateH();
+  calculateI();
+  calculateJ();
 }
 
 
@@ -253,7 +309,6 @@ function calculateG(){
   }
   //give the sum-cell the value of all the cells together
   $( "#g-55" ).val( Math.round(sum) );
-  alert("g-"+sum);
 }
 
 function calculateK(){
@@ -287,7 +342,6 @@ function calculateK(){
   
   //var testStr2 = "total K sum=" + sum;
   //alert(testStr2); //test
-  alert("k-"+sum);
 }
 
 function calculateM(){
@@ -327,7 +381,6 @@ function calculateM(){
   
   //var testStr2 = "total M sum=" + sum;
   //alert(testStr2); //test  
-  alert("m-"+sum)
 }
 
 function calculateL(){
@@ -357,7 +410,6 @@ function calculateL(){
   
   //var testStr2 = "total L sum=" + sum;
   //alert(testStr2); //test
-  alert("L-"+sum);
 }
 
 //This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
@@ -552,6 +604,11 @@ $('#calculations').on('keyup', '#indata-24, #indata-67', function(ev){
 //Column D, E, F
 $('#calculations').on('keyup', '#indata-32, #indata-35, #indata-36, #indata-37, #indata-38, #indata-33, #indata-24, #indata-28, #indata-35, #extended-17, #extended-18, #extended-16, #extended-24, #extended-23, #extended-50, #extended-51', function(ev){
   calculateE25();
+});
+
+//Column H, I, J
+$('#calculations').on('keyup', '#indata-60, #indata-61, #indata-62, #indata-63', function(ev){
+  calculateC();
 });
 
 
