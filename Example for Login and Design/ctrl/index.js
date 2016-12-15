@@ -74,11 +74,17 @@ $(document).ready(function(){
 function calculateI41(){
   $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
 }
+
 function calculateI42(){
   $("#indata-42").val(  -Math.round(parseInt($("#e-55").val())/parseInt($("#indata-18").val())) );
 }
+
 function calculateI43(){
   $("#indata-43").val(  -Math.round(parseInt($("#f-55").val())/parseInt($("#indata-18").val())) );
+}
+
+function calculateI54(){
+  $("#indata-54").val(  Math.round(parseInt($("#b-55").val())) );
 }
 
 function calculateI82(){
@@ -380,6 +386,8 @@ function calculateB(){
   }
   //give the sum-cell the value of all the cells together
   $( "#b-55" ).val( Math.round(sum) );
+
+  calculateI54();
 }
 
 function calculateC(){
