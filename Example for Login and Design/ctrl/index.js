@@ -71,7 +71,34 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+function calculateS(){
+  $("#s-4").val(  parseInt($("#r-4").val()) );
 
+    for(var i = 5; i < 55; i++){
+        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+            $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
+    }
+}
+
+function calculateR(){
+  var r55 = 0;
+
+    for(var i = 4; i < 55; i++){
+            $("#r-"+i).val(  parseInt($("#f-"+i).val()) +  parseInt($("#g-"+i).val()) +  parseInt($("#h-"+i).val()) +  parseInt($("#i-"+i).val()) +  parseInt($("#j-"+i).val()) +  parseInt($("#k-"+i).val()) +  parseInt($("#l-"+i).val()) +  parseInt($("#m-"+i).val()) );
+            r55 = r55 +  parseInt($("#r-"+i).val());
+    }
+    $("#r-55").val(r55); 
+    calculateS();
+}
+
+function calculateQ(){
+  $("#q-4").val(  parseInt($("#p-4").val()) );
+
+    for(var i = 5; i < 55; i++){
+        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+            $("#q-"+i).val(  parseInt($("#q-"+(i-1)).val()) +  parseInt($("#p-"+i).val()) );
+    }
+}
 
 function calculateO(){
   $("#o-4").val(  parseInt($("#n-4").val()) );
@@ -118,6 +145,7 @@ function calculateP(){
             p55 = p55 +  parseInt($("#p-"+i).val());
     }
     $("#p-55").val(p55);
+    calculateQ();
 }
 
 //Whenever one of these is calculated, we should calculate c first
@@ -146,6 +174,7 @@ function calculateH() {
     $("#h-55").val(sum);
     calculateN();
     calculateP();
+    calculateR();
 }
 
 function calculateI() {
@@ -170,6 +199,7 @@ function calculateI() {
     $("#i-55").val(sum);
     calculateN();
     calculateP();
+    calculateR();
 }
 
 
@@ -197,6 +227,7 @@ function calculateJ() {
     $("#j-55").val(sum);
     calculateN();
     calculateP();
+    calculateR();
 
 }
 
@@ -289,6 +320,7 @@ function calculateDEF() {
 
     calculateN();
     calculateP();
+    calculateR();
 
 }
 
@@ -367,6 +399,7 @@ function calculateG(){
   $( "#g-55" ).val( Math.round(sum) );
   calculateN();
   calculateP();
+  calculateR();
 }
 
 function calculateK(){
@@ -402,6 +435,7 @@ function calculateK(){
   //alert(testStr2); //test
   calculateN();
   calculateP();
+  calculateR();
 }
 
 function calculateM(){
@@ -443,6 +477,7 @@ function calculateM(){
   //alert(testStr2); //test  
   calculateN();
   calculateP();
+  calculateR();
 }
 
 function calculateL(){
@@ -474,6 +509,7 @@ function calculateL(){
   //alert(testStr2); //test
   calculateN();
   calculateP();
+  calculateR();
 }
 
 //This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
@@ -606,23 +642,34 @@ $('#calculations').on('mouseenter', '', function(ev){
   calculateN();
   calculateO();
   calculateP();
+  calculateQ();
+  calculateR();
+  calculateS();
 
 
-  /*alert($( "#b-55" ).val());
-  alert($( "#c-55" ).val());
-  alert($( "#d-55" ).val());
-  alert($( "#e-55" ).val());
-  alert($( "#f-55" ).val());
-  alert($( "#g-55" ).val());
-  alert($( "#h-55" ).val());
-  alert($( "#i-55" ).val());
-  alert($( "#j-55" ).val());
-  alert($( "#k-55" ).val());
-  alert($( "#l-55" ).val());
-  alert($( "#m-55" ).val());
-  alert($( "#n-55" ).val());
-  alert($( "#o-55" ).val());
-  alert($( "#p-55" ).val());*/
+  /*alert("b-" + $( "#b-55" ).val());
+  alert("c-"+$( "#c-55" ).val());
+  alert("d-"+$( "#d-55" ).val());
+  alert("e-"+$( "#e-55" ).val());
+  alert("f-"+$( "#f-55" ).val());
+  alert("g-"+$( "#g-55" ).val());
+  alert("h-"+$( "#h-55" ).val());
+  alert("i-"+$( "#i-55" ).val());
+  alert("j-"+$( "#j-55" ).val());
+  alert("k-"+$( "#k-55" ).val());
+  alert("l-"+$( "#l-55" ).val());
+  alert("m-"+$( "#m-55" ).val());
+  alert("n-"+$( "#n-55" ).val());
+  alert("o-"+$( "#o-55" ).val());
+  alert("p-"+$( "#p-55" ).val());
+  alert("q-"+$( "#q-55" ).val());
+  alert($( "#q-4" ).val());
+  alert($( "#q-5" ).val());
+  alert($( "#q-6" ).val());
+  alert($( "#q-7" ).val());
+  alert("r-"+$( "#r-55" ).val());
+  //alert($( "#s-32" ).val());*/
+
 
 });
 
@@ -716,6 +763,8 @@ $('#calculations').on('keyup', '#indata-60, #indata-61, #indata-62, #indata-63',
 
 $('#calculations').on('keyup', '#indata-24', function(ev){
   calculateO();
+  calculateQ();
+  calculateS();
 });
 
 
