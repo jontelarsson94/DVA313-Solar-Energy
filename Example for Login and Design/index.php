@@ -264,24 +264,24 @@ require_once "src/action/form.php";
             </div>
             <div ng-repeat="i in getNumber(number) track by $index" ng-if="$index >= 4" id="cashflowDiv">
               <input type="hidden" id="a-{{$index}}" value="{{$index-4}}">
-              <input type="hidden" id="b-{{$index}}">
-              <input type="hidden" id="c-{{$index}}">
-              <input type="hidden" id="d-{{$index}}">
-              <input type="hidden" id="e-{{$index}}">
-              <input type="hidden" id="f-{{$index}}">
-              <input type="hidden" id="g-{{$index}}">
-              <input type="hidden" id="h-{{$index}}">
-              <input type="hidden" id="i-{{$index}}">
-              <input type="hidden" id="j-{{$index}}">
-              <input type="hidden" id="k-{{$index}}">
-              <input type="hidden" id="l-{{$index}}">
-              <input type="hidden" id="m-{{$index}}">
-              <input type="hidden" id="n-{{$index}}">
-              <input type="hidden" id="o-{{$index}}">
-              <input type="hidden" id="p-{{$index}}">
-              <input type="hidden" id="q-{{$index}}">
-              <input type="hidden" id="r-{{$index}}">
-              <input type="hidden" id="s-{{$index}}">
+              <input type="hidden" id="b-{{$index}}" value="0">
+              <input type="hidden" id="c-{{$index}}" value="0">
+              <input type="hidden" id="d-{{$index}}" value="0">
+              <input type="hidden" id="e-{{$index}}" value="0">
+              <input type="hidden" id="f-{{$index}}" value="0">
+              <input type="hidden" id="g-{{$index}}" value="0">
+              <input type="hidden" id="h-{{$index}}" value="0">
+              <input type="hidden" id="i-{{$index}}" value="0">
+              <input type="hidden" id="j-{{$index}}" value="0">
+              <input type="hidden" id="k-{{$index}}" value="0">
+              <input type="hidden" id="l-{{$index}}" value="0">
+              <input type="hidden" id="m-{{$index}}" value="0">
+              <input type="hidden" id="n-{{$index}}" value="0">
+              <input type="hidden" id="o-{{$index}}" value="0">
+              <input type="hidden" id="p-{{$index}}" value="0">
+              <input type="hidden" id="q-{{$index}}" value="0">
+              <input type="hidden" id="r-{{$index}}" value="0">
+              <input type="hidden" id="s-{{$index}}" value="0">
             </div>
     </section>
 

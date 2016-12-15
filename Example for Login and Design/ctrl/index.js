@@ -72,6 +72,54 @@ $(document).ready(function(){
 });
 
 
+
+function calculateO(){
+  $("#o-4").val(  parseInt($("#n-4").val()) );
+
+    for(var i = 5; i < 55; i++){
+        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+            $("#o-"+i).val(  parseInt($("#o-"+(i-1)).val()) +  parseInt($("#n-"+i).val()) );
+    }
+}
+
+//Must be called every time D, G, H, I, J, K, L or M is calculated
+function calculateN(){
+  var n55 = 0;
+
+    for(var i = 4; i < 55; i++){
+            $("#n-"+i).val(Math.round(  parseInt($("#d-"+i).val()))
+                          +  Math.round(parseInt($("#g-"+i).val()))
+                          +  Math.round(parseInt($("#h-"+i).val()))
+                          +  Math.round(parseInt($("#i-"+i).val()))
+                          +  Math.round(parseInt($("#j-"+i).val()))
+                          +  Math.round(parseInt($("#k-"+i).val()))
+                          +  Math.round(parseInt($("#l-"+i).val()))
+                          +  Math.round(parseInt($("#m-"+i).val())));
+            n55 = n55 +  Math.round(parseInt($("#n-"+i).val()));
+    }
+    $("#n-55").val(n55);
+    //alert("n55-" + n55);
+    calculateO();
+
+}
+
+function calculateP(){
+  var p55 = 0;
+
+    for(var i = 4; i < 55; i++){
+            $("#p-"+i).val(  parseInt($("#e-"+i).val())
+                          +  parseInt($("#g-"+i).val())
+                          +  parseInt($("#h-"+i).val())
+                          +  parseInt($("#i-"+i).val())
+                          +  parseInt($("#j-"+i).val())
+                          +  parseInt($("#k-"+i).val())
+                          +  parseInt($("#l-"+i).val())
+                          +  parseInt($("#m-"+i).val()) );
+            p55 = p55 +  parseInt($("#p-"+i).val());
+    }
+    $("#p-55").val(p55);
+}
+
 //Whenever one of these is calculated, we should calculate c first
 function calculateH() {
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
@@ -96,6 +144,8 @@ function calculateH() {
         j++;
     }
     $("#h-55").val(sum);
+    calculateN();
+    calculateP();
 }
 
 function calculateI() {
@@ -118,6 +168,8 @@ function calculateI() {
     }
     //alert("i-"+sum);
     $("#i-55").val(sum);
+    calculateN();
+    calculateP();
 }
 
 
@@ -143,6 +195,8 @@ function calculateJ() {
     }
     //alert("j-"+sum);
     $("#j-55").val(sum);
+    calculateN();
+    calculateP();
 
 }
 
@@ -233,6 +287,8 @@ function calculateDEF() {
     $("#e-55").val(Math.round(e_55val));
     $("#f-55").val(Math.round(f_55val));
 
+    calculateN();
+    calculateP();
 
 }
 
@@ -309,6 +365,8 @@ function calculateG(){
   }
   //give the sum-cell the value of all the cells together
   $( "#g-55" ).val( Math.round(sum) );
+  calculateN();
+  calculateP();
 }
 
 function calculateK(){
@@ -342,6 +400,8 @@ function calculateK(){
   
   //var testStr2 = "total K sum=" + sum;
   //alert(testStr2); //test
+  calculateN();
+  calculateP();
 }
 
 function calculateM(){
@@ -381,6 +441,8 @@ function calculateM(){
   
   //var testStr2 = "total M sum=" + sum;
   //alert(testStr2); //test  
+  calculateN();
+  calculateP();
 }
 
 function calculateL(){
@@ -410,6 +472,8 @@ function calculateL(){
   
   //var testStr2 = "total L sum=" + sum;
   //alert(testStr2); //test
+  calculateN();
+  calculateP();
 }
 
 //This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
@@ -516,15 +580,50 @@ function calculateI19(){
 $('#calculations').on('mouseenter', '', function(ev){
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
-
   //calculating p19
   calculateI19();
+  calculateE25();
+  calculateE52();
+  calculateI25();
+  calculateI49();
+  calculateE46AndI48();
 
   //calculating e38 and p48
   calculateE38AndI47();
 
   //Calculating e46 and p48
   calculateE46AndI48();
+  calculateB();
+  calculateC();
+  calculateDEF();
+  calculateG();
+  calculateH();
+  calculateI();
+  calculateJ();
+  calculateK();
+  calculateL();
+  calculateM();
+  calculateN();
+  calculateO();
+  calculateP();
+
+
+  /*alert($( "#b-55" ).val());
+  alert($( "#c-55" ).val());
+  alert($( "#d-55" ).val());
+  alert($( "#e-55" ).val());
+  alert($( "#f-55" ).val());
+  alert($( "#g-55" ).val());
+  alert($( "#h-55" ).val());
+  alert($( "#i-55" ).val());
+  alert($( "#j-55" ).val());
+  alert($( "#k-55" ).val());
+  alert($( "#l-55" ).val());
+  alert($( "#m-55" ).val());
+  alert($( "#n-55" ).val());
+  alert($( "#o-55" ).val());
+  alert($( "#p-55" ).val());*/
+
 });
 
 //calculating p19, p49
@@ -609,6 +708,14 @@ $('#calculations').on('keyup', '#indata-32, #indata-35, #indata-36, #indata-37, 
 //Column H, I, J
 $('#calculations').on('keyup', '#indata-60, #indata-61, #indata-62, #indata-63', function(ev){
   calculateC();
+});
+
+$('#calculations').on('keyup', '#indata-60, #indata-61, #indata-62, #indata-63', function(ev){
+  calculateC();
+});
+
+$('#calculations').on('keyup', '#indata-24', function(ev){
+  calculateO();
 });
 
 
