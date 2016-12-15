@@ -74,6 +74,113 @@ $(document).ready(function(){
     });
 });
 
+function calculateDEF() {
+    var d_55val;
+    var e_55val;
+    var f_55val;
+    var i = 1;
+    var j = 5;
+    var Investeringskostnad = parseInt($("#indata-32").val());
+    var Installerad_effekt = parseInt($("#indata-18").val());
+    var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
+    var Tak_ROT_avdrag = parseInt($("#extended-18").val());
+    var Investeringsstod = parseInt($("#indata-33").val()) / 100;
+    var Tak_Investeringsstod = parseInt($("#extended-16").val());
+    var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
+    var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Kostnad_vaxelriktarbyte = parseInt($("#extended-25").val());
+    var Kalkylranta = parseInt($("#indata-28").val()) / 100;
+    var Restvarde = parseInt($("#extended-50").val());
+    var Rivningskostnad = parseInt($("#extended-51").val());
+
+    var d_4val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+    $("#d-4").val(d_4val);
+    alert("d4-"+d_4val);
+    d_55val = d_4val;
+
+    if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
+        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#e-4").val(e_4val);
+        alert("e4-"+e_4val);
+        e_55val = e_4val;
+        //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
+    } else {
+        // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
+        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#e-4").val(e_4val);
+        alert("e4-"+e_4val);
+        e_55val = e_4val;
+    }
+
+    //Investeringskostnad*Installerad_effekt*Investeringsstod<=Tak_Investeringsstod
+    if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
+        //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
+        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#f-4").val(f_4val);
+        alert("f4-"+f_4val);
+        f_55val = f_4val;
+    } else {
+        //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
+        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#f-4").val(f_4val);
+        alert("f4-"+f_4val);
+        f_55val = f_4val;
+    }
+
+    //alert($("#d-4").val() + "    " + $("#e-4").val() + "   " + $("#f-4").val());
+
+    for (i = 4; i < 54; i++) {
+        var val1;
+        var val2;
+        if ((i / Antal_ar_till_byte_av_vaxelriktare <= Antal_byten_av_vaxelriktare) && (i < Ekonomisk_livslangd) && (i / Antal_ar_till_byte_av_vaxelriktare == 1 || i / Antal_ar_till_byte_av_vaxelriktare == 2 || i / Antal_ar_till_byte_av_vaxelriktare == 3)) {
+            val1 = -((Kostnad_vaxelriktarbyte * Installerad_effekt)) / Math.pow(1 + Kalkylranta, i);
+            if(i == 15){
+              alert("Kostnad_vaxelriktarbyte"+Kostnad_vaxelriktarbyte);
+              alert("Installerad_effekt"+Installerad_effekt);
+              alert("Kalkylranta"+Kalkylranta)
+              alert("val1"+val1);
+            }
+        } else {
+            val1 = 0;
+        }
+
+        if (i == Ekonomisk_livslangd) {
+            //(Restvarde-Rivningskostnad)/(1+Kalkylranta)^A5
+            val2 = (Restvarde - Rivningskostnad) / Math.pow(1 + Kalkylranta, i);
+            if(i==15){
+              alert(val2);
+            }
+        } else {
+            val2 = 0;
+        }
+
+        var sum = val1 + val2;
+        //alert(sum);
+        d_55val = d_55val + sum;
+        e_55val = e_55val + sum;
+        f_55val = f_55val + sum;
+
+        var value = Math.round(val1 + val2);
+        $("#d-" + j).val(value);
+        $("#e-" + j).val(value);
+        $("#f-" + j).val(value);
+        //if (value != 0) { alert(i); }
+
+        j++;
+    }
+
+
+    $("#d-55").val(Math.round(d_55val));
+    $("#e-55").val(Math.round(e_55val));
+    $("#f-55").val(Math.round(f_55val));
+    alert("d-"+d_55val);
+    alert("e-"+e_55val);
+    alert("f-"+f_55val);
+
+
+}
+
 function calculateB(){
   //give different variables the value that is in that input field
   //If the cell is in "indata & resultat", then the id will be #indata-row
@@ -253,75 +360,51 @@ function calculateL(){
   alert("L-"+sum);
 }
 
-$('#calculations').on('mouseenter', '', function(ev){
-  $('[data-toggle="tooltip"]').tooltip();
-  $('[data-toggle="popover"]').popover();
-
-  //calculating p19
+//This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
+function calculateE25(){
   var p18 = $( "#indata-18" ).val();
-  var e12 = $( "#extended-12" ).val();
-  var result = p18/(e12*0.01);
-  $("#indata-19").val(Math.round(result));
+  var choosen = $("input[name=optradio]:checked").val()
+  var result;
+  if(choosen == 2){
+    result = 1000;
+  }
+  else{
+    result = 1000*1.25;
+  }
+  if(choosen == 2 && p18 <= 100){
+    result = 1500;
+  }
+  else if(p18 <= 100){
+    result = 1500*1.25;
+  }
+  if(choosen == 2 && p18 <= 30){
+    result = 2000;
+  }
+  else if(p18 <= 30){
+    result = 2000*1.25;
+  }
+  if(choosen == 2 && p18 <= 10){
+    result = 3000;
+  }
+  else if(p18 <= 10){
+    result = 3000*1.25;
+  }
+  $( "#extended-25" ).val( Math.round(result) );
 
-  //calculating e38 and p48
-  var e30 = $( "#extended-30" ).val();
-  var e31 = $( "#extended-31" ).val();
-  var e32 = $( "#extended-32" ).val();
-  var e33 = $( "#extended-33" ).val();
-  var e34 = $( "#extended-34" ).val();
-  var e35 = $( "#extended-35" ).val();
-  var e36 = $( "#extended-36" ).val();
-  var e37 = $( "#extended-37" ).val();
-  result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
-  $( "#extended-38" ).val(result );
-  $( "#indata-47" ).val(Math.round(result) );
+  calculateDEF();
+}
 
-  //Calculating e46 and p48
-  var e41 = $( "#extended-41" ).val();
-  var e42 = $( "#extended-42" ).val();
-  var e43 = $( "#extended-43" ).val();
-  var e44 = $( "#extended-44" ).val();
-  var e45 = $( "#extended-45" ).val();
-  result = +e41 + +e42 + +e43 + +e44 + +e45;
-  $( "#extended-46" ).val(Math.round(result) );
-  $( "#indata-48" ).val(Math.round(result) );
-});
-
-//calculating p19, p49
-$('#calculations').on('keyup', '#indata-18', '#extended-12', function(ev){
+function calculateE52(){
+  var e50 = $( "#extended-50" ).val();
+  var e51 = $( "#extended-51" ).val();
+  var p28 = $( "#indata-28" ).val();
+  var p24 = $( "#indata-24" ).val();
   var p18 = $( "#indata-18" ).val();
-  var e12 = $( "#extended-12" ).val();
-  var result = p18/(e12*0.01);
-  $( "#indata-19" ).val( Math.round(result) );
-  var p47 = $( "#indata-47" ).val();
-  var p48 = $( "#indata-48" ).val();
-  result = (+p47 + +p48)/p18
-  $( "#indata-49" ).val( Math.round(result) );
-});
+  var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
+  $( "#extended-52" ).val( Math.round(result) );
+}
 
-//calculating e38, p47, p49
-$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
-  var e30 = $( "#extended-30" ).val();
-  var e31 = $( "#extended-31" ).val();
-  var e32 = $( "#extended-32" ).val();
-  var e33 = $( "#extended-33" ).val();
-  var e34 = $( "#extended-34" ).val();
-  var e35 = $( "#extended-35" ).val();
-  var e36 = $( "#extended-36" ).val();
-  var e37 = $( "#extended-37" ).val();
-  var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
-  $( "#extended-38" ).val(Math.round(result) );
-  $( "#indata-47" ).val(Math.round(result) );
-
-  var p18 = $( "#indata-18" ).val();
-  var p47 = $( "#indata-47" ).val();
-  var p48 = $( "#indata-48" ).val();
-  result = (+p47 + +p48)/p18
-  $( "#indata-49" ).val( Math.round(result) );
-});
-
-//calculating e46, p48, p49
-$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+function calculateI25(){
   var e41 = $( "#extended-41" ).val();
   var e42 = $( "#extended-42" ).val();
   var e43 = $( "#extended-43" ).val();
@@ -336,80 +419,91 @@ $('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #exten
   var p48 = $( "#indata-48" ).val();
   result = (+p47 + +p48)/p18
   $( "#indata-49" ).val( Math.round(result) );
+}
+
+function calculateI49(){
+  var p18 = $( "#indata-18" ).val();
+  var p47 = $( "#indata-47" ).val();
+  var p48 = $( "#indata-48" ).val();
+  result = (+p47 + +p48)/p18
+  $( "#indata-49" ).val( Math.round(result) );
+}
+
+function calculateE38AndI47(){
+  var e30 = $( "#extended-30" ).val();
+  var e31 = $( "#extended-31" ).val();
+  var e32 = $( "#extended-32" ).val();
+  var e33 = $( "#extended-33" ).val();
+  var e34 = $( "#extended-34" ).val();
+  var e35 = $( "#extended-35" ).val();
+  var e36 = $( "#extended-36" ).val();
+  var e37 = $( "#extended-37" ).val();
+  var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
+  $( "#extended-38" ).val(Math.round(result) );
+  $( "#indata-47" ).val(Math.round(result) );
+}
+
+function calculateE46AndI48(){
+  var e41 = $( "#extended-41" ).val();
+  var e42 = $( "#extended-42" ).val();
+  var e43 = $( "#extended-43" ).val();
+  var e44 = $( "#extended-44" ).val();
+  var e45 = $( "#extended-45" ).val();
+  result = +e41 + +e42 + +e43 + +e44 + +e45;
+  $( "#extended-46" ).val(Math.round(result) );
+  $( "#indata-48" ).val(Math.round(result) );
+}
+
+function calculateI19(){
+  var p18 = $( "#indata-18" ).val();
+  var e12 = $( "#extended-12" ).val();
+  var result = p18/(e12*0.01);
+  $( "#indata-19" ).val( Math.round(result) );
+}
+
+$('#calculations').on('mouseenter', '', function(ev){
+  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="popover"]').popover();
+
+  //calculating p19
+  calculateI19();
+
+  //calculating e38 and p48
+  calculateE38AndI47();
+
+  //Calculating e46 and p48
+  calculateE46AndI48();
+});
+
+//calculating p19, p49
+$('#calculations').on('keyup', '#indata-18', '#extended-12', function(ev){
+  calculateI19();
+  calculateI49();
+});
+
+//calculating e38, p47, p49
+$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
+  calculateE38AndI47();
+  calculateI49();
+});
+
+//calculating e46, p48, p49
+$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+  calculateI25();
 });
 
 $('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
-  var e50 = $( "#extended-50" ).val();
-  var e51 = $( "#extended-51" ).val();
-  var p28 = $( "#indata-28" ).val();
-  var p24 = $( "#indata-24" ).val();
-  var p18 = $( "#indata-18" ).val();
-  var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
-  $( "#extended-52" ).val( Math.round(result) );
+  calculateE52();
 });
 
 $('#calculations').on('keyup', '#indata-18', function(ev){
-  var p18 = $( "#indata-18" ).val();
-  var choosen = $("input[name=optradio]:checked").val()
-  var result;
-  if(choosen == 2){
-    result = 1000;
-  }
-  else{
-    result = 1000*1.25;
-  }
-  if(choosen == 2 && p18 <= 100){
-    result = 1500;
-  }
-  else if(p18 <= 100){
-    result = 1500*1.25;
-  }
-  if(choosen == 2 && p18 <= 30){
-    result = 2000;
-  }
-  else if(p18 <= 30){
-    result = 2000*1.25;
-  }
-  if(choosen == 2 && p18 <= 10){
-    result = 3000;
-  }
-  else if(p18 <= 10){
-    result = 3000*1.25;
-  }
-  $( "#extended-25" ).val( Math.round(result) );
+  calculateE25();
 });
 
 
 
 $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
-  var p18 = $( "#indata-18" ).val();
-  var choosen = $("input[name=optradio]:checked").val()
-  var result;
-  if(choosen == 2){
-    result = 1000;
-  }
-  else{
-    result = 1000*1.25;
-  }
-  if(choosen == 2 && p18 <= 100){
-    result = 1500;
-  }
-  else if(p18 <= 100){
-    result = 1500*1.25;
-  }
-  if(choosen == 2 && p18 <= 30){
-    result = 2000;
-  }
-  else if(p18 <= 30){
-    result = 2000*1.25;
-  }
-  if(choosen == 2 && p18 <= 10){
-    result = 3000;
-  }
-  else if(p18 <= 10){
-    result = 3000*1.25;
-  }
-  $( "#extended-25" ).val( Math.round(result) );
+  calculateE25();
 });
 
 //make B, C and G
@@ -439,20 +533,25 @@ $('#calculations').on('keyup', '#indata-24, #indata-28, #extended-30, #extended-
 
 //column K 
 //(when changes are made to column A and C then you need to call this function as well, at least C column) <====== IMPORTANT
-$('#calculations').on('change', '#extended-64, #indata-65, #indata-66, #indata-64', function(ev){
+$('#calculations').on('keyup', '#extended-64, #indata-65, #indata-66, #indata-64', function(ev){
   calculateK();
 });
 
 //column M
 //(when changes are made to column A and C then you need to call this function as well, at least C column) <====== IMPORTANT
-$('#calculations').on('change', '#indata-24, #indata-68, #indata-60, #extended-65, #extended-66, #indata-28', function(ev){
+$('#calculations').on('keyup', '#indata-24, #indata-68, #indata-60, #extended-65, #extended-66, #indata-28', function(ev){
   calculateM();
 });
 
 //column L 
 //(when changes are made to column A and C then you need to call this function as well, at least C column) <====== IMPORTANT
-$('#calculations').on('change', '#indata-24, #indata-67', function(ev){
+$('#calculations').on('keyup', '#indata-24, #indata-67', function(ev){
   calculateL();
+});
+
+//Column D, E, F
+$('#calculations').on('keyup', '#indata-32, #indata-35, #indata-36, #indata-37, #indata-38, #indata-33, #indata-24, #indata-28, #indata-35, #extended-17, #extended-18, #extended-16, #extended-24, #extended-23, #extended-50, #extended-51', function(ev){
+  calculateE25();
 });
 
 
