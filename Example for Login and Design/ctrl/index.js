@@ -466,19 +466,19 @@ function calculateK(){
   //loop through the necessary ids for that column (row 5-54)
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val(); //improvement (?) - put declaration of "currentA", "currentC", "result" before the for-loop, to avoid creating several different variables?
-  var currentC = $( "#c-" + i ).val(); 
+    var currentC = $( "#c-" + i ).val(); 
     var result = 0; 
     
     if(+e64 >= +currentA)
       //perform the calculation and save the result in a variable
       result = currentC * p65 * (1-p66) * p64;
-  //else result = 0
+    //else result = 0
       
     $( "#k-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-  sum = sum + result; //increase the sum   
+    sum = sum + result; //increase the sum   
   
-  //var testStr1 = "result of K" + i + "=" + result;
-  //alert(testStr1); //test
+    //var testStr1 = "result of K" + i + "=" + result;
+    //alert(testStr1); //test
   }
   
   $( "#k-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum 
@@ -504,23 +504,23 @@ function calculateM(){
   //loop through the necessary ids for that column (row 5-54)
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val();
-  var currentC = $( "#c-" + i ).val();
-  var result = 0;
+    var currentC = $( "#c-" + i ).val();
+    var result = 0;
   
-  //perform calculations if necessary
-  if(+p24 >= +currentA && +p68 >= +currentA) {
-    if((currentC * (1-p60) * e65) > (+e66))
-      result = Math.round(18000 / Math.pow((1+p28), currentA));
-    else
-      result = Math.round(currentC * (1-p60) * e65);
-  }
-  //else result = 0;
+    //perform calculations if necessary
+    if(+p24 >= +currentA && +p68 >= +currentA) {
+      if((currentC * (1-p60) * e65) > (+e66))
+        result = Math.round(18000 / Math.pow((1+p28), currentA));
+      else
+        result = Math.round(currentC * (1-p60) * e65);
+    }
+    //else result = 0;
     
     $( "#m-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-  sum = sum + result; //increase the sum  
+    sum = sum + result; //increase the sum  
   
-  //var testStr1 = "result of M" + i + "=" + result;
-  //alert(testStr1); //test
+    //var testStr1 = "result of M" + i + "=" + result;
+    //alert(testStr1); //test
   }
 
   $( "#m-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum 
@@ -541,18 +541,18 @@ function calculateL(){
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val();
     var currentC = $( "#c-" + i ).val();
-  var result = 0;
+    var result = 0;
   
-  if(+p24 >= +currentA)
-    //perform the calculation and save the result in a variable
-    result = currentC * p67;
-  //else result = 0
+    if(+p24 >= +currentA)
+      //perform the calculation and save the result in a variable
+      result = currentC * p67;
+    //else result = 0
   
     $( "#l-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-  sum = sum + result; //increase the sum  
+    sum = sum + result; //increase the sum  
   
-  //var testStr1 = "result of L" + i + "=" + result;
-  //alert(testStr1); //test
+    //var testStr1 = "result of L" + i + "=" + result;
+    //alert(testStr1); //test
   }
   
   $( "#l-55" ).val( Math.round(sum) );
