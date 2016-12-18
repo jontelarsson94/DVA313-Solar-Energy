@@ -729,7 +729,7 @@ function calculateE38AndI47(){
   $( "#indata-47" ).val(Math.round(result) );
 
   //alert(result);
-
+  calculateI49();
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
@@ -745,6 +745,7 @@ function calculateE46AndI48(){
   $( "#extended-46" ).val(Math.round(result) );
   $( "#indata-48" ).val(Math.round(result) );
 
+  calculateI49();
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
@@ -765,14 +766,11 @@ $('#calculations').on('mouseenter', '', function(ev){
   calculateE25();
   calculateE52();
   calculateI25();
-  calculateI49();
   calculateE46AndI48();
 
   //calculating e38 and p48
   calculateE38AndI47();
-
-  //Calculating e46 and p48
-  calculateE46AndI48();
+  calculateI49();
   calculateB();
   calculateC();
   calculateDEF();
@@ -829,14 +827,11 @@ $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   calculateE25();
   calculateE52();
   calculateI25();
-  calculateI49();
   calculateE46AndI48();
 
   //calculating e38 and p48
   calculateE38AndI47();
-
-  //Calculating e46 and p48
-  calculateE46AndI48();
+  calculateI49();
   calculateB();
   calculateC();
   calculateDEF();
@@ -937,7 +932,6 @@ $('#calculations').on('keyup', '#indata-41, #indata-42, #indata-43, #indata-28, 
 $('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37, #extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
   calculateE38AndI47();
   calculateE46AndI48();
-  calculateI49();
 });
 
 
