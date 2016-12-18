@@ -812,34 +812,8 @@ $('#calculations').on('mouseenter', '', function(ev){
 
 });
 
-//calculating p19, p49
-$('#calculations').on('keyup', '#indata-18', '#extended-12', function(ev){
-  calculateI19();
-  calculateI49();
-});
-
-//calculating e38, p47, p49
-$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
-  calculateE38AndI47();
-  calculateI49();
-});
-
-//calculating e46, p48, p49
-$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
-  calculateI25();
-});
-
-$('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
-  calculateE52();
-});
-
-$('#calculations').on('keyup', '#indata-18', function(ev){
-  calculateE25();
-});
-
-
-
-$('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
+$('#buttonArea').on('mouseleave', '', function(ev){
+  //calculating p19
   calculateI19();
   calculateE25();
   calculateE52();
@@ -869,6 +843,39 @@ $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
+
+
+});
+
+//calculating p19, p49
+$('#calculations').on('keyup', '#indata-18', '#extended-12', function(ev){
+  calculateI19();
+  calculateI49();
+});
+
+//calculating e38, p47, p49
+$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37', function(ev){
+  calculateE38AndI47();
+  calculateI49();
+});
+
+//calculating e46, p48, p49
+$('#calculations').on('keyup', '#extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+  calculateI25();
+});
+
+$('#calculations').on('keyup', '#extended-50, #extended-51, #indata-28, #indata-24, #indata-18', function(ev){
+  calculateE52();
+});
+
+$('#calculations').on('keyup', '#indata-18', function(ev){
+  calculateE25();
+});
+
+
+
+$('#calculations').on('click', '#personToggle, #companyToggle', function(ev){
+    
 });
 
 //make B, C and G

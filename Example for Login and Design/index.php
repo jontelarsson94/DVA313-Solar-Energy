@@ -181,7 +181,7 @@ require_once "src/action/form.php";
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()"></br>
                   <div>
-                    <div data-toggle="buttons">
+                    <div data-toggle="buttons" id="buttonArea">
                       <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
                         <label class="btn btn-primary"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
                       </div>
