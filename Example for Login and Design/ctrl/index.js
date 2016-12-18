@@ -85,6 +85,80 @@ $(document).ready(function(){
 *  Indata-94                   *
 ********************************/
 
+
+
+//calculate production cost for the cell D72 
+//in the tab "dina indata & result" in the given excel file
+function calculateProductionCostD72() {
+  
+  //start the calculation and save the result in a variable - send in "41" for cell D41
+  var productionCostD72 = calculateProductionCost("41");
+  
+  //assign the result to the correct input box on the website
+  $( "#indata-72" ).val( productionCostD72 );
+}
+
+
+//calculate production cost for the cell D73 
+//in the tab "dina indata & result" in the given excel file
+function calculateProductionCostD73() {
+  
+  //start the calculation and save the result in a variable - send in "42" for cell D42
+  var productionCostD73 = calculateProductionCost("42");
+  
+  //assign the result to the correct input box on the website
+  $( "#indata-73" ).val( productionCostD73 );
+}
+
+
+//calculate production cost for the cell D74 
+//in the tab "dina indata & result" in the given excel file
+function calculateProductionCostD74() {
+  
+  //start the calculation and save the result in a variable - send in "43" for cell D43
+  var productionCostD74 = calculateProductionCost("43");
+  
+  //assign the result to the correct input box on the website
+  $( "#indata-74" ).val( productionCostD74 );
+}
+
+
+//calculate the production cost
+//(you have to send in either "41", "42" or "43" to this function)
+function calculateProductionCost(X){
+  
+  //some error handling if you do not send in "41", "42" or "43" to the function:
+  if(X != "41" && X != "42" && X != "43"){
+    console.log("ERROR: input parameter to the function 'calculateProductionCost' is not '41', '42' or '43'");
+    return 0;
+  }
+  
+  //300/(1+.0938)^1 + 300/(1+.0938)^2 + 300/(1+.0938)^3
+  //(9.38, 3, 300)
+  //(D28, D24, -D49)
+  //values from the tab "indata & result" in the given excel file:
+  var inDX = parseInt($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43 
+  var inD28 = parseInt($( "#indata-28" ).val()) / 100;
+  var inD24 = parseInt($( "#indata-24" ).val());
+  var inD49 = parseInt($( "#indata-49" ).val());
+  var inD18 = parseInt($( "#indata-18" ).val());
+  //value from the tab "grundläggande antaganden" in the given excel file:
+  var extD52 = parseInt($( "#extended-52" ).val());
+  //value from the tab "kassaflöden" in the given excel file:
+  var cashflowC55 = parseInt($( "#c-55" ).val());
+
+  //for i = 1; i <= D24; i++{
+
+  //-('Grundläggande antaganden'!D52)/(1+D28)^D24)/(Kassaflöden!C55/D18)
+  
+  //perform the calculation for production cost
+  //"inD49 / Math.pow((1 + inD28), inD24))" - same formula as "nuvärde år n = A / (1+kalkylränta)^n":
+  var productionCost = (inDX + (inD49 / Math.pow((1 + inD28), inD24)) - (extD52) / (Math.pow((1 + inD28), inD24))) / (cashflowC55 / inD18);
+
+  //return the calculated production cost but with only 3 decimals:
+  return (productionCost.toFixed(3));
+}
+
 function calculateI41(){
   $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
 }
@@ -422,6 +496,9 @@ function calculateC(){
   calculateH();
   calculateI();
   calculateJ();
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 }
 
 
@@ -631,8 +708,13 @@ function calculateI49(){
   var p48 = $( "#indata-48" ).val();
   result = (+p47 + +p48)/p18
   $( "#indata-49" ).val( Math.round(result) );
+
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 }
 
+//This doesnt work the first time we enter with mouse, but second time it works?
 function calculateE38AndI47(){
   var e30 = $( "#extended-30" ).val();
   var e31 = $( "#extended-31" ).val();
@@ -645,6 +727,12 @@ function calculateE38AndI47(){
   var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
   $( "#extended-38" ).val(Math.round(result) );
   $( "#indata-47" ).val(Math.round(result) );
+
+  //alert(result);
+
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 }
 
 function calculateE46AndI48(){
@@ -656,6 +744,10 @@ function calculateE46AndI48(){
   result = +e41 + +e42 + +e43 + +e44 + +e45;
   $( "#extended-46" ).val(Math.round(result) );
   $( "#indata-48" ).val(Math.round(result) );
+
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 }
 
 function calculateI19(){
@@ -697,6 +789,10 @@ $('#calculations').on('mouseenter', '', function(ev){
   calculateQ();
   calculateR();
   calculateS();
+
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 
 
 });
@@ -757,6 +853,10 @@ $('#calculations').on('click', '#radioPerson, #radioCompany', function(ev){
   calculateQ();
   calculateR();
   calculateS();
+
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
 });
 
 //make B, C and G
@@ -826,6 +926,18 @@ $('#calculations').on('keyup', '#indata-18', function(ev){
   calculateI41();
   calculateI42();
   calculateI43();
+});
+
+$('#calculations').on('keyup', '#indata-41, #indata-42, #indata-43, #indata-28, #indata-24, #indata-49, #indata-18, #extended-52', function(ev){
+  calculateProductionCostD72();
+  calculateProductionCostD73();
+  calculateProductionCostD74();
+});
+
+$('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37, #extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
+  calculateE38AndI47();
+  calculateE46AndI48();
+  calculateI49();
 });
 
 

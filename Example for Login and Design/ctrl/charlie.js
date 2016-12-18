@@ -1,4 +1,4 @@
-
+/*
 
 //calculate production cost for the cell D72 
 //in the tab "dina indata & result" in the given excel file
