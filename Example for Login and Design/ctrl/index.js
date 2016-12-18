@@ -122,6 +122,21 @@ function calculateProductionCostD74() {
   $( "#indata-74" ).val( productionCostD74 );
 }
 
+function calcPv(rate, nper, pmt) {
+
+  var pv_value = 0;
+  var x = 0;
+  var y = 0;
+
+  if ( rate == 0 ) { // Interest rate is 0
+    pv_value = -((pmt * nper));
+  } else {
+    x = Math.pow(1 + rate, -nper); 
+    y = Math.pow(1 + rate, nper);
+    pv_value = - ( x * ( rate - pmt + y * pmt )) / rate;
+  }
+  return (pv_value);
+}
 
 //calculate the production cost
 //(you have to send in either "41", "42" or "43" to this function)
@@ -149,12 +164,14 @@ function calculateProductionCost(X){
 
   //for i = 1; i <= D24; i++{
 
+  var pv = calcPv(inD28, inD24, -inD49);
+
   //-('Grundläggande antaganden'!D52)/(1+D28)^D24)/(Kassaflöden!C55/D18)
   
   //perform the calculation for production cost
+  //(D41+NUVÄRDE(D28;D24;-D49)-('Grundläggande antaganden'!D52)/(1+D28)^D24)/(Kassaflöden!C55/D18)
   //"inD49 / Math.pow((1 + inD28), inD24))" - same formula as "nuvärde år n = A / (1+kalkylränta)^n":
-  var productionCost = (inDX + (inD49 / Math.pow((1 + inD28), inD24)) - (extD52) / (Math.pow((1 + inD28), inD24))) / (cashflowC55 / inD18);
-
+  var productionCost = (inDX + (pv) - (extD52) / (Math.pow((1 + inD28), inD24))) / (cashflowC55 / inD18);
   //return the calculated production cost but with only 3 decimals:
   return (productionCost.toFixed(3));
 }
