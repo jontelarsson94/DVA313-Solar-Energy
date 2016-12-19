@@ -192,7 +192,7 @@ function calculateI55(){
     sum = sum + currentB;
   }
   
-  sum = (Math.round(sum)).toLocaleString(); //get spaces between the numbers (easier to read), and round the result. 
+  sum = Math.round(sum); //get spaces between the numbers (easier to read), and round the result. 
   
   $( "#indata-55" ).val(sum);
 }
