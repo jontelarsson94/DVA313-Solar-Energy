@@ -1,7 +1,7 @@
 
 //calculate cell indata-55
 //this should be called when extended-64, a-4 to a-54 (cashflow - you may decide if you want this too), b-4 to b-54 (cashflow) are changed
-$('#calculations').on('change', '#extended-64', function(ev){
+/*$('#calculations').on('change', '#extended-64', function(ev){
   
   var e64 = parseInt($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
@@ -23,7 +23,7 @@ $('#calculations').on('change', '#extended-64', function(ev){
   $( "#indata-55" ).val(sum);
   
   alert("indata-55 = " + sum); //test
-});
+});*/
 
 
 

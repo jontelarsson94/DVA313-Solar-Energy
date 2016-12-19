@@ -176,6 +176,27 @@ function calculateProductionCost(X){
   return (productionCost.toFixed(3));
 }
 
+function calculateI55(){
+  var e64 = parseInt($( "#extended-64" ).val());
+  var sum = 0; //set sum counter to 0
+  var currentA, currentB = 0;
+   
+  //loop through row 4-54 in column A and B of the cashflow table
+  for(var i = 4; i < 55; i++){
+  //retrieve the current A and B cell's value
+    currentA = parseInt($( "#a-" + i ).val());
+    currentB = parseInt($( "#b-" + i ).val());
+  
+  //if currentA <= "elcertifikatår" then add currentB to the sum
+  if(currentA <= e64) 
+    sum = sum + currentB;
+  }
+  
+  sum = (Math.round(sum)).toLocaleString(); //get spaces between the numbers (easier to read), and round the result. 
+  
+  $( "#indata-55" ).val(sum);
+}
+
 function calculateI41(){
   $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
 }
@@ -493,6 +514,7 @@ function calculateB(){
   $( "#b-55" ).val( Math.round(sum) );
 
   calculateI54();
+  calculateI55();
 }
 
 function calculateC(){
@@ -956,6 +978,10 @@ $('#calculations').on('keyup', '#indata-41, #indata-42, #indata-43, #indata-28, 
 $('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #extended-33, #extended-34, #extended-35, #extended-36, #extended-37, #extended-41, #extended-42, #extended-43, #extended-44, #extended-45', function(ev){
   calculateE38AndI47();
   calculateE46AndI48();
+});
+
+$('#calculations').on('change', '#extended-64', function(ev){
+  calculateI55();
 });
 
 
