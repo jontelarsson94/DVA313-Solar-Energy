@@ -1,4 +1,35 @@
-/*
+
+//calculate cell indata-55
+//this should be called when extended-64, a-4 to a-54 (cashflow - you may decide if you want this too), b-4 to b-54 (cashflow) are changed
+$('#calculations').on('change', '#extended-64', function(ev){
+  
+  var e64 = parseInt($( "#extended-64" ).val());
+  var sum = 0; //set sum counter to 0
+  var currentA, currentB = 0;
+   
+  //loop through row 4-54 in column A and B of the cashflow table
+  for(var i = 4; i < 55; i++){
+	//retrieve the current A and B cell's value
+    currentA = parseInt($( "#a-" + i ).val());
+    currentB = parseInt($( "#b-" + i ).val());
+	
+	//if currentA <= "elcertifikatår" then add currentB to the sum
+	if(currentA <= e64)	
+		sum = sum + currentB;
+  }
+  
+  sum = (Math.round(sum)).toLocaleString(); //get spaces between the numbers (easier to read), and round the result. 
+  
+  $( "#indata-55" ).val(sum);
+  
+  alert("indata-55 = " + sum); //test
+});
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------------
 
 //calculate production cost for the cell D72 
 //in the tab "dina indata & result" in the given excel file
@@ -65,10 +96,7 @@ function calculateProductionCost(X){
 	return (productionCost.toFixed(3));
 }
 
-
-
-
-
+*/
 
 
 
