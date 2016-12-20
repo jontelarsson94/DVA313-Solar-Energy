@@ -115,7 +115,6 @@ function drawPieChart1() {
    
    // Set chart options
    var options = {'title':'Kostnader utan ROT-avdrag och investeringsstöd',
-      'width':550,
       'height':400};
 
    // Instantiate and draw the chart.
@@ -152,7 +151,6 @@ function drawPieChart2() {
    
    // Set chart options
    var options = {'title':'Kostnader med ROT-avdrag',
-      'width':550,
       'height':400};
 
    // Instantiate and draw the chart.
@@ -189,7 +187,6 @@ function drawPieChart3() {
    
    // Set chart options
    var options = {'title':'Kostnader med investeringsstöd',
-      'width':550,
       'height':400};
 
    // Instantiate and draw the chart.
