@@ -85,6 +85,12 @@ $(document).ready(function(){
 *  Indata-94                   *
 ********************************/
 
+function createPDF(){
+    var docDefinition = { content: 'This is where the input and output values will be visible!' };
+    
+    pdfMake.createPdf(docDefinition).download('results.pdf');
+  }
+
 function drawLineChart1() {
    // Define the chart to be drawn.
    var data = new google.visualization.DataTable();
@@ -1090,8 +1096,10 @@ function calculateI19(){
 }
 
 $('#calculations').on('mouseenter', '', function(ev){
+
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
+ 
   //calculating p19
   calculateI19();
   calculateE25();

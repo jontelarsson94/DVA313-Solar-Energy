@@ -297,8 +297,13 @@ require_once "src/action/form.php";
       <div id="lineChart1" class="col-md-6"></div>
       <div id="lineChart2" class="col-md-6"></div>
       <div id="lineChart3" class="col-md-6"></div>
+      <br>
     </div>
-    <br>
+    <div class="row">
+      <div class="col-md-offset-5">
+        <button class="btn btn-primary" onclick="createPDF()">Klicka för att ladda ner PDF</button>
+      </div>
+    </div>
 
 
 
@@ -655,6 +660,10 @@ require_once "src/action/form.php";
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
+
+    <!-- PDF Javascript -->
+    <script src='js/pdfmake.min.js'></script>
+    <script src='js/vfs_fonts.js'></script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
