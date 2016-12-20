@@ -288,23 +288,22 @@ require_once "src/action/form.php";
               <input type="hidden" id="r-{{$index}}" value="0">
               <input type="hidden" id="s-{{$index}}" value="0">
             </div>
+            <div class="row">
+              <h2 class="text-center">Resultat - Diagram</h2>
+              <div id="pieChart1" class="col-md-6"></div>
+              <div id="pieChart2" class="col-md-6"></div>
+              <div id="pieChart3" class="col-md-6"></div>
+              <div id="lineChart1" class="col-md-6"></div>
+              <div id="lineChart2" class="col-md-6"></div>
+              <div id="lineChart3" class="col-md-6"></div>
+              <br>
+            </div>
+            <div class="row">
+              <div class="col-md-offset-5">
+                <button class="btn btn-primary" onclick="createPDF()">Klicka för att ladda ner PDF</button>
+              </div>
+            </div>
     </section>
-    <h2 class="col-md-4 col-md-offset-4">Resultat - Diagram</h2>
-    <div class="row">
-      <div id="pieChart1" class="col-md-6"></div>
-      <div id="pieChart2" class="col-md-6"></div>
-      <div id="pieChart3" class="col-md-6"></div>
-      <div id="lineChart1" class="col-md-6"></div>
-      <div id="lineChart2" class="col-md-6"></div>
-      <div id="lineChart3" class="col-md-6"></div>
-      <br>
-    </div>
-    <div class="row">
-      <div class="col-md-offset-5">
-        <button class="btn btn-primary" onclick="createPDF()">Klicka för att ladda ner PDF</button>
-      </div>
-      <br>
-    </div>
 
 
 
