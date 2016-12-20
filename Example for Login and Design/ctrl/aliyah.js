@@ -1,5 +1,5 @@
 //calculate INtada and result D83 col
-
+/*
 function calculateD83() {
     var count = 0;
     for (var i = 5; i < 55; i++) {
@@ -53,4 +53,4 @@ function calculateD93() {
         $("#indata-93").val(ErrorStr);
     }
 
-}
+}*/

@@ -176,6 +176,62 @@ function calculateProductionCost(X){
   return (productionCost.toFixed(3));
 }
 
+function calculateD83() {
+    var count = 0;
+    for (var i = 5; i < 55; i++) {
+        if (parseInt($("#o-" + i).val()) < 0) {
+            count = count + 1;
+        }
+    }
+    if (count < parseInt($("#indata-24").val())) {
+        var val = count + 1;
+        $("#indata-83").val(val);
+    } else {
+        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        $("#indata-83").val(ErrorStr);
+    }
+
+
+}
+
+//calculate INtada and result D88 col
+function calculateD88() {
+    var count = 0;
+    for (var i = 5; i < 55; i++) {
+        if (parseInt($("#q-" + i).val()) < 0) {
+            count = count + 1;
+        }
+    }
+    if (count < parseInt($("#indata-24").val())) {
+        var val = count + 1;
+        $("#indata-88").val(val);
+    } else {
+        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        $("#indata-88").val(ErrorStr);
+    }
+
+
+}
+
+//calculate INtada and result D93 col
+function calculateD93() {
+    var count = 0;
+    for (var i = 5; i < 55; i++) {
+        if (parseInt($("#s-" + i).val()) < 0) {
+            count = count + 1;
+        }
+    }
+    if (count < parseInt($("#indata-24").val())) {
+        var val = count + 1;
+        $("#indata-93").val(val);
+    } else {
+        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        $("#indata-93").val(ErrorStr);
+    }
+
+}
+
+
 function calculateI55(){
   var e64 = parseInt($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
@@ -232,6 +288,7 @@ function calculateS(){
         if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
+    calculateD93();
 }
 
 function calculateR(){
@@ -253,6 +310,7 @@ function calculateQ(){
         if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
             $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
+    calculateD88();
 }
 
 function calculateO(){
@@ -262,6 +320,7 @@ function calculateO(){
         if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
             $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
+    calculateD83();
 }
 
 //Must be called every time D, G, H, I, J, K, L or M is calculated
