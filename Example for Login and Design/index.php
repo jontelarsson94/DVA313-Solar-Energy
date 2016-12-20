@@ -31,6 +31,11 @@ require_once "src/action/form.php";
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});     
+    </script>
+
     <!-- Theme CSS -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -283,6 +288,7 @@ require_once "src/action/form.php";
               <input type="hidden" id="r-{{$index}}" value="0">
               <input type="hidden" id="s-{{$index}}" value="0">
             </div>
+            <div id="pieChart1" style="width: 550px; height: 400px; margin: 0 auto"></div>
     </section>
 
 

@@ -85,7 +85,43 @@ $(document).ready(function(){
 *  Indata-94                   *
 ********************************/
 
+//when changes are made to d-55 and g-55, fire the "google.charts.setOnLoadCallback(drawPieChart1);" 
+function drawPieChart1() {
+   
+   //some necessary variables
+   var investering = parseInt($( "#d-55" ).val());
+   var arliga_kostnader = parseInt($( "#g-55" ).val());
+   var total_summa = investering + arliga_kostnader;
 
+   var localeInvestering = investering.toLocaleString();
+   var localeArliga_kostnader = arliga_kostnader.toLocaleString();
+   var localeTotal_summa = total_summa.toLocaleString();
+   
+   //find out what percentage a number is of the total sum
+   investering = (investering / total_summa) * 100;
+   arliga_kostnader = (arliga_kostnader / total_summa) * 100;
+
+   var investering_str = "Investering = " + localeInvestering + " kr";
+   var arliga_kostnader_str = "Årliga kostnader = " + localeArliga_kostnader + " kr";
+
+   // Define the chart to be drawn
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Calculation');
+   data.addColumn('number', 'Percentage');
+   data.addRows([
+      [investering_str, investering],
+      [arliga_kostnader_str, arliga_kostnader]
+   ]);
+   
+   // Set chart options
+   var options = {'title':'Kostnader utan ROT-avdrag och investeringsstöd',
+      'width':550,
+      'height':400};
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.PieChart(document.getElementById('pieChart1'));
+   chart.draw(data, options);
+}
 
 //calculate production cost for the cell D72 
 //in the tab "dina indata & result" in the given excel file
@@ -539,6 +575,7 @@ function calculateDEF() {
     calculateI41();
     calculateI42();
     calculateI43();
+    google.charts.setOnLoadCallback(drawPieChart1);
 
 }
 
@@ -627,6 +664,7 @@ function calculateG(){
   calculateN();
   calculateP();
   calculateR();
+  google.charts.setOnLoadCallback(drawPieChart1);
 }
 
 function calculateK(){

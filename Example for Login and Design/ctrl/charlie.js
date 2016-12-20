@@ -1,4 +1,4 @@
-<!doctype html>
+/*<!doctype html>
 
 <html>
 <head>
@@ -50,7 +50,7 @@ google.charts.setOnLoadCallback(drawPieChart1);
 </body>
 </html>
 
-
+*/
 
 
 /*----------------------------------------------------------------------------------------------------------------------------
