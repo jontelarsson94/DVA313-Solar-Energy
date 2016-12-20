@@ -1,7 +1,62 @@
+<!doctype html>
 
+<html>
+<head>
+<title>Google Charts Tutorial</title>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+     google.charts.load('current', {packages: ['corechart']});     
+   </script>
+</head>
+<body>
+<div id="pieChart1" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+
+
+//when changes are made to d-55 and g-55, fire the "google.charts.setOnLoadCallback(drawPieChart1);" 
+function drawPieChart1() {
+   
+   //some necessary variables
+   var investering = parseInt($( "#d-55" ).val());
+   var arliga_kostnader = parseInt($( "#g-55" ).val());
+   var total_summa = investering + arliga_kostnader;
+   var investering_str = "Investering = " + investering + " kr";
+   var arliga_kostnader_str = "Årliga kostnader = " + arliga_kostnader + " kr";
+   
+   //find out what percentage a number is of the total sum
+   investering = (investering / total_summa) * 100;
+   arliga_kostnader = (arliga_kostnader / total_summa) * 100;
+   
+   // Define the chart to be drawn
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Calculation');
+   data.addColumn('number', 'Percentage');
+   data.addRows([
+      [investering_str, investering],
+      [arliga_kostnader_str, arliga_kostnader]
+   ]);
+   
+   // Set chart options
+   var options = {'title':'Kostnader utan ROT-avdrag och investeringsstöd',
+      'width':550,
+      'height':400};
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.PieChart(document.getElementById('pieChart1'));
+   chart.draw(data, options);
+}
+google.charts.setOnLoadCallback(drawPieChart1);
+</script>
+</body>
+</html>
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------
 //calculate cell indata-55
 //this should be called when extended-64, a-4 to a-54 (cashflow - you may decide if you want this too), b-4 to b-54 (cashflow) are changed
-/*$('#calculations').on('change', '#extended-64', function(ev){
+$('#calculations').on('change', '#extended-64', function(ev){
   
   var e64 = parseInt($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
@@ -23,7 +78,7 @@
   $( "#indata-55" ).val(sum);
   
   alert("indata-55 = " + sum); //test
-});*/
+});
 
 
 
