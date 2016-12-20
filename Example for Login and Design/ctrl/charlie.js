@@ -1,4 +1,65 @@
-/*<!doctype html>
+//linear chart
+<!doctype html>
+
+
+<html>
+<head>
+<title>Google Charts Tutorial</title>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+     google.charts.load('current', {packages: ['corechart','line']});  
+   </script>
+</head>
+<body>
+<div id="lineChart1" style="width: 650px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+function drawLineChart1() {
+   // Define the chart to be drawn.
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'År');
+   data.addColumn('number', 'Kassaflöde');
+ 
+   //some necessary variables
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
+   var currentO = 0;   
+
+   //loop through the rows 4-54 of O column
+   for(var i = 4; i < 55; i++){ 
+       
+	   if(i <= (ekonomisk_livslangd + 4)) {
+		   //get the value of the current O column's cell
+		   currentO = parseInt($( "#o-" + i ).val());
+		   
+		   //add the values (year, cell value) to the linear diagram
+		   data.addRows([[((i-4).toString()), currentO]]);
+		}
+   }
+  
+   // Set chart options
+   var options = {'title' : 'Ackumulerat nuvärde - Utan ROT-avdrag eller investeringsstöd',
+      hAxis: {
+         title: 'År'
+      },
+      vAxis: {
+         title: 'Ackumelerat nuvärde (kr)'
+      },   
+      'width':650,
+      'height':400,
+      pointsVisible: true	  
+   };
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.LineChart(document.getElementById('lineChart1'));
+   chart.draw(data, options);
+}
+google.charts.setOnLoadCallback(drawLineChart1);
+</script>
+</body>
+</html>
+
+
+/*-------------------------------------------------------------------------------------------------------------pie chart basis
+<!doctype html>
 
 <html>
 <head>
