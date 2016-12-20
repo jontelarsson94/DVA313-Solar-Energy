@@ -289,6 +289,8 @@ require_once "src/action/form.php";
               <input type="hidden" id="s-{{$index}}" value="0">
             </div>
             <div id="pieChart1" style="width: 550px; height: 400px; margin: 0 auto"></div>
+            <div id="pieChart2" style="width: 550px; height: 400px; margin: 0 auto"></div>
+            <div id="pieChart3" style="width: 550px; height: 400px; margin: 0 auto"></div>
     </section>
 
 

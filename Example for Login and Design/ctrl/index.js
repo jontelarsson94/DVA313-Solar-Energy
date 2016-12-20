@@ -123,6 +123,80 @@ function drawPieChart1() {
    chart.draw(data, options);
 }
 
+function drawPieChart2() {
+   
+   //some necessary variables
+   var investering = parseInt($( "#e-55" ).val());
+   var arliga_kostnader = parseInt($( "#g-55" ).val());
+   var total_summa = investering + arliga_kostnader;
+
+   var localeInvestering = investering.toLocaleString();
+   var localeArliga_kostnader = arliga_kostnader.toLocaleString();
+   var localeTotal_summa = total_summa.toLocaleString();
+   
+   //find out what percentage a number is of the total sum
+   investering = (investering / total_summa) * 100;
+   arliga_kostnader = (arliga_kostnader / total_summa) * 100;
+
+   var investering_str = "Investering = " + localeInvestering + " kr";
+   var arliga_kostnader_str = "Årliga kostnader = " + localeArliga_kostnader + " kr";
+
+   // Define the chart to be drawn
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Calculation');
+   data.addColumn('number', 'Percentage');
+   data.addRows([
+      [investering_str, investering],
+      [arliga_kostnader_str, arliga_kostnader]
+   ]);
+   
+   // Set chart options
+   var options = {'title':'Kostnader med ROT-avdrag',
+      'width':550,
+      'height':400};
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.PieChart(document.getElementById('pieChart2'));
+   chart.draw(data, options);
+}
+
+function drawPieChart3() {
+   
+   //some necessary variables
+   var investering = parseInt($( "#f-55" ).val());
+   var arliga_kostnader = parseInt($( "#g-55" ).val());
+   var total_summa = investering + arliga_kostnader;
+
+   var localeInvestering = investering.toLocaleString();
+   var localeArliga_kostnader = arliga_kostnader.toLocaleString();
+   var localeTotal_summa = total_summa.toLocaleString();
+   
+   //find out what percentage a number is of the total sum
+   investering = (investering / total_summa) * 100;
+   arliga_kostnader = (arliga_kostnader / total_summa) * 100;
+
+   var investering_str = "Investering = " + localeInvestering + " kr";
+   var arliga_kostnader_str = "Årliga kostnader = " + localeArliga_kostnader + " kr";
+
+   // Define the chart to be drawn
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Calculation');
+   data.addColumn('number', 'Percentage');
+   data.addRows([
+      [investering_str, investering],
+      [arliga_kostnader_str, arliga_kostnader]
+   ]);
+   
+   // Set chart options
+   var options = {'title':'Kostnader med investeringsstöd',
+      'width':550,
+      'height':400};
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.PieChart(document.getElementById('pieChart3'));
+   chart.draw(data, options);
+}
+
 //calculate production cost for the cell D72 
 //in the tab "dina indata & result" in the given excel file
 function calculateProductionCostD72() {
@@ -576,6 +650,8 @@ function calculateDEF() {
     calculateI42();
     calculateI43();
     google.charts.setOnLoadCallback(drawPieChart1);
+    google.charts.setOnLoadCallback(drawPieChart2);
+    google.charts.setOnLoadCallback(drawPieChart3);
 
 }
 
@@ -665,6 +741,8 @@ function calculateG(){
   calculateP();
   calculateR();
   google.charts.setOnLoadCallback(drawPieChart1);
+  google.charts.setOnLoadCallback(drawPieChart2);
+  google.charts.setOnLoadCallback(drawPieChart3);
 }
 
 function calculateK(){
