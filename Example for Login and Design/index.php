@@ -294,6 +294,9 @@ require_once "src/action/form.php";
       <div id="pieChart2" class="col-md-4"></div>
       <div id="pieChart3" class="col-md-4"></div>
     </div>
+    <div class="row">
+      <div id="lineChart1" class="col-md-6"></div>
+    </div>
     <br>
 
 
