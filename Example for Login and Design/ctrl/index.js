@@ -124,6 +124,84 @@ function drawLineChart1() {
    chart.draw(data, options);
 }
 
+function drawLineChart2() {
+   // Define the chart to be drawn.
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'År');
+   data.addColumn('number', 'Kassaflöde');
+ 
+   //some necessary variables
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
+   var currentO = 0;   
+
+   //loop through the rows 4-54 of O column
+   for(var i = 4; i < 55; i++){ 
+       
+     if(i <= (ekonomisk_livslangd + 4)) {
+       //get the value of the current O column's cell
+       currentO = parseInt($( "#q-" + i ).val());
+       
+       //add the values (year, cell value) to the linear diagram
+       data.addRows([[((i-4).toString()), currentO]]);
+    }
+   }
+  
+   // Set chart options
+   var options = {'title' : 'Ackumulerat nuvärde - Med ROT-avdrag',
+      hAxis: {
+         title: 'År'
+      },
+      vAxis: {
+         title: 'Ackumelerat nuvärde (kr)'
+      },   
+      'height':400,
+      pointsVisible: true   
+   };
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.LineChart(document.getElementById('lineChart2'));
+   chart.draw(data, options);
+}
+
+function drawLineChart3() {
+   // Define the chart to be drawn.
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'År');
+   data.addColumn('number', 'Kassaflöde');
+ 
+   //some necessary variables
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
+   var currentO = 0;   
+
+   //loop through the rows 4-54 of O column
+   for(var i = 4; i < 55; i++){ 
+       
+     if(i <= (ekonomisk_livslangd + 4)) {
+       //get the value of the current O column's cell
+       currentO = parseInt($( "#s-" + i ).val());
+       
+       //add the values (year, cell value) to the linear diagram
+       data.addRows([[((i-4).toString()), currentO]]);
+    }
+   }
+  
+   // Set chart options
+   var options = {'title' : 'Ackumulerat nuvärde - Med investeringsstöd',
+      hAxis: {
+         title: 'År'
+      },
+      vAxis: {
+         title: 'Ackumelerat nuvärde (kr)'
+      },   
+      'height':400,
+      pointsVisible: true   
+   };
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.LineChart(document.getElementById('lineChart3'));
+   chart.draw(data, options);
+}
+
 //when changes are made to d-55 and g-55, fire the "google.charts.setOnLoadCallback(drawPieChart1);" 
 function drawPieChart1() {
    
@@ -435,6 +513,7 @@ function calculateS(){
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
     calculateD93();
+    google.charts.setOnLoadCallback(drawLineChart3);
 }
 
 function calculateR(){
@@ -457,6 +536,7 @@ function calculateQ(){
             $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
     calculateD88();
+    google.charts.setOnLoadCallback(drawLineChart2);
 }
 
 function calculateO(){

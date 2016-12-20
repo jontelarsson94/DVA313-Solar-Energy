@@ -289,13 +289,14 @@ require_once "src/action/form.php";
               <input type="hidden" id="s-{{$index}}" value="0">
             </div>
     </section>
+    <h2 class="col-md-4 col-md-offset-4">Resultat - Diagram</h2>
     <div class="row">
-      <div id="pieChart1" class="col-md-4"></div>
-      <div id="pieChart2" class="col-md-4"></div>
-      <div id="pieChart3" class="col-md-4"></div>
-    </div>
-    <div class="row">
+      <div id="pieChart1" class="col-md-6"></div>
+      <div id="pieChart2" class="col-md-6"></div>
+      <div id="pieChart3" class="col-md-6"></div>
       <div id="lineChart1" class="col-md-6"></div>
+      <div id="lineChart2" class="col-md-6"></div>
+      <div id="lineChart3" class="col-md-6"></div>
     </div>
     <br>
 

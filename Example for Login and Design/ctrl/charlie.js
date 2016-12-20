@@ -1,5 +1,5 @@
 //linear chart
-<!doctype html>
+/*<!doctype html>
 
 
 <html>
@@ -55,7 +55,7 @@ function drawLineChart1() {
 google.charts.setOnLoadCallback(drawLineChart1);
 </script>
 </body>
-</html>
+</html>*/
 
 
 /*-------------------------------------------------------------------------------------------------------------pie chart basis
