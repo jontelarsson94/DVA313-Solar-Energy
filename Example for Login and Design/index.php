@@ -303,6 +303,7 @@ require_once "src/action/form.php";
       <div class="col-md-offset-5">
         <button class="btn btn-primary" onclick="createPDF()">Klicka för att ladda ner PDF</button>
       </div>
+      <br>
     </div>
 
 
