@@ -84,13 +84,9 @@ $(document).ready(function(){
 *  Indata-93                   *
 *  Indata-94                   *
 ********************************/
-/*
-function createPDF(){
-    var docDefinition = { content: 'This is where the input and output values will be visible!' };
 
-    pdfMake.createPdf(docDefinition).download('results.pdf');
-  }
-*/
+
+
 function drawLineChart1() {
    // Define the chart to be drawn.
    var data = new google.visualization.DataTable();
@@ -127,6 +123,11 @@ function drawLineChart1() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.LineChart(document.getElementById('lineChart1'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("lineChart1").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 
@@ -166,6 +167,11 @@ function drawLineChart2() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.LineChart(document.getElementById('lineChart2'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("lineChart2").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 
@@ -205,6 +211,11 @@ function drawLineChart3() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.LineChart(document.getElementById('lineChart3'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("lineChart3").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 
@@ -242,6 +253,11 @@ function drawPieChart1() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.PieChart(document.getElementById('pieChart1'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("pieChart1").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 
@@ -278,6 +294,11 @@ function drawPieChart2() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.PieChart(document.getElementById('pieChart2'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("pieChart2").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 
@@ -314,6 +335,11 @@ function drawPieChart3() {
 
    // Instantiate and draw the chart.
    var chart = new google.visualization.PieChart(document.getElementById('pieChart3'));
+
+   google.visualization.events.addListener(chart, 'ready', function () {
+    document.getElementById("pieChart3").src = chart.getImageURI();
+   });
+
    chart.draw(data, options);
 }
 

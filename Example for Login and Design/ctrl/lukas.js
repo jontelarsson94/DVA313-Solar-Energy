@@ -1,4 +1,12 @@
 function createPDF(){
+    var imgURILineChart1 = document.getElementById("lineChart1").src;
+    var imgURILineChart2 = document.getElementById("lineChart2").src;
+    var imgURILineChart3 = document.getElementById("lineChart3").src;
+
+    var imgURIPieChart1 = document.getElementById("pieChart1").src;
+    var imgURIPieChart2 = document.getElementById("pieChart2").src;
+    var imgURIPieChart3 = document.getElementById("pieChart3").src;
+
     var docDefinition = {
       // a string or { width: number, height: number }
       pageSize: 'A4',
@@ -150,7 +158,79 @@ function createPDF(){
           pageBreak: 'before',
           pageOrientation: 'portrait'
         },
-        '\n\n\n--- Diagrams ---',
+        {
+          columns: [
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 200,
+                          image: imgURIPieChart1,
+                        }
+                    ]
+            },
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 250,
+                          image: imgURILineChart1,
+                        }
+                    ]
+            }
+          ],
+          // optional space between columns
+          columnGap: 30, margin: [0, 0, 0, 5]
+        },
+        {
+          columns: [
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 200,
+                          image: imgURIPieChart2,
+                        }
+                    ]
+            },
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 250,
+                          image: imgURILineChart2,
+                        }
+                    ]
+            }
+          ],
+          // optional space between columns
+          columnGap: 30, margin: [0, 0, 0, 5]
+        },
+        {
+          columns: [
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 200,
+                          image: imgURIPieChart3,
+                        }
+                    ]
+            },
+            {
+              width: '50%',
+              stack: [
+                        {
+                          width: 250,
+                          image: imgURILineChart3,
+                        }
+                    ]
+            }
+          ],
+          // optional space between columns
+          columnGap: 30, margin: [0, 0, 0, 5]
+        },
+
         // --- page 3 end ---
 
         // --- page 4 ---
