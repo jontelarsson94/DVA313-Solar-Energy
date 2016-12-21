@@ -33,7 +33,7 @@ require_once "src/action/form.php";
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {packages: ['corechart']});     
+      //google.charts.load('current', {packages: ['corechart']});
     </script>
 
     <!-- Theme CSS -->
@@ -186,6 +186,19 @@ require_once "src/action/form.php";
               <div class="tab-content" id="input-tabs">
                 <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()"></br>
                   <div>
+                    <div class="col-md-7"></div>
+                    <div class="col-md-4">
+                      <div data-toggle="buttons"class="btn-group btn-group-justified">
+                        <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
+                          <label class="btn btn-primary active"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
+                        </div>
+                        <div class="btn-group" id="companyToggle" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">
+                          <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <!--
                     <div data-toggle="buttons" id="buttonArea">
                       <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
                         <label class="btn btn-primary"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
@@ -194,7 +207,7 @@ require_once "src/action/form.php";
                         <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
                       </div>
                     </div>
-                    <!--
+                    
                     <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
                     <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
                     Need to set ng-click when thats implemented -->

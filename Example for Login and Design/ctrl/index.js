@@ -84,35 +84,35 @@ $(document).ready(function(){
 *  Indata-93                   *
 *  Indata-94                   *
 ********************************/
-
+/*
 function createPDF(){
     var docDefinition = { content: 'This is where the input and output values will be visible!' };
-    
+
     pdfMake.createPdf(docDefinition).download('results.pdf');
   }
-
+*/
 function drawLineChart1() {
    // Define the chart to be drawn.
    var data = new google.visualization.DataTable();
    data.addColumn('string', 'År');
    data.addColumn('number', 'Kassaflöde');
- 
+
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
-   var currentO = 0;   
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var currentO = 0;
 
    //loop through the rows 4-54 of O column
-   for(var i = 4; i < 55; i++){ 
-       
+   for(var i = 4; i < 55; i++){
+
      if(i <= (ekonomisk_livslangd + 4)) {
        //get the value of the current O column's cell
        currentO = parseInt($( "#o-" + i ).val());
-       
+
        //add the values (year, cell value) to the linear diagram
        data.addRows([[((i-4).toString()), currentO]]);
     }
    }
-  
+
    // Set chart options
    var options = {'title' : 'Ackumulerat nuvärde - Utan ROT-avdrag eller investeringsstöd',
       hAxis: {
@@ -120,9 +120,9 @@ function drawLineChart1() {
       },
       vAxis: {
          title: 'Ackumelerat nuvärde (kr)'
-      },   
+      },
       'height':400,
-      pointsVisible: true   
+      pointsVisible: true
    };
 
    // Instantiate and draw the chart.
@@ -135,23 +135,23 @@ function drawLineChart2() {
    var data = new google.visualization.DataTable();
    data.addColumn('string', 'År');
    data.addColumn('number', 'Kassaflöde');
- 
+
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
-   var currentO = 0;   
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var currentO = 0;
 
    //loop through the rows 4-54 of O column
-   for(var i = 4; i < 55; i++){ 
-       
+   for(var i = 4; i < 55; i++){
+
      if(i <= (ekonomisk_livslangd + 4)) {
        //get the value of the current O column's cell
        currentO = parseInt($( "#q-" + i ).val());
-       
+
        //add the values (year, cell value) to the linear diagram
        data.addRows([[((i-4).toString()), currentO]]);
     }
    }
-  
+
    // Set chart options
    var options = {'title' : 'Ackumulerat nuvärde - Med ROT-avdrag',
       hAxis: {
@@ -159,9 +159,9 @@ function drawLineChart2() {
       },
       vAxis: {
          title: 'Ackumelerat nuvärde (kr)'
-      },   
+      },
       'height':400,
-      pointsVisible: true   
+      pointsVisible: true
    };
 
    // Instantiate and draw the chart.
@@ -174,23 +174,23 @@ function drawLineChart3() {
    var data = new google.visualization.DataTable();
    data.addColumn('string', 'År');
    data.addColumn('number', 'Kassaflöde');
- 
+
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());   
-   var currentO = 0;   
+   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var currentO = 0;
 
    //loop through the rows 4-54 of O column
-   for(var i = 4; i < 55; i++){ 
-       
+   for(var i = 4; i < 55; i++){
+
      if(i <= (ekonomisk_livslangd + 4)) {
        //get the value of the current O column's cell
        currentO = parseInt($( "#s-" + i ).val());
-       
+
        //add the values (year, cell value) to the linear diagram
        data.addRows([[((i-4).toString()), currentO]]);
     }
    }
-  
+
    // Set chart options
    var options = {'title' : 'Ackumulerat nuvärde - Med investeringsstöd',
       hAxis: {
@@ -198,9 +198,9 @@ function drawLineChart3() {
       },
       vAxis: {
          title: 'Ackumelerat nuvärde (kr)'
-      },   
+      },
       'height':400,
-      pointsVisible: true   
+      pointsVisible: true
    };
 
    // Instantiate and draw the chart.
@@ -208,9 +208,9 @@ function drawLineChart3() {
    chart.draw(data, options);
 }
 
-//when changes are made to d-55 and g-55, fire the "google.charts.setOnLoadCallback(drawPieChart1);" 
+//when changes are made to d-55 and g-55, fire the "google.charts.setOnLoadCallback(drawPieChart1);"
 function drawPieChart1() {
-   
+
    //some necessary variables
    var investering = parseInt($( "#d-55" ).val());
    var arliga_kostnader = parseInt($( "#g-55" ).val());
@@ -219,7 +219,7 @@ function drawPieChart1() {
    var localeInvestering = investering.toLocaleString();
    var localeArliga_kostnader = arliga_kostnader.toLocaleString();
    var localeTotal_summa = total_summa.toLocaleString();
-   
+
    //find out what percentage a number is of the total sum
    investering = (investering / total_summa) * 100;
    arliga_kostnader = (arliga_kostnader / total_summa) * 100;
@@ -235,7 +235,7 @@ function drawPieChart1() {
       [investering_str, investering],
       [arliga_kostnader_str, arliga_kostnader]
    ]);
-   
+
    // Set chart options
    var options = {'title':'Kostnader utan ROT-avdrag och investeringsstöd',
       'height':400};
@@ -246,7 +246,7 @@ function drawPieChart1() {
 }
 
 function drawPieChart2() {
-   
+
    //some necessary variables
    var investering = parseInt($( "#e-55" ).val());
    var arliga_kostnader = parseInt($( "#g-55" ).val());
@@ -255,7 +255,7 @@ function drawPieChart2() {
    var localeInvestering = investering.toLocaleString();
    var localeArliga_kostnader = arliga_kostnader.toLocaleString();
    var localeTotal_summa = total_summa.toLocaleString();
-   
+
    //find out what percentage a number is of the total sum
    investering = (investering / total_summa) * 100;
    arliga_kostnader = (arliga_kostnader / total_summa) * 100;
@@ -271,7 +271,7 @@ function drawPieChart2() {
       [investering_str, investering],
       [arliga_kostnader_str, arliga_kostnader]
    ]);
-   
+
    // Set chart options
    var options = {'title':'Kostnader med ROT-avdrag',
       'height':400};
@@ -282,7 +282,7 @@ function drawPieChart2() {
 }
 
 function drawPieChart3() {
-   
+
    //some necessary variables
    var investering = parseInt($( "#f-55" ).val());
    var arliga_kostnader = parseInt($( "#g-55" ).val());
@@ -291,7 +291,7 @@ function drawPieChart3() {
    var localeInvestering = investering.toLocaleString();
    var localeArliga_kostnader = arliga_kostnader.toLocaleString();
    var localeTotal_summa = total_summa.toLocaleString();
-   
+
    //find out what percentage a number is of the total sum
    investering = (investering / total_summa) * 100;
    arliga_kostnader = (arliga_kostnader / total_summa) * 100;
@@ -307,7 +307,7 @@ function drawPieChart3() {
       [investering_str, investering],
       [arliga_kostnader_str, arliga_kostnader]
    ]);
-   
+
    // Set chart options
    var options = {'title':'Kostnader med investeringsstöd',
       'height':400};
@@ -317,37 +317,37 @@ function drawPieChart3() {
    chart.draw(data, options);
 }
 
-//calculate production cost for the cell D72 
+//calculate production cost for the cell D72
 //in the tab "dina indata & result" in the given excel file
 function calculateProductionCostD72() {
-  
+
   //start the calculation and save the result in a variable - send in "41" for cell D41
   var productionCostD72 = calculateProductionCost("41");
-  
+
   //assign the result to the correct input box on the website
   $( "#indata-72" ).val( productionCostD72 );
 }
 
 
-//calculate production cost for the cell D73 
+//calculate production cost for the cell D73
 //in the tab "dina indata & result" in the given excel file
 function calculateProductionCostD73() {
-  
+
   //start the calculation and save the result in a variable - send in "42" for cell D42
   var productionCostD73 = calculateProductionCost("42");
-  
+
   //assign the result to the correct input box on the website
   $( "#indata-73" ).val( productionCostD73 );
 }
 
 
-//calculate production cost for the cell D74 
+//calculate production cost for the cell D74
 //in the tab "dina indata & result" in the given excel file
 function calculateProductionCostD74() {
-  
+
   //start the calculation and save the result in a variable - send in "43" for cell D43
   var productionCostD74 = calculateProductionCost("43");
-  
+
   //assign the result to the correct input box on the website
   $( "#indata-74" ).val( productionCostD74 );
 }
@@ -361,7 +361,7 @@ function calcPv(rate, nper, pmt) {
   if ( rate == 0 ) { // Interest rate is 0
     pv_value = -((pmt * nper));
   } else {
-    x = Math.pow(1 + rate, -nper); 
+    x = Math.pow(1 + rate, -nper);
     y = Math.pow(1 + rate, nper);
     pv_value = - ( x * ( rate - pmt + y * pmt )) / rate;
   }
@@ -371,18 +371,18 @@ function calcPv(rate, nper, pmt) {
 //calculate the production cost
 //(you have to send in either "41", "42" or "43" to this function)
 function calculateProductionCost(X){
-  
+
   //some error handling if you do not send in "41", "42" or "43" to the function:
   if(X != "41" && X != "42" && X != "43"){
     console.log("ERROR: input parameter to the function 'calculateProductionCost' is not '41', '42' or '43'");
     return 0;
   }
-  
+
   //300/(1+.0938)^1 + 300/(1+.0938)^2 + 300/(1+.0938)^3
   //(9.38, 3, 300)
   //(D28, D24, -D49)
   //values from the tab "indata & result" in the given excel file:
-  var inDX = parseInt($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43 
+  var inDX = parseInt($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
   var inD28 = parseInt($( "#indata-28" ).val()) / 100;
   var inD24 = parseInt($( "#indata-24" ).val());
   var inD49 = parseInt($( "#indata-49" ).val());
@@ -397,7 +397,7 @@ function calculateProductionCost(X){
   var pv = calcPv(inD28, inD24, -inD49);
 
   //-('Grundläggande antaganden'!D52)/(1+D28)^D24)/(Kassaflöden!C55/D18)
-  
+
   //perform the calculation for production cost
   //(D41+NUVÄRDE(D28;D24;-D49)-('Grundläggande antaganden'!D52)/(1+D28)^D24)/(Kassaflöden!C55/D18)
   //"inD49 / Math.pow((1 + inD28), inD24))" - same formula as "nuvärde år n = A / (1+kalkylränta)^n":
@@ -466,20 +466,20 @@ function calculateI55(){
   var e64 = parseInt($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
   var currentA, currentB = 0;
-   
+
   //loop through row 4-54 in column A and B of the cashflow table
   for(var i = 4; i < 55; i++){
   //retrieve the current A and B cell's value
     currentA = parseInt($( "#a-" + i ).val());
     currentB = parseInt($( "#b-" + i ).val());
-  
+
   //if currentA <= "elcertifikatår" then add currentB to the sum
-  if(currentA <= e64) 
+  if(currentA <= e64)
     sum = sum + currentB;
   }
-  
-  sum = Math.round(sum); //get spaces between the numbers (easier to read), and round the result. 
-  
+
+  sum = Math.round(sum); //get spaces between the numbers (easier to read), and round the result.
+
   $( "#indata-55" ).val(sum);
 }
 
@@ -529,7 +529,7 @@ function calculateR(){
             $("#r-"+i).val(  parseInt($("#f-"+i).val()) +  parseInt($("#g-"+i).val()) +  parseInt($("#h-"+i).val()) +  parseInt($("#i-"+i).val()) +  parseInt($("#j-"+i).val()) +  parseInt($("#k-"+i).val()) +  parseInt($("#l-"+i).val()) +  parseInt($("#m-"+i).val()) );
             r55 = r55 +  Math.round(parseInt($("#r-"+i).val()));
     }
-    $("#r-55").val(r55); 
+    $("#r-55").val(r55);
     calculateS();
     calculateI92();
 }
@@ -876,27 +876,27 @@ function calculateK(){
   p66 = p66 / 100;
   var e64 = $( "#extended-64" ).val();
   var sum = 0; //set sum counter to 0
-  
+
   //loop through the necessary ids for that column (row 5-54)
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val(); //improvement (?) - put declaration of "currentA", "currentC", "result" before the for-loop, to avoid creating several different variables?
-    var currentC = $( "#c-" + i ).val(); 
-    var result = 0; 
-    
+    var currentC = $( "#c-" + i ).val();
+    var result = 0;
+
     if(+e64 >= +currentA)
       //perform the calculation and save the result in a variable
       result = currentC * p65 * (1-p66) * p64;
     //else result = 0
-      
+
     $( "#k-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-    sum = sum + result; //increase the sum   
-  
+    sum = sum + result; //increase the sum
+
     //var testStr1 = "result of K" + i + "=" + result;
     //alert(testStr1); //test
   }
-  
-  $( "#k-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum 
-  
+
+  $( "#k-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum
+
   //var testStr2 = "total K sum=" + sum;
   //alert(testStr2); //test
   calculateN();
@@ -909,18 +909,18 @@ function calculateM(){
   var p28 = $( "#indata-28" ).val();
   p28 = p28 / 100; // divide by 100 since it is a % unit
   var p60 = $( "#indata-60" ).val();
-  p60 = p60 / 100; 
+  p60 = p60 / 100;
   var p68 = $( "#indata-68" ).val();
   var e65 = $( "#extended-65" ).val();
   var e66 = $( "#extended-66" ).val();
   var sum = 0; //set sum counter to 0
-  
+
   //loop through the necessary ids for that column (row 5-54)
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val();
     var currentC = $( "#c-" + i ).val();
     var result = 0;
-  
+
     //perform calculations if necessary
     if(+p24 >= +currentA && +p68 >= +currentA) {
       if((currentC * (1-p60) * e65) > (+e66))
@@ -929,18 +929,18 @@ function calculateM(){
         result = Math.round(currentC * (1-p60) * e65);
     }
     //else result = 0;
-    
+
     $( "#m-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-    sum = sum + result; //increase the sum  
-  
+    sum = sum + result; //increase the sum
+
     //var testStr1 = "result of M" + i + "=" + result;
     //alert(testStr1); //test
   }
 
-  $( "#m-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum 
-  
+  $( "#m-55" ).val( Math.round(sum) ); //give the sum-cell the total calculated sum
+
   //var testStr2 = "total M sum=" + sum;
-  //alert(testStr2); //test  
+  //alert(testStr2); //test
   calculateN();
   calculateP();
   calculateR();
@@ -950,27 +950,27 @@ function calculateL(){
   var p24 = $( "#indata-24" ).val();
   var p67 = $( "#indata-67" ).val();
   var sum = 0; //set sum counter to 0
-  
+
   //loop through the necessary ids for that column (row 5-54)
   for(var i = 5; i < 55; i++){
     var currentA = $( "#a-" + i ).val();
     var currentC = $( "#c-" + i ).val();
     var result = 0;
-  
+
     if(+p24 >= +currentA)
       //perform the calculation and save the result in a variable
       result = currentC * p67;
     //else result = 0
-  
+
     $( "#l-" + i ).val( Math.round(result) ); //give the specific cell (input field) that value
-    sum = sum + result; //increase the sum  
-  
+    sum = sum + result; //increase the sum
+
     //var testStr1 = "result of L" + i + "=" + result;
     //alert(testStr1); //test
   }
-  
+
   $( "#l-55" ).val( Math.round(sum) );
-  
+
   //var testStr2 = "total L sum=" + sum;
   //alert(testStr2); //test
   calculateN();
@@ -1099,7 +1099,7 @@ $('#calculations').on('mouseenter', '', function(ev){
 
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
- 
+
   //calculating p19
   calculateI19();
   calculateE25();
@@ -1197,7 +1197,7 @@ $('#calculations').on('keyup', '#indata-18', function(ev){
 
 
 $('#calculations').on('click', '#personToggle, #companyToggle', function(ev){
-    
+
 });
 
 //make B, C and G
@@ -1225,7 +1225,7 @@ $('#calculations').on('keyup', '#indata-24, #indata-28, #extended-30, #extended-
   calculateG();
 });
 
-//column K 
+//column K
 //(when changes are made to column A and C then you need to call this function as well, at least C column) <====== IMPORTANT
 $('#calculations').on('keyup', '#extended-64, #indata-65, #indata-66, #indata-64', function(ev){
   calculateK();
@@ -1237,7 +1237,7 @@ $('#calculations').on('keyup', '#indata-24, #indata-68, #indata-60, #extended-65
   calculateM();
 });
 
-//column L 
+//column L
 //(when changes are made to column A and C then you need to call this function as well, at least C column) <====== IMPORTANT
 $('#calculations').on('keyup', '#indata-24, #indata-67', function(ev){
   calculateL();
@@ -1283,5 +1283,3 @@ $('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #exten
 $('#calculations').on('change', '#extended-64', function(ev){
   calculateI55();
 });
-
-
