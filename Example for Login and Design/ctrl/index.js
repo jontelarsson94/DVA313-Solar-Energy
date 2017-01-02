@@ -815,9 +815,6 @@ function calculateSecondB(){
   var sum = $( "#b-55" ).val();
   //give the sum-cell the value of all the cells together
   $( "#b-111" ).val( Math.round(sum) );
-
-  alert($( "#b-69" ).val())
-  alert($( "#b-111" ).val())
 }
 
 function calculateB(){
@@ -904,9 +901,6 @@ function calculateSecondG(){
   }
   //give the sum-cell the value of all the cells together
   $( "#g-111" ).val( Math.round(sum) );
-
-  alert($("#g-73").val());
-  alert($("#g-111").val());
 }
 
 
