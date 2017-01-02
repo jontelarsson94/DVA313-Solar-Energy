@@ -1,7 +1,7 @@
 //set module and controller that we can use in html/php file
 angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
-  $scope.number = 56;
+  $scope.number = 112;
 
   $scope.getIndataDefaultsPerson = function (){
     $http.get("api/get_indata_defaults_person.php")
@@ -836,6 +836,23 @@ function calculateB(){
 
   calculateI54();
   calculateI55();
+  calculateSecondB();
+}
+
+function calculateSecondB(){
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var result = $( "#b-" + i ).val();
+    var second = i+56;
+    //give the cell (input field) that value
+    $( "#b-" + second ).val( Math.round(result) );
+  }
+  var sum = $( "#b-55" ).val();
+  //give the sum-cell the value of all the cells together
+  $( "#b-111" ).val( Math.round(sum) );
+
+  alert($( "#b-69" ).val())
+  alert($( "#b-111" ).val())
 }
 
 function calculateC(){
