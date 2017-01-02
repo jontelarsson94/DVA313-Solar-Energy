@@ -804,6 +804,22 @@ function calculateDEF() {
 
 }
 
+function calculateSecondB(){
+  //loop through all the ids for that column
+  for(var i = 5; i < 55; i++){
+    var result = $( "#b-" + i ).val();
+    var second = i+56;
+    //give the cell (input field) that value
+    $( "#b-" + second ).val( Math.round(result) );
+  }
+  var sum = $( "#b-55" ).val();
+  //give the sum-cell the value of all the cells together
+  $( "#b-111" ).val( Math.round(sum) );
+
+  alert($( "#b-69" ).val())
+  alert($( "#b-111" ).val())
+}
+
 function calculateB(){
   //give different variables the value that is in that input field
   //If the cell is in "indata & resultat", then the id will be #indata-row
@@ -839,22 +855,6 @@ function calculateB(){
   calculateSecondB();
 }
 
-function calculateSecondB(){
-  //loop through all the ids for that column
-  for(var i = 5; i < 55; i++){
-    var result = $( "#b-" + i ).val();
-    var second = i+56;
-    //give the cell (input field) that value
-    $( "#b-" + second ).val( Math.round(result) );
-  }
-  var sum = $( "#b-55" ).val();
-  //give the sum-cell the value of all the cells together
-  $( "#b-111" ).val( Math.round(sum) );
-
-  alert($( "#b-69" ).val())
-  alert($( "#b-111" ).val())
-}
-
 function calculateC(){
   var p28 = $( "#indata-28" ).val();
   p28 = p28 / 100;
@@ -876,6 +876,37 @@ function calculateC(){
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
+}
+
+function calculateSecondG(){
+  //OM(A62<=Ekonomisk_livslängd;-(Årlig_fast_driftkostnad+Årlig_rörlig_driftkostnad);0)
+
+  var p24 = parseInt($("#indata-24").val());
+  //p28 = p28 / 100;
+  var p47 = parseInt($("#indata-47").val());
+  var p48 = parseInt($("#indata-48").val());
+  //set sum counter to 0
+  var sum = 0;
+  var result = 0;
+  var j = 1;
+  //loop through all the ids for that column
+  //skipping 8-13
+  for(var i = 60; i < 111; i++){
+    //var currentA = $( "#a-" + i ).val();
+
+    if(j <= +p24){
+      result = -(p47+p48);
+      sum = sum + Math.round(result);
+    }
+    $( "#g-" + i ).val( Math.round(result) );
+    result = 0;
+    j++;
+  }
+  //give the sum-cell the value of all the cells together
+  $( "#g-111" ).val( Math.round(sum) );
+
+  alert($("#g-73").val());
+  alert($("#g-111").val());
 }
 
 
@@ -906,6 +937,7 @@ function calculateG(){
   calculateN();
   calculateP();
   calculateR();
+  calculateSecondG();
   google.charts.setOnLoadCallback(drawPieChart1);
   google.charts.setOnLoadCallback(drawPieChart2);
   google.charts.setOnLoadCallback(drawPieChart3);
