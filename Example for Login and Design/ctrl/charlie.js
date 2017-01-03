@@ -1,5 +1,5 @@
 
-//CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
+/*//CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
 function calculateK(){
   var p64 = $( "#indata-64" ).val();
   var p65 = $( "#indata-65" ).val();
@@ -33,10 +33,10 @@ function calculateK(){
   calculateN();
   calculateP();
   calculateR();
-}
+}*/
 
 
-function calculateL(){
+/*function calculateL(){
   var p24 = $( "#indata-24" ).val();
   var p67 = $( "#indata-67" ).val();
   var sum = 0; //set sum counter to 0
@@ -61,11 +61,11 @@ function calculateL(){
 
   $( "#l-111" ).val( sum );
 
-  alert("total L sum="+sum;); //test
+  alert("total L sum="+sum); //test
   calculateN();
   calculateP();
   calculateR();
-}
+}*/
 
 
 function calculateM(){

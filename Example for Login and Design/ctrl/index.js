@@ -1017,6 +1017,37 @@ function calculateG(){
   google.charts.setOnLoadCallback(drawPieChart3);
 }
 
+//CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
+function calculateSecondK(){
+  var p64 = $( "#indata-64" ).val();
+  var p65 = $( "#indata-65" ).val();
+  p65 = p65 / 100; // divide by 100 since it is a % unit
+  var p66 = $( "#indata-66" ).val();
+  p66 = p66 / 100;
+  var e64 = $( "#extended-64" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    if(+e64 >= +currentA)
+      //perform the calculation and save the result in a variable
+      result = Math.round( currentB * p65 * (1-p66) * p64 );
+    //else result = 0
+
+    $( "#k-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + result; //increase the sum
+  }
+
+  $( "#k-111" ).val( sum ); //give the sum-cell the total calculated sum
+}
+
 function calculateK(){
   var p64 = $( "#indata-64" ).val();
   var p65 = $( "#indata-65" ).val();
@@ -1048,9 +1079,48 @@ function calculateK(){
 
   //var testStr2 = "total K sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondK();
   calculateN();
   calculateP();
   calculateR();
+}
+
+function calculateSecondM(){
+  var p24 = $( "#indata-24" ).val();
+  var p28 = $( "#indata-28" ).val();
+  p28 = p28 / 100; // divide by 100 since it is a % unit
+  var p60 = $( "#indata-60" ).val();
+  p60 = p60 / 100;
+  var p68 = $( "#indata-68" ).val();
+  var e65 = $( "#extended-65" ).val();
+  var e66 = $( "#extended-66" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    //perform calculations if necessary
+    if(+p24 >= +currentA && +p68 >= +currentA) {
+      if((currentB * (1-p60) * e65) > (+e66))
+        result = Math.round(18000 / Math.pow((1+p28), currentA));
+      else
+        result = Math.round(currentB * (1-p60) * e65);
+    }
+    //else result = 0;
+
+    $( "#m-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + result; //increase the sum
+  }
+
+  $( "#m-111" ).val( sum ); //give the sum-cell the total calculated sum
+
+  alert("total M sum="+sum); //test
 }
 
 function calculateM(){
@@ -1090,9 +1160,36 @@ function calculateM(){
 
   //var testStr2 = "total M sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondM();
   calculateN();
   calculateP();
   calculateR();
+}
+
+function calculateSecondL(){
+  var p24 = $( "#indata-24" ).val();
+  var p67 = $( "#indata-67" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    if(+p24 >= +currentA)
+      //perform the calculation and save the result in a variable
+      result = Math.round( currentB * p67 );
+    //else result = 0
+
+    $( "#l-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + ( result ); //increase the sum
+  }
+
+  $( "#l-111" ).val( sum );
 }
 
 function calculateL(){
@@ -1122,6 +1219,7 @@ function calculateL(){
 
   //var testStr2 = "total L sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondL();
   calculateN();
   calculateP();
   calculateR();
