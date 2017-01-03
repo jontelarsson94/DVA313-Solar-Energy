@@ -68,7 +68,7 @@ function calculateK(){
 }*/
 
 
-function calculateM(){
+/*function calculateM(){
   var p24 = $( "#indata-24" ).val();
   var p28 = $( "#indata-28" ).val();
   p28 = p28 / 100; // divide by 100 since it is a % unit
@@ -107,7 +107,7 @@ function calculateM(){
   calculateN();
   calculateP();
   calculateR();
-}
+}*/
 
 
 
