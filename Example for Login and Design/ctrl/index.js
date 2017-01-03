@@ -1119,8 +1119,6 @@ function calculateSecondM(){
   }
 
   $( "#m-111" ).val( sum ); //give the sum-cell the total calculated sum
-
-  alert("total M sum="+sum); //test
 }
 
 function calculateM(){
