@@ -1,5 +1,5 @@
 
-/*function CalculateTabl2DEF() {
+function CalculateTabl2DEF() {
     var d_111val;
     var e_111val;
     var f_111val;
@@ -27,21 +27,21 @@
         var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-60").val(Math.round(e_60val));
         e_111val = Math.round(e_60val);
-        //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
+          -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
     } else {
-        // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
+         -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
         var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-60").val(Math.round(e_60val));
         e_111val = Math.round(e_60val);
     }
 
     if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
-        //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
+        -(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
         var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-60").val(Math.round(f_60val));
         f_111val = Math.round(f_60val);
     } else {
-        //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
+        -(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
         var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-60").val(Math.round(f_60val));
         f_111val = Math.round(f_60val);
@@ -76,7 +76,7 @@
     $("#d-111").val(Math.round(d_111val));
     $("#e-111").val(Math.round(e_111val));
     $("#f-111").val(Math.round(f_111val));
-}*/
+}
 
 
 //calculate INtada and result D83 col
