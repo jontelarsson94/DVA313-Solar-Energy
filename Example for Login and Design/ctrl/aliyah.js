@@ -1,4 +1,4 @@
-
+/*
 function CalculateTabl2DEF() {
     var d_111val;
     var e_111val;
@@ -80,7 +80,7 @@ function CalculateTabl2DEF() {
 
 
 //calculate INtada and result D83 col
-/*
+
 function calculateD83() {
     var count = 0;
     for (var i = 5; i < 55; i++) {
