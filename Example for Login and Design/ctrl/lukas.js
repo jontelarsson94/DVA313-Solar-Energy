@@ -15,7 +15,7 @@ function calculateN(){
                           +  Math.round(parseInt($("#m-"+i).val())));
             n111 = n111 +  Math.round(parseInt($("#n-"+i).val()));
     }
-    $("#n-111").val(n55);
+    $("#n-111").val(n111);
     //calculateO();
     //calculateI82();
 }

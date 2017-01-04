@@ -701,6 +701,32 @@ function calculateP(){
     calculateI87();
 }
 
+function calculateSecondH() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
+    var Pris_kopt_el = $("#indata-61").val();
+    /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
+    alert("Andel_egenanvand_el-"+Andel_egenanvand_el);
+    alert("Pris_kopt_el-"+Pris_kopt_el);*/
+    var i = 1;
+    var j = 61;
+    var sum = 0;
+
+    for (i = 1; i < 51; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var valh = Math.round(parseInt($("#b-" + j).val()) * Andel_egenanvand_el * Pris_kopt_el);
+            $("#h-" + j).val(valh);
+            //alert(valh);
+            sum = sum + valh;
+        } else {
+            $("#h-" + j).val(0);
+        }
+        j++;
+    }
+    $("#h-111").val(sum);
+    alert(sum);
+}
+
 //Whenever one of these is calculated, we should calculate c first
 function calculateH() {
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
@@ -728,6 +754,30 @@ function calculateH() {
     calculateN();
     calculateP();
     calculateR();
+    calculateSecondH
+}
+
+function calculateSecondI() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
+    var Pris_sald_el = $("#indata-62").val();
+    var i = 1;
+    var j = 61;
+    var sum = 0;
+
+    for (i = 1; i < 51; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var ival = Math.round(parseInt($("#b-" + j).val()) *  Andel_egenanvand_el * Pris_sald_el);
+            $("#i-" + j).val(ival);
+            sum = sum + ival;
+        } else {
+            $("#i-" + j).val(0);
+        }
+        j++;
+    }
+    //alert("i-"+sum);
+    $("#i-111").val(sum);
+    alert(sum);
 }
 
 function calculateI() {
@@ -753,6 +803,32 @@ function calculateI() {
     calculateN();
     calculateP();
     calculateR();
+    calculateSecondI();
+}
+
+function calculateSecondJ() {
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
+    var Ersattning_fran_natagare = $("#indata-63").val();
+    var i = 1;
+    var j = 61;
+    var sum = 0;
+
+    for (i = 1; i < 51; i++) {
+        if (Ekonomisk_livslangd >= i) {
+            var jval = Math.round(parseInt($("#b-" + j).val()) * Ersattning_fran_natagare * (1 - Andel_egenanvand_el));
+            $("#j-" + j).val(jval);
+            sum = sum + jval;
+        } else {
+            $("#j-" + j).val(0);
+        }
+
+        j++;
+
+    }
+    //alert("j-"+sum);
+    $("#j-111").val(sum);
+    alert(sum);
 }
 
 
@@ -781,6 +857,7 @@ function calculateJ() {
     calculateN();
     calculateP();
     calculateR();
+    calculateSecondJ();
 
 }
 
@@ -895,6 +972,10 @@ function calculateSecondB(){
   var sum = $( "#b-55" ).val();
   //give the sum-cell the value of all the cells together
   $( "#b-111" ).val( Math.round(sum) );
+
+  calculateSecondH();
+  calculateSecondI();
+  calculateSecondJ();
 }
 
 function calculateB(){

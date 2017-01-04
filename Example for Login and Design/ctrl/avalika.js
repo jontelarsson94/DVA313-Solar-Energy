@@ -2,13 +2,11 @@
 
 //IF(Ekonomisk_livslängd>=A61,B61*Andel_egenanvänd_el*Pris_köpt_el,0)
 
-function calculateHtable2() {
+/*function calculateHtable2() {
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Pris_kopt_el = $("#indata-61").val();
-    /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
-    alert("Andel_egenanvand_el-"+Andel_egenanvand_el);
-    alert("Pris_kopt_el-"+Pris_kopt_el);*/
+    
     var i = 1;
     var j = 61;
     var sum = 0;
@@ -25,10 +23,10 @@ function calculateHtable2() {
         j++;
     }
     $("#h-111").val(sum);
-}
+}*/
 
 //=IF(Ekonomisk_livslängd>=A61,B61*Andel_egenanvänd_el*Pris_köpt_el,0)
-function calculateItable2() {
+/*function calculateItable2() {
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Pris_sald_el = $("#indata-62").val();
@@ -48,10 +46,10 @@ function calculateItable2() {
     }
     //alert("i-"+sum);
     $("#i-111").val(sum);
-}
+}*/
 
 //=IF(Ekonomisk_livslängd>=A63,B63*Ersättning_från_nätägare*(1-Andel_egenanvänd_el),0)
-function calculateJtable2() {
+/*function calculateJtable2() {
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Ersattning_fran_natagare = $("#indata-63").val();
@@ -74,4 +72,4 @@ function calculateJtable2() {
     //alert("j-"+sum);
     $("#j-111").val(sum);
 
-}
+}*/
