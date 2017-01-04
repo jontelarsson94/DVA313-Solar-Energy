@@ -1,7 +1,7 @@
 //Column N, O and P - second cash flow table
 
 //Column N
-function calculateN(){
+/*function calculateN(){
   var n111 = 0;
 
     for(var i = 60; i < 111; i++){
@@ -18,10 +18,10 @@ function calculateN(){
     $("#n-111").val(n111);
     //calculateO();
     //calculateI82();
-}
+}*/
 
 //Column O
-function calculateO(){
+/*function calculateO(){
   $("#o-60").val(  parseInt($("#n-60").val()) );
 
     for(var i = 61; i < 111; i++){
@@ -30,7 +30,7 @@ function calculateO(){
     }
     //calculateD83();
     //google.charts.setOnLoadCallback(drawLineChart1);
-}
+}*/
 
 //Column P
 function calculateP(){
