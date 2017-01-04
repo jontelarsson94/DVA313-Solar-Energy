@@ -33,7 +33,7 @@
 }*/
 
 //Column P
-function calculateP(){
+/*function calculateP(){
   var p111 = 0;
 
     for(var i = 60; i < 111; i++){
@@ -50,7 +50,7 @@ function calculateP(){
     $("#p-111").val(Math.round(p111));
     //calculateQ();
     //calculateI87();
-}
+}*/
 
 function createPDF(){
     var imgURILineChart1 = document.getElementById("lineChart1").src;
