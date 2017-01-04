@@ -38,7 +38,7 @@
 //Column S
 //If Ekonomisk Livslängd > Ai then Si = S(i-1)+Ri
 //Should be updated if there are any changes to Ekonomisk Livslängd or there is any change in R
-$('#calculations').on('change', '#indata-24, #r-60', function(ev){
+/*$('#calculations').on('change', '#indata-24, #r-60', function(ev){
 
     $("#s-60").val(  parseInt($("#r-60").val()) );
 
@@ -46,4 +46,4 @@ $('#calculations').on('change', '#indata-24, #r-60', function(ev){
         if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
-});
+});*/
