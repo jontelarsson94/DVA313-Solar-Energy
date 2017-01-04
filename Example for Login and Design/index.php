@@ -281,7 +281,8 @@ require_once "src/action/form.php";
 
             </div>
             <div ng-repeat="i in getNumber(number) track by $index" ng-if="$index >= 4" id="cashflowDiv">
-              <input type="hidden" id="a-{{$index}}" value="{{$index-4}}">
+              <input ng-if="$index <= 54" type="hidden" id="a-{{$index}}" value="{{$index-4}}">
+              <input ng-if="$index >= 60 " type="hidden" id="a-{{$index}}" value="{{$index-60}}">
               <input type="hidden" id="b-{{$index}}" value="0">
               <input type="hidden" id="c-{{$index}}" value="0">
               <input type="hidden" id="d-{{$index}}" value="0">

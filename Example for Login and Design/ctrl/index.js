@@ -343,6 +343,85 @@ function drawPieChart3() {
    chart.draw(data, options);
 }
 
+function CalculateSecondDEF() {
+    var d_111val;
+    var e_111val;
+    var f_111val;
+    var i = 1;
+    var j = 61;
+    var Investeringskostnad = parseInt($("#indata-32").val());
+    var Installerad_effekt = parseInt($("#indata-18").val());
+    var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
+    var Tak_ROT_avdrag = parseInt($("#extended-18").val());
+    var Investeringsstod = parseInt($("#indata-33").val()) / 100;
+    var Tak_Investeringsstod = parseInt($("#extended-16").val());
+    var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
+    var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
+    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Kostnad_vaxelriktarbyte = parseInt($("#extended-25").val());
+    var Kalkylranta = parseInt($("#indata-28").val()) / 100;
+    var Restvarde = parseInt($("#extended-50").val());
+    var Rivningskostnad = parseInt($("#extended-51").val());
+
+    var d_60val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+    $("#d-60").val(d_60val);
+    d_111val = d_60val;
+
+    if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
+        var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#e-60").val(Math.round(e_60val));
+        e_111val = Math.round(e_60val);
+        //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
+    } else {
+        // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
+        var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#e-60").val(Math.round(e_60val));
+        e_111val = Math.round(e_60val);
+    }
+
+    if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
+        //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
+        var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#f-60").val(Math.round(f_60val));
+        f_111val = Math.round(f_60val);
+    } else {
+        //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
+        var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        $("#f-60").val(Math.round(f_60val));
+        f_111val = Math.round(f_60val);
+
+    }
+
+    var j = 61;
+    for (i = 1; i < 50; i++) {
+        var val1;
+        var val2;
+        if ((i / Antal_ar_till_byte_av_vaxelriktare <= Antal_byten_av_vaxelriktare) && (i < Ekonomisk_livslangd) && (i / Antal_ar_till_byte_av_vaxelriktare == 1 || i / Antal_ar_till_byte_av_vaxelriktare == 2 || i / Antal_ar_till_byte_av_vaxelriktare == 3)) {
+            -(Kostnad_vaxelriktarbyte * Installerad_effekt)
+            val1 = -(Kostnad_vaxelriktarbyte * Installerad_effekt);
+        } else {
+            val1 = 0;
+        }
+        if (i == Ekonomisk_livslangd) {
+            val2 = (Restvarde - Rivningskostnad);
+        } else {
+            val2 = 0;
+        }
+        var sum = Math.round(val1) + Math.round(val2);
+        d_111val = d_111val + Math.round(sum);
+        e_111val = e_111val + Math.round(sum);
+        f_111val = f_111val + Math.round(sum);
+        var value = Math.round(val1 + val2);
+        $("#d-" + j).val(value);
+        $("#e-" + j).val(value);
+        $("#f-" + j).val(value);
+        j++;
+    }
+    $("#d-111").val(Math.round(d_111val));
+    $("#e-111").val(Math.round(e_111val));
+    $("#f-111").val(Math.round(f_111val));
+}
+
 //calculate production cost for the cell D72
 //in the tab "dina indata & result" in the given excel file
 function calculateProductionCostD72() {
@@ -798,6 +877,7 @@ function calculateDEF() {
     calculateI41();
     calculateI42();
     calculateI43();
+    CalculateSecondDEF();
     google.charts.setOnLoadCallback(drawPieChart1);
     google.charts.setOnLoadCallback(drawPieChart2);
     google.charts.setOnLoadCallback(drawPieChart3);
@@ -937,6 +1017,37 @@ function calculateG(){
   google.charts.setOnLoadCallback(drawPieChart3);
 }
 
+//CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
+function calculateSecondK(){
+  var p64 = $( "#indata-64" ).val();
+  var p65 = $( "#indata-65" ).val();
+  p65 = p65 / 100; // divide by 100 since it is a % unit
+  var p66 = $( "#indata-66" ).val();
+  p66 = p66 / 100;
+  var e64 = $( "#extended-64" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    if(+e64 >= +currentA)
+      //perform the calculation and save the result in a variable
+      result = Math.round( currentB * p65 * (1-p66) * p64 );
+    //else result = 0
+
+    $( "#k-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + result; //increase the sum
+  }
+
+  $( "#k-111" ).val( sum ); //give the sum-cell the total calculated sum
+}
+
 function calculateK(){
   var p64 = $( "#indata-64" ).val();
   var p65 = $( "#indata-65" ).val();
@@ -968,9 +1079,46 @@ function calculateK(){
 
   //var testStr2 = "total K sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondK();
   calculateN();
   calculateP();
   calculateR();
+}
+
+function calculateSecondM(){
+  var p24 = $( "#indata-24" ).val();
+  var p28 = $( "#indata-28" ).val();
+  p28 = p28 / 100; // divide by 100 since it is a % unit
+  var p60 = $( "#indata-60" ).val();
+  p60 = p60 / 100;
+  var p68 = $( "#indata-68" ).val();
+  var e65 = $( "#extended-65" ).val();
+  var e66 = $( "#extended-66" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    //perform calculations if necessary
+    if(+p24 >= +currentA && +p68 >= +currentA) {
+      if((currentB * (1-p60) * e65) > (+e66))
+        result = Math.round(18000 / Math.pow((1+p28), currentA));
+      else
+        result = Math.round(currentB * (1-p60) * e65);
+    }
+    //else result = 0;
+
+    $( "#m-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + result; //increase the sum
+  }
+
+  $( "#m-111" ).val( sum ); //give the sum-cell the total calculated sum
 }
 
 function calculateM(){
@@ -1010,9 +1158,36 @@ function calculateM(){
 
   //var testStr2 = "total M sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondM();
   calculateN();
   calculateP();
   calculateR();
+}
+
+function calculateSecondL(){
+  var p24 = $( "#indata-24" ).val();
+  var p67 = $( "#indata-67" ).val();
+  var sum = 0; //set sum counter to 0
+
+  var currentA, currentB = 0;
+  var result = 0;
+  
+  //loop through the necessary ids for that column (row 61-110)
+  for(var i = 61; i < 111; i++){
+    currentA = $( "#a-" + i ).val();
+    currentB = $( "#b-" + i ).val();
+    result = 0;
+
+    if(+p24 >= +currentA)
+      //perform the calculation and save the result in a variable
+      result = Math.round( currentB * p67 );
+    //else result = 0
+
+    $( "#l-" + i ).val( result ); //give the specific cell (input field) that value
+    sum = sum + ( result ); //increase the sum
+  }
+
+  $( "#l-111" ).val( sum );
 }
 
 function calculateL(){
@@ -1042,6 +1217,7 @@ function calculateL(){
 
   //var testStr2 = "total L sum=" + sum;
   //alert(testStr2); //test
+  calculateSecondL();
   calculateN();
   calculateP();
   calculateR();

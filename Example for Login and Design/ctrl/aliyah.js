@@ -1,5 +1,5 @@
 
-function CalculateTabl2DEF() {
+/*function CalculateTabl2DEF() {
     var d_111val;
     var e_111val;
     var f_111val;
@@ -53,7 +53,7 @@ function CalculateTabl2DEF() {
         var val1;
         var val2;
         if ((i / Antal_ar_till_byte_av_vaxelriktare <= Antal_byten_av_vaxelriktare) && (i < Ekonomisk_livslangd) && (i / Antal_ar_till_byte_av_vaxelriktare == 1 || i / Antal_ar_till_byte_av_vaxelriktare == 2 || i / Antal_ar_till_byte_av_vaxelriktare == 3)) {
-            -(Kostnad_växelriktarbyte * Installerad_effekt)
+            -(Kostnad_vaxelriktarbyte * Installerad_effekt)
             val1 = -(Kostnad_vaxelriktarbyte * Installerad_effekt);
         } else {
             val1 = 0;
@@ -76,7 +76,7 @@ function CalculateTabl2DEF() {
     $("#d-111").val(Math.round(d_111val));
     $("#e-111").val(Math.round(e_111val));
     $("#f-111").val(Math.round(f_111val));
-}
+}*/
 
 
 //calculate INtada and result D83 col
