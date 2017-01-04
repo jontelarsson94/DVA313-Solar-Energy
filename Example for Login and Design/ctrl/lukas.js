@@ -1,3 +1,57 @@
+//Column N, O and P - second cash flow table
+
+//Column N
+function calculateN(){
+  var n111 = 0;
+
+    for(var i = 60; i < 111; i++){
+            $("#n-"+i).val(Math.round(  parseInt($("#d-"+i).val()))
+                          +  Math.round(parseInt($("#g-"+i).val()))
+                          +  Math.round(parseInt($("#h-"+i).val()))
+                          +  Math.round(parseInt($("#i-"+i).val()))
+                          +  Math.round(parseInt($("#j-"+i).val()))
+                          +  Math.round(parseInt($("#k-"+i).val()))
+                          +  Math.round(parseInt($("#l-"+i).val()))
+                          +  Math.round(parseInt($("#m-"+i).val())));
+            n111 = n111 +  Math.round(parseInt($("#n-"+i).val()));
+    }
+    $("#n-111").val(n55);
+    //calculateO();
+    //calculateI82();
+}
+
+//Column O
+function calculateO(){
+  $("#o-60").val(  parseInt($("#n-60").val()) );
+
+    for(var i = 61; i < 111; i++){
+        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+            $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
+    }
+    //calculateD83();
+    //google.charts.setOnLoadCallback(drawLineChart1);
+}
+
+//Column P
+function calculateP(){
+  var p111 = 0;
+
+    for(var i = 60; i < 111; i++){
+            $("#p-"+i).val( Math.round( parseInt($("#e-"+i).val()))
+                          +  Math.round(parseInt($("#g-"+i).val()))
+                          +  Math.round(parseInt($("#h-"+i).val()))
+                          +  Math.round(parseInt($("#i-"+i).val()))
+                          +  Math.round(parseInt($("#j-"+i).val()))
+                          +  Math.round(parseInt($("#k-"+i).val()))
+                          +  Math.round(parseInt($("#l-"+i).val()))
+                          +  Math.round(parseInt($("#m-"+i).val())) );
+            p111 = p111 +  Math.round(parseInt($("#p-"+i).val()));
+    }
+    $("#p-111").val(Math.round(p111));
+    //calculateQ();
+    //calculateI87();
+}
+
 function createPDF(){
     var imgURILineChart1 = document.getElementById("lineChart1").src;
     var imgURILineChart2 = document.getElementById("lineChart2").src;
