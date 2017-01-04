@@ -49,7 +49,7 @@ function CalculateTabl2DEF() {
     }
 
     var j = 61;
-    for (i = 1; i < 50; i++) {
+    for (i = 1; i < 51; i++) {
         var val1;
         var val2;
         if ((i / Antal_ar_till_byte_av_vaxelriktare <= Antal_byten_av_vaxelriktare) && (i < Ekonomisk_livslangd) && (i / Antal_ar_till_byte_av_vaxelriktare == 1 || i / Antal_ar_till_byte_av_vaxelriktare == 2 || i / Antal_ar_till_byte_av_vaxelriktare == 3)) {
