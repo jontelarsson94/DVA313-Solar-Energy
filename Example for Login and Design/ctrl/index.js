@@ -423,6 +423,7 @@ function CalculateSecondDEF() {
 
     calculateSecondN();
     calculateSecondP();
+    calculateSecondR();
 }
 
 //calculate production cost for the cell D72
@@ -619,15 +620,36 @@ function calculateI92(){
   $("#indata-92").val(  parseInt($("#r-55").val()) );
 }
 
+function calculateSecondS(){
+  $("#s-60").val(  parseInt($("#r-60").val()) );
+
+    for(var i = 61; i < 111; i++){
+        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+            $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
+    }
+    alert($("#s-91").val());
+}
+
 function calculateS(){
   $("#s-4").val(  parseInt($("#r-4").val()) );
 
     for(var i = 5; i < 55; i++){
-        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
     calculateD93();
     google.charts.setOnLoadCallback(drawLineChart3);
+}
+
+function calculateSecondR(){
+  var r111 = 0;
+
+    for(var i = 60; i < 111; i++){
+            $("#r-"+i).val(  parseInt($("#f-"+i).val()) +  parseInt($("#g-"+i).val()) +  parseInt($("#h-"+i).val()) +  parseInt($("#i-"+i).val()) +  parseInt($("#j-"+i).val()) +  parseInt($("#k-"+i).val()) +  parseInt($("#l-"+i).val()) +  parseInt($("#m-"+i).val()) );
+            r111 = r111 +  parseInt($("#r-"+i).val());
+    }
+    $("#r-111").val(r111); 
+    calculateSecondS();
 }
 
 function calculateR(){
@@ -642,11 +664,20 @@ function calculateR(){
     calculateI92();
 }
 
+function calculateSecondQ(){
+  $("#q-60").val(  parseInt($("#p-60").val()) );
+
+    for(var i = 61; i < 111; i++){
+        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+            $("#q-"+i).val(  parseInt($("#q-"+(i-1)).val()) +  parseInt($("#p-"+i).val()) );
+    }
+}
+
 function calculateQ(){
   $("#q-4").val(  parseInt($("#p-4").val()) );
 
     for(var i = 5; i < 55; i++){
-        if( parseInt($("#indata-24").val()) >  parseInt($("#a-" +i).val()))
+        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
     calculateD88();
@@ -672,7 +703,6 @@ function calculateO(){
             $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
     calculateD83();
-    alert($("#o-34").val());
     google.charts.setOnLoadCallback(drawLineChart1);
 }
 
@@ -732,7 +762,7 @@ function calculateSecondP(){
     $("#p-111").val(Math.round(p111));
     //calculateQ();
     //calculateI87();
-    alert(p111);
+    calculateSecondQ()
 }
 
 function calculateP(){
@@ -779,6 +809,7 @@ function calculateSecondH() {
     $("#h-111").val(sum);
     calculateSecondN();
     calculateSecondP();
+    calculateSecondR();
 }
 
 //Whenever one of these is calculated, we should calculate c first
@@ -833,6 +864,7 @@ function calculateSecondI() {
     $("#i-111").val(sum);
     calculateSecondN();
     calculateSecondP();
+    calculateSecondR();
 }
 
 function calculateI() {
@@ -885,6 +917,7 @@ function calculateSecondJ() {
     $("#j-111").val(sum);
     calculateSecondN();
     calculateSecondP();
+    calculateSecondR();
 }
 
 
@@ -1119,6 +1152,8 @@ function calculateSecondG(){
   //give the sum-cell the value of all the cells together
   $( "#g-111" ).val( Math.round(sum) );
   calculateSecondN();
+  calculateSecondP();
+  calculateSecondR();
 }
 
 
@@ -1185,6 +1220,8 @@ function calculateSecondK(){
 
   $( "#k-111" ).val( sum ); //give the sum-cell the total calculated sum
   calculateSecondN();
+  calculateSecondP();
+  calculateSecondR();
 }
 
 function calculateK(){
@@ -1259,6 +1296,8 @@ function calculateSecondM(){
 
   $( "#m-111" ).val( sum ); //give the sum-cell the total calculated sum
   calculateSecondN();
+  calculateSecondP();
+  calculateSecondR();
 }
 
 function calculateM(){
@@ -1329,6 +1368,8 @@ function calculateSecondL(){
 
   $( "#l-111" ).val( sum );
   calculateSecondN();
+  calculateSecondP();
+  calculateSecondR();
 }
 
 function calculateL(){
@@ -1648,6 +1689,8 @@ $('#calculations').on('keyup', '#indata-24', function(ev){
   calculateQ();
   calculateS();
   calculateSecondO();
+  calculateSecondQ();
+  calculateSecondS();
 });
 
 $('#calculations').on('keyup', '#indata-18', function(ev){
