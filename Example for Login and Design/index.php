@@ -679,6 +679,8 @@ require_once "src/action/form.php";
     <script src='js/pdfmake.min.js'></script>
     <script src='js/vfs_fonts.js'></script>
 
+    <script src='js/finance.js'></script>
+
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
 
