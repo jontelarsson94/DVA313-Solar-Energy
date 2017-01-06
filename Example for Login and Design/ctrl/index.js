@@ -627,7 +627,6 @@ function calculateSecondS(){
         if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
-    alert($("#s-91").val());
 }
 
 function calculateS(){

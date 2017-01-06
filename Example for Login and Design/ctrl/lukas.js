@@ -108,9 +108,9 @@ function createPDF(){
 
                 body: [
                   [{ text: 'Anläggning', style: 'tableHeader' }, { text: '', style: 'tableHeader'}],
-                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: '100,0', style: 'tableValue'} ],
-                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: '667', style: 'tableValue'} ],
-                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: '150', style: 'tableValue'} ],
+                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: $("#indata-18").val(), style: 'tableValue'} ],
+                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: $("#indata-19").val(), style: 'tableValue'} ],
+                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: $("#indata-20").val(), style: 'tableValue'} ],
                   [ { text: 'Value 1', style: 'tableDescription'}, { text: 'Value 2', style: 'tableValue'} ],
                   [ { text: 'Value 1', style: 'tableDescription'}, { text: 'Value 2', style: 'tableValue'} ],
                   [ { text: 'Value 1', style: 'tableDescription'}, { text: 'Value 2', style: 'tableValue'} ],
