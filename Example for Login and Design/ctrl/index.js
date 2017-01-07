@@ -142,7 +142,6 @@ function IRR(values, guess) {
     epsRate = Math.abs(newRate - resultRate);
     resultRate = newRate;
     contLoop = (epsRate > epsMax) && (Math.abs(resultValue) > epsMax);
-    console.log(resultRate);
   } while(contLoop && (++iteration < iterMax));
 
   if(contLoop) return '#NUM!';
@@ -816,6 +815,15 @@ function calculateSecondN(){
             n111 = n111 +  Math.round(parseInt($("#n-"+i).val()));
     }
     $("#n-111").val(n111);
+    console.log("n5: " + $("#n-61").val())
+    console.log("d5: " + $("#d-61").val())
+    console.log("g5: " + $("#g-61").val())
+    console.log("h5: " + $("#h-61").val())
+    console.log("i5: " + $("#i-61").val())
+    console.log("j5: " + $("#j-61").val())
+    console.log("k5: " + $("#k-61").val())
+    console.log("l5: " + $("#l-61").val())
+    console.log("m5: " + $("#m-61").val())
     calculateSecondO();
     calculateI84();
 }
@@ -946,10 +954,10 @@ function calculateSecondI() {
     var i = 1;
     var j = 61;
     var sum = 0;
-
+    //OM(Ekonomisk_livslängd>=A61;B61*(1-Andel_egenanvänd_el)*Pris_såld_el;0)
     for (i = 1; i < 51; i++) {
         if (Ekonomisk_livslangd >= i) {
-            var ival = Math.round(parseInt($("#b-" + j).val()) *  Andel_egenanvand_el * Pris_sald_el);
+            var ival = Math.round(parseInt($("#b-" + j).val()) *  (1-Andel_egenanvand_el) * Pris_sald_el);
             $("#i-" + j).val(ival);
             sum = sum + ival;
         } else {
