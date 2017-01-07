@@ -58,14 +58,13 @@ function createPDF(){
         // --- page 1 ---
         //Input Values
         { text: 'Solar Economic Calculator', fontSize: 18, margin: [0, 0, 0, 10] },
-        { text: 'Your input values:', fontSize: 16, margin: [0, 0, 0, 8] },
+        //{ text: 'Your input values:', fontSize: 16, margin: [0, 0, 0, 8] },
 
 
         //tables on first page
         {
           columns: [
             {
-              width: '50%',
               table: {
                 // headers are automatically repeated if the table spans over multiple pages
                 // you can declare how many rows should be treated as headers
@@ -145,6 +144,7 @@ function createPDF(){
             {
               width: '50%',
               table: {
+              width: '50%',
                 // headers are automatically repeated if the table spans over multiple pages
                 // you can declare how many rows should be treated as headers
                 headerRows: 1,
@@ -210,12 +210,175 @@ function createPDF(){
         // --- page 2 ---
         // Cash Flow table
         {
-          text: 'Cash Flow',
+          text: '',
           style: 'header',
           pageBreak: 'before',
-          pageOrientation: 'landscape'
+          pageOrientation: 'landscape',
+          // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
+          pageMargins: [ 5, 5, 5, 5 ],
         },
-        '\n\n\n--- Table with 19 x 55 ---',
+
+        { table: {
+          // headers are automatically repeated if the table spans over multiple pages
+          // you can declare how many rows should be treated as headers
+          headerRows: 1,
+          widths: [ 'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', ],
+
+          body: [
+            [
+              { text: 'Cash Flow', style: 'tableHeader', colSpan: 19 },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+            ],
+            [
+              { text: '' },
+              { text: 'Energiproduktion (kWh)', style: 'cashFlowHeader', colSpan: 2, fillColor: '#66ffff' },
+              { text: '' },
+              { text: 'Investering nuvärden (kr)', style: 'cashFlowHeader', colSpan: 4, fillColor: '#ffc000' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Intäkter nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#ffff00' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Resultat nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#99ff66' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+            ],
+            [
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader'},
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader'},
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader'},
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+            ],
+            [
+              { text: 'År', style: 'cashFlowHeader'},
+              { text: 'Energi efter degradering', style: 'cashFlowHeader'},
+              { text: 'Energi nuvärde', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Årliga kostnader', style: 'cashFlowHeader'},
+              { text: 'Egenanvänd el', style: 'cashFlowHeader'},
+              { text: 'Såld el', style: 'cashFlowHeader'},
+              { text: 'Ersättning nätägare', style: 'cashFlowHeader'},
+              { text: 'Elcertifikat', style: 'cashFlowHeader'},
+              { text: 'Ursprungsgarantier', style: 'cashFlowHeader'},
+              { text: 'Skattereduktion', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+            ],
+            // ----- test -----
+            [
+              { text: $("#a-4").val(), style: 'cashFlowValue'},
+              { text: $("#b-4").val(), style: 'cashFlowValue'},
+              { text: $("#c-4").val(), style: 'cashFlowValue'},
+              { text: $("#d-4").val(), style: 'cashFlowValue'},
+              { text: $("#e-4").val(), style: 'cashFlowValue'},
+              { text: $("#f-4").val(), style: 'cashFlowValue'},
+              { text: $("#g-4").val(), style: 'cashFlowValue'},
+              { text: $("#h-4").val(), style: 'cashFlowValue'},
+              { text: $("#i-4").val(), style: 'cashFlowValue'},
+              { text: $("#j-4").val(), style: 'cashFlowValue'},
+              { text: $("#k-4").val(), style: 'cashFlowValue'},
+              { text: $("#l-4").val(), style: 'cashFlowValue'},
+              { text: $("#m-4").val(), style: 'cashFlowValue'},
+              { text: $("#n-4").val(), style: 'cashFlowValue'},
+              { text: $("#o-4").val(), style: 'cashFlowValue'},
+              { text: $("#p-4").val(), style: 'cashFlowValue'},
+              { text: $("#q-4").val(), style: 'cashFlowValue'},
+              { text: $("#r-4").val(), style: 'cashFlowValue'},
+              { text: $("#s-4").val(), style: 'cashFlowValue'},
+            ],
+            [
+              { text: $("#a-5").val(), style: 'cashFlowValue'},
+              { text: $("#b-5").val(), style: 'cashFlowValue'},
+              { text: $("#c-5").val(), style: 'cashFlowValue'},
+              { text: $("#d-5").val(), style: 'cashFlowValue'},
+              { text: $("#e-5").val(), style: 'cashFlowValue'},
+              { text: $("#f-5").val(), style: 'cashFlowValue'},
+              { text: $("#g-5").val(), style: 'cashFlowValue'},
+              { text: $("#h-5").val(), style: 'cashFlowValue'},
+              { text: $("#i-5").val(), style: 'cashFlowValue'},
+              { text: $("#j-5").val(), style: 'cashFlowValue'},
+              { text: $("#k-5").val(), style: 'cashFlowValue'},
+              { text: $("#l-5").val(), style: 'cashFlowValue'},
+              { text: $("#m-5").val(), style: 'cashFlowValue'},
+              { text: $("#n-5").val(), style: 'cashFlowValue'},
+              { text: $("#o-5").val(), style: 'cashFlowValue'},
+              { text: $("#p-5").val(), style: 'cashFlowValue'},
+              { text: $("#q-5").val(), style: 'cashFlowValue'},
+              { text: $("#r-5").val(), style: 'cashFlowValue'},
+              { text: $("#s-5").val(), style: 'cashFlowValue'},
+            ],
+
+          ],
+        },
+        layout: {
+														hLineWidth: function(i, node) {
+																return (i === 0 || i === node.table.body.length) ? 0 : 0.5;
+														},
+														vLineWidth: function(i, node) {
+																return (i === 0 || i === node.table.widths.length) ? 0 : 0.5;
+														},
+														hLineColor: function(i, node) {
+																return (i === 0 || i === node.table.body.length) ? 'black' : 'gray';
+														},
+														vLineColor: function(i, node) {
+																return (i === 0 || i === node.table.widths.length) ? 'black' : 'gray';
+														},
+														// paddingLeft: function(i, node) { return 4; },
+														// paddingRight: function(i, node) { return 4; },
+														// paddingTop: function(i, node) { return 2; },
+														// paddingBottom: function(i, node) { return 2; }
+						}
+        },
+
+
         // --- page 2 end ---
 
         // --- page 3 ---
@@ -305,6 +468,7 @@ function createPDF(){
   // --- styles ---
   styles: {
 
+     // table
      tableValue: {
        fontSize: 8,
        alignment: 'right',
@@ -316,31 +480,40 @@ function createPDF(){
        italics: true,
        fontSize: 8,
      },
+     tableHeader: {
+       bold: true,
+       fontSize: 13,
+       color: 'black'
+     },
+     sectionHeader: {
+       bold: true,
+       fontSize: 10,
+       color: 'black'
+     },
+     cashFlowHeader: {
+       fontSize: 5,
+       alignment: 'center',
+       color: 'black'
+     },
+     cashFlowValue: {
+       fontSize: 7,
+       alignment: 'right',
+     },
 
      header: {
-			fontSize: 18,
-			bold: true,
-			margin: [0, 0, 0, 10]
-		  },
-  		subheader: {
-  			fontSize: 16,
-  			bold: true,
-  			margin: [0, 10, 0, 5]
-  		},
-  		tableExample: {
-  			margin: [0, 5, 0, 15]
-  		},
-  		tableHeader: {
-  			bold: true,
-  			fontSize: 13,
-  			color: 'black'
-  		},
-      sectionHeader: {
-        bold: true,
-  			fontSize: 10,
-  			color: 'black'
-  		},
-      },
+       fontSize: 18,
+			 bold: true,
+			 margin: [0, 0, 0, 10]
+		 },
+     subheader: {
+       fontSize: 16,
+       bold: true,
+       margin: [0, 10, 0, 5]
+     },
+     tableExample: {
+       margin: [0, 5, 0, 15]
+     },
+   },
       defaultStyle: {
         fontSize: 12,
       }
