@@ -220,10 +220,11 @@ require_once "src/action/form.php";
                         <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
                         <p ng-if="default.type == NULL">{{default.name}}</p>
                         <p ng-if="default.type == 'Result'">{{default.name}}</p>
+                        <p ng-if="default.type == 'IRR'">{{default.name}}</p>
                         <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
                       </div>
                       <br>
-                      <div class="col-md-2 input-group">
+                      <div class="col-md-3 input-group">
 
                         <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
                           <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
@@ -237,6 +238,20 @@ require_once "src/action/form.php";
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
 
+
+                          </div>
+                        </div>
+                        <div ng-if="default.type == 'IRR'" class="input-group">
+                          <input type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
+                          <div class="input-group-btn">
+
+                            <!-- Buttons -->
+                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+                            <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
 
                           </div>
                         </div>
@@ -304,6 +319,7 @@ require_once "src/action/form.php";
             </div>
             <div class="row">
               <h2 class="text-center">Resultat - Diagram</h2>
+              <button class="btn btn-primary col-md-offset-5" id="diagramBtn">Räkna ut diagram</button>
               <div id="pieChart1" class="col-md-6"></div>
               <div id="pieChart2" class="col-md-6"></div>
               <div id="pieChart3" class="col-md-6"></div>
@@ -313,8 +329,9 @@ require_once "src/action/form.php";
               <br>
             </div>
             <div class="row">
+            <br><br>
               <div class="col-md-offset-5">
-                <button class="btn btn-primary" onclick="createPDF()">Klicka för att ladda ner PDF</button>
+                <button id="createPDFBtn" class="btn btn-primary" onclick="createPDF()">Ladda ner PDF</button>
               </div>
             </div>
     </section>

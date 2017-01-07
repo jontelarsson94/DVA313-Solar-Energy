@@ -731,7 +731,6 @@ function calculateS(){
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
     calculateD93();
-    google.charts.setOnLoadCallback(drawLineChart3);
 }
 
 function calculateSecondR(){
@@ -743,7 +742,6 @@ function calculateSecondR(){
     }
     $("#r-111").val(r111); 
     calculateSecondS();
-    calculateI94();
 }
 
 function calculateR(){
@@ -775,7 +773,6 @@ function calculateQ(){
             $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
     calculateD88();
-    google.charts.setOnLoadCallback(drawLineChart2);
 }
 
 function calculateSecondO(){
@@ -797,7 +794,6 @@ function calculateO(){
             $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
     calculateD83();
-    google.charts.setOnLoadCallback(drawLineChart1);
 }
 
 function calculateSecondN(){
@@ -815,17 +811,7 @@ function calculateSecondN(){
             n111 = n111 +  Math.round(parseInt($("#n-"+i).val()));
     }
     $("#n-111").val(n111);
-    console.log("n5: " + $("#n-61").val())
-    console.log("d5: " + $("#d-61").val())
-    console.log("g5: " + $("#g-61").val())
-    console.log("h5: " + $("#h-61").val())
-    console.log("i5: " + $("#i-61").val())
-    console.log("j5: " + $("#j-61").val())
-    console.log("k5: " + $("#k-61").val())
-    console.log("l5: " + $("#l-61").val())
-    console.log("m5: " + $("#m-61").val())
     calculateSecondO();
-    calculateI84();
 }
 
 //Must be called every time D, G, H, I, J, K, L or M is calculated
@@ -867,7 +853,6 @@ function calculateSecondP(){
     //calculateQ();
     //calculateI87();
     calculateSecondQ()
-    calculateI89();
 }
 
 function calculateP(){
@@ -1149,9 +1134,6 @@ function calculateDEF() {
     calculateI42();
     calculateI43();
     CalculateSecondDEF();
-    google.charts.setOnLoadCallback(drawPieChart1);
-    google.charts.setOnLoadCallback(drawPieChart2);
-    google.charts.setOnLoadCallback(drawPieChart3);
 
 }
 
@@ -1290,9 +1272,6 @@ function calculateG(){
   calculateP();
   calculateR();
   calculateSecondG();
-  google.charts.setOnLoadCallback(drawPieChart1);
-  google.charts.setOnLoadCallback(drawPieChart2);
-  google.charts.setOnLoadCallback(drawPieChart3);
 }
 
 //CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
@@ -1820,4 +1799,37 @@ $('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #exten
 
 $('#calculations').on('change', '#extended-64', function(ev){
   calculateI55();
+});
+
+$('#calculations').on('click', '#click-84', function(ev){
+  calculateI84();
+});
+
+$('#calculations').on('click', '#click-89', function(ev){
+  calculateI89();
+});
+
+$('#calculations').on('click', '#click-94', function(ev){
+  calculateI94();
+});
+
+$("#diagramBtn").click(function(){
+  google.charts.setOnLoadCallback(drawLineChart1);
+  google.charts.setOnLoadCallback(drawLineChart2);
+  google.charts.setOnLoadCallback(drawLineChart3);
+  google.charts.setOnLoadCallback(drawPieChart1);
+  google.charts.setOnLoadCallback(drawPieChart2);
+  google.charts.setOnLoadCallback(drawPieChart3);
+});
+
+$("#createPDFBtn").click(function(){
+  google.charts.setOnLoadCallback(drawLineChart1);
+  google.charts.setOnLoadCallback(drawLineChart2);
+  google.charts.setOnLoadCallback(drawLineChart3);
+  google.charts.setOnLoadCallback(drawPieChart1);
+  google.charts.setOnLoadCallback(drawPieChart2);
+  google.charts.setOnLoadCallback(drawPieChart3);
+  calculateI84();
+  calculateI89();
+  calculateI94();
 });
