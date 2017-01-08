@@ -7,3 +7,22 @@
     /* If max-width does not work, try using width instead */
     width: 35em;
 }
+
+.mini-col{
+	width: 4.5%;
+	display: inline-block;
+	font-size: 0.5em;
+}
+
+.acc-border{
+	border-style: solid;
+    border-width: 1px;
+    border-top: none;
+    padding-bottom: 2em;
+}
+
+.acc-border p{
+	font-size:14px;
+	line-height:1.75;
+	font-weight: bold;
+}
