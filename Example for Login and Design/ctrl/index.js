@@ -2238,10 +2238,6 @@ $('#buttonArea').on('mouseleave', '', function(ev){
   calculateProductionCostD73();
   calculateProductionCostD74();
 
-  alert($( "#n-111" ).val());
-  alert($( "#p-111" ).val());
-  alert($( "#r-111" ).val());
-
 });
 
 //calculating p19, p49

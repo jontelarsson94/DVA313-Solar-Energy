@@ -1,4 +1,4 @@
-function addBody(){
+/*function addBody(){
 
   var bodies = new Array();
 
@@ -556,3 +556,4 @@ function createPDF(){
     // open PDF file in new tab
     pdfMake.createPdf(docDefinition).open('results.pdf');
   }
+*/

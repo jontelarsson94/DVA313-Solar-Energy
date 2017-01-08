@@ -93,13 +93,13 @@ require_once "src/action/form.php";
                       }
                     } ?>
                     <li>
-                        <a class="page-scroll" href="#calculatorId">Calculator</a>
+                        <a class="page-scroll" href="#calculatorId">Kalkylator</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Om oss</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">Kontakt</a>
                     </li>
                     <li>
 
