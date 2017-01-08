@@ -129,7 +129,7 @@ require_once "src/action/form.php";
             <div class="intro-text">
                 <div class="intro-lead-in">Renewable Energy</div>
                 <div class="intro-heading">Solar Economy Calculator</div>
-                <a href="#services" class="page-scroll btn btn-xl">Start Now</a>
+                <a href="#services" class="page-scroll btn btn-xl">Börja räkna nu</a>
             </div>
         </div>
     </header>
@@ -169,7 +169,7 @@ require_once "src/action/form.php";
             <div class="row" id="calculatorId">
             <br>
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Calculator</h2>
+                    <h2 class="section-heading">Kalkylator</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
@@ -179,7 +179,8 @@ require_once "src/action/form.php";
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Indata och resultat</a></li>
-                <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Extended</a></li>
+                <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Grundläggande antaganden</a></li>
+                <li role="presentation"><a href="#result" aria-controls="profile" role="tab" data-toggle="tab">Resultat</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -188,12 +189,13 @@ require_once "src/action/form.php";
                   <div>
                     <div class="col-md-7"></div>
                     <div class="col-md-4">
+                    <p>Klicka för att ändra standardvärden som passar dig!</p>
                       <div data-toggle="buttons" class="btn-group btn-group-justified" id="buttonArea">
                         <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
-                          <label class="btn btn-primary active"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
+                          <label class="btn btn-primary active"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Privatperson</label>
                         </div>
                         <div class="btn-group" id="companyToggle" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">
-                          <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
+                          <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Företag</label>
                         </div>
                       </div>
                     </div>
@@ -214,7 +216,7 @@ require_once "src/action/form.php";
                   </div>
 
                   <form>
-                    <div class="row form-group" ng-repeat="default in indata_defaults">
+                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row < 70">
                       <div class="col-md-2"></div>
                       <div class="col-md-6">
                         <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
@@ -293,6 +295,72 @@ require_once "src/action/form.php";
                     </div>
                   </form>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="result"></br>
+                  <form>
+                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row > 70">
+                      <div class="col-md-2"></div>
+                      <div class="col-md-6">
+                        <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
+                        <p ng-if="default.type == NULL">{{default.name}}</p>
+                        <p ng-if="default.type == 'Result'">{{default.name}}</p>
+                        <p ng-if="default.type == 'IRR'">{{default.name}}</p>
+                        <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
+                      </div>
+                      <br>
+                      <div class="col-md-3 input-group">
+
+                        <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
+                          <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
+                          <input ng-if="default.type == 'Result'" type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
+                          <div class="input-group-btn">
+
+                            <!-- Buttons -->
+                            <a ng-if="default.max != NULL" role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
+                            <a ng-if="default.max == NULL" role="button" class="btn btn-default disabled">{{default.min}}-∞ {{default.unit}}</a>
+                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+
+
+                          </div>
+                        </div>
+                        <div ng-if="default.type == 'IRR'" class="input-group">
+                          <input type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
+                          <div class="input-group-btn">
+
+                            <!-- Buttons -->
+                            <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
+                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+                            <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2"></div>
+                    </div>
+                  </form>
+                  <div class="row">
+                    <h2 class="text-center">Resultat - Diagram</h2>
+                    <button class="btn btn-primary col-md-offset-5" id="diagramBtn">Räkna ut diagram</button>
+                    <div id="pieChart1" class="col-md-6"></div>
+                    <div id="pieChart2" class="col-md-6"></div>
+                    <div id="pieChart3" class="col-md-6"></div>
+                    <div id="lineChart1" class="col-md-6"></div>
+                    <div id="lineChart2" class="col-md-6"></div>
+                    <div id="lineChart3" class="col-md-6"></div>
+                    <br>
+                  </div>
+                  <div class="row">
+                  <br><br>
+                    <div class="col-md-offset-5">
+                      <button id="createPDFBtn" class="btn btn-primary">Ladda ner PDF</button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -317,23 +385,6 @@ require_once "src/action/form.php";
               <input type="hidden" id="q-{{$index}}" value="0">
               <input type="hidden" id="r-{{$index}}" value="0">
               <input type="hidden" id="s-{{$index}}" value="0">
-            </div>
-            <div class="row">
-              <h2 class="text-center">Resultat - Diagram</h2>
-              <button class="btn btn-primary col-md-offset-5" id="diagramBtn">Räkna ut diagram</button>
-              <div id="pieChart1" class="col-md-6"></div>
-              <div id="pieChart2" class="col-md-6"></div>
-              <div id="pieChart3" class="col-md-6"></div>
-              <div id="lineChart1" class="col-md-6"></div>
-              <div id="lineChart2" class="col-md-6"></div>
-              <div id="lineChart3" class="col-md-6"></div>
-              <br>
-            </div>
-            <div class="row">
-            <br><br>
-              <div class="col-md-offset-5">
-                <button id="createPDFBtn" class="btn btn-primary">Ladda ner PDF</button>
-              </div>
             </div>
     </section>
 
