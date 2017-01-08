@@ -331,7 +331,7 @@ require_once "src/action/form.php";
             <div class="row">
             <br><br>
               <div class="col-md-offset-5">
-                <button id="createPDFBtn" class="btn btn-primary" onclick="createPDF()">Ladda ner PDF</button>
+                <button id="createPDFBtn" class="btn btn-primary">Ladda ner PDF</button>
               </div>
             </div>
     </section>

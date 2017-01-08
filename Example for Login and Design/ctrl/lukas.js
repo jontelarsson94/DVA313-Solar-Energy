@@ -1,3 +1,163 @@
+function addBody(){
+
+  var bodies = new Array();
+
+  var body1 = new Array(
+              { text: 'Cash Flow', style: 'tableHeader', colSpan: 19 },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' });
+  bodies.push(body1);
+
+  var body2 = new Array(
+              { text: '' },
+              { text: 'Energiproduktion (kWh)', style: 'cashFlowHeader', colSpan: 2, fillColor: '#66ffff' },
+              { text: '' },
+              { text: 'Investering nuvärden (kr)', style: 'cashFlowHeader', colSpan: 4, fillColor: '#ffc000' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Intäkter nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#ffff00' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Resultat nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#99ff66' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' });
+  bodies.push(body2);
+
+  var body3 = new Array(
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader'},
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader'},
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader'},
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' });
+  bodies.push(body3);
+
+  var body4 = new Array(
+              { text: 'År', style: 'cashFlowHeader'},
+              { text: 'Energi efter degradering', style: 'cashFlowHeader'},
+              { text: 'Energi nuvärde', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Årliga kostnader', style: 'cashFlowHeader'},
+              { text: 'Egenanvänd el', style: 'cashFlowHeader'},
+              { text: 'Såld el', style: 'cashFlowHeader'},
+              { text: 'Ersättning nätägare', style: 'cashFlowHeader'},
+              { text: 'Elcertifikat', style: 'cashFlowHeader'},
+              { text: 'Ursprungsgarantier', style: 'cashFlowHeader'},
+              { text: 'Skattereduktion', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'});
+  bodies.push(body4);
+
+  //var restBody = new Array();
+  for(var i = 4; i < 55; i++) {
+              var currentA = $("#a-" + i).val();
+              var currentB = $("#b-" + i).val();
+              var currentC = $("#c-" + i).val();
+              var currentD = $("#d-" + i).val();
+              var currentE = $("#e-" + i).val();
+              var currentF = $("#f-" + i).val();
+              var currentG = $("#g-" + i).val();
+              var currentH = $("#h-" + i).val();
+              var currentI = $("#i-" + i).val();
+              var currentJ = $("#j-" + i).val();
+              var currentK = $("#k-" + i).val();
+              var currentL = $("#l-" + i).val();
+              var currentM = $("#m-" + i).val();
+              var currentN = $("#n-" + i).val();
+              var currentO = $("#o-" + i).val();
+              var currentP = $("#p-" + i).val();
+              var currentQ = $("#q-" + i).val();
+              var currentR = $("#r-" + i).val();
+              var currentS = $("#s-" + i).val();
+
+              var restBody = new Array( 
+                { text: $("#a-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#b-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#c-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#d-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#e-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#f-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#g-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#h-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#i-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#j-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#k-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#l-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#m-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#n-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#o-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#p-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#q-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#r-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#s-"+i).val(), style: 'cashFlowValue'});
+
+              bodies.push(restBody);
+            }
+            var restBody = new Array({ text: 'Summa', style: 'cashFlowHeader', fontSize: 13},
+                { text: $("#b-55").val(), style: 'cashFlowValue'},
+                { text: $("#c-55").val(), style: 'cashFlowValue'},
+                { text: $("#d-55").val(), style: 'cashFlowValue'},
+                { text: $("#e-55").val(), style: 'cashFlowValue'},
+                { text: $("#f-55").val(), style: 'cashFlowValue'},
+                { text: $("#g-55").val(), style: 'cashFlowValue'},
+                { text: $("#h-55").val(), style: 'cashFlowValue'},
+                { text: $("#i-55").val(), style: 'cashFlowValue'},
+                { text: $("#j-55").val(), style: 'cashFlowValue'},
+                { text: $("#k-55").val(), style: 'cashFlowValue'},
+                { text: $("#l-55").val(), style: 'cashFlowValue'},
+                { text: $("#m-55").val(), style: 'cashFlowValue'},
+                { text: $("#n-55").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#p-55").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#r-55").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'});
+            bodies.push(restBody);
+    return bodies;
+}
+
 function createPDF(){
     var imgURILineChart1 = document.getElementById("lineChart1").src;
     var imgURILineChart2 = document.getElementById("lineChart2").src;
@@ -227,160 +387,7 @@ function createPDF(){
                     'auto', 'auto', 'auto', 'auto', 'auto',
                     'auto', 'auto', 'auto', 'auto', ],
 
-          body: [
-            [
-              { text: 'Cash Flow', style: 'tableHeader', colSpan: 19 },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-            ],
-            [
-              { text: '' },
-              { text: 'Energiproduktion (kWh)', style: 'cashFlowHeader', colSpan: 2, fillColor: '#66ffff' },
-              { text: '' },
-              { text: 'Investering nuvärden (kr)', style: 'cashFlowHeader', colSpan: 4, fillColor: '#ffc000' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: 'Intäkter nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#ffff00' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: 'Resultat nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#99ff66' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-            ],
-            [
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: 'Utan stöd', style: 'cashFlowHeader'},
-              { text: 'Med ROT-avdrag', style: 'cashFlowHeader'},
-              { text: 'Med investeringsstöd', style: 'cashFlowHeader'},
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: '' },
-              { text: 'Utan stöd', style: 'cashFlowHeader', colSpan: 2},
-              { text: '' },
-              { text: 'Med ROT-avdrag', style: 'cashFlowHeader', colSpan: 2},
-              { text: '' },
-              { text: 'Med investeringsstöd', style: 'cashFlowHeader', colSpan: 2},
-              { text: '' },
-            ],
-            [
-              { text: 'År', style: 'cashFlowHeader'},
-              { text: 'Energi efter degradering', style: 'cashFlowHeader'},
-              { text: 'Energi nuvärde', style: 'cashFlowHeader'},
-              { text: 'Investering', style: 'cashFlowHeader'},
-              { text: 'Investering', style: 'cashFlowHeader'},
-              { text: 'Investering', style: 'cashFlowHeader'},
-              { text: 'Årliga kostnader', style: 'cashFlowHeader'},
-              { text: 'Egenanvänd el', style: 'cashFlowHeader'},
-              { text: 'Såld el', style: 'cashFlowHeader'},
-              { text: 'Ersättning nätägare', style: 'cashFlowHeader'},
-              { text: 'Elcertifikat', style: 'cashFlowHeader'},
-              { text: 'Ursprungsgarantier', style: 'cashFlowHeader'},
-              { text: 'Skattereduktion', style: 'cashFlowHeader'},
-              { text: 'Summa per år', style: 'cashFlowHeader'},
-              { text: 'Ackumulerat', style: 'cashFlowHeader'},
-              { text: 'Summa per år', style: 'cashFlowHeader'},
-              { text: 'Ackumulerat', style: 'cashFlowHeader'},
-              { text: 'Summa per år', style: 'cashFlowHeader'},
-              { text: 'Ackumulerat', style: 'cashFlowHeader'},
-            ],
-            // ----- test -----
-            [
-              { text: $("#a-4").val(), style: 'cashFlowValue'},
-              { text: $("#b-4").val(), style: 'cashFlowValue'},
-              { text: $("#c-4").val(), style: 'cashFlowValue'},
-              { text: $("#d-4").val(), style: 'cashFlowValue'},
-              { text: $("#e-4").val(), style: 'cashFlowValue'},
-              { text: $("#f-4").val(), style: 'cashFlowValue'},
-              { text: $("#g-4").val(), style: 'cashFlowValue'},
-              { text: $("#h-4").val(), style: 'cashFlowValue'},
-              { text: $("#i-4").val(), style: 'cashFlowValue'},
-              { text: $("#j-4").val(), style: 'cashFlowValue'},
-              { text: $("#k-4").val(), style: 'cashFlowValue'},
-              { text: $("#l-4").val(), style: 'cashFlowValue'},
-              { text: $("#m-4").val(), style: 'cashFlowValue'},
-              { text: $("#n-4").val(), style: 'cashFlowValue'},
-              { text: $("#o-4").val(), style: 'cashFlowValue'},
-              { text: $("#p-4").val(), style: 'cashFlowValue'},
-              { text: $("#q-4").val(), style: 'cashFlowValue'},
-              { text: $("#r-4").val(), style: 'cashFlowValue'},
-              { text: $("#s-4").val(), style: 'cashFlowValue'},
-            ],
-            [
-              { text: $("#a-5").val(), style: 'cashFlowValue'},
-              { text: $("#b-5").val(), style: 'cashFlowValue'},
-              { text: $("#c-5").val(), style: 'cashFlowValue'},
-              { text: $("#d-5").val(), style: 'cashFlowValue'},
-              { text: $("#e-5").val(), style: 'cashFlowValue'},
-              { text: $("#f-5").val(), style: 'cashFlowValue'},
-              { text: $("#g-5").val(), style: 'cashFlowValue'},
-              { text: $("#h-5").val(), style: 'cashFlowValue'},
-              { text: $("#i-5").val(), style: 'cashFlowValue'},
-              { text: $("#j-5").val(), style: 'cashFlowValue'},
-              { text: $("#k-5").val(), style: 'cashFlowValue'},
-              { text: $("#l-5").val(), style: 'cashFlowValue'},
-              { text: $("#m-5").val(), style: 'cashFlowValue'},
-              { text: $("#n-5").val(), style: 'cashFlowValue'},
-              { text: $("#o-5").val(), style: 'cashFlowValue'},
-              { text: $("#p-5").val(), style: 'cashFlowValue'},
-              { text: $("#q-5").val(), style: 'cashFlowValue'},
-              { text: $("#r-5").val(), style: 'cashFlowValue'},
-              { text: $("#s-5").val(), style: 'cashFlowValue'},
-            ],
-
-            /*
-            for(var i = 4; i < 55; i++) {
-              var currentA = $("#a-" + i).val();
-              var currentB = $("#b-" + i).val();
-              var currentC = $("#c-" + i).val();
-              var currentD = $("#d-" + i).val();
-              var currentE = $("#e-" + i).val();
-              var currentF = $("#f-" + i).val();
-              var currentG = $("#g-" + i).val();
-              var currentH = $("#h-" + i).val();
-              var currentI = $("#i-" + i).val();
-              var currentJ = $("#j-" + i).val();
-              var currentK = $("#k-" + i).val();
-              var currentL = $("#l-" + i).val();
-              var currentM = $("#m-" + i).val();
-              var currentN = $("#n-" + i).val();
-              var currentO = $("#o-" + i).val();
-              var currentP = $("#p-" + i).val();
-              var currentQ = $("#q-" + i).val();
-              var currentR = $("#r-" + i).val();
-              var currentS = $("#s-" + i).val();
-            }
-            */
-
-          ],
+          body: addBody()
         },
         layout: {
 														hLineWidth: function(i, node) {
@@ -485,6 +492,7 @@ function createPDF(){
           // optional space between columns
           columnGap: 0, margin: [0, 0, 0, 5]
         },
+        {},
         // --- page 3 end ---
 
   ],
