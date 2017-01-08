@@ -345,13 +345,13 @@ require_once "src/action/form.php";
                   </form>
                   <div class="row">
                     <h2 class="text-center">Resultat - Diagram</h2>
-                    <button class="btn btn-primary col-md-offset-5" id="diagramBtn">Räkna ut diagram</button>
-                    <div id="pieChart1" class="col-md-6"></div>
-                    <div id="pieChart2" class="col-md-6"></div>
-                    <div id="pieChart3" class="col-md-6"></div>
-                    <div id="lineChart1" class="col-md-6"></div>
-                    <div id="lineChart2" class="col-md-6"></div>
-                    <div id="lineChart3" class="col-md-6"></div>
+                    <button class="btn btn-primary" id="diagramBtn">Räkna ut diagram</button>
+                    <div id="pieChart1" class="col-md-5"></div>
+                    <div id="lineChart1" class="col-md-7"></div>
+                    <div id="pieChart2" class="col-md-5"></div>
+                    <div id="lineChart2" class="col-md-7"></div>
+                    <div id="pieChart3" class="col-md-5"></div>
+                    <div id="lineChart3" class="col-md-7"></div>
                     <br>
                   </div>
                   <div class="row">
