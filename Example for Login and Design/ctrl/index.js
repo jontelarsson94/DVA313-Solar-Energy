@@ -245,6 +245,167 @@ function addBody(){
     return bodies;
 }
 
+
+function addBodySecond(){
+
+  var bodies = new Array();
+
+  var body1 = new Array(
+              { text: 'Cash Flow with IRR', style: 'tableHeader', colSpan: 19 },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' });
+  bodies.push(body1);
+
+  var body2 = new Array(
+              { text: '' },
+              { text: 'Energiproduktion (kWh)', style: 'cashFlowHeader', colSpan: 2, fillColor: '#66ffff' },
+              { text: '' },
+              { text: 'Investering nuvärden (kr)', style: 'cashFlowHeader', colSpan: 4, fillColor: '#ffc000' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Intäkter nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#ffff00' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Resultat nuvärden (kr)', style: 'cashFlowHeader', colSpan: 6, fillColor: '#99ff66' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' });
+  bodies.push(body2);
+
+  var body3 = new Array(
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader'},
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader'},
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader'},
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: '' },
+              { text: 'Utan stöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med ROT-avdrag', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' },
+              { text: 'Med investeringsstöd', style: 'cashFlowHeader', colSpan: 2},
+              { text: '' });
+  bodies.push(body3);
+
+  var body4 = new Array(
+              { text: 'År', style: 'cashFlowHeader'},
+              { text: 'Energi efter degradering', style: 'cashFlowHeader'},
+              { text: 'Energi nuvärde', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Investering', style: 'cashFlowHeader'},
+              { text: 'Årliga kostnader', style: 'cashFlowHeader'},
+              { text: 'Egenanvänd el', style: 'cashFlowHeader'},
+              { text: 'Såld el', style: 'cashFlowHeader'},
+              { text: 'Ersättning nätägare', style: 'cashFlowHeader'},
+              { text: 'Elcertifikat', style: 'cashFlowHeader'},
+              { text: 'Ursprungsgarantier', style: 'cashFlowHeader'},
+              { text: 'Skattereduktion', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'},
+              { text: 'Summa per år', style: 'cashFlowHeader'},
+              { text: 'Ackumulerat', style: 'cashFlowHeader'});
+  bodies.push(body4);
+
+  //var restBody = new Array();
+  for(var i = 60; i < 111; i++) {
+              var currentA = $("#a-" + i).val();
+              var currentB = $("#b-" + i).val();
+              var currentC = $("#c-" + i).val();
+              var currentD = $("#d-" + i).val();
+              var currentE = $("#e-" + i).val();
+              var currentF = $("#f-" + i).val();
+              var currentG = $("#g-" + i).val();
+              var currentH = $("#h-" + i).val();
+              var currentI = $("#i-" + i).val();
+              var currentJ = $("#j-" + i).val();
+              var currentK = $("#k-" + i).val();
+              var currentL = $("#l-" + i).val();
+              var currentM = $("#m-" + i).val();
+              var currentN = $("#n-" + i).val();
+              var currentO = $("#o-" + i).val();
+              var currentP = $("#p-" + i).val();
+              var currentQ = $("#q-" + i).val();
+              var currentR = $("#r-" + i).val();
+              var currentS = $("#s-" + i).val();
+
+              var restBody = new Array( 
+                { text: $("#a-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#b-"+i).val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#d-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#e-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#f-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#g-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#h-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#i-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#j-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#k-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#l-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#m-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#n-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#o-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#p-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#q-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#r-"+i).val(), style: 'cashFlowValue'},
+                { text: $("#s-"+i).val(), style: 'cashFlowValue'});
+
+              bodies.push(restBody);
+            }
+            var restBody = new Array({ text: 'Summa', style: 'cashFlowHeader', fontSize: 13},
+                { text: $("#b-111").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#d-111").val(), style: 'cashFlowValue'},
+                { text: $("#e-111").val(), style: 'cashFlowValue'},
+                { text: $("#f-111").val(), style: 'cashFlowValue'},
+                { text: $("#g-111").val(), style: 'cashFlowValue'},
+                { text: $("#h-111").val(), style: 'cashFlowValue'},
+                { text: $("#i-111").val(), style: 'cashFlowValue'},
+                { text: $("#j-111").val(), style: 'cashFlowValue'},
+                { text: $("#k-111").val(), style: 'cashFlowValue'},
+                { text: $("#l-111").val(), style: 'cashFlowValue'},
+                { text: $("#m-111").val(), style: 'cashFlowValue'},
+                { text: $("#n-111").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#p-111").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'},
+                { text: $("#r-111").val(), style: 'cashFlowValue'},
+                { text: '', style: 'cashFlowValue'});
+            bodies.push(restBody);
+    return bodies;
+}
+
 function createPDF(){
     var imgURILineChart1 = document.getElementById("lineChart1").src;
     var imgURILineChart2 = document.getElementById("lineChart2").src;
@@ -476,6 +637,48 @@ function createPDF(){
 
           body: addBody()
         },
+
+        layout: {
+                            hLineWidth: function(i, node) {
+                                return (i === 0 || i === node.table.body.length) ? 0 : 0.5;
+                            },
+                            vLineWidth: function(i, node) {
+                                return (i === 0 || i === node.table.widths.length) ? 0 : 0.5;
+                            },
+                            hLineColor: function(i, node) {
+                                return (i === 0 || i === node.table.body.length) ? 'black' : 'gray';
+                            },
+                            vLineColor: function(i, node) {
+                                return (i === 0 || i === node.table.widths.length) ? 'black' : 'gray';
+                            },
+                            // paddingLeft: function(i, node) { return 4; },
+                            // paddingRight: function(i, node) { return 4; },
+                            // paddingTop: function(i, node) { return 2; },
+                            // paddingBottom: function(i, node) { return 2; }
+            }
+        },
+
+        {
+          text: '',
+          style: 'header',
+          pageBreak: 'before',
+          pageOrientation: 'landscape',
+          // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
+          pageMargins: [ 5, 5, 5, 5 ],
+        },
+
+        { table: {
+          // headers are automatically repeated if the table spans over multiple pages
+          // you can declare how many rows should be treated as headers
+          headerRows: 1,
+          widths: [ 'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', 'auto',
+                    'auto', 'auto', 'auto', 'auto', ],
+
+          body: addBodySecond()
+        },
+        
         layout: {
                             hLineWidth: function(i, node) {
                                 return (i === 0 || i === node.table.body.length) ? 0 : 0.5;
