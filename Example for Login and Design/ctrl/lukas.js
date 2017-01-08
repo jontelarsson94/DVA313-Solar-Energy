@@ -356,6 +356,30 @@ function createPDF(){
               { text: $("#s-5").val(), style: 'cashFlowValue'},
             ],
 
+            /*
+            for(var i = 4; i < 55; i++) {
+              var currentA = $("#a-" + i).val();
+              var currentB = $("#b-" + i).val();
+              var currentC = $("#c-" + i).val();
+              var currentD = $("#d-" + i).val();
+              var currentE = $("#e-" + i).val();
+              var currentF = $("#f-" + i).val();
+              var currentG = $("#g-" + i).val();
+              var currentH = $("#h-" + i).val();
+              var currentI = $("#i-" + i).val();
+              var currentJ = $("#j-" + i).val();
+              var currentK = $("#k-" + i).val();
+              var currentL = $("#l-" + i).val();
+              var currentM = $("#m-" + i).val();
+              var currentN = $("#n-" + i).val();
+              var currentO = $("#o-" + i).val();
+              var currentP = $("#p-" + i).val();
+              var currentQ = $("#q-" + i).val();
+              var currentR = $("#r-" + i).val();
+              var currentS = $("#s-" + i).val();
+            }
+            */
+
           ],
         },
         layout: {
