@@ -232,7 +232,7 @@ require_once "src/action/form.php";
                           <div class="input-group-btn">
 
                             <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
                             <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                               data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -246,7 +246,7 @@ require_once "src/action/form.php";
                           <div class="input-group-btn">
 
                             <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
                             <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                               data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
