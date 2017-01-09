@@ -19,7 +19,7 @@ require_once "src/action/form.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Solar Energy Calculator</title>
+    <title>Kostnad och lönsamhet för solceller</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -128,7 +128,7 @@ require_once "src/action/form.php";
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Förnybar Energi</div>
-                <div class="intro-heading">Solar Economy Calculator</div>
+                <div class="intro-heading">Kostnad och lönsamhet för solceller</div>
                 <a href="#services" class="page-scroll btn btn-xl">Börja räkna nu</a>
             </div>
         </div>
