@@ -467,10 +467,10 @@ function createPDF(){
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
                   [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: $("#indata-18").val(), style: 'tableValue'} ],
                   [ { text: 'Modulyta', style: 'tableDescription'}, { text: $("#indata-19").val(), style: 'tableValue'} ],
-                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: parseInt($("#indata-20").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: $("#indata-20").val(), style: 'tableValue'} ],
 
                   [ { text: 'Ekonomisk livslängd (N)', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Ekonomisk livslängd', style: 'tableDescription'}, { text: parseInt($("#indata-24").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Ekonomisk livslängd', style: 'tableDescription'}, { text: $("#indata-24").val(), style: 'tableValue'} ],
 
                   [ { text: 'Kalkylränta (R)', style: 'sectionHeader'}, { text: '' } ],
                   [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: parseInt($("#indata-28").val()).toLocaleString(), style: 'tableValue'} ],
@@ -933,7 +933,7 @@ function drawLineChart1() {
    data.addColumn('number', 'Kassaflöde');
 
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var ekonomisk_livslangd = toNum($( "#indata-24" ).val());
    var currentO = 0;
 
    //loop through the rows 4-54 of O column
@@ -977,7 +977,7 @@ function drawLineChart2() {
    data.addColumn('number', 'Kassaflöde');
 
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var ekonomisk_livslangd = toNum($( "#indata-24" ).val());
    var currentO = 0;
 
    //loop through the rows 4-54 of O column
@@ -1021,7 +1021,7 @@ function drawLineChart3() {
    data.addColumn('number', 'Kassaflöde');
 
    //some necessary variables
-   var ekonomisk_livslangd = parseInt($( "#indata-24" ).val());
+   var ekonomisk_livslangd = toNum($( "#indata-24" ).val());
    var currentO = 0;
 
    //loop through the rows 4-54 of O column
@@ -1196,7 +1196,7 @@ function CalculateSecondDEF() {
     var Tak_Investeringsstod = parseInt($("#extended-16").val());
     var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
     var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
     var Kalkylranta = parseInt($("#indata-28").val()) / 100;
     var Restvarde = parseInt($("#extended-50").val());
@@ -1332,7 +1332,7 @@ function calculateProductionCost(X){
   //values from the tab "indata & result" in the given excel file:
   var inDX = toNum($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
   var inD28 = parseInt($( "#indata-28" ).val()) / 100;
-  var inD24 = parseInt($( "#indata-24" ).val());
+  var inD24 = toNum($( "#indata-24" ).val());
   var inD49 = toNum($( "#indata-49" ).val());
   var inD18 = toNum($( "#indata-18" ).val());
   //value from the tab "grundläggande antaganden" in the given excel file:
@@ -1361,11 +1361,11 @@ function calculateD83() {
             count = count + 1;
         }
     }
-    if (count < parseInt($("#indata-24").val())) {
+    if (count < toNum($("#indata-24").val())) {
         var val = count + 1;
         $("#indata-83").val(numberWithSpaces(val));
     } else {
-        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        var ErrorStr = ">Livslängd ('" + toNum($("#indata-24").val()) + "')år";
         $("#indata-83").val(ErrorStr);
     }
 
@@ -1380,11 +1380,11 @@ function calculateD88() {
             count = count + 1;
         }
     }
-    if (count < parseInt($("#indata-24").val())) {
+    if (count < toNum($("#indata-24").val())) {
         var val = count + 1;
         $("#indata-88").val(numberWithSpaces(val));
     } else {
-        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        var ErrorStr = ">Livslängd ('" + toNum($("#indata-24").val()) + "')år";
         $("#indata-88").val(ErrorStr);
     }
 
@@ -1399,11 +1399,11 @@ function calculateD93() {
             count = count + 1;
         }
     }
-    if (count < parseInt($("#indata-24").val())) {
+    if (count < toNum($("#indata-24").val())) {
         var val = count + 1;
         $("#indata-93").val(val);
     } else {
-        var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
+        var ErrorStr = ">Livslängd ('" + toNum($("#indata-24").val()) + "')år";
         $("#indata-93").val(ErrorStr);
     }
 
@@ -1463,7 +1463,7 @@ function calculateSecondS(){
   $("#s-60").val(  parseInt($("#r-60").val()) );
 
     for(var i = 61; i < 111; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
 }
@@ -1472,7 +1472,7 @@ function calculateS(){
   $("#s-4").val(  parseInt($("#r-4").val()) );
 
     for(var i = 5; i < 55; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#s-"+i).val(  parseInt($("#s-"+(i-1)).val()) +  parseInt($("#r-"+i).val()) );
     }
     calculateD93();
@@ -1506,7 +1506,7 @@ function calculateSecondQ(){
   $("#q-60").val(  parseInt($("#p-60").val()) );
 
     for(var i = 61; i < 111; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#q-"+i).val(  parseInt($("#q-"+(i-1)).val()) +  parseInt($("#p-"+i).val()) );
     }
 }
@@ -1515,7 +1515,7 @@ function calculateQ(){
   $("#q-4").val(  parseInt($("#p-4").val()) );
 
     for(var i = 5; i < 55; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#q-"+i).val(Math.round(  Math.round(parseInt($("#q-"+(i-1)).val())) +  Math.round(parseInt($("#p-"+i).val())) ));
     }
     calculateD88();
@@ -1525,7 +1525,7 @@ function calculateSecondO(){
   $("#o-60").val(  parseInt($("#n-60").val()) );
 
     for(var i = 61; i < 111; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
     //calculateD83();
@@ -1536,7 +1536,7 @@ function calculateO(){
   $("#o-4").val(  parseInt($("#n-4").val()) );
 
     for(var i = 5; i < 55; i++){
-        if( parseInt($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
+        if( toNum($("#indata-24").val()) >=  parseInt($("#a-" +i).val()))
             $("#o-"+i).val(Math.round(  Math.round(parseInt($("#o-"+(i-1)).val())) +  Math.round(parseInt($("#n-"+i).val())) ));
     }
     calculateD83();
@@ -1623,7 +1623,7 @@ function calculateP(){
 }
 
 function calculateSecondH() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Pris_kopt_el = $("#indata-61").val();
     /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
@@ -1652,7 +1652,7 @@ function calculateSecondH() {
 
 //Whenever one of these is calculated, we should calculate c first
 function calculateH() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
     var Pris_kopt_el = $("#indata-61").val();
     /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
@@ -1681,7 +1681,7 @@ function calculateH() {
 }
 
 function calculateSecondI() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Pris_sald_el = $("#indata-62").val();
     var i = 1;
@@ -1706,7 +1706,7 @@ function calculateSecondI() {
 }
 
 function calculateI() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
     var Pris_sald_el = $("#indata-62").val();
     var  i=1;
@@ -1732,7 +1732,7 @@ function calculateI() {
 }
 
 function calculateSecondJ() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
     var Ersattning_fran_natagare = $("#indata-63").val();
     var i = 1;
@@ -1760,7 +1760,7 @@ function calculateSecondJ() {
 
 
 function calculateJ() {
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
     var Ersattning_fran_natagare = $("#indata-63").val();
     var  i=1;
@@ -1802,7 +1802,7 @@ function calculateDEF() {
     var Tak_Investeringsstod = parseInt($("#extended-16").val());
     var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
     var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
-    var Ekonomisk_livslangd = parseInt($("#indata-24").val());
+    var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
     var Kalkylranta = parseInt($("#indata-28").val()) / 100;
     var Restvarde = parseInt($("#extended-50").val());
@@ -1913,7 +1913,7 @@ function calculateB(){
   //If the cell is in "indata & resultat", then the id will be #indata-row
   //If the cell is in "grundläggande antaganden", then the id will be #extended-row
   //If the cell is in "Kassaflöden", then the id will be #column-row so for example A5 in the table will be #a-5
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p18 = toNum($( "#indata-18" ).val());
   var e60 = $( "#extended-60" ).val();
   e60 = e60 / 100; // divide by 100 since it is a % unit
@@ -1969,7 +1969,7 @@ function calculateC(){
 function calculateSecondG(){
   //OM(A62<=Ekonomisk_livslängd;-(Årlig_fast_driftkostnad+Årlig_rörlig_driftkostnad);0)
 
-  var p24 = parseInt($("#indata-24").val());
+  var p24 = toNum($("#indata-24").val());
   //p28 = p28 / 100;
   var p47 = toNum($("#indata-47").val());
   var p48 = toNum($("#indata-48").val());
@@ -1999,7 +1999,7 @@ function calculateSecondG(){
 
 
 function calculateG(){
-  var p24 = parseInt($("#indata-24").val());
+  var p24 = toNum($("#indata-24").val());
   var p28 = parseInt($("#indata-28").val())/100;
   //p28 = p28 / 100;
   var p47 = toNum($("#indata-47").val());
@@ -2100,7 +2100,7 @@ function calculateK(){
 }
 
 function calculateSecondM(){
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p28 = $( "#indata-28" ).val();
   p28 = p28 / 100; // divide by 100 since it is a % unit
   var p60 = $( "#indata-60" ).val();
@@ -2139,7 +2139,7 @@ function calculateSecondM(){
 }
 
 function calculateM(){
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p28 = $( "#indata-28" ).val();
   p28 = p28 / 100; // divide by 100 since it is a % unit
   var p60 = $( "#indata-60" ).val();
@@ -2182,7 +2182,7 @@ function calculateM(){
 }
 
 function calculateSecondL(){
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p67 = $( "#indata-67" ).val();
   var sum = 0; //set sum counter to 0
 
@@ -2211,7 +2211,7 @@ function calculateSecondL(){
 }
 
 function calculateL(){
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p67 = $( "#indata-67" ).val();
   var sum = 0; //set sum counter to 0
 
@@ -2281,7 +2281,7 @@ function calculateE52(){
   var e50 = $( "#extended-50" ).val();
   var e51 = $( "#extended-51" ).val();
   var p28 = $( "#indata-28" ).val();
-  var p24 = $( "#indata-24" ).val();
+  var p24 = toNum($( "#indata-24" ).val());
   var p18 = toNum($( "#indata-18" ).val());
   var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
   $( "#extended-52" ).val( numberWithSpaces(Math.round(result)) );
@@ -2438,6 +2438,12 @@ $('#buttonArea').on('mouseleave', '', function(ev){
 
 $('#calculations').on('change', '#indata-18', function(ev){
   $( "#indata-18" ).val(numberWithSpaces($( "#indata-18" ).val()) );
+});
+$('#calculations').on('change', '#indata-20', function(ev){
+  $( "#indata-20" ).val(numberWithSpaces($( "#indata-20" ).val()) );
+});
+$('#calculations').on('change', '#indata-24', function(ev){
+  $( "#indata-24" ).val(numberWithSpaces($( "#indata-24" ).val()) );
 });
 
 //calculating p19, p49
