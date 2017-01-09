@@ -186,12 +186,9 @@ require_once "src/action/form.php";
                 <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Grundläggande antaganden</a></li>
                 <li role="presentation"><a href="#result" aria-controls="profile" role="tab" data-toggle="tab">Resultat</a></li>
               </ul>
+              <br>
 
-              <!-- Tab panes -->
-              <div class="tab-content" id="input-tabs">
-                <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()"></br>
-                  <div>
-                    <div class="col-md-7"></div>
+              <div class="col-md-7"></div>
                     <div class="col-md-4">
                     <p>Klicka för att ändra standardvärden som passar dig!</p>
                       <div data-toggle="buttons" class="btn-group btn-group-justified" id="buttonArea">
@@ -204,161 +201,219 @@ require_once "src/action/form.php";
                       </div>
                     </div>
                     <div class="col-md-1"></div>
-                    <!--
-                    <div data-toggle="buttons" id="buttonArea">
-                      <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
-                        <label class="btn btn-primary"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
-                      </div>
-                      <div class="btn-group" id="companyToggle" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">
-                        <label class="btn btn-primary"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
-                      </div>
-                    </div>
+                    <div class="row"></div>
+                    <br>
 
-                    <label class="radio-inline"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Person</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" id="radioCompany" value="2" ng-click="getIndataDefaultsCompany(); getExtendedDefaultsCompany()">Company</label>
-                    Need to set ng-click when thats implemented -->
-                  </div>
+              <!-- Tab panes -->
+              <div class="tab-content" id="input-tabs">
+                <div role="tabpanel" class="tab-pane active" id="private" ng-init="getIndataDefaultsPerson()"></br>
 
                   <form>
-                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row < 70">
-                      <div class="col-md-2"></div>
-                      <div class="col-md-6">
-                        <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
-                        <p ng-if="default.type == NULL">{{default.name}}</p>
-                        <p ng-if="default.type == 'Result'">{{default.name}}</p>
-                        <p ng-if="default.type == 'IRR'">{{default.name}}</p>
-                        <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
-                      </div>
-                      <br>
-                      <div class="col-md-3 input-group">
+                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row < 70 && default.type == 'Heading'">
+                      <!--Accordion start -->
+                      <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#col-{{default.row}}">
+                              {{default.name}}</a>
+                            </h4>
+                          </div>
+                          <div id="col-{{default.row}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <div class="col-md-12" ng-repeat="rest in indata_defaults" ng-if="rest.row > default.row && rest.row < rows[default.row]">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
+                                  <br>
+                                  <p ng-if="rest.type == NULL">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Result'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'IRR'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Subheading'"><i>{{rest.name}}</i></p>
+                                </div>
+                                <br>
+                                <div class="col-md-3 input-group">
 
-                        <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
-                          <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
-                          <input ng-if="default.type == 'Result'" type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
-                          <div class="input-group-btn">
+                                  <div ng-if="rest.type ==NULL || rest.type == 'Result'" class="input-group">
+                                    <input ng-if="rest.type == NULL" type="text" class="form-control" id="indata-{{rest.row}}" aria-label="..." value="{{rest.value}}">
+                                    <input ng-if="rest.type == 'Result'" type="text" class="form-control" id="indata-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
 
-                            <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>                           
-                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                              </button>
-                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button ng-if="rest.type != NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
 
 
+                                    </div>
+                                  </div>
+                                  <div ng-if="rest.type == 'IRR'" class="input-group">
+                                    <input type="text" class="form-control" id="indata-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
+
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div ng-if="default.type == 'IRR'" class="input-group">
-                          <input type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
-                          <div class="input-group-btn">
-
-                            <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
-                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
-                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
-                            <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
-
-                          </div>
-                        </div>
                       </div>
-                      <div class="col-md-2"></div>
+                      <!-- Accordion end -->
                     </div>
                   </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="extended"  ng-init="getExtendedDefaultsPerson()"></br>
                   <form>
-                    <div class="row form-group" ng-repeat="extended in extended_defaults">
-                      <div class="col-md-2"></div>
-                      <div class="col-md-6">
-                        <h3 ng-if="extended.type == 'Heading'">{{extended.name}}<h3>
-                        <p ng-if="extended.type == NULL">{{extended.name}}</p>
-                        <p ng-if="extended.type == 'Result'">{{extended.name}}</p>
-                        <p ng-if="extended.type == 'Subheading'"><i>{{extended.name}}</i></p>
-                      </div>
-                      <br>
-                      <div class="col-md-2 input-group">
+                    <div class="row form-group" ng-repeat="extended in extended_defaults" ng-if="extended.type == 'Heading'">
+                      <!--Accordion start -->
+                      <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#colex-{{extended.row}}">
+                              {{extended.name}}</a>
+                            </h4>
+                          </div>
+                          <div id="colex-{{extended.row}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <div class="col-md-12" ng-repeat="rest in extended_defaults" ng-if="rest.row > extended.row && rest.row < rowsex[extended.row]">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
+                                  <br>
+                                  <p ng-if="rest.type == NULL">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Result'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'IRR'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Subheading'"><i>{{rest.name}}</i></p>
+                                </div>
+                                <br>
+                                <div class="col-md-3 input-group">
 
-                        <div ng-if="extended.type ==NULL || extended.type == 'Result'" class="input-group">
-                          <input ng-if="extended.type == NULL" type="text" class="form-control" id="extended-{{extended.row}}" aria-label="..." value="{{extended.value}}">
-                          <input ng-if="extended.type == 'Result'" type="text" class="form-control" id="extended-{{extended.row}}" readonly="readonly" value="{{extended.value}}">
-                          <div class="input-group-btn">
+                                  <div ng-if="rest.type ==NULL || rest.type == 'Result'" class="input-group">
+                                    <input ng-if="rest.type == NULL" type="text" class="form-control" id="extended-{{rest.row}}" aria-label="..." value="{{rest.value}}">
+                                    <input ng-if="rest.type == 'Result'" type="text" class="form-control" id="extended-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
 
-                            <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{extended.unit}}</a>
-                            <button ng-if="extended.type == NULL && extended.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{extended.min}} | Max: {{extended.max}}" data-content="{{extended.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
-                            <button ng-if="extended.type != NULL && extended.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{extended.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button ng-if="rest.type != NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
 
 
+                                    </div>
+                                  </div>
+                                  <div ng-if="rest.type == 'IRR'" class="input-group">
+                                    <input type="text" class="form-control" id="indata-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
+
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
+                      <!-- Accordion end -->
                     </div>
                   </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="result"></br>
                   <form>
-                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row > 70">
-                      <div class="col-md-2"></div>
-                      <div class="col-md-6">
-                        <h3 ng-if="default.type == 'Heading'">{{default.name}}<h3>
-                        <p ng-if="default.type == NULL">{{default.name}}</p>
-                        <p ng-if="default.type == 'Result'">{{default.name}}</p>
-                        <p ng-if="default.type == 'IRR'">{{default.name}}</p>
-                        <p ng-if="default.type == 'Subheading'"><i>{{default.name}}</i></p>
-                      </div>
-                      <br>
-                      <div class="col-md-3 input-group">
+                    <div class="row form-group" ng-repeat="default in indata_defaults" ng-if="default.row > 70 && default.type == 'Heading'">
+                    <!--Accordion start -->
+                      <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#col-{{default.row}}">
+                              {{default.name}}</a>
+                            </h4>
+                          </div>
+                          <div id="col-{{default.row}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <div class="col-md-12" ng-repeat="rest in indata_defaults" ng-if="rest.row > default.row && rest.row < rows[default.row]">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
+                                  <br>
+                                  <p ng-if="rest.type == NULL">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Result'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'IRR'">{{rest.name}}</p>
+                                  <p ng-if="rest.type == 'Subheading'"><i>{{rest.name}}</i></p>
+                                </div>
+                                <br>
+                                <div class="col-md-3 input-group">
 
-                        <div ng-if="default.type ==NULL || default.type == 'Result'" class="input-group">
-                          <input ng-if="default.type == NULL" type="text" class="form-control" id="indata-{{default.row}}" aria-label="..." value="{{default.value}}">
-                          <input ng-if="default.type == 'Result'" type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
-                          <div class="input-group-btn">
+                                  <div ng-if="rest.type ==NULL || rest.type == 'Result'" class="input-group">
+                                    <input ng-if="rest.type == NULL" type="text" class="form-control" id="indata-{{rest.row}}" aria-label="..." value="{{rest.value}}">
+                                    <input ng-if="rest.type == 'Result'" type="text" class="form-control" id="indata-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
 
-                            <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
-                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
-                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button ng-if="rest.type != NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
 
 
+                                    </div>
+                                  </div>
+                                  <div ng-if="rest.type == 'IRR'" class="input-group">
+                                    <input type="text" class="form-control" id="indata-{{rest.row}}" readonly="readonly" value="{{rest.value}}">
+                                    <div class="input-group-btn">
+
+                                      <!-- Buttons -->
+                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                                        data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
+                                        <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                                      </button>
+                                      <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div ng-if="default.type == 'IRR'" class="input-group">
-                          <input type="text" class="form-control" id="indata-{{default.row}}" readonly="readonly" value="{{default.value}}">
-                          <div class="input-group-btn">
-
-                            <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
-                            <button ng-if="default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
-                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
-                            </button>
-                            <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
-
-                          </div>
-                        </div>
                       </div>
-                      <div class="col-md-2"></div>
+                      <!-- Accordion end -->
                     </div>
                   </form>
                   <div class="row">

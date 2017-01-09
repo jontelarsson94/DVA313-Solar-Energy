@@ -2,6 +2,7 @@
 angular.module('index', []).controller('indexCtrl', function($scope, $http) {
 
   $scope.number = 112;
+  $scope.next = 0;
 
   $scope.getIndataDefaultsPerson = function (){
     $http.get("api/get_indata_defaults_person.php")
@@ -9,10 +10,15 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     .success(function (response) {
       if(response.success == true){
         $scope.indata_defaults = response.defaults;
+        $scope.rows = {16: 23, 23: 27, 27: 31, 31: 40, 40: 46, 46: 52, 52: 58, 58: 71, 71: 77, 77: 100};
       }else {
 
       }
     });
+  }
+
+  $scope.setNext = function(setter){
+    $scope.next = setter;
   }
 
   $scope.getIndataDefaultsCompany = function (){
@@ -21,6 +27,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     .success(function (response) {
       if(response.success == true){
         $scope.indata_defaults = response.defaults;
+        $scope.rows = {16: 23, 23: 27, 27: 31, 31: 40, 40: 46, 46: 52, 52: 58, 58: 71, 71: 77, 77: 100};
       }else {
 
       }
@@ -37,6 +44,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     .success(function (response) {
       if(response.success == true){
         $scope.extended_defaults = response.defaults;
+        $scope.rowsex = {11: 15, 15: 28, 28: 49, 49: 55, 55: 59, 59: 63, 63: 100};
       }else {
 
       }
@@ -49,6 +57,7 @@ angular.module('index', []).controller('indexCtrl', function($scope, $http) {
     .success(function (response) {
       if(response.success == true){
         $scope.extended_defaults = response.defaults;
+        $scope.rowsex = {11: 15, 15: 28, 28: 49, 49: 55, 55: 59, 59: 63, 63: 100};
       }else {
 
       }
