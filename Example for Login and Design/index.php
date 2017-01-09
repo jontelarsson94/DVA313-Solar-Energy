@@ -154,7 +154,7 @@ require_once "src/action/form.php";
             Välf fil att ladda upp:
             <input class="form-control-file" type="file" name="fileToUpload" id="fileToUpload">
             <br>
-            <input class="btn btn-primary" type="submit" value="Upload Defaults" name="submit">
+            <input class="btn btn-primary" type="submit" value="Ladda upp standardvärden" name="submit">
           </form>
           <br>
           <form method="get" action="excel/start_default.xlsx">

@@ -3,16 +3,18 @@ $target_dir = "../excel/";
 $target_file = $target_dir . "default_solar.xlsx";
 //$alreadyFile = "../excel/default_solar.xlsx";
 $uploadOk = 1;
-$fileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if(!empty($_FILES["fileToUpload"]["name"])){
   // Allow certain file formats
+  $fileType = pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION);
   if($fileType != "xlsx") {
       echo "Sorry, only xlsx files are allowed.";
-      $uploadOk = 0;
+      $uploadOk = false;
   }
   // Check if $uploadOk is set to 0 by an error
-  if ($uploadOk == 0) {
+  if ($uploadOk == false) {
       echo "Sorry, your file was not uploaded.";
+      echo '<script type="text/javascript">window.location.href="../index.php";</script>';
+      //$uploadOk = false
   // if everything is ok, try to upload file
   } else {
     //checking if file exsists
@@ -29,5 +31,7 @@ if(!empty($_FILES["fileToUpload"]["name"])){
     }
     require_once "update_defaults.php";
   }
+}else{
+  echo '<script type="text/javascript">window.location.href="../index.php";</script>';
 }
 ?>
