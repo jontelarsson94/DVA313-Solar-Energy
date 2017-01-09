@@ -2568,7 +2568,7 @@ $('#calculations').on('keyup', '#indata-18', function(ev){
   calculateI43();
 });
 
-$('#calculations').on('keyup', '#indata-41, #indata-42, #indata-43, #indata-28, #indata-24, #indata-49, #indata-18, #extended-52', function(ev){
+$('#calculations').on('keyup', '#indata-41, #indata-42, #indata-43, #indata-28, #indata-24, #indata-49, #indata-18, #extended-50, #extended-51', function(ev){
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
@@ -2579,7 +2579,7 @@ $('#calculations').on('keyup', '#extended-30, #extended-31, #extended-32, #exten
   calculateE46AndI48();
 });
 
-$('#calculations').on('change', '#extended-64', function(ev){
+$('#calculations').on('keyup', '#extended-64', function(ev){
   calculateI55();
 });
 
