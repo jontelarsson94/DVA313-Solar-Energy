@@ -96,6 +96,15 @@ $(document).ready(function(){
 *  Indata-94                   *
 ********************************/
 
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+function toNum(str){
+  str = str.replace(/\s+/g, '');
+  return parseInt(str);
+}
+
 function addBody(){
 
   var bodies = new Array();
@@ -817,7 +826,7 @@ function createPDF(){
   };
 
     // open PDF file in new tab
-    pdfMake.createPdf(docDefinition).open('results.pdf');
+    pdfMake.createPdf(docDefinition).download('results.pdf');
   }
 
 
@@ -1327,7 +1336,7 @@ function calculateProductionCost(X){
   var inD49 = parseInt($( "#indata-49" ).val());
   var inD18 = parseInt($( "#indata-18" ).val());
   //value from the tab "grundläggande antaganden" in the given excel file:
-  var extD52 = parseInt($( "#extended-52" ).val());
+  var extD52 = toNum($( "#extended-52" ).val());
   //value from the tab "kassaflöden" in the given excel file:
   var cashflowC55 = parseInt($( "#c-55" ).val());
 
@@ -2275,7 +2284,7 @@ function calculateE52(){
   var p24 = $( "#indata-24" ).val();
   var p18 = $( "#indata-18" ).val();
   var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
-  $( "#extended-52" ).val( Math.round(result) );
+  $( "#extended-52" ).val( numberWithSpaces(Math.round(result)) );
 }
 
 function calculateI25(){
