@@ -190,67 +190,48 @@ function addBody(){
 
   //var restBody = new Array();
   for(var i = 4; i < 55; i++) {
-              var currentA = $("#a-" + i).val();
-              var currentB = $("#b-" + i).val();
-              var currentC = $("#c-" + i).val();
-              var currentD = $("#d-" + i).val();
-              var currentE = $("#e-" + i).val();
-              var currentF = $("#f-" + i).val();
-              var currentG = $("#g-" + i).val();
-              var currentH = $("#h-" + i).val();
-              var currentI = $("#i-" + i).val();
-              var currentJ = $("#j-" + i).val();
-              var currentK = $("#k-" + i).val();
-              var currentL = $("#l-" + i).val();
-              var currentM = $("#m-" + i).val();
-              var currentN = $("#n-" + i).val();
-              var currentO = $("#o-" + i).val();
-              var currentP = $("#p-" + i).val();
-              var currentQ = $("#q-" + i).val();
-              var currentR = $("#r-" + i).val();
-              var currentS = $("#s-" + i).val();
 
               var restBody = new Array( 
-                { text: $("#a-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#b-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#c-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#d-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#e-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#f-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#g-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#h-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#i-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#j-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#k-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#l-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#m-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#n-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#o-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#p-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#q-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#r-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#s-"+i).val(), style: 'cashFlowValue'});
+                { text: parseInt($("#a-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#b-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#c-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#d-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#e-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#f-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#g-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#h-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#i-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#j-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#k-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#l-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#m-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#n-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#o-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#p-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#q-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#r-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#s-"+i).val()).toLocaleString(), style: 'cashFlowValue'});
 
               bodies.push(restBody);
             }
             var restBody = new Array({ text: 'Summa', style: 'cashFlowHeader', fontSize: 13},
-                { text: $("#b-55").val(), style: 'cashFlowValue'},
-                { text: $("#c-55").val(), style: 'cashFlowValue'},
-                { text: $("#d-55").val(), style: 'cashFlowValue'},
-                { text: $("#e-55").val(), style: 'cashFlowValue'},
-                { text: $("#f-55").val(), style: 'cashFlowValue'},
-                { text: $("#g-55").val(), style: 'cashFlowValue'},
-                { text: $("#h-55").val(), style: 'cashFlowValue'},
-                { text: $("#i-55").val(), style: 'cashFlowValue'},
-                { text: $("#j-55").val(), style: 'cashFlowValue'},
-                { text: $("#k-55").val(), style: 'cashFlowValue'},
-                { text: $("#l-55").val(), style: 'cashFlowValue'},
-                { text: $("#m-55").val(), style: 'cashFlowValue'},
-                { text: $("#n-55").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#b-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#c-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#d-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#e-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#f-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#g-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#h-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#i-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#j-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#k-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#l-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#m-55").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#n-55").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#p-55").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#p-55").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#r-55").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#r-55").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'});
             bodies.push(restBody);
     return bodies;
@@ -351,67 +332,48 @@ function addBodySecond(){
 
   //var restBody = new Array();
   for(var i = 60; i < 111; i++) {
-              var currentA = $("#a-" + i).val();
-              var currentB = $("#b-" + i).val();
-              var currentC = $("#c-" + i).val();
-              var currentD = $("#d-" + i).val();
-              var currentE = $("#e-" + i).val();
-              var currentF = $("#f-" + i).val();
-              var currentG = $("#g-" + i).val();
-              var currentH = $("#h-" + i).val();
-              var currentI = $("#i-" + i).val();
-              var currentJ = $("#j-" + i).val();
-              var currentK = $("#k-" + i).val();
-              var currentL = $("#l-" + i).val();
-              var currentM = $("#m-" + i).val();
-              var currentN = $("#n-" + i).val();
-              var currentO = $("#o-" + i).val();
-              var currentP = $("#p-" + i).val();
-              var currentQ = $("#q-" + i).val();
-              var currentR = $("#r-" + i).val();
-              var currentS = $("#s-" + i).val();
 
               var restBody = new Array( 
-                { text: $("#a-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#b-"+i).val(), style: 'cashFlowValue'},
+                { text: parseInt($("#a-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#b-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#d-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#e-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#f-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#g-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#h-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#i-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#j-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#k-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#l-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#m-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#n-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#o-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#p-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#q-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#r-"+i).val(), style: 'cashFlowValue'},
-                { text: $("#s-"+i).val(), style: 'cashFlowValue'});
+                { text: parseInt($("#d-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#e-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#f-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#g-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#h-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#i-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#j-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#k-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#l-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#m-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#n-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#o-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#p-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#q-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#r-"+i).val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#s-"+i).val()).toLocaleString(), style: 'cashFlowValue'});
 
               bodies.push(restBody);
             }
             var restBody = new Array({ text: 'Summa', style: 'cashFlowHeader', fontSize: 13},
-                { text: $("#b-111").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#b-111").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#d-111").val(), style: 'cashFlowValue'},
-                { text: $("#e-111").val(), style: 'cashFlowValue'},
-                { text: $("#f-111").val(), style: 'cashFlowValue'},
-                { text: $("#g-111").val(), style: 'cashFlowValue'},
-                { text: $("#h-111").val(), style: 'cashFlowValue'},
-                { text: $("#i-111").val(), style: 'cashFlowValue'},
-                { text: $("#j-111").val(), style: 'cashFlowValue'},
-                { text: $("#k-111").val(), style: 'cashFlowValue'},
-                { text: $("#l-111").val(), style: 'cashFlowValue'},
-                { text: $("#m-111").val(), style: 'cashFlowValue'},
-                { text: $("#n-111").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#d-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#e-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#f-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#g-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#h-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#i-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#j-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#k-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#l-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#m-111").val()).toLocaleString(), style: 'cashFlowValue'},
+                { text: parseInt($("#n-111").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#p-111").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#p-111").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'},
-                { text: $("#r-111").val(), style: 'cashFlowValue'},
+                { text: parseInt($("#r-111").val()).toLocaleString(), style: 'cashFlowValue'},
                 { text: '', style: 'cashFlowValue'});
             bodies.push(restBody);
     return bodies;
@@ -494,68 +456,68 @@ function createPDF(){
                   [ { text: 'Indata och resultat', style: 'tableHeader' }, { text: '', }],
 
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: $("#indata-18").val(), style: 'tableValue'} ],
-                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: $("#indata-19").val(), style: 'tableValue'} ],
-                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: $("#indata-20").val(), style: 'tableValue'} ],
+                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: parseInt($("#indata-18").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: parseInt($("#indata-19").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: parseInt($("#indata-20").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Ekonomisk livslängd (N)', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Ekonomisk livslängd', style: 'tableDescription'}, { text: $("#indata-24").val(), style: 'tableValue'} ],
+                  [ { text: 'Ekonomisk livslängd', style: 'tableDescription'}, { text: parseInt($("#indata-24").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Kalkylränta (R)', style: 'sectionHeader'}, { text: '' } ],
-                  [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: $("#indata-28").val(), style: 'tableValue'} ],
+                  [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: parseInt($("#indata-28").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Investering', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Investeringskostnad solcellsanläggning, utan stöd eller ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-32").val(), style: 'tableValue'} ],
-                  [ { text: 'Investeringsstöd', style: 'tableDescription'}, { text: $("#indata-33").val(), style: 'tableValue'} ],
-                  [ { text: 'Bygglov', style: 'tableDescription'}, { text: $("#indata-35").val(), style: 'tableValue'} ],
-                  [ { text: 'Projektledning och upphandling', style: 'tableDescription'}, { text: $("#indata-36").val(), style: 'tableValue'} ],
-                  [ { text: 'Besiktning efter färdigställande', style: 'tableDescription'}, { text: $("#indata-37").val(), style: 'tableValue'} ],
-                  [ { text: 'Utbildning', style: 'tableDescription'}, { text: $("#indata-38").val(), style: 'tableValue'} ],
+                  [ { text: 'Investeringskostnad solcellsanläggning, utan stöd eller ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-32").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-33").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Bygglov', style: 'tableDescription'}, { text: parseInt($("#indata-35").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Projektledning och upphandling', style: 'tableDescription'}, { text: parseInt($("#indata-36").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Besiktning efter färdigställande', style: 'tableDescription'}, { text: parseInt($("#indata-37").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Utbildning', style: 'tableDescription'}, { text: parseInt($("#indata-38").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Summa investering under livslängden', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-41").val(), style: 'tableValue'} ],
-                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-42").val(), style: 'tableValue'} ],
-                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-43").val(), style: 'tableValue'} ],
+                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-41").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-42").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-43").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnad', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Årlig fast driftkostnad som inte beror på anläggningens storlek', style: 'tableDescription'}, { text: $("#indata-47").val(), style: 'tableValue'} ],
-                  [ { text: 'Årlig rörlig driftkostnad som beror på anläggningens storlek', style: 'tableDescription'}, { text: $("#indata-48").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa årliga kostnader', style: 'tableDescription'}, { text: $("#indata-49").val(), style: 'tableValue'} ],
+                  [ { text: 'Årlig fast driftkostnad som inte beror på anläggningens storlek', style: 'tableDescription'}, { text: parseInt($("#indata-47").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Årlig rörlig driftkostnad som beror på anläggningens storlek', style: 'tableDescription'}, { text: parseInt($("#indata-48").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa årliga kostnader', style: 'tableDescription'}, { text: parseInt($("#indata-49").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Energiutbyte', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Energiutbyte första året', style: 'tableDescription'}, { text: $("#indata-53").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa solelproduktion under livslängden', style: 'tableDescription'}, { text: $("#indata-54").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa solelproduktion berättigad till elcertifikat', style: 'tableDescription'}, { text: $("#indata-55").val(), style: 'tableValue'} ],
+                  [ { text: 'Energiutbyte första året', style: 'tableDescription'}, { text: parseInt($("#indata-53").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa solelproduktion under livslängden', style: 'tableDescription'}, { text: parseInt($("#indata-54").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa solelproduktion berättigad till elcertifikat', style: 'tableDescription'}, { text: parseInt($("#indata-55").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Intäkter', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Andel egenanvänd el', style: 'tableDescription'}, { text: $("#indata-60").val(), style: 'tableValue'} ],
-                  [ { text: 'Pris köpt el', style: 'tableDescription'}, { text: $("#indata-61").val(), style: 'tableValue'} ],
-                  [ { text: 'Pris såld el', style: 'tableDescription'}, { text: $("#indata-62").val(), style: 'tableValue'} ],
-                  [ { text: 'Ersättning från nätägare', style: 'tableDescription'}, { text: $("#indata-63").val(), style: 'tableValue'} ],
-                  [ { text: 'Elcertifikatvärde', style: 'tableDescription'}, { text: $("#indata-64").val(), style: 'tableValue'} ],
-                  [ { text: 'Andel solel som ger elcertifikat', style: 'tableDescription'}, { text: $("#indata-65").val(), style: 'tableValue'} ],
-                  [ { text: 'Kvotplikt medelvärde', style: 'tableDescription'}, { text: $("#indata-66").val(), style: 'tableValue'} ],
-                  [ { text: 'Ursprungsgarantier värde', style: 'tableDescription'}, { text: $("#indata-67").val(), style: 'tableValue'} ],
-                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: $("#indata-68").val(), style: 'tableValue', pageBreak: 'after'} ],
+                  [ { text: 'Andel egenanvänd el', style: 'tableDescription'}, { text: parseInt($("#indata-60").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Pris köpt el', style: 'tableDescription'}, { text: parseInt($("#indata-61").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Pris såld el', style: 'tableDescription'}, { text: parseInt($("#indata-62").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Ersättning från nätägare', style: 'tableDescription'}, { text: parseInt($("#indata-63").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Elcertifikatvärde', style: 'tableDescription'}, { text: parseInt($("#indata-64").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Andel solel som ger elcertifikat', style: 'tableDescription'}, { text: parseInt($("#indata-65").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Kvotplikt medelvärde', style: 'tableDescription'}, { text: parseInt($("#indata-66").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Ursprungsgarantier värde', style: 'tableDescription'}, { text: parseInt($("#indata-67").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: parseInt($("#indata-68").val()).toLocaleString(), style: 'tableValue', pageBreak: 'after'} ],
 
                   [ { text: 'Beräknad produktionskostnad (LCOE)', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-72").val(), style: 'tableValue'} ],
-                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-73").val(), style: 'tableValue'} ],
-                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-74").val(), style: 'tableValue'} ],
+                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-72").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-73").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-74").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Beräknad lönsamhet', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Utan ROT-avdrag och investeringsstöd, med eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-82").val(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-83").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-84").val(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-82").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-83").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-84").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Med ROT-avdrag och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-87").val(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-88").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-89").val(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-87").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-88").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-89").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Med investeringsstöd och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-92").val(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-93").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-94").val(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-92").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-93").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-94").val()).toLocaleString(), style: 'tableValue'} ],
                 ],
               },
               layout: 'lightHorizontalLines',
@@ -572,50 +534,50 @@ function createPDF(){
                 body: [
                   [ { text: 'Extended', style: 'tableHeader' }, { text: '', }],
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Verkningsgrad solcellsmoduler', style: 'tableDescription'}, { text: $("#extended-12").val(), style: 'tableValue'} ],
+                  [ { text: 'Verkningsgrad solcellsmoduler', style: 'tableDescription'}, { text: parseInt($("#extended-12").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Investering', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Tak för investeringsstöd', style: 'tableDescription'}, { text: $("#extended-16").val(), style: 'tableValue'} ],
-                  [ { text: 'ROT-avdrag arbetskostnad', style: 'tableDescription'}, { text: $("#extended-17").val(), style: 'tableValue'} ],
-                  [ { text: 'Tak för ROT-avdrag', style: 'tableDescription'}, { text: $("#extended-18").val(), style: 'tableValue'} ],
-                  [ { text: 'Kostnad för köp eller preparering av mark', style: 'tableDescription'}, { text: $("#extended-20").val(), style: 'tableValue'} ],
-                  [ { text: 'Nätanslutningskostnad', style: 'tableDescription'}, { text: $("#extended-21").val(), style: 'tableValue'} ],
-                  [ { text: 'Antal byten av växelriktare', style: 'tableDescription'}, { text: $("#extended-23").val(), style: 'tableValue'} ],
-                  [ { text: 'Antal år till byte av växelriktare', style: 'tableDescription'}, { text: $("#extended-24").val(), style: 'tableValue'} ],
-                  [ { text: 'Kostnad för byte av växelriktare', style: 'tableDescription'}, { text: $("#extended-25").val(), style: 'tableValue'} ],
+                  [ { text: 'Tak för investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#extended-16").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'ROT-avdrag arbetskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-17").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Tak för ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#extended-18").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Kostnad för köp eller preparering av mark', style: 'tableDescription'}, { text: parseInt($("#extended-20").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Nätanslutningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-21").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Antal byten av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-23").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Antal år till byte av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-24").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Kostnad för byte av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-25").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnader', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Elcertifikathantering', style: 'tableDescription'}, { text: $("#extended-30").val(), style: 'tableValue'} ],
-                  [ { text: 'Fastighetsskatt', style: 'tableDescription'}, { text: $("#extended-31").val(), style: 'tableValue'} ],
-                  [ { text: 'Inmatningsabonnemang', style: 'tableDescription'}, { text: $("#extended-32").val(), style: 'tableValue'} ],
-                  [ { text: 'Loggning', style: 'tableDescription'}, { text: $("#extended-33").val(), style: 'tableValue'} ],
-                  [ { text: 'Resor', style: 'tableDescription'}, { text: $("#extended-34").val(), style: 'tableValue'} ],
-                  [ { text: 'Servitut', style: 'tableDescription'}, { text: $("#extended-35").val(), style: 'tableValue'} ],
-                  [ { text: 'Uttagsabonnemang', style: 'tableDescription'}, { text: $("#extended-36").val(), style: 'tableValue'} ],
-                  [ { text: 'Övrigt', style: 'tableDescription'}, { text: $("#extended-37").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa årlig fast driftkostnad', style: 'tableDescription'}, { text: $("#extended-38").val(), style: 'tableValue'} ],
-                  [ { text: 'Försäkring', style: 'tableDescription'}, { text: $("#extended-41").val(), style: 'tableValue'} ],
-                  [ { text: 'Hyra av yta', style: 'tableDescription'}, { text: $("#extended-42").val(), style: 'tableValue'} ],
-                  [ { text: 'Underhåll av yta', style: 'tableDescription'}, { text: $("#extended-43").val(), style: 'tableValue'} ],
-                  [ { text: 'Rengöring av moduler', style: 'tableDescription'}, { text: $("#extended-44").val(), style: 'tableValue'} ],
-                  [ { text: 'Tillsyn', style: 'tableDescription'}, { text: $("#extended-45").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa årlig rörlig driftkostnad', style: 'tableDescription'}, { text: $("#extended-46").val(), style: 'tableValue'} ],
+                  [ { text: 'Elcertifikathantering', style: 'tableDescription'}, { text: parseInt($("#extended-30").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Fastighetsskatt', style: 'tableDescription'}, { text: parseInt($("#extended-31").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Inmatningsabonnemang', style: 'tableDescription'}, { text: parseInt($("#extended-32").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Loggning', style: 'tableDescription'}, { text: parseInt($("#extended-33").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Resor', style: 'tableDescription'}, { text: parseInt($("#extended-34").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Servitut', style: 'tableDescription'}, { text: parseInt($("#extended-35").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Uttagsabonnemang', style: 'tableDescription'}, { text: parseInt($("#extended-36").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Övrigt', style: 'tableDescription'}, { text: parseInt($("#extended-37").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa årlig fast driftkostnad', style: 'tableDescription'}, { text: parseInt($("#extended-38").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Försäkring', style: 'tableDescription'}, { text: parseInt($("#extended-41").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Hyra av yta', style: 'tableDescription'}, { text: parseInt($("#extended-42").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Underhåll av yta', style: 'tableDescription'}, { text: parseInt($("#extended-43").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Rengöring av moduler', style: 'tableDescription'}, { text: parseInt($("#extended-44").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Tillsyn', style: 'tableDescription'}, { text: parseInt($("#extended-45").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa årlig rörlig driftkostnad', style: 'tableDescription'}, { text: parseInt($("#extended-46").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Restvärde', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Restvärde', style: 'tableDescription'}, { text: $("#extended-50").val(), style: 'tableValue'} ],
-                  [ { text: 'Rivningskostnad', style: 'tableDescription'}, { text: $("#extended-51").val(), style: 'tableValue'} ],
-                  [ { text: 'Summa kostnader vid avslut', style: 'tableDescription'}, { text: $("#extended-52").val(), style: 'tableValue'} ],
+                  [ { text: 'Restvärde', style: 'tableDescription'}, { text: parseInt($("#extended-50").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Rivningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-51").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa kostnader vid avslut', style: 'tableDescription'}, { text: parseInt($("#extended-52").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Systemdegradering', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Årlig degradering av utbytet', style: 'tableDescription'}, { text: $("#extended-56").val(), style: 'tableValue'} ],
+                  [ { text: 'Årlig degradering av utbytet', style: 'tableDescription'}, { text: parseInt($("#extended-56").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Energiutbyte', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Tillgänglighet', style: 'tableDescription'}, { text: $("#extended-60").val(), style: 'tableValue'} ],
+                  [ { text: 'Tillgänglighet', style: 'tableDescription'}, { text: parseInt($("#extended-60").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Intäkter', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Antal år med elcertifikat', style: 'tableDescription'}, { text: $("#extended-64").val(), style: 'tableValue'} ],
-                  [ { text: 'Skattereduktion', style: 'tableDescription'}, { text: $("#extended-65").val(), style: 'tableValue'} ],
-                  [ { text: 'Tak för skattereduktion', style: 'tableDescription'}, { text: $("#extended-66").val(), style: 'tableValue'} ],
+                  [ { text: 'Antal år med elcertifikat', style: 'tableDescription'}, { text: parseInt($("#extended-64").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Skattereduktion', style: 'tableDescription'}, { text: parseInt($("#extended-65").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Tak för skattereduktion', style: 'tableDescription'}, { text: parseInt($("#extended-66").val()).toLocaleString(), style: 'tableValue'} ],
                 ]
               },
               layout: 'lightHorizontalLines',
@@ -2611,6 +2573,12 @@ $("#diagramBtn").click(function(){
 });
 
 $("#createPDFBtn").click(function(){
+  $( "#pieChart1" ).show();
+  $( "#pieChart2" ).show();
+  $( "#pieChart3" ).show();
+  $( "#lineChart1" ).show();
+  $( "#lineChart2" ).show();
+  $( "#lineChart3" ).show();
   google.charts.setOnLoadCallback(drawLineChart1);
   google.charts.setOnLoadCallback(drawLineChart2);
   google.charts.setOnLoadCallback(drawLineChart3);
