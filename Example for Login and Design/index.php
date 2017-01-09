@@ -234,10 +234,13 @@ require_once "src/action/form.php";
                           <div class="input-group-btn">
 
                             <!-- Buttons -->
-                            <a ng-if="default.max != NULL" role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
-                            <a ng-if="default.max == NULL" role="button" class="btn btn-default disabled">{{default.min}}-∞ {{default.unit}}</a>
-                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>                           
+                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                              </button>
+                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
 
@@ -250,8 +253,12 @@ require_once "src/action/form.php";
 
                             <!-- Buttons -->
                             <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
-                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
                             <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
@@ -283,8 +290,12 @@ require_once "src/action/form.php";
 
                             <!-- Buttons -->
                             <a role="button" class="btn btn-default disabled">{{extended.unit}}</a>
-                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{extended.min}}-{{extended.max}}" data-content="{{extended.comment}}">
+                            <button ng-if="extended.type == NULL && extended.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{extended.min}} | Max: {{extended.max}}" data-content="{{extended.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+                            <button ng-if="extended.type != NULL && extended.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{extended.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
 
@@ -315,10 +326,13 @@ require_once "src/action/form.php";
                           <div class="input-group-btn">
 
                             <!-- Buttons -->
-                            <a ng-if="default.max != NULL" role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
-                            <a ng-if="default.max == NULL" role="button" class="btn btn-default disabled">{{default.min}}-∞ {{default.unit}}</a>
-                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <button ng-if="default.type == NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{default.min}} | Max: {{default.max}}" data-content="{{default.comment}}">
+                              <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
+                            </button>
+                            <button ng-if="default.type != NULL && default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
 
@@ -330,9 +344,9 @@ require_once "src/action/form.php";
                           <div class="input-group-btn">
 
                             <!-- Buttons -->
-                            <a role="button" class="btn btn-default disabled">{{default.min}}-{{default.max}} {{default.unit}}</a>
-                            <button type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
-                              data-toggle="popover" data-trigger="hover" data-placement="top" title="value: {{default.min}}-{{default.max}}" data-content="{{default.comment}}">
+                            <a role="button" class="btn btn-default disabled">{{default.unit}}</a>
+                            <button ng-if="default.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
+                              data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{default.comment}}">
                               <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                             </button>
                             <button id="click-{{default.row}}" class="btn btn-default">Räkna ut</button>
