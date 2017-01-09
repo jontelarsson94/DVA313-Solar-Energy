@@ -84,7 +84,7 @@ require_once "src/action/form.php";
                     if(isset($_SESSION["admin"])){
                       if($_SESSION["admin"] == 1){
                         echo"<li>
-                              <a class='page-scroll' href='#changeDefaultsAdmin'>Change defaults</a>
+                              <a class='page-scroll' href='#changeDefaultsAdmin'>Ändra standardvärden</a>
                             </li>";
                       }
                       elseif ($_SESSION["admin"] == 0) {
@@ -146,7 +146,7 @@ require_once "src/action/form.php";
               <div class="col-lg-12 text-center" id="changeDefaultsAdmin">
               <br>
                   <h2 class="section-heading">Ändra standardvärden</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  <!--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
               </div>
           </div>
 
