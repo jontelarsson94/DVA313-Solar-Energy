@@ -157,7 +157,11 @@ require_once "src/action/form.php";
           </form>
           <br>
           <form method="get" action="excel/start_default.xlsx">
-            <button class="btn btn-primary" type="submit">Download Template</button>
+            <button class="btn btn-info" type="submit">Download Template</button>
+          </form>
+          <br>
+          <form method="get" action="excel/default_solar.xlsx">
+            <button class="btn btn-info" type="submit">Download Current Excel sheet</button>
           </form>
         <?php
         }
