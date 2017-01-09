@@ -516,16 +516,16 @@ function createPDF(){
 
                   [ { text: 'Beräknad lönsamhet', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Utan ROT-avdrag och investeringsstöd, med eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-82").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-83").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-82").val(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-83").val(), style: 'tableValue'} ],
                   [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-84").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Med ROT-avdrag och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-87").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-88").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-87").val(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-88").val(), style: 'tableValue'} ],
                   [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-89").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Med investeringsstöd och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
-                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: parseInt($("#indata-92").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: parseInt($("#indata-93").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-92").val(), style: 'tableValue'} ],
+                  [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-93").val(), style: 'tableValue'} ],
                   [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-94").val()).toLocaleString(), style: 'tableValue'} ],
                 ],
               },
@@ -553,7 +553,7 @@ function createPDF(){
                   [ { text: 'Nätanslutningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-21").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Antal byten av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-23").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Antal år till byte av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-24").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Kostnad för byte av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-25").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Kostnad för byte av växelriktare', style: 'tableDescription'}, { text: $("#extended-25").val(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnader', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Elcertifikathantering', style: 'tableDescription'}, { text: parseInt($("#extended-30").val()).toLocaleString(), style: 'tableValue'} ],
@@ -564,18 +564,18 @@ function createPDF(){
                   [ { text: 'Servitut', style: 'tableDescription'}, { text: parseInt($("#extended-35").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Uttagsabonnemang', style: 'tableDescription'}, { text: parseInt($("#extended-36").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Övrigt', style: 'tableDescription'}, { text: parseInt($("#extended-37").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa årlig fast driftkostnad', style: 'tableDescription'}, { text: parseInt($("#extended-38").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa årlig fast driftkostnad', style: 'tableDescription'}, { text: $("#extended-38").val(), style: 'tableValue'} ],
                   [ { text: 'Försäkring', style: 'tableDescription'}, { text: parseInt($("#extended-41").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Hyra av yta', style: 'tableDescription'}, { text: parseInt($("#extended-42").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Underhåll av yta', style: 'tableDescription'}, { text: parseInt($("#extended-43").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Rengöring av moduler', style: 'tableDescription'}, { text: parseInt($("#extended-44").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Tillsyn', style: 'tableDescription'}, { text: parseInt($("#extended-45").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa årlig rörlig driftkostnad', style: 'tableDescription'}, { text: parseInt($("#extended-46").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa årlig rörlig driftkostnad', style: 'tableDescription'}, { text: $("#extended-46").val(), style: 'tableValue'} ],
 
                   [ { text: 'Restvärde', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Restvärde', style: 'tableDescription'}, { text: parseInt($("#extended-50").val()).toLocaleString(), style: 'tableValue'} ],
                   [ { text: 'Rivningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-51").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa kostnader vid avslut', style: 'tableDescription'}, { text: parseInt($("#extended-52").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa kostnader vid avslut', style: 'tableDescription'}, { text: $("#extended-52").val(), style: 'tableValue'} ],
 
                   [ { text: 'Systemdegradering', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Årlig degradering av utbytet', style: 'tableDescription'}, { text: parseInt($("#extended-56").val()).toLocaleString(), style: 'tableValue'} ],
@@ -1197,7 +1197,7 @@ function CalculateSecondDEF() {
     var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
     var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
-    var Kostnad_vaxelriktarbyte = parseInt($("#extended-25").val());
+    var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
     var Kalkylranta = parseInt($("#indata-28").val()) / 100;
     var Restvarde = parseInt($("#extended-50").val());
     var Rivningskostnad = parseInt($("#extended-51").val());
@@ -1330,7 +1330,7 @@ function calculateProductionCost(X){
   //(9.38, 3, 300)
   //(D28, D24, -D49)
   //values from the tab "indata & result" in the given excel file:
-  var inDX = parseInt($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
+  var inDX = toNum($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
   var inD28 = parseInt($( "#indata-28" ).val()) / 100;
   var inD24 = parseInt($( "#indata-24" ).val());
   var inD49 = toNum($( "#indata-49" ).val());
@@ -1363,7 +1363,7 @@ function calculateD83() {
     }
     if (count < parseInt($("#indata-24").val())) {
         var val = count + 1;
-        $("#indata-83").val(val);
+        $("#indata-83").val(numberWithSpaces(val));
     } else {
         var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
         $("#indata-83").val(ErrorStr);
@@ -1382,7 +1382,7 @@ function calculateD88() {
     }
     if (count < parseInt($("#indata-24").val())) {
         var val = count + 1;
-        $("#indata-88").val(val);
+        $("#indata-88").val(numberWithSpaces(val));
     } else {
         var ErrorStr = ">Livslängd ('" + parseInt($("#indata-24").val()) + "')år";
         $("#indata-88").val(ErrorStr);
@@ -1448,15 +1448,15 @@ function calculateI54(){
 }
 
 function calculateI82(){
-  $("#indata-82").val(  parseInt($("#n-55").val()) );
+  $("#indata-82").val(  numberWithSpaces($("#n-55").val()) );
 }
 
 function calculateI87(){
-  $("#indata-87").val(  parseInt($("#p-55").val()) );
+  $("#indata-87").val(  numberWithSpaces($("#p-55").val()) );
 }
 
 function calculateI92(){
-  $("#indata-92").val(  parseInt($("#r-55").val()) );
+  $("#indata-92").val(  numberWithSpaces($("#r-55").val()) );
 }
 
 function calculateSecondS(){
@@ -1803,7 +1803,7 @@ function calculateDEF() {
     var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
     var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
     var Ekonomisk_livslangd = parseInt($("#indata-24").val());
-    var Kostnad_vaxelriktarbyte = parseInt($("#extended-25").val());
+    var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
     var Kalkylranta = parseInt($("#indata-28").val()) / 100;
     var Restvarde = parseInt($("#extended-50").val());
     var Rivningskostnad = parseInt($("#extended-51").val());
@@ -2272,7 +2272,7 @@ function calculateE25(){
   else if(p18 <= 10){
     result = 3000*1.25;
   }
-  $( "#extended-25" ).val( Math.round(result) );
+  $( "#extended-25" ).val( numberWithSpaces(Math.round(result)) );
 
   calculateDEF();
 }
@@ -2294,7 +2294,7 @@ function calculateI25(){
   var e44 = $( "#extended-44" ).val();
   var e45 = $( "#extended-45" ).val();
   var result = +e41 + +e42 + +e43 + +e44 + +e45;
-  $( "#extended-46" ).val(Math.round(result) );
+  $( "#extended-46" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
   var p18 = $( "#indata-18" ).val();
@@ -2327,7 +2327,7 @@ function calculateE38AndI47(){
   var e36 = $( "#extended-36" ).val();
   var e37 = $( "#extended-37" ).val();
   var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
-  $( "#extended-38" ).val(Math.round(result) );
+  $( "#extended-38" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-47" ).val(numberWithSpaces(Math.round(result)) );
 
   //alert(result);
@@ -2344,7 +2344,7 @@ function calculateE46AndI48(){
   var e44 = $( "#extended-44" ).val();
   var e45 = $( "#extended-45" ).val();
   result = +e41 + +e42 + +e43 + +e44 + +e45;
-  $( "#extended-46" ).val(Math.round(result) );
+  $( "#extended-46" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
   calculateI49();
