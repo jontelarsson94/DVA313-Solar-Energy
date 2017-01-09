@@ -466,7 +466,7 @@ function createPDF(){
 
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
                   [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: parseInt($("#indata-18").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: parseInt($("#indata-19").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Modulyta', style: 'tableDescription'}, { text: $("#indata-19").val(), style: 'tableValue'} ],
                   [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: parseInt($("#indata-20").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Ekonomisk livslängd (N)', style: 'sectionHeader'}, { text: '', } ],
@@ -484,19 +484,19 @@ function createPDF(){
                   [ { text: 'Utbildning', style: 'tableDescription'}, { text: parseInt($("#indata-38").val()).toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Summa investering under livslängden', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-41").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-42").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-43").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-41").val(), style: 'tableValue'} ],
+                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-42").val().toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-43").val().toLocaleString(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnad', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Årlig fast driftkostnad som inte beror på anläggningens storlek', style: 'tableDescription'}, { text: parseInt($("#indata-47").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Årlig rörlig driftkostnad som beror på anläggningens storlek', style: 'tableDescription'}, { text: parseInt($("#indata-48").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa årliga kostnader', style: 'tableDescription'}, { text: parseInt($("#indata-49").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Årlig fast driftkostnad som inte beror på anläggningens storlek', style: 'tableDescription'}, { text: $("#indata-47").val(), style: 'tableValue'} ],
+                  [ { text: 'Årlig rörlig driftkostnad som beror på anläggningens storlek', style: 'tableDescription'}, { text: $("#indata-48").val(), style: 'tableValue'} ],
+                  [ { text: 'Summa årliga kostnader', style: 'tableDescription'}, { text: $("#indata-49").val(), style: 'tableValue'} ],
 
                   [ { text: 'Energiutbyte', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Energiutbyte första året', style: 'tableDescription'}, { text: parseInt($("#indata-53").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa solelproduktion under livslängden', style: 'tableDescription'}, { text: parseInt($("#indata-54").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Summa solelproduktion berättigad till elcertifikat', style: 'tableDescription'}, { text: parseInt($("#indata-55").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Summa solelproduktion under livslängden', style: 'tableDescription'}, { text: $("#indata-54").val(), style: 'tableValue'} ],
+                  [ { text: 'Summa solelproduktion berättigad till elcertifikat', style: 'tableDescription'}, { text: $("#indata-55").val(), style: 'tableValue'} ],
 
                   [ { text: 'Intäkter', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Andel egenanvänd el', style: 'tableDescription'}, { text: parseInt($("#indata-60").val()).toLocaleString(), style: 'tableValue'} ],
@@ -1333,7 +1333,7 @@ function calculateProductionCost(X){
   var inDX = parseInt($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
   var inD28 = parseInt($( "#indata-28" ).val()) / 100;
   var inD24 = parseInt($( "#indata-24" ).val());
-  var inD49 = parseInt($( "#indata-49" ).val());
+  var inD49 = toNum($( "#indata-49" ).val());
   var inD18 = parseInt($( "#indata-18" ).val());
   //value from the tab "grundläggande antaganden" in the given excel file:
   var extD52 = toNum($( "#extended-52" ).val());
@@ -1428,23 +1428,23 @@ function calculateI55(){
 
   sum = Math.round(sum); //get spaces between the numbers (easier to read), and round the result.
 
-  $( "#indata-55" ).val(sum);
+  $( "#indata-55" ).val(numberWithSpaces(sum));
 }
 
 function calculateI41(){
-  $("#indata-41").val(  -Math.round(parseInt($("#d-55").val())/parseInt($("#indata-18").val())) );
+  $("#indata-41").val(  numberWithSpaces(-Math.round(toNum($("#d-55").val())/toNum($("#indata-18").val()))) );
 }
 
 function calculateI42(){
-  $("#indata-42").val(  -Math.round(parseInt($("#e-55").val())/parseInt($("#indata-18").val())) );
+  $("#indata-42").val(  numberWithSpaces(-Math.round(toNum($("#e-55").val())/toNum($("#indata-18").val()))) );
 }
 
 function calculateI43(){
-  $("#indata-43").val(  -Math.round(parseInt($("#f-55").val())/parseInt($("#indata-18").val())) );
+  $("#indata-43").val(  numberWithSpaces(-Math.round(toNum($("#f-55").val())/toNum($("#indata-18").val()))) );
 }
 
 function calculateI54(){
-  $("#indata-54").val(  Math.round(parseInt($("#b-55").val())) );
+  $("#indata-54").val(  numberWithSpaces(Math.round(toNum($("#b-55").val()))) );
 }
 
 function calculateI82(){
@@ -1971,8 +1971,8 @@ function calculateSecondG(){
 
   var p24 = parseInt($("#indata-24").val());
   //p28 = p28 / 100;
-  var p47 = parseInt($("#indata-47").val());
-  var p48 = parseInt($("#indata-48").val());
+  var p47 = toNum($("#indata-47").val());
+  var p48 = toNum($("#indata-48").val());
   //set sum counter to 0
   var sum = 0;
   var result = 0;
@@ -2002,8 +2002,8 @@ function calculateG(){
   var p24 = parseInt($("#indata-24").val());
   var p28 = parseInt($("#indata-28").val())/100;
   //p28 = p28 / 100;
-  var p47 = parseInt($("#indata-47").val());
-  var p48 = parseInt($("#indata-48").val());
+  var p47 = toNum($("#indata-47").val());
+  var p48 = toNum($("#indata-48").val());
   //set sum counter to 0
   var sum = 0;
   var result = 0;
@@ -2295,21 +2295,21 @@ function calculateI25(){
   var e45 = $( "#extended-45" ).val();
   var result = +e41 + +e42 + +e43 + +e44 + +e45;
   $( "#extended-46" ).val(Math.round(result) );
-  $( "#indata-48" ).val(Math.round(result) );
+  $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
   var p18 = $( "#indata-18" ).val();
-  var p47 = $( "#indata-47" ).val();
-  var p48 = $( "#indata-48" ).val();
+  var p47 = toNum($( "#indata-47" ).val());
+  var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
-  $( "#indata-49" ).val( Math.round(result) );
+  $( "#indata-49" ).val( numberWithSpaces(Math.round(result)) );
 }
 
 function calculateI49(){
   var p18 = $( "#indata-18" ).val();
-  var p47 = $( "#indata-47" ).val();
-  var p48 = $( "#indata-48" ).val();
+  var p47 = toNum($( "#indata-47" ).val());
+  var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
-  $( "#indata-49" ).val( Math.round(result) );
+  $( "#indata-49" ).val( numberWithSpaces(Math.round(result)) );
 
   calculateProductionCostD72();
   calculateProductionCostD73();
@@ -2328,7 +2328,7 @@ function calculateE38AndI47(){
   var e37 = $( "#extended-37" ).val();
   var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
   $( "#extended-38" ).val(Math.round(result) );
-  $( "#indata-47" ).val(Math.round(result) );
+  $( "#indata-47" ).val(numberWithSpaces(Math.round(result)) );
 
   //alert(result);
   calculateI49();
@@ -2345,7 +2345,7 @@ function calculateE46AndI48(){
   var e45 = $( "#extended-45" ).val();
   result = +e41 + +e42 + +e43 + +e44 + +e45;
   $( "#extended-46" ).val(Math.round(result) );
-  $( "#indata-48" ).val(Math.round(result) );
+  $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
   calculateI49();
   calculateProductionCostD72();
@@ -2357,7 +2357,7 @@ function calculateI19(){
   var p18 = $( "#indata-18" ).val();
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
-  $( "#indata-19" ).val( Math.round(result) );
+  $( "#indata-19" ).val( numberWithSpaces(Math.round(result)) );
 }
 
 $('#calculations').on('mouseenter', '', function(ev){
@@ -2461,8 +2461,6 @@ $('#calculations').on('keyup', '#indata-18', function(ev){
   calculateE25();
 });
 
-
-
 $('#calculations').on('click', '#personToggle, #companyToggle', function(ev){
 
 });
@@ -2473,7 +2471,7 @@ $('#calculations').on('click', '#personToggle, #companyToggle', function(ev){
 //Then look in the excel sheet and in the formula for that cell there will be a number of different cells that make the calculations.
 //Whenever any of these cells get changed, the calculations should be performed. This is all the other ids after the .on('keyup')
 //So basically just copy this function and change the different ids to match the formula in your cell.
-$('#calculations').on('keyup', '#indata-24, #indata-18, extended-60, indata-53, extended-56', function(ev){
+$('#calculations').on('keyup', '#indata-24, #indata-18, #extended-60, #indata-53, #extended-56', function(ev){
 calculateB();
 calculateC();
 calculateK();
