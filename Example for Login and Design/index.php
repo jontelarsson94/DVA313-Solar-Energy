@@ -203,10 +203,10 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
                           <div class="panel-body"><h3>Gör så här:</h3>
-                          <p>1. Justera de förvalda ingångsvärdena under "Indata och Resultat". Följ anvisningarna för inmatning.</p>
+                          <p>1. Justera de förvalda ingångsvärdena under "Indata". Följ anvisningarna för inmatning.</p>
                           <p>2. Använd räknehjälpen i fliken "Grundläggande antaganden" för att beräkna de årliga kostnaderna. </p>
                           <p>3. Titta igenom fliken "Grundläggande antaganden", för att se om antagandena stämmer för din anläggning.</p>
-                          <p>4. Resultat visas i flikarna "Indata och Resultat", ….</p>
+                          <p>4. Resultat visas i fliken "Resultat"</p>
                           <p>5. Ändra dina indata och se hur det påverkar resultaten. </p>
                           <br>
                           <h3>Resultaten beräknas för tre olika fall:</h3>
@@ -231,7 +231,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                           <p>R = Kalkylränta (%)</p>
                           <br>
                           <h3>Nuvärde:</h3>
-                          <p>Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med PV-funktionen i Excel eller med formeln: </p>
+                          <p>Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med formeln: </p>
                           <img src="img/nuvarde.png">
                           <p>A = kostnad eller intäkt som ska nuvärdesberäknas (kr)</p>
                           <br>
