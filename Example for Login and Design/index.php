@@ -174,15 +174,66 @@ require_once "src/action/form.php";
             <br>
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Kalkylator</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <div class="panel-group" id="accordion">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            Hur du använder kalkylatorn</a>
+                          </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <div class="panel-body"><h3>Gör så här:</h3>
+                          <p>1. Justera de förvalda ingångsvärdena under "Indata och Resultat". Följ anvisningarna för inmatning.</p>
+                          <p>2. Använd räknehjälpen i fliken "Grundläggande antaganden" för att beräkna de årliga kostnaderna. </p>
+                          <p>3. Titta igenom fliken "Grundläggande antaganden", för att se om antagandena stämmer för din anläggning.</p>
+                          <p>4. Resultat visas i flikarna "Indata och Resultat", ….</p>
+                          <p>5. Ändra dina indata och se hur det påverkar resultaten. </p>
+                          <br>
+                          <h3>Resultaten beräknas för tre olika fall:</h3>
+                          <p>1. Utan ROT-avdrag och investeringsstöd, med eventuell skattereduktion.</p>
+                          <p>2. Med ROT-avdrag och eventuell skattereduktion.</p>
+                          <p>3. Med investeringsstöd och eventuell skattereduktion.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            Ordlista</a>
+                          </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <div class="panel-body"><h3>Produktionskostnad:</h3>
+                          <p>Produktionskostnaden beräknas som LCOE = Levelized Cost Of Electricity. Principen är att alla kostnader under livslängden divideras med solelproduktionen under livslängden. En nuvärdesberäkning görs av kostnader och solelproduktion med hjälp av en kalkylränta. När det gäller solelproduktionen tas även hänsyn till att den minskar något med tiden efter det första driftåret.</p>
+                          <img src="img/produktionskostnad.png" alt="produktionskostnad">
+                          <p>N = Ekonomisk livslängd (år)</p>
+                          <p>R = Kalkylränta (%)</p>
+                          <br>
+                          <h3>Nuvärde:</h3>
+                          <p>Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med PV-funktionen i Excel eller med formeln: </p>
+                          <img src="img/nuvarde.png">
+                          <p>A = kostnad eller intäkt som ska nuvärdesberäknas (kr)</p>
+                          <br>
+                          <h3>Diskonterad återbetalningstid</h3>
+                          <p>Den diskonterade återbetalningstiden är antagen som det år då det ackumulerade nuvärdet av kassaflödet blir positivt.</p>
+                          <br>
+                          <h3>Internränta (IRR)</h3>
+                          <p>Internräntan är den räntesats som investeringen avkastar. Beräkningarna görs med värden för kassaflöden utan nuvärdesberäkning.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
 
             <div id="calculations">
+            <br><br>
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Indata och resultat</a></li>
+                <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Indata</a></li>
                 <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Grundläggande antaganden</a></li>
                 <li role="presentation"><a href="#result" aria-controls="profile" role="tab" data-toggle="tab">Resultat</a></li>
               </ul>
@@ -417,8 +468,7 @@ require_once "src/action/form.php";
                     </div>
                   </form>
                   <div class="row">
-                    <h2 class="text-center">Resultat - Diagram</h2>
-                    <button class="btn btn-primary" id="diagramBtn">Räkna ut diagram</button>
+                    <button class="btn btn-primary col-md-12" id="diagramBtn">Räkna ut diagram</button>
                     <div id="pieChart1" class="col-md-5"></div>
                     <div id="lineChart1" class="col-md-7"></div>
                     <div id="pieChart2" class="col-md-5"></div>
@@ -429,8 +479,8 @@ require_once "src/action/form.php";
                   </div>
                   <div class="row">
                   <br><br>
-                    <div class="col-md-offset-5">
-                      <button id="createPDFBtn" class="btn btn-primary">Ladda ner PDF</button>
+                    <div>
+                      <button id="createPDFBtn" class="btn btn-primary col-md-12">Ladda ner PDF</button>
                     </div>
                   </div>
                 </div>
@@ -470,9 +520,9 @@ require_once "src/action/form.php";
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
+                    <h2 class="section-heading">Om oss</h2>
                     <h3 class="section-subheading text-muted">
-                      Future Energy Center, Mälardalens Högskola
+                      Future Energy Center
                     </h3>
                 </div>
             </div>
@@ -498,10 +548,6 @@ require_once "src/action/form.php";
                          <td>Future Energy Center</td>
                        </tr>
                        <tr>
-                         <td>Huvudfinansiär(er):</td>
-                         <td>Energimyndigheten</td>
-                       </tr>
-                       <tr>
                          <td>Projektledare:</td>
                          <td>Bengt Stridh , Mälardalens högskola</td>
                        </tr>
@@ -516,6 +562,12 @@ require_once "src/action/form.php";
                            referensgrupp på ca 50 personer, bestående av
                            byggherrar, fastighetsägare, leverantörer,
                            konsulter och elbolag.
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>Ansvar:</td>
+                         <td>
+                           Mälardalens högskola och Stockholms stad har lag ner mycket tid och arbete på att säkerställa resultatet från räknemallen är korrekt i alla avseenden. Vi kan emellertid inte garantera att det inte förekommer fel. Med hänsyn till att räknemallen tillhandahålls utan kostnad för användaren friskriver sig därför Mälardalens högskola och Stockholm stad, inom ramen för gällande lag, allt ansvar för eventuella förluster som uppstår som en följd av dess användning. All användning av räknemallen sker under eget ansvar.
                          </td>
                        </tr>
                       </table>
