@@ -137,7 +137,7 @@ require_once "src/action/form.php";
 
     <!-- Calculator Section -->
     <section id="services">
-        <div class="container">
+        <div class="container" id="calculations">
 
         <?php
         if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
@@ -247,7 +247,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                 </div>
             </div>
 
-            <div id="calculations">
+            <div>
             <br><br>
 
               <!-- Nav tabs -->

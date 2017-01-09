@@ -72,6 +72,7 @@ $('[data-toggle="popover"]').popover();
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
     $('#myModal').modal('show');
+    window.firstEnter = true;
 
 });
 
@@ -1525,6 +1526,7 @@ function calculateR(){
             r55 = r55 +  Math.round(parseInt($("#r-"+i).val()));
     }
     $("#r-55").val(r55);
+    $("#indata-94").val("");
     calculateS();
     calculateI92();
 }
@@ -1604,6 +1606,7 @@ function calculateN(){
     }
     $("#n-55").val(n55);
     //alert("n55-" + n55);
+    $("#indata-84").val("");
     calculateO();
     calculateI82();
 }
@@ -1643,6 +1646,7 @@ function calculateP(){
             p55 = p55 +  Math.round(parseInt($("#p-"+i).val()));
     }
     $("#p-55").val(Math.round(p55));
+    $("#indata-89").val("");
     calculateQ();
     calculateI87();
 }
@@ -1891,6 +1895,12 @@ function calculateDEF() {
         $("#e-" + j).val(value);
         $("#f-" + j).val(value);
         //if (value != 0) { alert(i); }
+        $( "#pieChart1" ).hide();
+        $( "#pieChart2" ).hide();
+        $( "#pieChart3" ).hide();
+        $( "#lineChart1" ).hide();
+        $( "#lineChart2" ).hide();
+        $( "#lineChart3" ).hide();
 
         j++;
     }
@@ -2384,7 +2394,7 @@ $('#calculations').on('mouseenter', '', function(ev){
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover();
 
-
+if(firstEnter == true){
   //calculating p19
   calculateI19();
   calculateE25();
@@ -2415,6 +2425,8 @@ $('#calculations').on('mouseenter', '', function(ev){
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
+  firstEnter = false;
+}
 
 
 });
@@ -2584,6 +2596,12 @@ $('#calculations').on('click', '#click-94', function(ev){
 });
 
 $("#diagramBtn").click(function(){
+  $( "#pieChart1" ).show();
+  $( "#pieChart2" ).show();
+  $( "#pieChart3" ).show();
+  $( "#lineChart1" ).show();
+  $( "#lineChart2" ).show();
+  $( "#lineChart3" ).show();
   google.charts.setOnLoadCallback(drawLineChart1);
   google.charts.setOnLoadCallback(drawLineChart2);
   google.charts.setOnLoadCallback(drawLineChart3);
