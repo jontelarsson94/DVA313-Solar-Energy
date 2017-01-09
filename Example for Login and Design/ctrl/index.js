@@ -534,7 +534,7 @@ function createPDF(){
                   [ { text: 'Andel solel som ger elcertifikat', style: 'tableDescription'}, { text: $("#indata-65").val(), style: 'tableValue'} ],
                   [ { text: 'Kvotplikt medelvärde', style: 'tableDescription'}, { text: $("#indata-66").val(), style: 'tableValue'} ],
                   [ { text: 'Ursprungsgarantier värde', style: 'tableDescription'}, { text: $("#indata-67").val(), style: 'tableValue'} ],
-                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: $("#indata-68").val(), style: 'tableValue'} ],
+                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: $("#indata-68").val(), style: 'tableValue', pageBreak: 'after'} ],
 
                   [ { text: 'Beräknad produktionskostnad (LCOE)', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-72").val(), style: 'tableValue'} ],
