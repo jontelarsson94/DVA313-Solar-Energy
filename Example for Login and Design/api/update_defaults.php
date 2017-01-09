@@ -109,5 +109,5 @@ require_once "../inc/db_credentials.php";
 	      	"row" => $row
 	      ]);
 		}
-		echo '<script type="text/javascript">window.location.href="../index.php";</script>';
+		echo '<script type="text/javascript">window.location.href="../index.php?upload=true";</script>';
 ?>
