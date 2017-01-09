@@ -473,7 +473,7 @@ function createPDF(){
                   [ { text: 'Ekonomisk livslängd', style: 'tableDescription'}, { text: $("#indata-24").val(), style: 'tableValue'} ],
 
                   [ { text: 'Kalkylränta (R)', style: 'sectionHeader'}, { text: '' } ],
-                  [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: parseInt($("#indata-28").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: $("#indata-28").val(), style: 'tableValue'} ],
 
                   [ { text: 'Investering', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Investeringskostnad solcellsanläggning, utan stöd eller ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-32").val()).toLocaleString(), style: 'tableValue'} ],
@@ -1331,7 +1331,7 @@ function calculateProductionCost(X){
   //(D28, D24, -D49)
   //values from the tab "indata & result" in the given excel file:
   var inDX = toNum($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
-  var inD28 = parseInt($( "#indata-28" ).val()) / 100;
+  var inD28 = toNum($( "#indata-28" ).val()) / 100;
   var inD24 = toNum($( "#indata-24" ).val());
   var inD49 = toNum($( "#indata-49" ).val());
   var inD18 = toNum($( "#indata-18" ).val());
@@ -1411,7 +1411,7 @@ function calculateD93() {
 
 
 function calculateI55(){
-  var e64 = parseInt($( "#extended-64" ).val());
+  var e64 = toNum($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
   var currentA, currentB = 0;
 
@@ -1432,15 +1432,15 @@ function calculateI55(){
 }
 
 function calculateI41(){
-  $("#indata-41").val(  numberWithSpaces(-Math.round(toNum($("#d-55").val())/toNum($("#indata-18").val()))) );
+  $("#indata-41").val(  numberWithSpaces(-Math.round(toNum($("#d-55").val())/+($("#indata-18").val()))) );
 }
 
 function calculateI42(){
-  $("#indata-42").val(  numberWithSpaces(-Math.round(toNum($("#e-55").val())/toNum($("#indata-18").val()))) );
+  $("#indata-42").val(  numberWithSpaces(-Math.round(toNum($("#e-55").val())/+($("#indata-18").val()))) );
 }
 
 function calculateI43(){
-  $("#indata-43").val(  numberWithSpaces(-Math.round(toNum($("#f-55").val())/toNum($("#indata-18").val()))) );
+  $("#indata-43").val(  numberWithSpaces(-Math.round(toNum($("#f-55").val())/+($("#indata-18").val()))) );
 }
 
 function calculateI54(){
@@ -1795,7 +1795,7 @@ function calculateDEF() {
     var i = 1;
     var j = 5;
     var Investeringskostnad = parseInt($("#indata-32").val());
-    var Installerad_effekt = toNum($("#indata-18").val());
+    var Installerad_effekt = +($("#indata-18").val());
     var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
     var Tak_ROT_avdrag = parseInt($("#extended-18").val());
     var Investeringsstod = parseInt($("#indata-33").val()) / 100;
@@ -1914,11 +1914,11 @@ function calculateB(){
   //If the cell is in "grundläggande antaganden", then the id will be #extended-row
   //If the cell is in "Kassaflöden", then the id will be #column-row so for example A5 in the table will be #a-5
   var p24 = toNum($( "#indata-24" ).val());
-  var p18 = toNum($( "#indata-18" ).val());
-  var e60 = $( "#extended-60" ).val();
+  var p18 = +($( "#indata-18" ).val());
+  var e60 = toNum($( "#extended-60" ).val());
   e60 = e60 / 100; // divide by 100 since it is a % unit
-  var p53 = $( "#indata-53" ).val();
-  var e56 = $( "#extended-56" ).val();
+  var p53 = toNum($( "#indata-53" ).val());
+  var e56 = toNum($( "#extended-56" ).val());
   e56 = e56/100;
   //set sum counter to 0
   var sum = 0;
@@ -1944,7 +1944,7 @@ function calculateB(){
 }
 
 function calculateC(){
-  var p28 = $( "#indata-28" ).val();
+  var p28 = toNum($( "#indata-28" ).val());
   p28 = p28 / 100;
   //set sum counter to 0
   var sum = 0;
@@ -2030,12 +2030,12 @@ function calculateG(){
 
 //CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
 function calculateSecondK(){
-  var p64 = $( "#indata-64" ).val();
-  var p65 = $( "#indata-65" ).val();
+  var p64 = toNum($( "#indata-64" ).val());
+  var p65 = toNum($( "#indata-65" ).val());
   p65 = p65 / 100; // divide by 100 since it is a % unit
-  var p66 = $( "#indata-66" ).val();
+  var p66 = toNum($( "#indata-66" ).val());
   p66 = p66 / 100;
-  var e64 = $( "#extended-64" ).val();
+  var e64 = toNum($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
 
   var currentA, currentB = 0;
@@ -2063,12 +2063,12 @@ function calculateSecondK(){
 }
 
 function calculateK(){
-  var p64 = $( "#indata-64" ).val();
-  var p65 = $( "#indata-65" ).val();
+  var p64 = toNum($( "#indata-64" ).val());
+  var p65 = toNum($( "#indata-65" ).val());
   p65 = p65 / 100; // divide by 100 since it is a % unit
-  var p66 = $( "#indata-66" ).val();
+  var p66 = toNum($( "#indata-66" ).val());
   p66 = p66 / 100;
-  var e64 = $( "#extended-64" ).val();
+  var e64 = toNum($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
 
   //loop through the necessary ids for that column (row 5-54)
@@ -2101,13 +2101,13 @@ function calculateK(){
 
 function calculateSecondM(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p28 = $( "#indata-28" ).val();
+  var p28 = toNum($( "#indata-28" ).val());
   p28 = p28 / 100; // divide by 100 since it is a % unit
-  var p60 = $( "#indata-60" ).val();
+  var p60 = toNum($( "#indata-60" ).val());
   p60 = p60 / 100;
-  var p68 = $( "#indata-68" ).val();
-  var e65 = $( "#extended-65" ).val();
-  var e66 = $( "#extended-66" ).val();
+  var p68 = toNum($( "#indata-68" ).val());
+  var e65 = toNum($( "#extended-65" ).val());
+  var e66 = toNum($( "#extended-66" ).val());
   var sum = 0; //set sum counter to 0
 
   var currentA, currentB = 0;
@@ -2115,8 +2115,8 @@ function calculateSecondM(){
   
   //loop through the necessary ids for that column (row 61-110)
   for(var i = 61; i < 111; i++){
-    currentA = $( "#a-" + i ).val();
-    currentB = $( "#b-" + i ).val();
+    currentA = toNum($( "#a-" + i ).val());
+    currentB = toNum($( "#b-" + i ).val());
     result = 0;
 
     //perform calculations if necessary
@@ -2140,13 +2140,13 @@ function calculateSecondM(){
 
 function calculateM(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p28 = $( "#indata-28" ).val();
+  var p28 = toNum($( "#indata-28" ).val());
   p28 = p28 / 100; // divide by 100 since it is a % unit
-  var p60 = $( "#indata-60" ).val();
+  var p60 = toNum($( "#indata-60" ).val());
   p60 = p60 / 100;
-  var p68 = $( "#indata-68" ).val();
-  var e65 = $( "#extended-65" ).val();
-  var e66 = $( "#extended-66" ).val();
+  var p68 = toNum($( "#indata-68" ).val());
+  var e65 = toNum($( "#extended-65" ).val());
+  var e66 = toNum($( "#extended-66" ).val());
   var sum = 0; //set sum counter to 0
 
   //loop through the necessary ids for that column (row 5-54)
@@ -2183,7 +2183,7 @@ function calculateM(){
 
 function calculateSecondL(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p67 = $( "#indata-67" ).val();
+  var p67 = toNum($( "#indata-67" ).val());
   var sum = 0; //set sum counter to 0
 
   var currentA, currentB = 0;
@@ -2212,7 +2212,7 @@ function calculateSecondL(){
 
 function calculateL(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p67 = $( "#indata-67" ).val();
+  var p67 = toNum($( "#indata-67" ).val());
   var sum = 0; //set sum counter to 0
 
   //loop through the necessary ids for that column (row 5-54)
@@ -2245,7 +2245,7 @@ function calculateL(){
 
 //This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
 function calculateE25(){
-  var p18 = toNum($( "#indata-18" ).val());
+  var p18 = +($( "#indata-18" ).val());
   var choosen = $("input[name=optradio]:checked").val()
   var result;
   if(choosen == 2){
@@ -2278,26 +2278,26 @@ function calculateE25(){
 }
 
 function calculateE52(){
-  var e50 = $( "#extended-50" ).val();
-  var e51 = $( "#extended-51" ).val();
-  var p28 = $( "#indata-28" ).val();
+  var e50 = toNum($( "#extended-50" ).val());
+  var e51 = toNum($( "#extended-51" ).val());
+  var p28 = toNum($( "#indata-28" ).val());
   var p24 = toNum($( "#indata-24" ).val());
-  var p18 = toNum($( "#indata-18" ).val());
+  var p18 = +($( "#indata-18" ).val());
   var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
   $( "#extended-52" ).val( numberWithSpaces(Math.round(result)) );
 }
 
 function calculateI25(){
-  var e41 = $( "#extended-41" ).val();
-  var e42 = $( "#extended-42" ).val();
-  var e43 = $( "#extended-43" ).val();
-  var e44 = $( "#extended-44" ).val();
-  var e45 = $( "#extended-45" ).val();
+  var e41 = toNum($( "#extended-41" ).val());
+  var e42 = toNum($( "#extended-42" ).val());
+  var e43 = toNum($( "#extended-43" ).val());
+  var e44 = toNum($( "#extended-44" ).val());
+  var e45 = toNum($( "#extended-45" ).val());
   var result = +e41 + +e42 + +e43 + +e44 + +e45;
   $( "#extended-46" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
-  var p18 = toNum($( "#indata-18" ).val());
+  var p18 = +($( "#indata-18" ).val());
   var p47 = toNum($( "#indata-47" ).val());
   var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
@@ -2305,7 +2305,7 @@ function calculateI25(){
 }
 
 function calculateI49(){
-  var p18 = toNum($( "#indata-18" ).val());
+  var p18 = +($( "#indata-18" ).val());
   var p47 = toNum($( "#indata-47" ).val());
   var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
@@ -2318,14 +2318,14 @@ function calculateI49(){
 
 //This doesnt work the first time we enter with mouse, but second time it works?
 function calculateE38AndI47(){
-  var e30 = $( "#extended-30" ).val();
-  var e31 = $( "#extended-31" ).val();
-  var e32 = $( "#extended-32" ).val();
-  var e33 = $( "#extended-33" ).val();
-  var e34 = $( "#extended-34" ).val();
-  var e35 = $( "#extended-35" ).val();
-  var e36 = $( "#extended-36" ).val();
-  var e37 = $( "#extended-37" ).val();
+  var e30 = toNum($( "#extended-30" ).val());
+  var e31 = toNum($( "#extended-31" ).val());
+  var e32 = toNum($( "#extended-32" ).val());
+  var e33 = toNum($( "#extended-33" ).val());
+  var e34 = toNum($( "#extended-34" ).val());
+  var e35 = toNum($( "#extended-35" ).val());
+  var e36 = toNum($( "#extended-36" ).val());
+  var e37 = toNum($( "#extended-37" ).val());
   var result = +e30 + +e31 + +e32 + +e33 + +e34 + +e35 + +e36 + +e37;
   $( "#extended-38" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-47" ).val(numberWithSpaces(Math.round(result)) );
@@ -2338,11 +2338,11 @@ function calculateE38AndI47(){
 }
 
 function calculateE46AndI48(){
-  var e41 = $( "#extended-41" ).val();
-  var e42 = $( "#extended-42" ).val();
-  var e43 = $( "#extended-43" ).val();
-  var e44 = $( "#extended-44" ).val();
-  var e45 = $( "#extended-45" ).val();
+  var e41 = toNum($( "#extended-41" ).val());
+  var e42 = toNum($( "#extended-42" ).val());
+  var e43 = toNum($( "#extended-43" ).val());
+  var e44 = toNum($( "#extended-44" ).val());
+  var e45 = toNum($( "#extended-45" ).val());
   result = +e41 + +e42 + +e43 + +e44 + +e45;
   $( "#extended-46" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
@@ -2354,8 +2354,8 @@ function calculateE46AndI48(){
 }
 
 function calculateI19(){
-  var p18 = toNum($( "#indata-18" ).val());
-  var e12 = $( "#extended-12" ).val();
+  var p18 = +($( "#indata-18" ).val());
+  var e12 = toNum($( "#extended-12" ).val());
   var result = p18/(e12*0.01);
   $( "#indata-19" ).val( numberWithSpaces(Math.round(result)) );
 }
@@ -2436,9 +2436,6 @@ $('#buttonArea').on('mouseleave', '', function(ev){
 
 });
 
-$('#calculations').on('change', '#indata-18', function(ev){
-  $( "#indata-18" ).val(numberWithSpaces($( "#indata-18" ).val()) );
-});
 $('#calculations').on('change', '#indata-20', function(ev){
   $( "#indata-20" ).val(numberWithSpaces($( "#indata-20" ).val()) );
 });
