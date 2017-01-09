@@ -465,7 +465,7 @@ function createPDF(){
                   [ { text: 'Indata och resultat', style: 'tableHeader' }, { text: '', }],
 
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: parseInt($("#indata-18").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Anläggningens effekt', style: 'tableDescription'}, { text: $("#indata-18").val(), style: 'tableValue'} ],
                   [ { text: 'Modulyta', style: 'tableDescription'}, { text: $("#indata-19").val(), style: 'tableValue'} ],
                   [ { text: 'Säkringsstorlek i anslutningspunkten', style: 'tableDescription'}, { text: parseInt($("#indata-20").val()).toLocaleString(), style: 'tableValue'} ],
 
@@ -1189,7 +1189,7 @@ function CalculateSecondDEF() {
     var i = 1;
     var j = 61;
     var Investeringskostnad = parseInt($("#indata-32").val());
-    var Installerad_effekt = parseInt($("#indata-18").val());
+    var Installerad_effekt = toNum($("#indata-18").val());
     var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
     var Tak_ROT_avdrag = parseInt($("#extended-18").val());
     var Investeringsstod = parseInt($("#indata-33").val()) / 100;
@@ -1334,7 +1334,7 @@ function calculateProductionCost(X){
   var inD28 = parseInt($( "#indata-28" ).val()) / 100;
   var inD24 = parseInt($( "#indata-24" ).val());
   var inD49 = toNum($( "#indata-49" ).val());
-  var inD18 = parseInt($( "#indata-18" ).val());
+  var inD18 = toNum($( "#indata-18" ).val());
   //value from the tab "grundläggande antaganden" in the given excel file:
   var extD52 = toNum($( "#extended-52" ).val());
   //value from the tab "kassaflöden" in the given excel file:
@@ -1795,7 +1795,7 @@ function calculateDEF() {
     var i = 1;
     var j = 5;
     var Investeringskostnad = parseInt($("#indata-32").val());
-    var Installerad_effekt = parseInt($("#indata-18").val());
+    var Installerad_effekt = toNum($("#indata-18").val());
     var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
     var Tak_ROT_avdrag = parseInt($("#extended-18").val());
     var Investeringsstod = parseInt($("#indata-33").val()) / 100;
@@ -1914,7 +1914,7 @@ function calculateB(){
   //If the cell is in "grundläggande antaganden", then the id will be #extended-row
   //If the cell is in "Kassaflöden", then the id will be #column-row so for example A5 in the table will be #a-5
   var p24 = $( "#indata-24" ).val();
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var e60 = $( "#extended-60" ).val();
   e60 = e60 / 100; // divide by 100 since it is a % unit
   var p53 = $( "#indata-53" ).val();
@@ -2245,7 +2245,7 @@ function calculateL(){
 
 //This will always calculate cash flow column D, E and F, dont call calculateDEF after this one
 function calculateE25(){
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var choosen = $("input[name=optradio]:checked").val()
   var result;
   if(choosen == 2){
@@ -2282,7 +2282,7 @@ function calculateE52(){
   var e51 = $( "#extended-51" ).val();
   var p28 = $( "#indata-28" ).val();
   var p24 = $( "#indata-24" ).val();
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var result = (+e50 - +e51)/Math.pow((1+(p28 * 0.01)), p24)/p18;
   $( "#extended-52" ).val( numberWithSpaces(Math.round(result)) );
 }
@@ -2297,7 +2297,7 @@ function calculateI25(){
   $( "#extended-46" ).val(numberWithSpaces(Math.round(result)) );
   $( "#indata-48" ).val(numberWithSpaces(Math.round(result)) );
 
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var p47 = toNum($( "#indata-47" ).val());
   var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
@@ -2305,7 +2305,7 @@ function calculateI25(){
 }
 
 function calculateI49(){
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var p47 = toNum($( "#indata-47" ).val());
   var p48 = toNum($( "#indata-48" ).val());
   result = (+p47 + +p48)/p18
@@ -2354,7 +2354,7 @@ function calculateE46AndI48(){
 }
 
 function calculateI19(){
-  var p18 = $( "#indata-18" ).val();
+  var p18 = toNum($( "#indata-18" ).val());
   var e12 = $( "#extended-12" ).val();
   var result = p18/(e12*0.01);
   $( "#indata-19" ).val( numberWithSpaces(Math.round(result)) );
@@ -2434,6 +2434,10 @@ $('#buttonArea').on('mouseleave', '', function(ev){
   calculateProductionCostD73();
   calculateProductionCostD74();
 
+});
+
+$('#calculations').on('change', '#indata-18', function(ev){
+  $( "#indata-18" ).val(numberWithSpaces($( "#indata-18" ).val()) );
 });
 
 //calculating p19, p49
