@@ -476,17 +476,17 @@ function createPDF(){
                   [ { text: 'Kalkylränta', style: 'tableDescription'}, { text: $("#indata-28").val(), style: 'tableValue'} ],
 
                   [ { text: 'Investering', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Investeringskostnad solcellsanläggning, utan stöd eller ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-32").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-33").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Bygglov', style: 'tableDescription'}, { text: parseInt($("#indata-35").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Projektledning och upphandling', style: 'tableDescription'}, { text: parseInt($("#indata-36").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Besiktning efter färdigställande', style: 'tableDescription'}, { text: parseInt($("#indata-37").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Utbildning', style: 'tableDescription'}, { text: parseInt($("#indata-38").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Investeringskostnad solcellsanläggning, utan stöd eller ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-32").val(), style: 'tableValue'} ],
+                  [ { text: 'Investeringsstöd', style: 'tableDescription'}, { text: $("#indata-33").val(), style: 'tableValue'} ],
+                  [ { text: 'Bygglov', style: 'tableDescription'}, { text: $("#indata-35").val(), style: 'tableValue'} ],
+                  [ { text: 'Projektledning och upphandling', style: 'tableDescription'}, { text: $("#indata-36").val(), style: 'tableValue'} ],
+                  [ { text: 'Besiktning efter färdigställande', style: 'tableDescription'}, { text: $("#indata-37").val(), style: 'tableValue'} ],
+                  [ { text: 'Utbildning', style: 'tableDescription'}, { text: $("#indata-38").val(), style: 'tableValue'} ],
 
                   [ { text: 'Summa investering under livslängden', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-41").val(), style: 'tableValue'} ],
-                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-42").val().toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-43").val().toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-42").val(), style: 'tableValue'} ],
+                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-43").val(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnad', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Årlig fast driftkostnad som inte beror på anläggningens storlek', style: 'tableDescription'}, { text: $("#indata-47").val(), style: 'tableValue'} ],
@@ -494,39 +494,39 @@ function createPDF(){
                   [ { text: 'Summa årliga kostnader', style: 'tableDescription'}, { text: $("#indata-49").val(), style: 'tableValue'} ],
 
                   [ { text: 'Energiutbyte', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Energiutbyte första året', style: 'tableDescription'}, { text: parseInt($("#indata-53").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Energiutbyte första året', style: 'tableDescription'}, { text: $("#indata-53").val(), style: 'tableValue'} ],
                   [ { text: 'Summa solelproduktion under livslängden', style: 'tableDescription'}, { text: $("#indata-54").val(), style: 'tableValue'} ],
                   [ { text: 'Summa solelproduktion berättigad till elcertifikat', style: 'tableDescription'}, { text: $("#indata-55").val(), style: 'tableValue'} ],
 
                   [ { text: 'Intäkter', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Andel egenanvänd el', style: 'tableDescription'}, { text: parseInt($("#indata-60").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Pris köpt el', style: 'tableDescription'}, { text: parseInt($("#indata-61").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Pris såld el', style: 'tableDescription'}, { text: parseInt($("#indata-62").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Ersättning från nätägare', style: 'tableDescription'}, { text: parseInt($("#indata-63").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Elcertifikatvärde', style: 'tableDescription'}, { text: parseInt($("#indata-64").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Andel solel som ger elcertifikat', style: 'tableDescription'}, { text: parseInt($("#indata-65").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Kvotplikt medelvärde', style: 'tableDescription'}, { text: parseInt($("#indata-66").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Ursprungsgarantier värde', style: 'tableDescription'}, { text: parseInt($("#indata-67").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: parseInt($("#indata-68").val()).toLocaleString(), style: 'tableValue', pageBreak: 'after'} ],
+                  [ { text: 'Andel egenanvänd el', style: 'tableDescription'}, { text: $("#indata-60").val(), style: 'tableValue'} ],
+                  [ { text: 'Pris köpt el', style: 'tableDescription'}, { text: $("#indata-61").val(), style: 'tableValue'} ],
+                  [ { text: 'Pris såld el', style: 'tableDescription'}, { text: $("#indata-62").val(), style: 'tableValue'} ],
+                  [ { text: 'Ersättning från nätägare', style: 'tableDescription'}, { text: $("#indata-63").val(), style: 'tableValue'} ],
+                  [ { text: 'Elcertifikatvärde', style: 'tableDescription'}, { text: $("#indata-64").val(), style: 'tableValue'} ],
+                  [ { text: 'Andel solel som ger elcertifikat', style: 'tableDescription'}, { text: $("#indata-65").val(), style: 'tableValue'} ],
+                  [ { text: 'Kvotplikt medelvärde', style: 'tableDescription'}, { text: $("#indata-66").val(), style: 'tableValue'} ],
+                  [ { text: 'Ursprungsgarantier värde', style: 'tableDescription'}, { text: $("#indata-67").val(), style: 'tableValue'} ],
+                  [ { text: 'Antal år med skattereduktion', style: 'tableDescription'}, { text: $("#indata-68").val(), style: 'tableValue', pageBreak: 'after'} ],
 
                   [ { text: 'Beräknad produktionskostnad (LCOE)', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-72").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#indata-73").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#indata-74").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Utan ROT-avdrag eller investeringsstöd', style: 'tableDescription'}, { text: $("#indata-72").val(), style: 'tableValue'} ],
+                  [ { text: 'Med ROT-avdrag', style: 'tableDescription'}, { text: $("#indata-73").val(), style: 'tableValue'} ],
+                  [ { text: 'Med investeringsstöd', style: 'tableDescription'}, { text: $("#indata-74").val(), style: 'tableValue'} ],
 
                   [ { text: 'Beräknad lönsamhet', style: 'sectionHeader'}, { text: '', } ],
                   [ { text: 'Utan ROT-avdrag och investeringsstöd, med eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
                   [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-82").val(), style: 'tableValue'} ],
                   [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-83").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-84").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-84").val(), style: 'tableValue'} ],
                   [ { text: 'Med ROT-avdrag och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
                   [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-87").val(), style: 'tableValue'} ],
                   [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-88").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-89").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-89").val(), style: 'tableValue'} ],
                   [ { text: 'Med investeringsstöd och eventuell skattereduktion', style: 'tableSubSection'}, { text: '', } ],
                   [ { text: 'Nuvärde', style: 'tableDescription'}, { text: $("#indata-92").val(), style: 'tableValue'} ],
                   [ { text: 'Diskonterad återbetalningstid', style: 'tableDescription'}, { text: $("#indata-93").val(), style: 'tableValue'} ],
-                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: parseInt($("#indata-94").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Internränta (IRR)', style: 'tableDescription'}, { text: $("#indata-94").val(), style: 'tableValue'} ],
                 ],
               },
               layout: 'lightHorizontalLines',
@@ -543,50 +543,50 @@ function createPDF(){
                 body: [
                   [ { text: 'Extended', style: 'tableHeader' }, { text: '', }],
                   [ { text: 'Anläggning', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Verkningsgrad solcellsmoduler', style: 'tableDescription'}, { text: parseInt($("#extended-12").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Verkningsgrad solcellsmoduler', style: 'tableDescription'}, { text: $("#extended-12").val(), style: 'tableValue'} ],
 
                   [ { text: 'Investering', style: 'sectionHeader' }, { text: '', }],
-                  [ { text: 'Tak för investeringsstöd', style: 'tableDescription'}, { text: parseInt($("#extended-16").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'ROT-avdrag arbetskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-17").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Tak för ROT-avdrag', style: 'tableDescription'}, { text: parseInt($("#extended-18").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Kostnad för köp eller preparering av mark', style: 'tableDescription'}, { text: parseInt($("#extended-20").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Nätanslutningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-21").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Antal byten av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-23").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Antal år till byte av växelriktare', style: 'tableDescription'}, { text: parseInt($("#extended-24").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Tak för investeringsstöd', style: 'tableDescription'}, { text: $("#extended-16").val(), style: 'tableValue'} ],
+                  [ { text: 'ROT-avdrag arbetskostnad', style: 'tableDescription'}, { text: $("#extended-17").val(), style: 'tableValue'} ],
+                  [ { text: 'Tak för ROT-avdrag', style: 'tableDescription'}, { text: $("#extended-18").val(), style: 'tableValue'} ],
+                  [ { text: 'Kostnad för köp eller preparering av mark', style: 'tableDescription'}, { text: $("#extended-20").val(), style: 'tableValue'} ],
+                  [ { text: 'Nätanslutningskostnad', style: 'tableDescription'}, { text: $("#extended-21").val(), style: 'tableValue'} ],
+                  [ { text: 'Antal byten av växelriktare', style: 'tableDescription'}, { text: $("#extended-23").val(), style: 'tableValue'} ],
+                  [ { text: 'Antal år till byte av växelriktare', style: 'tableDescription'}, { text: $("#extended-24").val(), style: 'tableValue'} ],
                   [ { text: 'Kostnad för byte av växelriktare', style: 'tableDescription'}, { text: $("#extended-25").val(), style: 'tableValue'} ],
 
                   [ { text: 'Driftkostnader', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Elcertifikathantering', style: 'tableDescription'}, { text: parseInt($("#extended-30").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Fastighetsskatt', style: 'tableDescription'}, { text: parseInt($("#extended-31").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Inmatningsabonnemang', style: 'tableDescription'}, { text: parseInt($("#extended-32").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Loggning', style: 'tableDescription'}, { text: parseInt($("#extended-33").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Resor', style: 'tableDescription'}, { text: parseInt($("#extended-34").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Servitut', style: 'tableDescription'}, { text: parseInt($("#extended-35").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Uttagsabonnemang', style: 'tableDescription'}, { text: parseInt($("#extended-36").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Övrigt', style: 'tableDescription'}, { text: parseInt($("#extended-37").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Elcertifikathantering', style: 'tableDescription'}, { text: $("#extended-30").val(), style: 'tableValue'} ],
+                  [ { text: 'Fastighetsskatt', style: 'tableDescription'}, { text: $("#extended-31").val(), style: 'tableValue'} ],
+                  [ { text: 'Inmatningsabonnemang', style: 'tableDescription'}, { text: $("#extended-32").val(), style: 'tableValue'} ],
+                  [ { text: 'Loggning', style: 'tableDescription'}, { text: $("#extended-33").val(), style: 'tableValue'} ],
+                  [ { text: 'Resor', style: 'tableDescription'}, { text: $("#extended-34").val(), style: 'tableValue'} ],
+                  [ { text: 'Servitut', style: 'tableDescription'}, { text: $("#extended-35").val(), style: 'tableValue'} ],
+                  [ { text: 'Uttagsabonnemang', style: 'tableDescription'}, { text: $("#extended-36").val(), style: 'tableValue'} ],
+                  [ { text: 'Övrigt', style: 'tableDescription'}, { text: $("#extended-37").val(), style: 'tableValue'} ],
                   [ { text: 'Summa årlig fast driftkostnad', style: 'tableDescription'}, { text: $("#extended-38").val(), style: 'tableValue'} ],
-                  [ { text: 'Försäkring', style: 'tableDescription'}, { text: parseInt($("#extended-41").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Hyra av yta', style: 'tableDescription'}, { text: parseInt($("#extended-42").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Underhåll av yta', style: 'tableDescription'}, { text: parseInt($("#extended-43").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Rengöring av moduler', style: 'tableDescription'}, { text: parseInt($("#extended-44").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Tillsyn', style: 'tableDescription'}, { text: parseInt($("#extended-45").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Försäkring', style: 'tableDescription'}, { text: $("#extended-41").val(), style: 'tableValue'} ],
+                  [ { text: 'Hyra av yta', style: 'tableDescription'}, { text: $("#extended-42").val(), style: 'tableValue'} ],
+                  [ { text: 'Underhåll av yta', style: 'tableDescription'}, { text: $("#extended-43").val(), style: 'tableValue'} ],
+                  [ { text: 'Rengöring av moduler', style: 'tableDescription'}, { text: $("#extended-44").val(), style: 'tableValue'} ],
+                  [ { text: 'Tillsyn', style: 'tableDescription'}, { text: $("#extended-45").val(), style: 'tableValue'} ],
                   [ { text: 'Summa årlig rörlig driftkostnad', style: 'tableDescription'}, { text: $("#extended-46").val(), style: 'tableValue'} ],
 
                   [ { text: 'Restvärde', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Restvärde', style: 'tableDescription'}, { text: parseInt($("#extended-50").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Rivningskostnad', style: 'tableDescription'}, { text: parseInt($("#extended-51").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Restvärde', style: 'tableDescription'}, { text: $("#extended-50").val(), style: 'tableValue'} ],
+                  [ { text: 'Rivningskostnad', style: 'tableDescription'}, { text: $("#extended-51").val(), style: 'tableValue'} ],
                   [ { text: 'Summa kostnader vid avslut', style: 'tableDescription'}, { text: $("#extended-52").val(), style: 'tableValue'} ],
 
                   [ { text: 'Systemdegradering', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Årlig degradering av utbytet', style: 'tableDescription'}, { text: parseInt($("#extended-56").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Årlig degradering av utbytet', style: 'tableDescription'}, { text: $("#extended-56").val(), style: 'tableValue'} ],
 
                   [ { text: 'Energiutbyte', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Tillgänglighet', style: 'tableDescription'}, { text: parseInt($("#extended-60").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Tillgänglighet', style: 'tableDescription'}, { text: $("#extended-60").val(), style: 'tableValue'} ],
 
                   [ { text: 'Intäkter', style: 'sectionHeader'}, { text: '', } ],
-                  [ { text: 'Antal år med elcertifikat', style: 'tableDescription'}, { text: parseInt($("#extended-64").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Skattereduktion', style: 'tableDescription'}, { text: parseInt($("#extended-65").val()).toLocaleString(), style: 'tableValue'} ],
-                  [ { text: 'Tak för skattereduktion', style: 'tableDescription'}, { text: parseInt($("#extended-66").val()).toLocaleString(), style: 'tableValue'} ],
+                  [ { text: 'Antal år med elcertifikat', style: 'tableDescription'}, { text: $("#extended-64").val(), style: 'tableValue'} ],
+                  [ { text: 'Skattereduktion', style: 'tableDescription'}, { text: $("#extended-65").val(), style: 'tableValue'} ],
+                  [ { text: 'Tak för skattereduktion', style: 'tableDescription'}, { text: $("#extended-66").val(), style: 'tableValue'} ],
                 ]
               },
               layout: 'lightHorizontalLines',
@@ -896,6 +896,7 @@ function IRR(values, guess) {
 }
 
 function calculateI84(){
+  var i = 60;
   var cashFlowArray = new Array();
   for(var i = 60; i <= 110; i++){
     cashFlowArray.push(parseInt($( "#n-"+i ).val()))
@@ -1188,44 +1189,45 @@ function CalculateSecondDEF() {
     var f_111val;
     var i = 1;
     var j = 61;
-    var Investeringskostnad = parseInt($("#indata-32").val());
+    var Investeringskostnad = toNum($("#indata-32").val());
     var Installerad_effekt = toNum($("#indata-18").val());
-    var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
-    var Tak_ROT_avdrag = parseInt($("#extended-18").val());
-    var Investeringsstod = parseInt($("#indata-33").val()) / 100;
-    var Tak_Investeringsstod = parseInt($("#extended-16").val());
-    var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
-    var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
+    var ROT_avdrag = +($("#extended-17").val()) / 100;
+    var Tak_ROT_avdrag = toNum($("#extended-18").val());
+    var Investeringsstod = +($("#indata-33").val()) / 100;
+    var Tak_Investeringsstod = toNum($("#extended-16").val());
+    var Antal_ar_till_byte_av_vaxelriktare = toNum($("#extended-24").val());
+    var Antal_byten_av_vaxelriktare = toNum($("#extended-23").val());
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
-    var Kalkylranta = parseInt($("#indata-28").val()) / 100;
-    var Restvarde = parseInt($("#extended-50").val());
-    var Rivningskostnad = parseInt($("#extended-51").val());
+    var Kalkylranta = toNum($("#indata-28").val()) / 100;
+    var Restvarde = toNum($("#extended-50").val());
+    var Rivningskostnad = toNum($("#extended-51").val());
 
-    var d_60val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+    //var d_60val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+    var d_60val = $("#d-4").val()
     $("#d-60").val(d_60val);
     d_111val = d_60val;
 
     if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
-        var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var e_60val = $("#e-4").val();//(-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-60").val(Math.round(e_60val));
         e_111val = Math.round(e_60val);
         //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
     } else {
         // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
-        var e_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var e_60val = $("#e-4").val();//(-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#e-60").val(Math.round(e_60val));
         e_111val = Math.round(e_60val);
     }
 
     if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
         //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
-        var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var f_60val = $("#f-4").val();//(-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-60").val(Math.round(f_60val));
         f_111val = Math.round(f_60val);
     } else {
         //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
-        var f_60val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var f_60val = $("#f-4").val();//(-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
         $("#f-60").val(Math.round(f_60val));
         f_111val = Math.round(f_60val);
 
@@ -1331,15 +1333,14 @@ function calculateProductionCost(X){
   //(D28, D24, -D49)
   //values from the tab "indata & result" in the given excel file:
   var inDX = toNum($( "#indata-" + X ).val()); //here you will retrieve the value of either cell D41, D42 or D43
-  var inD28 = toNum($( "#indata-28" ).val()) / 100;
+  var inD28 = +($( "#indata-28" ).val()) / 100;
   var inD24 = toNum($( "#indata-24" ).val());
   var inD49 = toNum($( "#indata-49" ).val());
-  var inD18 = toNum($( "#indata-18" ).val());
+  var inD18 = +($( "#indata-18" ).val());
   //value from the tab "grundläggande antaganden" in the given excel file:
   var extD52 = toNum($( "#extended-52" ).val());
   //value from the tab "kassaflöden" in the given excel file:
   var cashflowC55 = parseInt($( "#c-55" ).val());
-
   //for i = 1; i <= D24; i++{
 
   var pv = calcPv(inD28, inD24, -inD49);
@@ -1432,7 +1433,9 @@ function calculateI55(){
 }
 
 function calculateI41(){
-  $("#indata-41").val(  numberWithSpaces(-Math.round(toNum($("#d-55").val())/+($("#indata-18").val()))) );
+  var inD18 = +($("#indata-18").val());
+  var D55 = toNum($("#d-55").val());
+  $("#indata-41").val(  numberWithSpaces(-Math.round(D55/inD18)) );
 }
 
 function calculateI42(){
@@ -1624,8 +1627,8 @@ function calculateP(){
 
 function calculateSecondH() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
-    var Pris_kopt_el = $("#indata-61").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val()) / 100;
+    var Pris_kopt_el = +$("#indata-61").val();
     /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
     alert("Andel_egenanvand_el-"+Andel_egenanvand_el);
     alert("Pris_kopt_el-"+Pris_kopt_el);*/
@@ -1653,8 +1656,8 @@ function calculateSecondH() {
 //Whenever one of these is calculated, we should calculate c first
 function calculateH() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
-    var Pris_kopt_el = $("#indata-61").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val())/100;
+    var Pris_kopt_el = +$("#indata-61").val();
     /*alert("Ekonomisk_livslangd-"+Ekonomisk_livslangd);
     alert("Andel_egenanvand_el-"+Andel_egenanvand_el);
     alert("Pris_kopt_el-"+Pris_kopt_el);*/
@@ -1682,8 +1685,8 @@ function calculateH() {
 
 function calculateSecondI() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
-    var Pris_sald_el = $("#indata-62").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val()) / 100;
+    var Pris_sald_el = +$("#indata-62").val();
     var i = 1;
     var j = 61;
     var sum = 0;
@@ -1707,8 +1710,8 @@ function calculateSecondI() {
 
 function calculateI() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
-    var Pris_sald_el = $("#indata-62").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val())/100;
+    var Pris_sald_el = +$("#indata-62").val();
     var  i=1;
     var j = 5;
     var sum = 0;
@@ -1733,8 +1736,8 @@ function calculateI() {
 
 function calculateSecondJ() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val()) / 100;
-    var Ersattning_fran_natagare = $("#indata-63").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val()) / 100;
+    var Ersattning_fran_natagare = +$("#indata-63").val();
     var i = 1;
     var j = 61;
     var sum = 0;
@@ -1761,8 +1764,8 @@ function calculateSecondJ() {
 
 function calculateJ() {
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
-    var Andel_egenanvand_el = parseInt($("#indata-60").val())/100;
-    var Ersattning_fran_natagare = $("#indata-63").val();
+    var Andel_egenanvand_el = toNum($("#indata-60").val())/100;
+    var Ersattning_fran_natagare = +$("#indata-63").val();
     var  i=1;
     var j = 5;
     var sum = 0;
@@ -1794,32 +1797,52 @@ function calculateDEF() {
     var f_55val;
     var i = 1;
     var j = 5;
-    var Investeringskostnad = parseInt($("#indata-32").val());
+    var Investeringskostnad = toNum($("#indata-32").val());
     var Installerad_effekt = +($("#indata-18").val());
-    var ROT_avdrag = parseInt($("#extended-17").val()) / 100;
-    var Tak_ROT_avdrag = parseInt($("#extended-18").val());
-    var Investeringsstod = parseInt($("#indata-33").val()) / 100;
-    var Tak_Investeringsstod = parseInt($("#extended-16").val());
-    var Antal_ar_till_byte_av_vaxelriktare = parseInt($("#extended-24").val());
-    var Antal_byten_av_vaxelriktare = parseInt($("#extended-23").val());
+    var ROT_avdrag = toNum($("#extended-17").val()) / 100;
+    var Tak_ROT_avdrag = toNum($("#extended-18").val());
+    var Investeringsstod = +($("#indata-33").val()) / 100;
+    var Tak_Investeringsstod = toNum($("#extended-16").val());
+    var Antal_ar_till_byte_av_vaxelriktare = toNum($("#extended-24").val());
+    var Antal_byten_av_vaxelriktare = toNum($("#extended-23").val());
     var Ekonomisk_livslangd = toNum($("#indata-24").val());
     var Kostnad_vaxelriktarbyte = toNum($("#extended-25").val());
-    var Kalkylranta = parseInt($("#indata-28").val()) / 100;
-    var Restvarde = parseInt($("#extended-50").val());
-    var Rivningskostnad = parseInt($("#extended-51").val());
+    var Kalkylranta = +($("#indata-28").val()) / 100;
+    var Restvarde = toNum($("#extended-50").val());
+    var Rivningskostnad = toNum($("#extended-51").val());
+    /*console.log("indata-32: " + toNum($("#indata-32").val()));
+    console.log("indata-18: " + +($("#indata-18").val()));
+    console.log("extended-17: " + toNum($("#extended-17").val()));
+    console.log("extended-18: " + toNum($("#extended-18").val()));
+    console.log("indata-33: " + +($("#indata-33").val()));
+    console.log("extended-16: " + toNum($("#extended-16").val()));
+    console.log("extended-24: " + toNum($("#extended-24").val()));
+    console.log("extended-23: " + toNum($("#extended-23").val()));
+    console.log("indata-24: " + toNum($("#indata-24").val()));
+    console.log("extended-25: " + toNum($("#extended-25").val()));
+    console.log("indata-28: " + +($("#indata-28").val()));
+    console.log("extended-50: " + toNum($("#extended-50").val()));
+    console.log("extended-51: " + toNum($("#extended-51").val()));*/
 
-    var d_4val = (-1) * ((Investeringskostnad * Installerad_effekt) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+    /*console.log("indata-35: " + toNum($("#indata-35").val()));
+    console.log("indata-36: " + toNum($("#indata-36").val()));
+    console.log("indata-37: " + toNum($("#indata-37").val()));
+    console.log("indata-38: " + toNum($("#indata-38").val()));*/
+
+
+    var d_4val = (-1) * ((Investeringskostnad * Installerad_effekt) + (toNum($("#indata-35").val()) + toNum($("#indata-36").val()) + toNum($("#indata-37").val()) + toNum($("#indata-38").val())));
     $("#d-4").val(d_4val);
+    //console.log("setting d-4 to: " + d_4val);
     d_55val = d_4val;
 
     if ((Investeringskostnad * Installerad_effekt * ROT_avdrag) <= Tak_ROT_avdrag) {
-        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - ROT_avdrag)) + (toNum($("#indata-35").val()) + toNum($("#indata-36").val()) + toNum($("#indata-37").val()) + toNum($("#indata-38").val())));
         $("#e-4").val(Math.round(e_4val));
         e_55val = Math.round(e_4val);
         //  -(Investeringskostnad*Installerad_effekt*(1-ROT_avdrag)+SUM('Dina indata & Resultat'!D35:D38))"
     } else {
         // -(Investeringskostnad*Installerad_effekt-Tak_ROT_avdrag+SUM('Dina indata & Resultat'!D35:D38))
-        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var e_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_ROT_avdrag) + (toNum($("#indata-35").val()) + toNum($("#indata-36").val()) + toNum($("#indata-37").val()) + toNum($("#indata-38").val())));
         $("#e-4").val(Math.round(e_4val));
         e_55val = Math.round(e_4val);
     }
@@ -1827,12 +1850,12 @@ function calculateDEF() {
     //Investeringskostnad*Installerad_effekt*Investeringsstod<=Tak_Investeringsstod
     if (Investeringskostnad * Installerad_effekt * Investeringsstod <= Tak_Investeringsstod) {
         //-(Investeringskostnad*Installerad_effekt*(1-Investeringsstod)+SUM('Dina indata & Resultat'!D35:D38))
-        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt * (1 - Investeringsstod)) + (toNum($("#indata-35").val()) + toNum($("#indata-36").val()) + toNum($("#indata-37").val()) + toNum($("#indata-38").val())));
         $("#f-4").val(Math.round(f_4val));
         f_55val = Math.round(f_4val);
     } else {
         //-(Investeringskostnad*Installerad_effekt-Tak_Investeringsstod+SUM('Dina indata & Resultat'!D35:D38))
-        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (parseInt($("#indata-35").val()) + parseInt($("#indata-36").val()) + parseInt($("#indata-37").val()) + parseInt($("#indata-38").val())));
+        var f_4val = (-1) * ((Investeringskostnad * Installerad_effekt) - (Tak_Investeringsstod) + (toNum($("#indata-35").val()) + toNum($("#indata-36").val()) + toNum($("#indata-37").val()) + toNum($("#indata-38").val())));
         $("#f-4").val(Math.round(f_4val));
         f_55val = Math.round(f_4val);
     }
@@ -1866,12 +1889,6 @@ function calculateDEF() {
         $("#e-" + j).val(value);
         $("#f-" + j).val(value);
         //if (value != 0) { alert(i); }
-        $( "#pieChart1" ).hide();
-        $( "#pieChart2" ).hide();
-        $( "#pieChart3" ).hide();
-        $( "#lineChart1" ).hide();
-        $( "#lineChart2" ).hide();
-        $( "#lineChart3" ).hide();
 
         j++;
     }
@@ -1880,6 +1897,13 @@ function calculateDEF() {
     $("#d-55").val(Math.round(d_55val));
     $("#e-55").val(Math.round(e_55val));
     $("#f-55").val(Math.round(f_55val));
+
+    $( "#pieChart1" ).hide();
+    $( "#pieChart2" ).hide();
+    $( "#pieChart3" ).hide();
+    $( "#lineChart1" ).hide();
+    $( "#lineChart2" ).hide();
+    $( "#lineChart3" ).hide();
 
     calculateN();
     calculateP();
@@ -1915,10 +1939,10 @@ function calculateB(){
   //If the cell is in "Kassaflöden", then the id will be #column-row so for example A5 in the table will be #a-5
   var p24 = toNum($( "#indata-24" ).val());
   var p18 = +($( "#indata-18" ).val());
-  var e60 = toNum($( "#extended-60" ).val());
+  var e60 = +($( "#extended-60" ).val());
   e60 = e60 / 100; // divide by 100 since it is a % unit
   var p53 = toNum($( "#indata-53" ).val());
-  var e56 = toNum($( "#extended-56" ).val());
+  var e56 = +($( "#extended-56" ).val());
   e56 = e56/100;
   //set sum counter to 0
   var sum = 0;
@@ -2000,7 +2024,7 @@ function calculateSecondG(){
 
 function calculateG(){
   var p24 = toNum($("#indata-24").val());
-  var p28 = parseInt($("#indata-28").val())/100;
+  var p28 = toNum($("#indata-28").val())/100;
   //p28 = p28 / 100;
   var p47 = toNum($("#indata-47").val());
   var p48 = toNum($("#indata-48").val());
@@ -2030,10 +2054,10 @@ function calculateG(){
 
 //CALCULATE SECOND CASHFLOW TABLE COLUMNS K,L,M:
 function calculateSecondK(){
-  var p64 = toNum($( "#indata-64" ).val());
-  var p65 = toNum($( "#indata-65" ).val());
+  var p64 = +($( "#indata-64" ).val());
+  var p65 = +($( "#indata-65" ).val());
   p65 = p65 / 100; // divide by 100 since it is a % unit
-  var p66 = toNum($( "#indata-66" ).val());
+  var p66 = +($( "#indata-66" ).val());
   p66 = p66 / 100;
   var e64 = toNum($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
@@ -2063,10 +2087,10 @@ function calculateSecondK(){
 }
 
 function calculateK(){
-  var p64 = toNum($( "#indata-64" ).val());
-  var p65 = toNum($( "#indata-65" ).val());
+  var p64 = +($( "#indata-64" ).val());
+  var p65 = +($( "#indata-65" ).val());
   p65 = p65 / 100; // divide by 100 since it is a % unit
-  var p66 = toNum($( "#indata-66" ).val());
+  var p66 = +($( "#indata-66" ).val());
   p66 = p66 / 100;
   var e64 = toNum($( "#extended-64" ).val());
   var sum = 0; //set sum counter to 0
@@ -2105,8 +2129,8 @@ function calculateSecondM(){
   p28 = p28 / 100; // divide by 100 since it is a % unit
   var p60 = toNum($( "#indata-60" ).val());
   p60 = p60 / 100;
-  var p68 = toNum($( "#indata-68" ).val());
-  var e65 = toNum($( "#extended-65" ).val());
+  var p68 = +($( "#indata-68" ).val());
+  var e65 = +($( "#extended-65" ).val());
   var e66 = toNum($( "#extended-66" ).val());
   var sum = 0; //set sum counter to 0
 
@@ -2144,8 +2168,8 @@ function calculateM(){
   p28 = p28 / 100; // divide by 100 since it is a % unit
   var p60 = toNum($( "#indata-60" ).val());
   p60 = p60 / 100;
-  var p68 = toNum($( "#indata-68" ).val());
-  var e65 = toNum($( "#extended-65" ).val());
+  var p68 = +($( "#indata-68" ).val());
+  var e65 = +($( "#extended-65" ).val());
   var e66 = toNum($( "#extended-66" ).val());
   var sum = 0; //set sum counter to 0
 
@@ -2183,7 +2207,7 @@ function calculateM(){
 
 function calculateSecondL(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p67 = toNum($( "#indata-67" ).val());
+  var p67 = +($( "#indata-67" ).val());
   var sum = 0; //set sum counter to 0
 
   var currentA, currentB = 0;
@@ -2212,7 +2236,7 @@ function calculateSecondL(){
 
 function calculateL(){
   var p24 = toNum($( "#indata-24" ).val());
-  var p67 = toNum($( "#indata-67" ).val());
+  var p67 = +($( "#indata-67" ).val());
   var sum = 0; //set sum counter to 0
 
   //loop through the necessary ids for that column (row 5-54)
@@ -2366,6 +2390,41 @@ $('#calculations').on('mouseenter', '', function(ev){
   $('[data-toggle="popover"]').popover();
 
 if(firstEnter == true){
+
+  $( "#indata-20" ).val(numberWithSpaces($( "#indata-20" ).val()) );
+  $( "#indata-24" ).val(numberWithSpaces($( "#indata-24" ).val()) );
+  $( "#indata-32" ).val(numberWithSpaces($( "#indata-32" ).val()) );
+  $( "#indata-33" ).val(numberWithSpaces($( "#indata-33" ).val()) );
+  $( "#indata-35" ).val(numberWithSpaces($( "#indata-35" ).val()) );
+  $( "#indata-36" ).val(numberWithSpaces($( "#indata-36" ).val()) );
+  $( "#indata-37" ).val(numberWithSpaces($( "#indata-37" ).val()) );
+  $( "#indata-38" ).val(numberWithSpaces($( "#indata-38" ).val()) );
+  $( "#indata-53" ).val(numberWithSpaces($( "#indata-53" ).val()) );
+  $( "#extended-12" ).val(numberWithSpaces($( "#extended-12" ).val()) );
+  $( "#extended-16" ).val(numberWithSpaces($( "#extended-16" ).val()) );
+  $( "#extended-18" ).val(numberWithSpaces($( "#extended-18" ).val()) );
+  $( "#extended-20" ).val(numberWithSpaces($( "#extended-20" ).val()) );
+  $( "#extended-21" ).val(numberWithSpaces($( "#extended-21" ).val()) );
+  $( "#extended-23" ).val(numberWithSpaces($( "#extended-23" ).val()) );
+  $( "#extended-24" ).val(numberWithSpaces($( "#extended-24" ).val()) );
+  $( "#extended-25" ).val(numberWithSpaces($( "#extended-25" ).val()) );
+  $( "#extended-30" ).val(numberWithSpaces($( "#extended-30" ).val()) );
+  $( "#extended-31" ).val(numberWithSpaces($( "#extended-31" ).val()) );
+  $( "#extended-32" ).val(numberWithSpaces($( "#extended-32" ).val()) );
+  $( "#extended-33" ).val(numberWithSpaces($( "#extended-33" ).val()) );
+  $( "#extended-34" ).val(numberWithSpaces($( "#extended-34" ).val()) );
+  $( "#extended-35" ).val(numberWithSpaces($( "#extended-35" ).val()) );
+  $( "#extended-36" ).val(numberWithSpaces($( "#extended-36" ).val()) );
+  $( "#extended-37" ).val(numberWithSpaces($( "#extended-37" ).val()) );
+  $( "#extended-41" ).val(numberWithSpaces($( "#extended-41" ).val()) );
+  $( "#extended-42" ).val(numberWithSpaces($( "#extended-42" ).val()) );
+  $( "#extended-43" ).val(numberWithSpaces($( "#extended-43" ).val()) );
+  $( "#extended-44" ).val(numberWithSpaces($( "#extended-44" ).val()) );
+  $( "#extended-45" ).val(numberWithSpaces($( "#extended-45" ).val()) );
+  $( "#extended-50" ).val(numberWithSpaces($( "#extended-50" ).val()) );
+  $( "#extended-51" ).val(numberWithSpaces($( "#extended-51" ).val()) );
+  $( "#extended-64" ).val(numberWithSpaces($( "#extended-64" ).val()) );
+  $( "#extended-66" ).val(numberWithSpaces($( "#extended-66" ).val()) );
   //calculating p19
   calculateI19();
   calculateE25();
@@ -2396,6 +2455,7 @@ if(firstEnter == true){
   calculateProductionCostD72();
   calculateProductionCostD73();
   calculateProductionCostD74();
+
   firstEnter = false;
 }
 
@@ -2403,6 +2463,41 @@ if(firstEnter == true){
 });
 
 $('#buttonArea').on('mouseleave', '', function(ev){
+
+  $( "#indata-20" ).val(numberWithSpaces($( "#indata-20" ).val()) );
+  $( "#indata-24" ).val(numberWithSpaces($( "#indata-24" ).val()) );
+  $( "#indata-32" ).val(numberWithSpaces($( "#indata-32" ).val()) );
+  $( "#indata-33" ).val(numberWithSpaces($( "#indata-33" ).val()) );
+  $( "#indata-35" ).val(numberWithSpaces($( "#indata-35" ).val()) );
+  $( "#indata-36" ).val(numberWithSpaces($( "#indata-36" ).val()) );
+  $( "#indata-37" ).val(numberWithSpaces($( "#indata-37" ).val()) );
+  $( "#indata-38" ).val(numberWithSpaces($( "#indata-38" ).val()) );
+  $( "#indata-53" ).val(numberWithSpaces($( "#indata-53" ).val()) );
+  $( "#extended-12" ).val(numberWithSpaces($( "#extended-12" ).val()) );
+  $( "#extended-16" ).val(numberWithSpaces($( "#extended-16" ).val()) );
+  $( "#extended-18" ).val(numberWithSpaces($( "#extended-18" ).val()) );
+  $( "#extended-20" ).val(numberWithSpaces($( "#extended-20" ).val()) );
+  $( "#extended-21" ).val(numberWithSpaces($( "#extended-21" ).val()) );
+  $( "#extended-23" ).val(numberWithSpaces($( "#extended-23" ).val()) );
+  $( "#extended-24" ).val(numberWithSpaces($( "#extended-24" ).val()) );
+  $( "#extended-25" ).val(numberWithSpaces($( "#extended-25" ).val()) );
+  $( "#extended-30" ).val(numberWithSpaces($( "#extended-30" ).val()) );
+  $( "#extended-31" ).val(numberWithSpaces($( "#extended-31" ).val()) );
+  $( "#extended-32" ).val(numberWithSpaces($( "#extended-32" ).val()) );
+  $( "#extended-33" ).val(numberWithSpaces($( "#extended-33" ).val()) );
+  $( "#extended-34" ).val(numberWithSpaces($( "#extended-34" ).val()) );
+  $( "#extended-35" ).val(numberWithSpaces($( "#extended-35" ).val()) );
+  $( "#extended-36" ).val(numberWithSpaces($( "#extended-36" ).val()) );
+  $( "#extended-37" ).val(numberWithSpaces($( "#extended-37" ).val()) );
+  $( "#extended-41" ).val(numberWithSpaces($( "#extended-41" ).val()) );
+  $( "#extended-42" ).val(numberWithSpaces($( "#extended-42" ).val()) );
+  $( "#extended-43" ).val(numberWithSpaces($( "#extended-43" ).val()) );
+  $( "#extended-44" ).val(numberWithSpaces($( "#extended-44" ).val()) );
+  $( "#extended-45" ).val(numberWithSpaces($( "#extended-45" ).val()) );
+  $( "#extended-50" ).val(numberWithSpaces($( "#extended-50" ).val()) );
+  $( "#extended-51" ).val(numberWithSpaces($( "#extended-51" ).val()) );
+  $( "#extended-64" ).val(numberWithSpaces($( "#extended-64" ).val()) );
+  $( "#extended-66" ).val(numberWithSpaces($( "#extended-66" ).val()) );
   //calculating p19
   calculateI19();
   calculateE25();
@@ -2439,8 +2534,137 @@ $('#buttonArea').on('mouseleave', '', function(ev){
 $('#calculations').on('change', '#indata-20', function(ev){
   $( "#indata-20" ).val(numberWithSpaces($( "#indata-20" ).val()) );
 });
+
 $('#calculations').on('change', '#indata-24', function(ev){
   $( "#indata-24" ).val(numberWithSpaces($( "#indata-24" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-32', function(ev){
+  $( "#indata-32" ).val(numberWithSpaces($( "#indata-32" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-33', function(ev){
+  $( "#indata-33" ).val(numberWithSpaces($( "#indata-33" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-35', function(ev){
+  $( "#indata-35" ).val(numberWithSpaces($( "#indata-35" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-36', function(ev){
+  $( "#indata-36" ).val(numberWithSpaces($( "#indata-36" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-37', function(ev){
+  $( "#indata-37" ).val(numberWithSpaces($( "#indata-37" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-38', function(ev){
+  $( "#indata-38" ).val(numberWithSpaces($( "#indata-38" ).val()) );
+});
+
+$('#calculations').on('change', '#indata-53', function(ev){
+  $( "#indata-53" ).val(numberWithSpaces($( "#indata-53" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-12', function(ev){
+  $( "#extended-12" ).val(numberWithSpaces($( "#extended-12" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-16', function(ev){
+  $( "#extended-16" ).val(numberWithSpaces($( "#extended-16" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-18', function(ev){
+  $( "#extended-18" ).val(numberWithSpaces($( "#extended-18" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-20', function(ev){
+  $( "#extended-20" ).val(numberWithSpaces($( "#extended-20" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-21', function(ev){
+  $( "#extended-21" ).val(numberWithSpaces($( "#extended-21" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-23', function(ev){
+  $( "#extended-23" ).val(numberWithSpaces($( "#extended-23" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-24', function(ev){
+  $( "#extended-24" ).val(numberWithSpaces($( "#extended-24" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-25', function(ev){
+  $( "#extended-25" ).val(numberWithSpaces($( "#extended-25" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-30', function(ev){
+  $( "#extended-30" ).val(numberWithSpaces($( "#extended-30" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-31', function(ev){
+  $( "#extended-31" ).val(numberWithSpaces($( "#extended-31" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-32', function(ev){
+  $( "#extended-32" ).val(numberWithSpaces($( "#extended-32" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-33', function(ev){
+  $( "#extended-33" ).val(numberWithSpaces($( "#extended-33" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-34', function(ev){
+  $( "#extended-34" ).val(numberWithSpaces($( "#extended-34" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-35', function(ev){
+  $( "#extended-35" ).val(numberWithSpaces($( "#extended-35" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-36', function(ev){
+  $( "#extended-36" ).val(numberWithSpaces($( "#extended-36" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-37', function(ev){
+  $( "#extended-37" ).val(numberWithSpaces($( "#extended-37" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-41', function(ev){
+  $( "#extended-41" ).val(numberWithSpaces($( "#extended-41" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-42', function(ev){
+  $( "#extended-42" ).val(numberWithSpaces($( "#extended-42" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-43', function(ev){
+  $( "#extended-43" ).val(numberWithSpaces($( "#extended-43" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-44', function(ev){
+  $( "#extended-44" ).val(numberWithSpaces($( "#extended-44" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-45', function(ev){
+  $( "#extended-45" ).val(numberWithSpaces($( "#extended-45" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-50', function(ev){
+  $( "#extended-50" ).val(numberWithSpaces($( "#extended-50" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-51', function(ev){
+  $( "#extended-51" ).val(numberWithSpaces($( "#extended-51" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-64', function(ev){
+  $( "#extended-64" ).val(numberWithSpaces($( "#extended-64" ).val()) );
+});
+
+$('#calculations').on('change', '#extended-66', function(ev){
+  $( "#extended-66" ).val(numberWithSpaces($( "#extended-66" ).val()) );
 });
 
 //calculating p19, p49
