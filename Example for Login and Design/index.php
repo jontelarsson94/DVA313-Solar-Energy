@@ -20,7 +20,7 @@ require_once "src/action/form.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kostnad och lönsamhet för solceller</title>
+    <title>Kostnad och lönsamhet för el från solceller</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -129,7 +129,7 @@ require_once "src/action/form.php";
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Förnybar Energi</div>
-                <div class="intro-heading">Kostnad och lönsamhet för solceller</div>
+                <div class="intro-heading">Kostnad och lönsamhet för el från solceller</div>
                 <a href="#services" class="page-scroll btn btn-xl">Börja räkna nu</a>
             </div>
         </div>
@@ -202,9 +202,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                           </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
-                          <div class="panel-body"><h3>Gör så här:</h3>
+                          <div class="panel-body text-left"><h3>Gör så här:</h3>
                           <p>1. Justera de förvalda ingångsvärdena under "Indata". Följ anvisningarna för inmatning.</p>
-                          <p>2. Använd räknehjälpen i fliken "Grundläggande antaganden" för att beräkna de årliga kostnaderna. </p>
+                          <p>2. Använd fliken "Grundläggande antaganden" för att ge indata till beräkning av de årliga kostnaderna. </p>
                           <p>3. Titta igenom fliken "Grundläggande antaganden", för att se om antagandena stämmer för din anläggning.</p>
                           <p>4. Resultat visas i fliken "Resultat"</p>
                           <p>5. Ändra dina indata och se hur det påverkar resultaten. </p>
@@ -224,22 +224,17 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                           </h4>
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
-                          <div class="panel-body"><h3>Produktionskostnad:</h3>
-                          <p>Produktionskostnaden beräknas som LCOE = Levelized Cost Of Electricity. Principen är att alla kostnader under livslängden divideras med solelproduktionen under livslängden. En nuvärdesberäkning görs av kostnader och solelproduktion med hjälp av en kalkylränta. När det gäller solelproduktionen tas även hänsyn till att den minskar något med tiden efter det första driftåret.</p>
-                          <img src="img/produktionskostnad.png" alt="produktionskostnad">
-                          <p>N = Ekonomisk livslängd (år)</p>
-                          <p>R = Kalkylränta (%)</p>
+                          <div class="panel-body">
+                          <h3 class="text-left">Nuvärde:</h3>
+                          <p class="text-left">Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med formeln: </p>
+                          <img class="pull-left" src="img/nuvarde.png"><br><br><br>
+                          <p class="text-left">A = kostnad eller intäkt som ska nuvärdesberäknas (kr)</p>
                           <br>
-                          <h3>Nuvärde:</h3>
-                          <p>Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med formeln: </p>
-                          <img src="img/nuvarde.png">
-                          <p>A = kostnad eller intäkt som ska nuvärdesberäknas (kr)</p>
+                          <h3 class="text-left">Diskonterad återbetalningstid</h3>
+                          <p class="text-left">Den diskonterade återbetalningstiden är antagen som det år då det ackumulerade nuvärdet av kassaflödet blir positivt.</p>
                           <br>
-                          <h3>Diskonterad återbetalningstid</h3>
-                          <p>Den diskonterade återbetalningstiden är antagen som det år då det ackumulerade nuvärdet av kassaflödet blir positivt.</p>
-                          <br>
-                          <h3>Internränta (IRR)</h3>
-                          <p>Internräntan är den räntesats som investeringen avkastar. Beräkningarna görs med värden för kassaflöden utan nuvärdesberäkning.</p>
+                          <h3 class="text-left">Internränta (IRR)</h3>
+                          <p class="text-left">Internräntan är den räntesats som investeringen avkastar. Beräkningarna görs med värden för kassaflöden utan nuvärdesberäkning.</p>
                           </div>
                         </div>
                       </div>
@@ -309,7 +304,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="indata-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -327,7 +322,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="indata-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -379,7 +374,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="extended-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -397,7 +392,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="extended-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -449,7 +444,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="indata-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.type == NULL && rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="Min: {{rest.min}} | Max: {{rest.max}}" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -467,7 +462,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                     <div class="input-group-btn">
 
                                       <!-- Buttons -->
-                                      <a role="button" class="btn btn-default disabled">{{rest.unit}}</a>
+                                      <a id="indata-unit-{{rest.row}}" role="button" class="btn btn-default disabled">{{rest.unit}}</a>
                                       <button ng-if="rest.comment != NULL" type="button" class="btn btn-default" data-container="body" style="background-color: #fed136"
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
@@ -487,7 +482,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                     </div>
                   </form>
                   <div class="row">
-                    <button class="btn btn-primary col-md-12" id="diagramBtn">Räkna ut diagram</button>
+                    <button class="btn btn-primary col-md-12" id="diagramBtn">Diagram</button>
                     <div id="pieChart1" class="col-md-5"></div>
                     <div id="lineChart1" class="col-md-7"></div>
                     <div id="pieChart2" class="col-md-5"></div>
@@ -548,7 +543,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">
+                    <p class="large text-muted text-justify">
                       Projektets syfte är att utveckla en heltäckande
                       analysmodell för investeringsbeslut för
                       solcellsanläggningar. Modellen ska baseras på en
@@ -576,7 +571,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                        </tr>
                        <tr>
                          <td>Deltagare:</td>
-                         <td>
+                         <td class="text-justify">
                            Mälardalens högskola, Stockholm stad och en
                            referensgrupp på ca 50 personer, bestående av
                            byggherrar, fastighetsägare, leverantörer,
@@ -585,7 +580,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                        </tr>
                        <tr>
                          <td>Ansvar:</td>
-                         <td>
+                         <td class="text-justify">
                            Mälardalens högskola och Stockholms stad har lag ner mycket tid och arbete på att säkerställa resultatet från räknemallen är korrekt i alla avseenden. Vi kan emellertid inte garantera att det inte förekommer fel. Med hänsyn till att räknemallen tillhandahålls utan kostnad för användaren friskriver sig därför Mälardalens högskola och Stockholm stad, inom ramen för gällande lag, allt ansvar för eventuella förluster som uppstår som en följd av dess användning. All användning av räknemallen sker under eget ansvar.
                          </td>
                        </tr>
