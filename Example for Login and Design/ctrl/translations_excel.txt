@@ -1,4 +1,0 @@
-ELLER = OR
-OCH = AND
-OM = IF
-SUMMA = SUM
