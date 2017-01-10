@@ -584,6 +584,12 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                            Mälardalens högskola och Stockholms stad har lag ner mycket tid och arbete på att säkerställa resultatet från räknemallen är korrekt i alla avseenden. Vi kan emellertid inte garantera att det inte förekommer fel. Med hänsyn till att räknemallen tillhandahålls utan kostnad för användaren friskriver sig därför Mälardalens högskola och Stockholm stad, inom ramen för gällande lag, allt ansvar för eventuella förluster som uppstår som en följd av dess användning. All användning av räknemallen sker under eget ansvar.
                          </td>
                        </tr>
+                       <tr>
+                         <td>Webbapplikation utvecklad av:</td>
+                         <td>
+                           Jonathan Larsson, Charlie Höglund, Sebastian Lindgren, Avalika Reddy, Aliyah Hussein och Lukas Hamacek
+                         </td>
+                       </tr>
                       </table>
 
                 </div>
