@@ -110,7 +110,7 @@ require_once "src/action/form.php";
                       if (isset($_SESSION["admin"])) {
                         echo "<a href='?form=logout' class='page-scroll'>
                         <span class='glyphicon glyphicon-user' aria-hidden='true'></span> Log-out</a>";
-                      }else {
+                      }elseif(isset($_GET['admin']) && $_GET['admin'] == true) {
                         echo "<a href='' data-toggle='modal' class='page-scroll' data-target='#loginModal'>";
                         echo "<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Logga in</a>";
                       }
