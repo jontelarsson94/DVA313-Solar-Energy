@@ -94,7 +94,7 @@ require_once "src/action/form.php";
                       }
                     } ?>
                     <li>
-                        <a class="page-scroll" href="#calculatorId">Kalkylator</a>
+                        <a class="page-scroll" href="#calculations">Kalkylator</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">Om oss</a>
@@ -193,6 +193,7 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
             <br>
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Kalkylator</h2>
+                    <br>
                     <div class="panel-group" id="accordion">
                       <div class="panel panel-default">
                         <div class="panel-heading">
