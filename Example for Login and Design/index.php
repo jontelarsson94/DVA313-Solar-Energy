@@ -19,7 +19,9 @@ require_once "src/action/form.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <!-- TILL BENGT!
+    Inom taggarna <title></title> nedan kan du ändra titeln. Det är vad som står på fliken när man är inne på hemsidan
+    -->
     <title>Kostnad och lönsamhet för el från solceller</title>
 
     <!-- Bootstrap Core CSS -->
@@ -70,6 +72,9 @@ require_once "src/action/form.php";
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Meny <i class="fa fa-bars"></i>
                 </button>
+                <!-- TILL BENGT!
+                Inom taggarna <a></a> nedan kan du ändra vad som står högst upp till vänster på hemsidan (I menyn)
+                -->
                 <a class="navbar-brand page-scroll" href="#page-top">Future Energy Center</a>
             </div>
 
@@ -94,12 +99,21 @@ require_once "src/action/form.php";
                       }
                     } ?>
                     <li>
+                        <!-- TILL BENGT!
+                        Inom taggarna <a></a> nedan kan du ändra vad som står längst till vänster i menyn för vanliga användare
+                        -->
                         <a class="page-scroll" href="#calculations">Kalkylator</a>
                     </li>
                     <li>
+                        <!-- TILL BENGT!
+                        Inom taggarna <a></a> nedan kan du ändra vad som står i mitten av menyn för vanliga användare
+                        -->
                         <a class="page-scroll" href="#about">Om oss</a>
                     </li>
                     <li>
+                        <!-- TILL BENGT!
+                        Inom taggarna <a></a> nedan kan du ändra vad som står längst till höger i menyn för vanliga användare
+                        -->
                         <a class="page-scroll" href="#contact">Kontakt</a>
                     </li>
                     <li>
@@ -128,8 +142,17 @@ require_once "src/action/form.php";
     <header>
         <div class="container">
             <div class="intro-text">
+                <!-- TILL BENGT!
+                Inom taggarna <div></div> nedan kan du ändra texten som står högst upp på stora bilden på startsidan
+                -->
                 <div class="intro-lead-in">Förnybar Energi</div>
+                <!-- TILL BENGT!
+                Inom taggarna <div></div> nedan kan du ändra texten som står längst ner på stora bilden på startsidan
+                -->
                 <div class="intro-heading">Kostnad och lönsamhet för el från solceller</div>
+                <!-- TILL BENGT!
+                Inom taggarna <a></a> nedan kan du ändra texten som står på knappen på stora bilden på startsidan
+                -->
                 <a href="#services" class="page-scroll btn btn-xl">Börja räkna nu</a>
             </div>
         </div>
@@ -192,17 +215,27 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
             <div class="row" id="calculatorId">
             <br>
                 <div class="col-lg-12 text-center">
+                    <!-- TILL BENGT!
+                    Inom taggarna <h2></h2> nedan kan du ändra texten som står innan knapparna för Hur du använder kalkylatorn och ordlistan börjar
+                    -->
                     <h2 class="section-heading">Kalkylator</h2>
                     <br>
                     <div class="panel-group" id="accordion">
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                            Hur du använder kalkylatorn</a>
+                            <!-- TILL BENGT!
+                            Inom taggarna <a></a> nedan kan du ändra texten som står på knappen för hur du använder kalkylator
+                            -->
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Hur du använder kalkylatorn</a>
                           </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
+                          <!-- TILL BENGT!
+                          Inom taggarna nedan där det står någon text kan du ändra vad som ska stå i drop-downen för "Hur du använder kalkylator"
+                          Om du vill lägga till en instruktion så kan du kopiera en rad eller lägga till en rad där du vill med hjälp av <p></p>
+                          och sedan inom <p></p> skriva det du vill
+                          -->
                           <div class="panel-body text-left"><h3>Gör så här:</h3>
                           <p>1. Justera de förvalda ingångsvärdena under "Indata". Följ anvisningarna för inmatning.</p>
                           <p>2. Använd fliken "Grundläggande antaganden" för att ge indata till beräkning av de årliga kostnaderna. </p>
@@ -227,6 +260,13 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                         <div id="collapse2" class="panel-collapse collapse">
                           <div class="panel-body">
                           <h3 class="text-left">Nuvärde:</h3>
+                          <!-- TILL BENGT!
+                          Inom taggarna nedan där det står någon text kan du ändra vad som ska stå i drop-downen för "Nuvärde"
+                          Om du vill lägga till en rad så kan du kopiera en rad eller lägga till en rad där du vill med hjälp av <p></p>
+                          och sedan inom <p></p> skriva det du vill
+                          Vill du ändra bilden så får du lägga upp din bild i mappen "img" och sedan ändra src i taggen <img></img>
+                          till namnet på den nya bilden med img/ innan
+                          -->
                           <p class="text-left">Kostnader och intäkter beräknas som nuvärde med hjälp av kalkylräntan. Beräkningarna görs med formeln: </p>
                           <img class="pull-left" src="img/nuvarde.png"><br><br><br>
                           <p class="text-left">A = kostnad eller intäkt som ska nuvärdesberäknas (kr)</p>
@@ -248,6 +288,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
+                <!-- TILL BENGT!
+                Inom taggarna <li></li> kan du ändra vad som ska stå på de olika tabsen i kalkylatorn
+                -->
                 <li role="presentation" class="active"><a href="#private" aria-controls="home" role="tab" data-toggle="tab">Indata</a></li>
                 <li role="presentation"><a href="#extended" aria-controls="profile" role="tab" data-toggle="tab">Grundläggande antaganden</a></li>
                 <li role="presentation"><a href="#result" aria-controls="profile" role="tab" data-toggle="tab">Resultat</a></li>
@@ -256,8 +299,14 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
 
               <div class="col-md-7"></div>
                     <div class="col-md-4">
+                    <!-- TILL BENGT!
+                    Inom taggarna <p></p> kan du ändra vad som står ovanför knapparna "Privatperson" och "Företag"
+                    -->
                     <p>Klicka för att ändra standardvärden som passar dig!</p>
                       <div data-toggle="buttons" class="btn-group btn-group-justified" id="buttonArea">
+                        <!-- TILL BENGT!
+                        Inom taggarna <label></label> kan du ändra vad som står i knapparna "Privatperson" och "Företag"
+                        -->
                         <div class="btn-group" id="personToggle" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()">
                           <label class="btn btn-primary active"><input type="radio" name="optradio" id="radioPerson" checked="checked" ng-click="getIndataDefaultsPerson(); getExtendedDefaultsPerson()" value="1">Privatperson</label>
                         </div>
@@ -328,6 +377,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                                       </button>
+                                      <!-- TILL BENGT!
+                                      Inom taggarna <button></button> kan du ändra vad som står på knappen bredvid fältet för IRR
+                                      -->
                                       <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
 
                                     </div>
@@ -398,6 +450,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                                       </button>
+                                      <!-- TILL BENGT!
+                                      Inom taggarna <button></button> kan du ändra vad som står på knappen bredvid fältet för IRR
+                                      -->
                                       <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
 
                                     </div>
@@ -468,6 +523,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                                         data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="{{rest.comment}}">
                                         <span style="color:white" class="glyphicon glyphicon-paperclip" ></span>
                                       </button>
+                                      <!-- TILL BENGT!
+                                      Inom taggarna <button></button> kan du ändra vad som står på knappen bredvid fältet för IRR
+                                      -->
                                       <button id="click-{{rest.row}}" class="btn btn-default">Räkna ut</button>
 
                                     </div>
@@ -483,6 +541,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                     </div>
                   </form>
                   <div class="row">
+                    <!-- TILL BENGT!
+                    Inom taggarna <button></button> kan du ändra vad som står på knappen för att visa diagrammen
+                    -->
                     <button class="btn btn-primary col-md-12" id="diagramBtn">Diagram</button>
                     <div id="pieChart1" class="col-md-5"></div>
                     <div id="lineChart1" class="col-md-7"></div>
@@ -495,6 +556,9 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
                   <div class="row">
                   <br><br>
                     <div>
+                      <!-- TILL BENGT!
+                      Inom taggarna <button></button> kan du ändra vad som står på knappen för att generera pdfen
+                      -->
                       <button id="createPDFBtn" class="btn btn-primary col-md-12">Ladda ner PDF</button>
                     </div>
                   </div>
@@ -543,6 +607,10 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
             </div>
 
             <div class="row">
+                <!-- TILL BENGT!
+                Inom taggarna <p></p> och <td></td> nedan kan du ändra vad som står i "Om Oss" sektionen av sidan
+                Jämför bara texten med den på sidan och ändra där du vill
+                -->
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <p class="large text-muted text-justify">
                       Projektets syfte är att utveckla en heltäckande
@@ -669,12 +737,18 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <!-- TILL BENGT!
+                      Inom taggarna <span></span> nedan kan du ändra vad som står längst ner i footern på sidan
+                      -->
                     <span class="copyright">Copyright &copy; Future Energy Center 2016</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         <!--<li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>-->
+                        <!-- TILL BENGT!
+                        Vill du ändra länk till eran Facebook kan du ändra href= till den länken
+                        -->
                         <li><a href="https://www.facebook.com/futureenergymdh/?fref=ts"><i class="fa fa-facebook"></i></a>
                         </li>
                         <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>
