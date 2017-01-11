@@ -1249,7 +1249,7 @@ function CalculateSecondDEF() {
             val2 = 0;
         }
         var sum = Math.round(val1) + Math.round(val2);
-        d_111val = d_111val + Math.round(sum);
+        d_111val = parseInt(d_111val) + Math.round(sum);
         e_111val = e_111val + Math.round(sum);
         f_111val = f_111val + Math.round(sum);
         var value = Math.round(val1 + val2);
@@ -1258,6 +1258,7 @@ function CalculateSecondDEF() {
         $("#f-" + j).val(value);
         j++;
     }
+
     $("#d-111").val(Math.round(d_111val));
     $("#e-111").val(Math.round(e_111val));
     $("#f-111").val(Math.round(f_111val));

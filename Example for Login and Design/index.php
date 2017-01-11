@@ -901,11 +901,6 @@ if(isset($_GET['upload']) && $_GET['upload'] == true){
     <!-- Angular scripts -->
     <script src="lib/js/angular.min.js"></script>
     <script src="ctrl/index.js"></script>
-    <script src="ctrl/charlie.js"></script>
-    <script src="ctrl/sebastian.js"></script>
-    <script src="ctrl/lukas.js"></script>
-    <script src="ctrl/aliyah.js"></script>
-    <script src="ctrl/avalika.js"></script>
 
 </body>
 
