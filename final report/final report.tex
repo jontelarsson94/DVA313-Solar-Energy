@@ -1,0 +1,159 @@
+\documentclass[]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{float}
+%opening
+\title{Group 2 - project report \\Solar energy calculator}
+\author{Charlie Höglund, Aliya Hussain, Lukas Hamacek
+		\\Jonathan Larsson, Sebastian Lindgren, Avalika Podduturu Reddy}
+
+\begin{document}
+
+\maketitle
+\clearpage
+\tableofcontents
+\listoftables
+\clearpage
+
+\section{Background}
+This project has been made for our client named Bengt Stridh, from the Future Energy Center research specialization at Mälardalen University. The client and his colleagues had in a previous project, developed detailed models that are used to analyse investment decisions for photovoltaic plants in Sweden. Our task in this project was to develop a web-based tool to support different stakeholders, such as private persons and others (e.g. companies, property owners and cities), to determine what investments in solar energy that are suitable for them. This is based on a number of default input parameters that can be adjusted by the user. Even though the photovoltaic market has been growing strongly during the last years, the general knowledge of photovoltaic systems is still quite low among potential investors. For this reason, there was a strong need for a user-friendly tool to calculate the production cost and profitability for photovoltaic investments in Sweden.
+
+If you wish to read more about the project organisation (i.e. the project group, organisation and communication, planned effort per group member for each week, deliverables, deadlines, milestones and quality assurance), description of the system to be developed (i.e. the high-level description of the domain and problem, description of existing systems and high-level description of the desired functionality), and initial project backlog (i.e. the initial list of system features to be implemented), then you can take a look at the project plan document. Furthermore, if you wish to read more about the high-level description of the system to be developed, desired functionalities, system overview, software architecture, detailed design and graphical user interface, then you can take a look at the design description document. 
+
+\section{Project work}
+
+\subsection{Changes to organization and routines}
+During the project several changes were done. First we started with some initial requirements and some extra functionality to do if there were time. We then weekly meetings with the client in which requirements were slightly altered, added or removed due to discussion and need for limitations.
+
+We also regarded the feedback we got from our fellow students and supervisors during the presentations. Some feedback was discussed with the client, but most we had to discard due to time limitations.
+
+
+When it comes to the organization and communication section that we have stated in the project plan document, we stuck to the following things: Having a project meeting with the external steering group every Monday during the course (i.e. except for the non-mandatory project meeting on 19th December), a small internal project meeting before all of the meetings with the external steering group on Mondays (i.e. to prepare the material that was going to be presented for the external steering group), at least one internal project meeting per week (i.e. to for example discuss each other’s progress and issues) which mostly was over the communication service called Slack. Using the collaboration tool called Trello to follow the progress of the current week’s activities and plan activities for the upcoming week, a GitHub repository to both share and store an Excel file containing each project member’s worked hours per week (i.e. each project member made their own report in a specific Excel file), documentation and code.  
+
+Furthermore, when it comes to the quality assurance section that we have stated in the project plan document, we stuck to the following things: Having a least one project member reviewing the documentation (e.g. the project plan, design description and final project report) to avoid errors before reporting them to the teachers. Doing unit testing (i.e. to ensure that separate units/functionalities work as expected) and then moving on to integration testing (i.e. to ensure that units/functionalities work together as expected). Allowing the client and other external people (e.g. family and friends) to do a user test of the product (i.e. the first and final product version) to see if the system works as expected in a real life scenario and get important valuable feedback. 
+
+\subsection{Total project effort (in person-days) and distribution over different activities }
+
+\begin{table}[H]
+	\centering
+	\label{tab:table1}
+	\begin{tabular}{ccc}
+		\toprule
+		Group member & Documentation effort & Implementation effort \\
+		\midrule
+		Charlie Höglund & aa & bb \\
+		Aliya Hussain & aa & bb \\
+		Lukas Hamacek & aa & bb \\
+		Jonathan Larsson & aa & bb \\
+		Sebastian Lindgren & aa & bb \\
+		Avalika Podduturu Reddy & aa & bb \\
+		\bottomrule
+	\end{tabular}
+	\caption{Total project effort and effort distribution.}
+\end{table}
+
+\subsection{Worked hours per group member}
+
+\begin{table}[h!]
+	\centering
+	\label{tab:table1}
+	\begin{tabular}{ccc}
+		\toprule
+		Group member & worked hours \\
+		\midrule
+		Charlie Höglund & bb \\
+		Aliya Hussain & bb \\
+		Lukas Hamacek & bb \\
+		Jonathan Larsson & bb \\
+		Sebastian Lindgren & bb \\
+		Avalika Podduturu Reddy & bb \\
+		\bottomrule
+	\end{tabular}
+	\caption{Worked hours per group member}
+\end{table}
+
+\subsection{Responsibilities and work distribution}
+
+\begin{table}[h!]
+	\centering
+	\label{tab:table1}
+	\begin{tabular}{ccc}
+		\toprule
+		Group member & Responsibility \\
+		\midrule
+		Charlie Höglund & bb \\
+		Aliya Hussain & bb \\
+		Lukas Hamacek & bb \\
+		Jonathan Larsson & bb \\
+		Sebastian Lindgren & bb \\
+		Avalika Podduturu Reddy & bb \\
+		\bottomrule
+	\end{tabular}
+	\caption{Member responsibilities.}
+\end{table}
+
+\subsection{Positive experiences}
+In the project we learned more about how a project could look in a real world scenario. The group managed all of the contact with the client and as a team it drove the work forward. To see that we could actually manage it ourselves was a great experience.
+
+\subsection{Possibilities of improvement}
+
+This project were quite large to begin with, which was handled by open discussion with the client. One could argue that in a future scenario we would know how much we could safely do in the timeframe given to us. Using experience we could then limit the project appropriately from the start.
+
+The project often required parts to be divided amongst the group members and sometimes this took too long or some helped too much or too little. An improvement for the future would be to early and clearly write what should be done. Each member could then take their own initiative and could do stuff without specifically being pointed out to do a certain task by the rest of the group. Self assigning of tasks (and then just a notification that the individual started working on that specific task) could improve production rate.
+
+\section{Project results}
+
+The key features of the final product are the following:
+
+\begin{enumerate}
+	\item The possibility to choose between private person or others (e.g. company, property owner and city), which will affect what default input parameters that are set from the start.
+	\item Guiding texts with recommended minimum and maximum values for each default input parameter textbox (i.e. a popup that becomes visible when hovering over a button with your mouse).
+	\item Calculation of the production cost.
+	\item Calculation of the profitability.
+	\item Calculation of the cash flow.
+	\item Diagrams (i.e. pie and line charts) that present results from the calculated cash flow.
+	\item The possibility to download a PDF report file that contains both input (i.e. the user input) and output values (i.e. the calculations and diagrams).
+	\item The administrator can upload an Excel file to the website, in order to update the default input parameters and guiding texts etcetera.
+\end{enumerate}
+
+\begin{table}[h!]
+	\centering
+	\label{tab:table1}
+	\begin{tabular}{ccc}
+		\toprule
+		Produced deliverable & Finish date\\
+		\midrule
+		Project plan & November 17 \\
+		Design description (first version) & December 1 \\
+		Product (first version) & December 1 \\
+		User test of the product (first version) & December 2 \\
+		Design description (final version) & January X \\
+		Product (final version) & January X \\
+		User test of the product (final version) & January X \\
+		Project report & January X \\
+		\bottomrule
+	\end{tabular}
+	\caption{Produced deliverables}
+\end{table}
+
+\section{Acceptance test}
+To ensure that the project requirements were met, the group had several meetings with the client. In these meetings initial requirements were confirmed and over time previously set requirements were met and new ones were set. Intermediate product phase outcomes were showcased to the client to ensure that the product were progressing desirably. Because of this several intermediate tests have already been conducted.
+
+During the project phase several limitations had to be set since the project could easily blow out of proportion in perspective to the limited time and effort available to the group. These limitations were also discussed with the client. Because of the limitations the final product didn’t include many extra functionalities discussed but all the basic functionalities are present.
+
+The final acceptance test were done by sending a link to the complete website to the client. He had also since earlier been able to see the current progress with the help of a temporary website provided by the group. His replies throughout the course and then this last reply would become the foundation of our acceptance test score.
+
+After getting this link the client sent it to other people which all took a look at the website. From this we got some feedback and some praisings over the nice looking design.
+
+\section{Missing functionalities and future improvements}
+(these might be removed if we fix them, i just wrote them for now)
+Here follows a list of some missing functionalities and possible improvements/extensions to the product:
+\begin{enumerate}
+	\item Compare the calculated values for two sets of input parameters.
+	\item Save the used input values from one session to another session at a later time.
+	\item Switch between Swedish and English language on the website.
+	\item Format the text inside the input textboxes (e.g. 100000 $=>$ 100 000) for easier readability. 
+\end{enumerate}
+
+\end{document}

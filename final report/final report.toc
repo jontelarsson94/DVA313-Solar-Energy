@@ -1,0 +1,12 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Background}{3}
+\contentsline {section}{\numberline {2}Project work}{3}
+\contentsline {subsection}{\numberline {2.1}Changes to organization and routines}{3}
+\contentsline {subsection}{\numberline {2.2}Total project effort (in person-days) and distribution over different activities }{4}
+\contentsline {subsection}{\numberline {2.3}Worked hours per group member}{4}
+\contentsline {subsection}{\numberline {2.4}Responsibilities and work distribution}{5}
+\contentsline {subsection}{\numberline {2.5}Positive experiences}{5}
+\contentsline {subsection}{\numberline {2.6}Possibilities of improvement}{5}
+\contentsline {section}{\numberline {3}Project results}{5}
+\contentsline {section}{\numberline {4}Acceptance test}{6}
+\contentsline {section}{\numberline {5}Missing functionalities and future improvements}{7}
