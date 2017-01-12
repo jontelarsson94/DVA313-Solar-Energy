@@ -87,17 +87,23 @@ The use case diagram covering the desired system functionalities.
 
 
 \subsection{Summarized}
-The functionality included in the calculator can be summarized as:\\
-\textbf{User:}
-\begin{enumerate}
-	\item Calculate production cost for the PV installations
-	\item Calculate profitability for the PV installations
-	\item Calculate cash-flow for the PV installations
-	\item Output diagrams and get a printable report file
-	\item Choose if you are a private person or company
-	\item Create account
-\end{enumerate}
-\textbf{Administrators} can additionally upload a file to update the values on the site and the guiding texts. The administrator will also be able to download a backup file of the previous excel file.
+
+\textbf{Requirements that are a must to implement:}
+\begin{itemize}
+	\item Possibility to choose between private person and other user
+	\item Provide guiding texts and recommended minimum and maximum for input values
+	\item Calculate the production cost, profitability and cash flow
+	\item Provide diagrams that show some of the calculated results
+	\item A printable PDF file containing both input and output values
+	\item Possibility to upload an Excel file for updating the default input values, guiding texts, minimum and maximum values
+\end{itemize}	
+\\
+\textbf{Requirements that are not a must to implement:}
+\begin{itemize}
+	\item Compare the calculated results for two sets of input values
+	\item Save used input values from one session to a session at a later time
+	\item Switch between English and Swedish language
+\end{itemize}
 
 \begin{figure}[H]
 	\includegraphics[width=1.0\linewidth]{Bild1}
@@ -107,15 +113,6 @@ The functionality included in the calculator can be summarized as:\\
 	The basic functionality that we aim to provide the user can be seen here.
 	\label{fig:Bild1}
 \end{figure}
-
-\subsection{Extra functionality}
-Furthermore, the extra desired functionalities of the system have been ranked after importance by the client (i.e. where 1 is the highest and 3 is the lowest). These functionalities are not a must but nevertheless would be appreciated by the client: 
-
-\begin{enumerate}
-	\item Compare the calculated values for two sets of input parameters
-	\item Save the used input values from one session to another session at a later time
-	\item Switch between Swedish and English language
-\end{enumerate}
 
 \section{Software architecture}
 Here we will talk about the software architecture and other related structure which the website will be built upon. Most important is that we right now aim for using a three-tier architecture for the client-server communication, which makes it easier to make changes to the different parts (i.e. the client, web and database server). 
@@ -166,7 +163,7 @@ eters through an Excel file, and the Google Charts javascript library for dis-
 playing the different output charts. Furthermore, we will also use Meedo (link:
 http://medoo.in) for the database handling in order to make the development
 faster and more secure, since this comes with help for preventing any type of
-SQL injection. Lastly, we will also use the FPDF library for creating the output report files as PDFs.
+SQL injection. Lastly, we will also use the PDFmake library for creating the output report files as PDFs.
 
 \section{Graphical User Interface}
 Most of the functionality is described in previous sections. Here you'll instead get a taste of how the GUI is looking at the moment.
@@ -243,6 +240,15 @@ Right now we don't have the calculations either but they will be there later. So
 	\small
 	Here you see the uploading of an excel file functionality, and downloading the backup excel file (I.e. this is only the admin but could be extended to other users in the future).
 	\label{fig:pic8}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=1.0\linewidth]{pdfresults}
+	\caption{The pdf file}
+	\medskip
+	\small
+	Here you see the pdf files and more specifically the cash flows from the calculations. These are only shown if you generate a printable pdf-file. In this you also have other info from your calculations.
+	\label{fig:pdfresults}
 \end{figure}
 
 \end{document}
