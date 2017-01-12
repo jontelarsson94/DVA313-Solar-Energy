@@ -1,0 +1,309 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.31)  12 JAN 2017 16:57
+entering extended mode
+**"./designdescription (version 2).tex"
+("designdescription (version 2).tex"
+LaTeX2e <2016/03/31> patch level 1
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2016/06/02 v1.0s Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2016/06/17 v0.06h Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count88
+\float@exts=\toks15
+\float@box=\box26
+\@float@everytoks=\toks16
+\@floatcapt=\box27
+)
+("designdescription (version 2).aux")
+\openout1 = `"designdescription (version 2).aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+
+(C:\Users\Sebastian\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count89
+\scratchdimen=\dimen105
+\scratchbox=\box28
+\nofMPsegments=\count90
+\nofMParguments=\count91
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count92
+\MPscratchDim=\dimen106
+\MPnumerator=\count93
+\makeMPintoPDFobject=\count94
+\everyMPtoPDFconversion=\toks18
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 12.
+
+Overfull \hbox (6.13263pt too wide) in paragraph at lines 12--12
+ [][] 
+ []
+
+[1
+
+{C:/Users/Sebastian/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("designdescription (version 2).toc"
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `"designdescription (version 2).toc"'.
+
+ ("designdescription (version 2).lof")
+\tf@lof=\write4
+\openout4 = `"designdescription (version 2).lof"'.
+
+
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+
+Overfull \hbox (4.02855pt too wide) in paragraph at lines 33--34
+[]\OT1/cmr/m/n/10 http://www.solelprogrammet.se/projekteringsverktyg/beraknings
+verktyg/ 
+ []
+
+
+Overfull \hbox (9.33417pt too wide) in paragraph at lines 41--47
+\OT1/cmr/m/n/10 http://www.mdh.se/forskning/inriktningar/framtidens-energi/inve
+steringskalkyl-
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 59--78
+
+ []
+
+<pic1.jpg, id=17, 1413.78188pt x 1201.48875pt>
+File: pic1.jpg Graphic file (type jpg)
+ <use pic1.jpg>
+Package pdftex.def Info: pic1.jpg used on input line 80.
+(pdftex.def)             Requested size: 345.0pt x 293.18483pt.
+ [4]
+<Bild1.jpg, id=21, 829.59938pt x 351.56343pt>
+File: Bild1.jpg Graphic file (type jpg)
+ <use Bild1.jpg>
+Package pdftex.def Info: Bild1.jpg used on input line 103.
+(pdftex.def)             Requested size: 345.0pt x 146.20187pt.
+ [5 <./pic1.jpg>]
+<Bild3.png, id=26, 376.40625pt x 137.7647pt>
+File: Bild3.png Graphic file (type png)
+ <use Bild3.png>
+Package pdftex.def Info: Bild3.png used on input line 124.
+(pdftex.def)             Requested size: 345.0pt x 126.27837pt.
+ [6 <./Bild1.jpg>]
+<Bild8.png, id=31, 849.1725pt x 278.54062pt>
+File: Bild8.png Graphic file (type png)
+ <use Bild8.png>
+Package pdftex.def Info: Bild8.png used on input line 141.
+(pdftex.def)             Requested size: 345.0pt x 113.16534pt.
+ [7 <./Bild3.png>]
+<Bild9.png, id=37, 843.15pt x 377.91188pt>
+File: Bild9.png Graphic file (type png)
+ <use Bild9.png>
+Package pdftex.def Info: Bild9.png used on input line 150.
+(pdftex.def)             Requested size: 345.0pt x 154.63348pt.
+ [8 <./Bild8.png> <./Bild9.png>] <pic2.png, id=43, 1146.684pt x 501.072pt>
+File: pic2.png Graphic file (type png)
+ <use pic2.png>
+Package pdftex.def Info: pic2.png used on input line 179.
+(pdftex.def)             Requested size: 345.0pt x 150.75856pt.
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ú in font cmr9!
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ù in font cmr9!
+
+<pic3.png, id=44, 713.064pt x 296.307pt>
+File: pic3.png Graphic file (type png)
+ <use pic3.png>
+Package pdftex.def Info: pic3.png used on input line 187.
+(pdftex.def)             Requested size: 345.0pt x 143.3651pt.
+ [9 <./pic2.png>]
+<Bild7.png, id=49, 717.27975pt x 581.17125pt>
+File: Bild7.png Graphic file (type png)
+ <use Bild7.png>
+Package pdftex.def Info: Bild7.png used on input line 196.
+(pdftex.def)             Requested size: 345.0pt x 279.54431pt.
+Missing character: There is no √ in font cmr9!
+Missing character: There is no § in font cmr9!
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ú in font cmr9!
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ù in font cmr9!
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ú in font cmr9!
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ù in font cmr9!
+ [10 <./pic3.png>] <pic4.png, id=54, 705.837pt x 581.7735pt>
+File: pic4.png Graphic file (type png)
+ <use pic4.png>
+Package pdftex.def Info: pic4.png used on input line 207.
+(pdftex.def)             Requested size: 345.0pt x 284.36134pt.
+
+<pic5.png, id=55, 828.696pt x 581.17125pt>
+File: pic5.png Graphic file (type png)
+ <use pic5.png>
+Package pdftex.def Info: pic5.png used on input line 215.
+(pdftex.def)             Requested size: 345.0pt x 241.95308pt.
+ [11 <./Bild7.png>]
+<pic6.png, id=60, 754.017pt x 500.46976pt>
+File: pic6.png Graphic file (type png)
+ <use pic6.png>
+Package pdftex.def Info: pic6.png used on input line 223.
+(pdftex.def)             Requested size: 345.0pt x 228.9894pt.
+ [12 <./pic4.png>]
+<pic7.png, id=65, 747.39224pt x 581.17125pt>
+File: pic7.png Graphic file (type png)
+ <use pic7.png>
+Package pdftex.def Info: pic7.png used on input line 231.
+(pdftex.def)             Requested size: 345.0pt x 268.27315pt.
+ [13 <./pic5.png>]
+[14 <./pic6.png>] <pic8.png, id=75, 714.87074pt x 234.8775pt>
+File: pic8.png Graphic file (type png)
+ <use pic8.png>
+Package pdftex.def Info: pic8.png used on input line 240.
+(pdftex.def)             Requested size: 345.0pt x 113.35635pt.
+
+[15 <./pic7.png> <./pic8.png>] ("designdescription (version 2).aux") ) 
+Here is how much of TeX's memory you used:
+ 1655 strings out of 493335
+ 23660 string characters out of 3136668
+ 83869 words of memory out of 3000000
+ 5168 multiletter control sequences out of 15000+200000
+ 8194 words of font info for 29 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 40i,7n,25p,518b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "designdescription (version 2).pdf" (15 pages, 3037737 bytes)
+.
+PDF statistics:
+ 104 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+
