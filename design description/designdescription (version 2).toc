@@ -11,5 +11,5 @@
 \contentsline {section}{\numberline {4}Detailed Software design}{7}
 \contentsline {subsection}{\numberline {4.1}Database}{7}
 \contentsline {subsection}{\numberline {4.2}Scripts}{8}
-\contentsline {subsection}{\numberline {4.3}Extra libraries}{9}
-\contentsline {section}{\numberline {5}Graphical User Interface}{9}
+\contentsline {subsection}{\numberline {4.3}Extra libraries}{8}
+\contentsline {section}{\numberline {5}Graphical User Interface}{8}
